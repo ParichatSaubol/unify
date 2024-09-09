@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/DBHeavent-Bold.ttf",
+      "sha1": "bd305cf9ff6b60c6573786fb54bdebbdbc2b7d7c"
+    },
+    {
+      "path": "assets/fonts/DBHeavent-Med.ttf",
+      "sha1": "efeb4d35ee5fc9441a909725a3fad19cc528b7a3"
+    },
+    {
+      "path": "assets/fonts/DBHeavent.ttf",
+      "sha1": "1ee155bd702eb35c0ec76716dbc96d1208e43375"
+    },
+    {
+      "path": "assets/fonts/NotoSansJP-VariableFont_wght.ttf",
+      "sha1": "c23724839f04e81080ca79efe111c6b53a9fb6cc"
+    }
+  ]
+}

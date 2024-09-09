@@ -1,0 +1,32 @@
+{
+  "one": {
+    "title": "Solution service",
+    "description": "Engineer work, consulting, service, repair, installation, etc."
+  },
+  "two": {
+    "title": "Knowledge base",
+    "description": "The industry provides a wide range of knowledge. \n From leading institutions gathered here in one place"
+  },
+  "three": {
+    "title": "Exclusively for you",
+    "description": "Exclusivity above the level \n Collect and redeem points anytime, anywhere."
+  },
+  "four": {
+    "title": "More than 10 million items",
+    "description": "Leading brands with after sales service \n Able to make a quotation immediately"
+  },
+  "five": {
+    "title": "Experience",
+    "description": "Total Industrial Products and Services \n Comes in your hands, only here."
+  },
+  "six": {
+    "title": "Start the experience",
+    "description": "Order new industrial products"
+  },
+  "confirm": {
+    "title": "Experience shopping",
+    "description": "Privacy Disclosure Policy",
+    "label": "Privacy Disclosure Policy on Membership and Logging Consolidated To send news, privileges, and others, we may need your information to improve and provide you with a shopping experience through this digital platform. We may use your information as described in specification or Privacy Disclosure Policy Using this Unify application \n Policy on disclosure of personal information for being a member and logging in, including sending news, privileges, and others, we may need your information to improve and provide a shopping experience through digital channels. We may use your information on this platform as described in the Terms. or Privacy Disclosure Policy Using this Unify application, ordering products through this digital platform, we may use your information as Informed in terms or privacy disclosure policy. using the application To order products through this digital platform, we may use your information as Informed in terms or privacy disclosure policy. Using this Unify application",
+    "accept": "Consent Once clicked You accept the terms and conditions of the privacy policy\ndisclosure. Using this Unify application"
+  }
+}

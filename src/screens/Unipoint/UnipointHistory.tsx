@@ -1,0 +1,147 @@
+import React, { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '@/hooks';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { ProductParamsList } from 'types/navigation';
+import { AppBar, Button, DefaultLayout } from '@/components';
+import { AppColor } from '@/model/options';
+
+type Props = NativeStackScreenProps<ProductParamsList, 'UnipointHistory'>;
+
+// @refresh reset
+const UnipointHistory = ({ navigation }: Props): JSX.Element => {
+  // hooks
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { t } = useTranslation(['register']);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { Layout, Images, Colors, Fonts } = useTheme();
+  // const dispatch = useDispatch();
+
+  // state
+  const [history] = useState([
+    {
+      id: 1,
+      date: '10 พ.ค. 2566',
+      reward: 'อันดามันตรา รีสอร์ต แอนด์ วิลลา ภูเก็ต พูลวิลลา 2 ห้องนอน',
+      point: -1992,
+    },
+    {
+      id: 1,
+      date: '7 พ.ค. 2566',
+      reward: 'การซื้อสินค้ากับ UNIFY',
+      point: +302,
+    },
+    {
+      id: 1,
+      date: '7 มี.ค. 2566',
+      reward: 'การซื้อสินค้ากับ UNIFY',
+      point: +302,
+    },
+  ]);
+
+  // handle callback
+
+  const init = async (): Promise<void> => {
+    //
+  };
+
+  // callback effect
+  useEffect(() => {
+    init();
+
+    return () => {};
+  }, []);
+
+  return (
+    <DefaultLayout statusBarColor="dark-content">
+      <AppBar
+        color={AppColor.white}
+        title="ประวัติการใช้คะแนน"
+        onPress={() => {
+          navigation.goBack();
+        }}
+      />
+      <ScrollView
+        contentContainerStyle={[
+          Layout.gap10,
+          Layout.col,
+          Layout.justifyContentBetween,
+        ]}
+      >
+        <View style={[Layout.bgWhite]}>
+          <View style={[Layout.main, Layout.gap10]}>
+            <View style={styles.box}>
+              <Text style={[Fonts.text18, Fonts.textBlack]}>
+                Starbuck e-coupon มูลค่า 200 บาท (ใช้สิทธิ์ได้ที่สตาร์บัคส์
+                ทุกสาขา) เงื่อนไขและรายละเอียดเป็นไปตามที่บริษัทกำหนด
+              </Text>
+              <Text style={[Fonts.text24Med, Fonts.textPrimary]}>
+                1,500 คะแนน
+              </Text>
+            </View>
+            <Text style={[Fonts.text16, Fonts.textCenter]}>
+              กรุณารอเจ้าหน้าที่ติดต่อกลับ
+              เพื่อทำการแจ้งที่อยู่จัดส่งของรางวัลครับ
+            </Text>
+
+            <View>
+              <Text style={[Fonts.text21, Fonts.textBlack]}>
+                ประวัติการแลกคะแนนของคุณล่าสุด
+              </Text>
+              <Text style={[Fonts.text16, Fonts.textBlack]}>
+                รวมประวัติการแลกคอยน์ของคุณทั้ง Gift Voucher รวมถึง การแลกคะแนน
+                เพื่อใช้เป็นส่วนลด
+              </Text>
+            </View>
+          </View>
+        </View>
+        {history.map((item, index) => (
+          <View key={`history-list-${index}`}>
+            <View style={styles.dateBox}>
+              <Text style={[Fonts.text18]}>{item.date}</Text>
+            </View>
+            <View
+              style={[Layout.bgWhite, Layout.main, Layout.row, Layout.gap20]}
+            >
+              <Text style={[Fonts.text16, Layout.fill]}>{item.reward}</Text>
+              <View style={[Layout.row, Layout.gap10]}>
+                <Text
+                  style={[
+                    Fonts.text21,
+                    item.point < 0 ? Fonts.textRed : Fonts.textSuccess,
+                  ]}
+                >
+                  {item.point}
+                </Text>
+                <Images.icons.coin />
+              </View>
+            </View>
+          </View>
+        ))}
+
+        <View style={[Layout.main]}>
+          <Button title="ดูรายละเอียดทั้งหมด" />
+        </View>
+      </ScrollView>
+    </DefaultLayout>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 28,
+    paddingHorizontal: 16,
+    gap: 20,
+  },
+  box: {
+    paddingHorizontal: 21,
+    paddingVertical: 18,
+    backgroundColor: '#E6EEFF',
+  },
+  dateBox: {
+    paddingHorizontal: 21,
+  },
+});
+
+export default UnipointHistory;
