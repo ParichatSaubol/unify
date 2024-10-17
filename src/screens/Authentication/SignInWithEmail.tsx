@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ScrollView,
@@ -13,6 +13,7 @@ import { Button, ButtonIcon, Dividers, Input, Link } from '@/components';
 import { AuthenticationParamsList } from 'types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ButtonIconVariant, LinkColor, LinkSize } from '@/model/options';
+import { login } from '@/services/restapi/authApi';
 
 type Props = NativeStackScreenProps<
   AuthenticationParamsList,
@@ -23,12 +24,23 @@ type Props = NativeStackScreenProps<
 const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
   const { t } = useTranslation(['authentication']);
   const { Layout, Images, Fonts, Colors } = useTheme();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const init = async (): Promise<void> => {};
 
   useEffect(() => {
     init();
   }, []);
+
+  const onSignIn = (): void => {
+    try {
+      const response = login(username, password);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <ImageBackground
@@ -54,10 +66,14 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill, Layout.gap10]}>
               <Input
+                value={username}
+                onChange={value => setUsername(value)}
                 startIcon={<Images.icons.sms color={'#475467'} />}
                 placeholder={t('authentication:signIn.emailOrPhonenumber')}
               />
               <Input
+                value={password}
+                onChange={value => setPassword(value)}
                 startIcon={<Images.icons.lock color={'#475467'} />}
                 placeholder={t('authentication:signIn.password')}
               />
@@ -122,7 +138,7 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
               title={t('authentication:signIn.next')}
               fullWidth
               onPress={() => {
-                navigation.reset({ index: 0, routes: [{ name: 'Product' }] });
+                onSignIn();
               }}
             />
           </View>

@@ -7,7 +7,7 @@ export type AuthenticationParamsList = {
   SignInWithEmail: undefined;
   SignInWithPhone: undefined;
   SignInWithOldCustomer: undefined;
-  ConfirmOTP: undefined;
+  ConfirmOTP: { otpRef: string; otpNumber: string; otpTel: string };
   ForgotPassword: undefined;
   ResetPassword: undefined;
   ResetSuccess: undefined;

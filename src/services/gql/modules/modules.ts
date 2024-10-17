@@ -1,4 +1,4 @@
-import * as Types from '@/services/types';
+import * as Types from '@/services/gql/types';
 
 export type GetContentAuthorQueryVariables = Types.Exact<{
   page?: Types.InputMaybe<Types.Scalars['Int']['input']>;

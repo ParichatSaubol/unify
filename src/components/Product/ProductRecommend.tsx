@@ -9,7 +9,7 @@ import { ApplicationStackParamList } from 'types/navigation';
 import {
   useLazyGetProductById,
   useLazyGetPopularProducts,
-} from '@/services/modules/product';
+} from '@/services/gql/modules/product';
 import config from '@/utils/config';
 interface Props {}
 

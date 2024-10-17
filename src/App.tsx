@@ -6,7 +6,7 @@ import { store, persistor } from './store';
 import ApplicationNavigator from './navigators/Application';
 import './translations';
 import { ApolloProvider } from '@apollo/client';
-import { client } from './services/api';
+import { client } from './services/gql/api';
 
 //การทำงานหลักของแอพ
 const App = (): JSX.Element => (

@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { Image, View } from 'react-native';
 import { useTheme } from '@/hooks';
-import { useLazyGetBrandRecommend } from '@/services/modules/brand';
+import { useLazyGetBrandRecommend } from '@/services/gql/modules/brand';
 import config from '@/utils/config';
 
 interface Props {

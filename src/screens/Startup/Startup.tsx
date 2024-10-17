@@ -5,7 +5,6 @@ import { ApplicationStackParamList } from 'types/navigation';
 import { useTheme } from '@/hooks';
 import { useTranslation } from 'react-i18next';
 import { StackScreenProps } from '@react-navigation/stack';
-import { OrderTabs, RoleType } from '@/model/options';
 
 type Props = StackScreenProps<ApplicationStackParamList, 'Startup'>;
 
@@ -18,7 +17,7 @@ const Startup = ({ navigation }: Props): JSX.Element => {
     await new Promise(resolve =>
       setTimeout(() => {
         resolve(true);
-      }, 2000),
+      }, 100),
     );
 
     navigation.reset({
@@ -26,15 +25,15 @@ const Startup = ({ navigation }: Props): JSX.Element => {
       // routes: [{ name: 'KnowledgeTest' }],
       routes: [
         {
-          name: 'Product',
+          name: 'Main',
           state: {
             routes: [
               {
-                name: 'Home',
-                params: {
-                  tabs: OrderTabs.BeReceived,
-                  member: RoleType.COMPANY,
-                },
+                name: 'SignInWithEmail',
+                // params: {
+                //   tabs: OrderTabs.BeReceived,
+                //   member: RoleType.COMPANY,
+                // },
               },
             ],
           },

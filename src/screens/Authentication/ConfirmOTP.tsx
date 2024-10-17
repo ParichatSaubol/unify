@@ -15,12 +15,14 @@ import { Button, InputOTP } from '@/components';
 import { AuthenticationParamsList } from 'types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ButtonColor } from '@/model/options';
+import { transformPhoneNumber } from '@/utils';
 
 type Props = NativeStackScreenProps<AuthenticationParamsList, 'ConfirmOTP'>;
 
 //หน้าคอนเฟิร์ม OTP
 // @refresh reset
-const ConfirmOTP = ({ navigation }: Props): JSX.Element => {
+const ConfirmOTP = ({ navigation, route }: Props): JSX.Element => {
+  const {otpRef, otpNumber, otpTel} = route.params;
   // Hooks
   const { t } = useTranslation(['authentication']); // Translation
   const { Layout, Images, Fonts, Colors } = useTheme();
@@ -34,6 +36,9 @@ const ConfirmOTP = ({ navigation }: Props): JSX.Element => {
 
   const init = async (): Promise<void> => {
     //
+  };
+  const onSubmit = async (): Promise<void> => {
+     
   };
 
   useEffect(() => {
@@ -78,7 +83,8 @@ const ConfirmOTP = ({ navigation }: Props): JSX.Element => {
               ]}
             >
               {t('authentication:otp.confirm', {
-                phoneNumber: '++61*****78',
+                phoneNumber: transformPhoneNumber(otpTel),
+                otpRef,
               })}
             </Text>
           </View>

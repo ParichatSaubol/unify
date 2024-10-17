@@ -4,8 +4,6 @@ import {
   ApolloLink,
   HttpLink,
   InMemoryCache,
-  useQuery,
-  gql,
 } from '@apollo/client';
 
 import { onError } from '@apollo/client/link/error';
@@ -48,7 +46,5 @@ const client = new ApolloClient({
     },
   },
 });
-
-
 
 export { client };
