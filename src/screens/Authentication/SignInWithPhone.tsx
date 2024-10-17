@@ -25,6 +25,7 @@ const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
   const { t } = useTranslation(['authentication']);
   const { Layout, Images, Fonts, Colors } = useTheme();
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const init = async (): Promise<void> => {};
   const onSignIn = async (): Promise<void> => {
@@ -32,10 +33,12 @@ const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
       const response = await loginWithPhone(phoneNumber);
       if (response.status === 200) {
         navigation.navigate('ConfirmOTP', {
+          isLogin: true,
           otpRef: response.data?.otp_ref || '',
-          otpNumber: response.data?.otp_number || '',
           otpTel: response.data?.otp_tel || '',
         });
+      } else {
+        setErrorMsg(response.message);
       }
     } catch (error) {
       console.log(error);
@@ -72,6 +75,7 @@ const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
             <View style={[Layout.fill]}>
               <Input
                 value={phoneNumber}
+                keyboardType="phone-pad"
                 onChange={e => setPhoneNumber(e)}
                 placeholder={t('authentication:signIn.placeholder')}
               />
@@ -98,13 +102,16 @@ const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
               }}
             />
           </View>
+          <Text style={[Fonts.text16, { color: Colors.error }]}>
+            {errorMsg}
+          </Text>
           <View
             style={[
               Layout.rowHCenter,
               Layout.fullWidth,
               Layout.center,
               Layout.bgGrey50,
-              Layout.mt118,
+              Layout.mt89,
               Layout.gap10,
             ]}
           >
