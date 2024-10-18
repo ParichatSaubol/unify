@@ -7,7 +7,11 @@ export type AuthenticationParamsList = {
   SignInWithEmail: undefined;
   SignInWithPhone: undefined;
   SignInWithOldCustomer: undefined;
-  ConfirmOTP: undefined;
+  ConfirmOTP: {
+    isLogin: boolean;
+    otpRef: string;
+    otpTel: string;
+  };
   ForgotPassword: undefined;
   ResetPassword: undefined;
   ResetSuccess: undefined;
@@ -74,6 +78,11 @@ export type ProductParamsList = {
 };
 
 export type ApplicationStackParamList = {
+  ConfirmOTP: {
+    isLogin: boolean;
+    otpRef: string;
+    otpTel: string;
+  };
   Startup: undefined;
   Main: NavigatorScreenParams<AuthenticationParamsList>;
   Product: NavigatorScreenParams<ProductParamsList>;

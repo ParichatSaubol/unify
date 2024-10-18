@@ -2,7 +2,7 @@ import React, { FunctionComponent, useCallback, useRef, useState , useEffect } f
 import { Dimensions, FlatList } from 'react-native';
 import { useTheme } from '@/hooks';
 import CommunityCard, { CommunityCardProps } from './CommunityCard';
-import {useLazyGetContentAuthor} from '@/services/modules/author';
+import {useLazyGetContentAuthor} from '@/services/gql/modules/author';
 import config from '@/utils/config';
 
 // {

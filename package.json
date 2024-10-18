@@ -31,6 +31,7 @@
     "@react-navigation/native-stack": "^6.9.13",
     "@react-navigation/stack": "^6.3.17",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.7.7",
     "graphql": "^16.8.1",
     "i18next": "^23.3.0",
     "lodash": "^4.17.21",
@@ -59,6 +60,7 @@
     "redux-flipper": "^2.0.2",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.0.5",
+    "swr": "^2.2.5",
     "yup": "^1.2.0"
   },
   "devDependencies": {
