@@ -77,3 +77,49 @@ export interface CheckOtpResponse {
     status: number;
   };
 }
+
+export interface EmailLoginResponse {
+  data: {
+    res_code: '00' | '03' | '04';
+    res_text: string;
+    data?: {
+      member_id: string;
+      member_code: string;
+      member_first_name: string;
+      member_last_name: string;
+      member_phone: string;
+      member_email: string;
+      member_password: string;
+      member_coin: string;
+      member_coin_expire: any;
+      member_coin_last: any;
+      member_coin_last_date: any;
+      member_name_tax: any;
+      member_tax_type: any;
+      member_tax_branch_name: any;
+      member_tax_number: any;
+      member_tax_address: any;
+      member_tax_building: any;
+      member_tax_moo: any;
+      member_tax_zipcode: any;
+      member_tax_province: any;
+      member_tax_amphur: any;
+      member_tax_district: any;
+      member_tax_file_p20: any;
+      member_tax_file_p20_path: any;
+      member_tax_file_certificate: any;
+      member_tax_file_certificate_path: any;
+      member_type: string;
+      member_category: string;
+      member_social_id: string;
+      member_status: string;
+      member_create: string;
+      member_update: any;
+      member_permission: string;
+      member_discount: string;
+      member_is_thai: string;
+      member_tax_building_number: any;
+      member_tax_building_roomnumber: any;
+    };
+  };
+}

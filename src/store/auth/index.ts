@@ -5,6 +5,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 const initialState: AuthState = {
   memberId: null,
   role: undefined,
+  memberCoin: 0.0,
 };
 
 const slice = createSlice({
@@ -18,9 +19,12 @@ const slice = createSlice({
       state.memberId = null;
       state.role = undefined;
     },
+    setMemberCoin: (state, action: PayloadAction<{ memberCoin: string }>) => {
+      state.memberCoin = action.payload.memberCoin;
+    },
   },
 });
 
-export const { setRole, resetMeber } = slice.actions;
+export const { setRole, resetMeber, setMemberCoin } = slice.actions;
 
 export default slice.reducer;

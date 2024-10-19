@@ -1,15 +1,18 @@
 import useSWR from 'swr';
 import httpClient from './httpClient';
-import { CheckOtpResponse, OtpResponse } from './type';
+import { CheckOtpResponse, EmailLoginResponse, OtpResponse } from './type';
 
 const fetcher = (url: string) => httpClient.get(url).then(res => res.data);
 
 export const login = async (username: string, password: string) => {
   try {
-    const response = await httpClient.post('/login', {
-      username,
-      password,
-    });
+    const response: EmailLoginResponse = await httpClient.post(
+      '/appcall/login',
+      {
+        username,
+        password,
+      },
+    );
     return response.data;
   } catch (error: any) {
     console.log(error);
