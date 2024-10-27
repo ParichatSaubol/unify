@@ -71,7 +71,7 @@ const Catalog: FunctionComponent<Props> = ({ method, icon, brandName }) => {
         break;
       case 'catalogType':
         data.title = 'ช้อปสินค้าตามหมวดหมู่';
-        data.subTitle = 'สินค้าแยกตามประเภทหมวดหมู่ อุตสาหกรรม ';
+        data.subTitle = 'สินค้าแยกตามประเภทหมวดหมู่';
         break;
 
       case 'flashStore':

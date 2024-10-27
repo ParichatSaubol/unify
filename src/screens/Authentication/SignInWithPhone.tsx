@@ -24,7 +24,7 @@ type Props = NativeStackScreenProps<
 const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
   const { t } = useTranslation(['authentication']);
   const { Layout, Images, Fonts, Colors } = useTheme();
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('0916966649');
   const [errorMsg, setErrorMsg] = useState('');
 
   const init = async (): Promise<void> => {};

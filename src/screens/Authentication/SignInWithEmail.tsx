@@ -26,6 +26,7 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
   const { Layout, Images, Fonts, Colors } = useTheme();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const init = async (): Promise<void> => {};
 
@@ -33,10 +34,28 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
     init();
   }, []);
 
-  const onSignIn = (): void => {
+  const onSignIn = async (): Promise<void> => {
     try {
-      const response = login(username, password);
-      console.log(response);
+      const response = await login(username, password);
+      if (response.res_code === '00') {
+        navigation.reset({
+          index: 0,
+          routes: [
+            {
+              name: 'Product',
+              state: {
+                routes: [
+                  {
+                    name: 'Home',
+                  },
+                ],
+              },
+            },
+          ],
+        });
+      } else {
+        setErrorMsg(response.res_text);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -73,6 +92,7 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
               />
               <Input
                 value={password}
+                secureTextEntry
                 onChange={value => setPassword(value)}
                 startIcon={<Images.icons.lock color={'#475467'} />}
                 placeholder={t('authentication:signIn.password')}
@@ -103,6 +123,9 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
               }}
             />
           </View>
+          <Text style={[Fonts.text16, { color: Colors.error }]}>
+            {errorMsg}
+          </Text>
           <View
             style={[
               Layout.rowHCenter,

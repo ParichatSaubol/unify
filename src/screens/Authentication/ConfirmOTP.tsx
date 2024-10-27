@@ -7,7 +7,6 @@ import {
   Text,
   Pressable,
   Keyboard,
-  Alert,
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/hooks';
@@ -34,16 +33,12 @@ const ConfirmOTP = ({ navigation, route }: Props): JSX.Element => {
   // State
   const [code, setCode] = useState('');
   const [ref, setRef] = useState(otpRef);
+  const [errorMsg, setErrorMsg] = useState('');
   // Handler
 
   const init = async (): Promise<void> => {
     //
   };
-
-  const showAlert = (msg: string) =>
-    Alert.alert('Error', msg, [
-      { text: 'OK', onPress: () => console.log('OK Pressed') },
-    ]);
 
   const onResendOTP = async (): Promise<void> => {
     try {
@@ -53,7 +48,7 @@ const ConfirmOTP = ({ navigation, route }: Props): JSX.Element => {
       if (response.status === 200) {
         setRef(response.data?.otp_ref || '');
       } else {
-        showAlert(response.message);
+        console.log(response.message);
       }
     } catch (error) {
       console.log(error);
@@ -80,7 +75,7 @@ const ConfirmOTP = ({ navigation, route }: Props): JSX.Element => {
           ],
         });
       } else {
-        showAlert(response.message);
+        setErrorMsg(response.message);
       }
     } catch (error) {
       console.log(error);
@@ -112,39 +107,46 @@ const ConfirmOTP = ({ navigation, route }: Props): JSX.Element => {
                 : t('authentication:otp.desctiptionReset')}
             </Text>
           </View>
-          <Pressable onPress={Keyboard.dismiss}>
-            <InputOTP
-              code={code}
-              setCode={text => {
-                setCode(text);
-              }}
-              maximumLength={6}
-              // setIsPinReady={val => {}}
-            />
-          </Pressable>
-          <View style={[Layout.rowCenter, Layout.fullWidth]}>
-            <Text
-              style={[
-                Fonts.text16,
-                Fonts.textCenter,
-                { color: Colors.gray600 },
-              ]}
-            >
-              {t('authentication:otp.confirm', {
-                phoneNumber: transformPhoneNumber(otpTel),
-                otpRef: ref,
-              })}
-            </Text>
-          </View>
-          <View style={[Layout.rowCenter, Layout.fullWidth, Layout.gap10]}>
-            <Button
-              startIcon={<Images.icons.reload color={Colors.gray600} />}
-              title={t('authentication:otp.reConfirm')}
-              onPress={() => {
-                onResendOTP();
-              }}
-              colors={ButtonColor.text}
-            />
+          <View style={[Layout.col, Layout.fullWidth, Layout.gap40]}>
+            <Pressable onPress={Keyboard.dismiss}>
+              <InputOTP
+                code={code}
+                setCode={text => {
+                  setCode(text);
+                }}
+                maximumLength={6}
+                // setIsPinReady={val => {}}
+              />
+              {errorMsg && (
+                <Text style={[Fonts.text16, { color: Colors.error }]}>
+                  {errorMsg}
+                </Text>
+              )}
+            </Pressable>
+            <View style={[Layout.rowCenter, Layout.fullWidth]}>
+              <Text
+                style={[
+                  Fonts.text16,
+                  Fonts.textCenter,
+                  { color: Colors.gray600 },
+                ]}
+              >
+                {t('authentication:otp.confirm', {
+                  phoneNumber: transformPhoneNumber(otpTel),
+                  otpRef: ref,
+                })}
+              </Text>
+            </View>
+            <View style={[Layout.rowCenter, Layout.fullWidth, Layout.gap10]}>
+              <Button
+                startIcon={<Images.icons.reload color={Colors.gray600} />}
+                title={t('authentication:otp.reConfirm')}
+                onPress={() => {
+                  onResendOTP();
+                }}
+                colors={ButtonColor.text}
+              />
+            </View>
           </View>
           <View
             style={[
