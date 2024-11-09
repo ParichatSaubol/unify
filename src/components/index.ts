@@ -83,3 +83,4 @@ export { default as CustomScrollView } from './AppBar/CustomScrollView';
 export { default as FlexibleView } from './AppBar/FlexibleView';
 export { default as DefaultLayout } from './Layout/DefaultLayout';
 export { default as CollapsibleMenuItem } from './Collapsible/CollapsibleMenuItem';
+export { default as AddressFormWithSelection } from './Address/AddressFormWithSelection';

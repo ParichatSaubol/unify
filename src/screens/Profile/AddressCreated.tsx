@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, ScrollView, SafeAreaView, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/hooks';
+import { useTheme, useYupValidationResolver } from '@/hooks';
 import { AppBar, Button } from '@/components';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ApplicationStackParamList } from 'types/navigation';
@@ -9,7 +9,7 @@ import { Address } from '@/model/address';
 import * as yup from 'yup';
 import { TRegisterAddress } from '@/model/customer';
 import { FormProvider, useForm } from 'react-hook-form';
-import { AddressForm } from '@/components';
+import { AddressFormWithSelection } from '@/components';
 import { ButtonSize, RoleType } from '@/model/options';
 
 type Props = NativeStackScreenProps<
@@ -56,7 +56,7 @@ const AddressCreated = ({ navigation, route }: Props): JSX.Element => {
     defaultValues: {
       type: route.params?.type,
     },
-    resolver: useYupValidationResolver<TRegisterAddress>(AddressSchema),
+    resolver: useYupValidationResolver(AddressSchema),
   });
 
   // state
@@ -112,7 +112,7 @@ const AddressCreated = ({ navigation, route }: Props): JSX.Element => {
       >
         <View style={[Layout.fill, Layout.col]}>
           <FormProvider {...methods}>
-            <AddressForm />
+            <AddressFormWithSelection />
           </FormProvider>
         </View>
 
