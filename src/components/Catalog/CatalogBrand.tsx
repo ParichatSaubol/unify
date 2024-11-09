@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import { Image, View } from 'react-native';
+import { Image, ScrollView, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import { useLazyGetBrandRecommend } from '@/services/gql/modules/brand';
 import config from '@/utils/config';
@@ -38,7 +38,9 @@ const CatalogBrand: FunctionComponent<Props> = ({ brandJSX = [] }) => {
 
   return (
     <View style={[Layout.row, Layout.justifyContentBetween, { gap: 10 }]}>
-      {brandJSX.length > 0 ? brandJSX : brand}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {brandJSX.length > 0 ? brandJSX : brand}
+      </ScrollView>
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/hooks';
@@ -17,6 +17,13 @@ import {
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ApplicationStackParamList } from 'types/navigation';
 import { CarouselSize, ProductCatalogMethod } from '@/model/options';
+import { getBrandRecommend } from '@/services/restapi/modules/brand';
+import ProductCatalogByBrand from '@/components/Product/ProductCatalogByBrand';
+
+interface IBrandRecommend {
+  brand_id: string;
+  brand_logo_path: string;
+}
 
 type Props = NativeStackScreenProps<ApplicationStackParamList, 'ProductIndex'>;
 
@@ -27,10 +34,37 @@ const ProductIndex = ({ navigation }: Props): JSX.Element => {
   const { t } = useTranslation(['register']);
   const { Layout, Images } = useTheme();
 
+  const [brands, setBrands] = useState<IBrandRecommend[]>([]);
+  const [brandIdSelected, setBrandIdSelected] = useState<number>(0);
 
   // handle callback
 
-  const init = async (): Promise<void> => {};
+  const fetchBrandRecommend = useCallback(async () => {
+    try {
+      const data = await getBrandRecommend();
+
+      if (data.res_code === '00' && data?.res_data) {
+        const brandData: IBrandRecommend[] = data.res_data;
+
+        const brandFilterNullId = brandData?.filter(
+          brand => brand?.brand_id !== null,
+        );
+        setBrands(brandFilterNullId);
+
+        if (brandFilterNullId?.[0].brand_id) {
+          setBrandIdSelected(Number(brandFilterNullId?.[0].brand_id));
+        }
+      }
+    } catch (error) {}
+  }, []);
+
+  const handleChangeBrand = useCallback((id: number) => {
+    setBrandIdSelected(id);
+  }, []);
+
+  const init = async (): Promise<void> => {
+    fetchBrandRecommend();
+  };
 
   // callback effect
   useEffect(() => {
@@ -62,16 +96,28 @@ const ProductIndex = ({ navigation }: Props): JSX.Element => {
           {/* <Catalogs /> */}
           <Catalog method="popularTopBrands" />
           <CatalogBrand
-            brandJSX={[
+            brandJSX={brands?.map((brand, index) => (
               <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate('BrandIndex');
-                }}
-                key={1}
+                style={[styles.brand]}
+                key={brand?.brand_id || index}
               >
-                <Image source={Images.catalog.a} />
-              </TouchableOpacity>,
-            ]}
+                <Image
+                  source={{ uri: brand?.brand_logo_path }}
+                  width={80}
+                  height={40}
+                />
+              </TouchableOpacity>
+            ))}
+            // brandJSX={[
+            //   <TouchableOpacity
+            //     onPress={() => {
+            //       navigation.navigate('BrandIndex');
+            //     }}
+            //     key={1}
+            //   >
+            //     <Image source={Images.catalog.a} />
+            //   </TouchableOpacity>,
+            // ]}
           />
           <CatalogBrand />
 
@@ -85,8 +131,22 @@ const ProductIndex = ({ navigation }: Props): JSX.Element => {
           <ProductCatalog method={ProductCatalogMethod.flashSale} />
 
           <Catalog method="exclusiveBrand" />
-          <CatalogBrand />
-          <ProductCatalog />
+          <CatalogBrand
+            brandJSX={brands?.map(brand => (
+              <TouchableOpacity
+                onPress={() => handleChangeBrand(Number(brand?.brand_id))}
+                style={[styles.brand]}
+                key={brand?.brand_id}
+              >
+                <Image
+                  source={{ uri: brand?.brand_logo_path }}
+                  width={80}
+                  height={40}
+                />
+              </TouchableOpacity>
+            ))}
+          />
+          <ProductCatalogByBrand brandId={brandIdSelected} />
 
           <Catalog
             method="brand"
@@ -105,6 +165,13 @@ const ProductIndex = ({ navigation }: Props): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: { position: 'absolute', height: 384 },
+  brand: {
+    padding: 8,
+    borderWidth: 1,
+    marginRight: 10,
+    borderRadius: 4,
+    borderColor: '#eee',
+  },
   // header: { paddingBottom: 0 },
 });
 
