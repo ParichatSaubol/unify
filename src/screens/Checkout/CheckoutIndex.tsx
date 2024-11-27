@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/hooks';
@@ -19,7 +19,10 @@ import { ICoupon } from '@/model/coupon';
 import { IPoint } from '@/model/point';
 import { IOrder } from '@/model/order';
 import { ButtonVariant, AppColor } from '@/model/options';
-import CartAddress from '@/components/Cart/CartAddress';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getAddressList } from '@/services/restapi/modules/profile';
+import CartAddressList from '@/components/Cart/CartAddressList';
+import { IAddressCart } from '@/model/profile';
 
 type Props = NativeStackScreenProps<ProductParamsList, 'CheckoutIndex'>;
 
@@ -40,7 +43,7 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
     discountBrunPoint: 100,
   });
 
-  const [address, setAddress] = useState(0);
+  const [address, setAddress] = useState<IAddressCart>();
   // สินค้า
   const [productCart, setProductCart] = useState<IProductCart[]>([]);
   // บริการ
@@ -67,6 +70,7 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [rewardPoint, setRewardPoint] = useState({});
   const [isAddress, setIsAddress] = useState(false);
+  const [addressList, setAddressList] = React.useState<IAddressCart[]>([]);
   const init = async (): Promise<void> => {
     const totalAmount =
       productCart
@@ -96,6 +100,12 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
       rewardPoint: 279,
     });
   };
+
+  const formatPhoneNumber = useCallback((phoneNumber: string = '') => {
+    return `${phoneNumber?.substring(0, 3) || ''}-${
+      phoneNumber?.substring(3, 6) || ''
+    }-${phoneNumber?.substring(6) || ''}`;
+  }, []);
 
   // callback effect
   useEffect(() => {
@@ -177,6 +187,24 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
     );
   }, [items]);
 
+  const fetchAddressList = async () => {
+    const userInfoJson = (await AsyncStorage.getItem('userInfo')) || '';
+    const userInfoObj = JSON.parse(userInfoJson);
+
+    try {
+      const data = await getAddressList(userInfoObj?.member_id);
+
+      if (data?.items) {
+        setAddressList(data?.items);
+        setAddress(data.items[0]);
+      }
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchAddressList();
+  }, []);
+
   return (
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
@@ -211,6 +239,8 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
         <CheckoutWarning />
         {/* เปลี่ยนที่อยู่ */}
         <AddressOrder
+          name={formatPhoneNumber(address?.ads_phone)}
+          address={address?.dtail}
           onPress={() => {
             setIsAddress(true);
           }}
@@ -264,7 +294,8 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
         <View style={[styles.addressBox]}>
           <View style={styles.overscreen} />
           <View style={styles.addressArea}>
-            <CartAddress
+            <CartAddressList
+              addressList={addressList}
               address={address}
               setAddress={val => {
                 setIsAddress(false);

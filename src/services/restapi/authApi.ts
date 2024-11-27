@@ -44,3 +44,12 @@ export const checkOTP = async (ref: string, otp_id: string) => {
     throw new Error(error.response?.data?.message || 'Failed to check OTP');
   }
 };
+
+export const postRegister = async (data: any) => {
+  try {
+    const response = await httpClient.post('/register', data);
+    return response.data;
+  } catch (error: any) {
+    throw new Error(error?.response?.data?.message || 'Failed to register');
+  }
+};

@@ -67,3 +67,22 @@ export const submitChatContact = async () => {
     );
   }
 };
+
+export const getAddressList = async (memberId: string) => {
+  try {
+    const payload = {
+      member_id: memberId,
+    };
+
+    const response = await httpClient.post(
+      '/get_addressListForMobile',
+      payload,
+    );
+
+    return response.data;
+  } catch (error: any) {
+    throw new Error(
+      error?.response?.data?.message || 'Failed to get address list',
+    );
+  }
+};

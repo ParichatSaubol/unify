@@ -71,3 +71,47 @@ export interface IProductCart {
   booking?: boolean;
   isCheck?: boolean;
 }
+
+export interface ICategoryType {
+  prod_id: string;
+  prod_nameTH: string;
+  prod_nameEN: string;
+  prod_image: null | string;
+  prod_image_path: string;
+  prod_icon: null | string;
+  prod_icon_path: string;
+  prod_status: string;
+  prod_create: string;
+  prod_update: string;
+  prod_brand_id: string;
+}
+
+interface ICurrency {
+  currency_id: string;
+  currency_name: string;
+  currency_amount: string;
+  currency_icon: string;
+}
+
+interface IProductmodel {
+  model_price_tkk: string;
+  model_default: string;
+  model_price_general: string;
+  model_discount_Important_customers: string;
+  model_discount_Important_vip: string;
+}
+export interface IProductItem {
+  pd_star: string;
+  pd_id: string;
+  pd_photoFile: string;
+  brand_logo_path: null;
+  pd_nameTH: string;
+  pd_nameEN: string;
+  pd_model: string;
+  pd_sales: string;
+  pd_brand: string;
+  product_model: IProductmodel;
+  product_promotion: any[];
+  mt_discount: string;
+  currency: ICurrency;
+}

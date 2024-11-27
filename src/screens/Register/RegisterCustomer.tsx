@@ -23,10 +23,11 @@ const messageRequired = 'Por favor, preencha este campo';
 const SignupSchema: yup.ObjectSchema<TRegisterCustomer> = yup.object().shape({
   type: yup.mixed<RoleType>(),
   name: yup.string().required(messageRequired),
-  prefix: yup.string().required(messageRequired),
+  // prefix: yup.string().required(messageRequired),
   email: yup.string().required(messageRequired),
   password: yup.string().required(messageRequired),
   confirmPassword: yup.string().required(messageRequired),
+  phoneNumber: yup.string().required(messageRequired),
 });
 
 type Props = NativeStackScreenProps<
@@ -49,8 +50,15 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onSubmit = (data: TRegisterCustomer) => {
-    navigation.navigate('RegisterAddress', { type: route.params.type });
+  const onSubmit = (customer: TRegisterCustomer) => {
+    if (customer.password !== customer.confirmPassword) {
+      control.setError('confirmPassword', { message: 'รหัสผ่านไม่ถูกต้อง!' });
+    } else {
+      navigation.navigate('RegisterAddress', {
+        type: route.params.type,
+        customer,
+      });
+    }
   };
 
   const init = async (): Promise<void> => {};
@@ -86,28 +94,6 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
           <View style={[Layout.col, Layout.gap10]}>
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                คำนำหน้า
-              </Text>
-              <Controller
-                name="prefix"
-                control={control}
-                render={({
-                  field: { value, onChange },
-                  fieldState: { error },
-                }) => (
-                  <InputSelection
-                    placeholder="คำนำหน้า"
-                    variant={InputSelectionVariant.outlined}
-                    value={value}
-                    onChange={onChange}
-                    error={Boolean(error?.message)}
-                    helperText={error?.message}
-                  />
-                )}
-              />
-            </View>
-            <View>
-              <Text style={[Fonts.text18, { color: Colors.black }]}>
                 ชื่อ / นามสกุล
               </Text>
               <Controller
@@ -139,6 +125,28 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
                 }) => (
                   <Input
                     placeholder="อีเมล"
+                    variant={InputVariant.outlined}
+                    value={value}
+                    onChange={onChange}
+                    error={Boolean(error?.message)}
+                    helperText={error?.message}
+                  />
+                )}
+              />
+            </View>
+            <View>
+              <Text style={[Fonts.text18, { color: Colors.black }]}>
+                เบอร์โทรศัพท์
+              </Text>
+              <Controller
+                name="phoneNumber"
+                control={control}
+                render={({
+                  field: { value, onChange },
+                  fieldState: { error },
+                }) => (
+                  <Input
+                    placeholder="เบอร์โทรศัพท์"
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
