@@ -13,6 +13,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ApplicationStackParamList } from 'types/navigation';
 import { ICategoryMenu } from '@/model/category';
 import { InputSearchColor } from '@/model/options';
+import CategoryProductBody from '@/components/Category/CategoryProductBody';
 
 type Props = NativeStackScreenProps<ApplicationStackParamList, 'Category'>;
 
@@ -72,7 +73,8 @@ const Category = ({ navigation }: Props): JSX.Element => {
             }}
           />
         </View>
-        <CategoryBody />
+        {/* <CategoryBody /> */}
+        <CategoryProductBody />
       </ScrollView>
     </DefaultLayout>
   );

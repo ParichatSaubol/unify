@@ -14,6 +14,7 @@ import { AuthenticationParamsList } from 'types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ButtonIconVariant, LinkColor, LinkSize } from '@/model/options';
 import { login } from '@/services/restapi/authApi';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Props = NativeStackScreenProps<
   AuthenticationParamsList,
@@ -37,7 +38,10 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
   const onSignIn = async (): Promise<void> => {
     try {
       const response = await login(username, password);
-      if (response.res_code === '00') {
+      if (response.res_code === '00' && response.res_data) {
+        const userInfo = response?.res_data;
+        userInfo.member_password = '';
+        AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
         navigation.reset({
           index: 0,
           routes: [

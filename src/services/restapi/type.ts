@@ -82,7 +82,7 @@ export interface EmailLoginResponse {
   data: {
     res_code: '00' | '03' | '04';
     res_text: string;
-    data?: {
+    res_data?: {
       member_id: string;
       member_code: string;
       member_first_name: string;

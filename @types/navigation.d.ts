@@ -2,6 +2,7 @@ import { CartItem } from '@/model/cart';
 import { type NavigatorScreenParams } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { OrderTabs, PaymentStatus, RoleType } from '../src/model/options';
+import { TRegisterAddress, TRegisterCustomer } from '@/model/customer';
 
 export type AuthenticationParamsList = {
   SignInWithEmail: undefined;
@@ -20,8 +21,12 @@ export type AuthenticationParamsList = {
   Product: undefined;
   RegisterType: undefined;
   RegisterCustomer: { type: RoleType };
-  RegisterAddress: { type: RoleType };
-  RegisterInvoice: { type: RoleType };
+  RegisterAddress: { type: RoleType; customer: TRegisterCustomer };
+  RegisterInvoice: {
+    type: RoleType;
+    customerAddress: TRegisterAddress;
+    customer: TRegisterCustomer;
+  };
   RegisterOldProfile: undefined;
   RegisterOldAddress: undefined;
 };
