@@ -3,11 +3,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import ButtonIcon from '../Button/ButtonIcon';
 import { ButtonIconColors, ButtonIconVariant } from '@/model/options';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { ApplicationStackParamList } from 'types/navigation';
 
 interface Props {}
 
 const ServiceCategory: FunctionComponent<Props> = () => {
   const { Layout, Fonts, Images } = useTheme();
+  const navigation = useNavigation<NavigationProp<ApplicationStackParamList>>();
 
   return (
     <View style={[Layout.row, styles.container]}>
@@ -15,6 +18,9 @@ const ServiceCategory: FunctionComponent<Props> = () => {
         <ButtonIcon
           icon={<Images.icons.brifecasetick color="white" />}
           variant={ButtonIconVariant.box}
+          onPress = {() => {
+            navigation.navigate('Service' as any);
+          }}
         />
         <Text style={[Fonts.text18, Fonts.textWhite]}>งานบริการ</Text>
       </View>
@@ -22,6 +28,9 @@ const ServiceCategory: FunctionComponent<Props> = () => {
         <ButtonIcon
           icon={<Images.icons.setting2 color="white" />}
           variant={ButtonIconVariant.box}
+          onPress = {() => {
+            navigation.navigate('Solution' as any);
+          }}
         />
         <Text style={[Fonts.text18, Fonts.textWhite]}>งานโซลูชั่น</Text>
       </View>
@@ -30,6 +39,9 @@ const ServiceCategory: FunctionComponent<Props> = () => {
           icon={<Images.icons.receiptitem color="white" />}
           variant={ButtonIconVariant.box}
           isNotify
+          onPress = {() => {
+            navigation.navigate('BookingIndex' as any);
+          }}
         />
         <Text style={[Fonts.text18, Fonts.textWhite]}>นัดหมายของคุณ</Text>
       </View>

@@ -35,9 +35,39 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
     init();
   }, []);
 
+  // const onSignIn = async (): Promise<void> => {
+  //   try {
+  //     const response = await login(username, password);
+  //     if (response.res_code === '00' && response.res_data) {
+  //       const userInfo = response?.res_data;
+  //       userInfo.member_password = '';
+  //       AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
+  //       navigation.reset({
+  //         index: 0,
+  //         routes: [
+  //           {
+  //             name: 'Product',
+  //             state: {
+  //               routes: [
+  //                 {
+  //                   name: 'Home',
+  //                 },
+  //               ],
+  //             },
+  //           },
+  //         ],
+  //       });
+  //     } else {
+  //       setErrorMsg(response.res_text);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const onSignIn = async (): Promise<void> => {
     try {
-      const response = await login(username, password);
+      const response = await login("natthawat.r@outlook.com", "Aa1234567890");
       if (response.res_code === '00' && response.res_data) {
         const userInfo = response?.res_data;
         userInfo.member_password = '';

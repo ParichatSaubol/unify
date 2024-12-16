@@ -170,14 +170,18 @@ const Catalog: FunctionComponent<Props> = ({ method, icon, brandName }) => {
         data.title = 'หมวดหมู่ งานโซลูชัน';
         data.subTitle = 'รวมงานบริการด้านเอ็นจิเนียร์มาไว้ที่นี่';
         data.isActived = true;
-        data.onPress = () => {};
+        data.onPress = () => {
+          navigate('Solution');
+        };
         break;
       case 'catalogService':
         data.title = 'หมวดหมู่ งานบริการ';
         data.subTitle = 'รวมงานบริการด้านติดตั้งและซ่อมบำรุงมาไว้ที่นี่';
         data.isActived = true;
         data.colorActived = CatalogTitleColorActived.red;
-        data.onPress = () => {};
+        data.onPress = () => {
+          navigate('Service');
+        };
         break;
       case 'productsPurchasedServices':
         data.title = 'สินค้าซื้อคู่กับงานบริการ';
@@ -190,7 +194,9 @@ const Catalog: FunctionComponent<Props> = ({ method, icon, brandName }) => {
         data.subTitle = 'รวมงานบริการและโซลูชั่นตามแบรนด์ผู้ผลิต';
         data.isActived = true;
         data.colorActived = CatalogTitleColorActived.red;
-        data.onPress = () => {};
+        data.onPress = () => {
+          navigate('ServiceBrand');
+        };
         break;
       case 'topSolution':
         data.title = 'งานโซลูชั่นยอดนิยม';

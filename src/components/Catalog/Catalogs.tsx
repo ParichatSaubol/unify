@@ -28,12 +28,12 @@ const Catalogs: FunctionComponent<Props> = ({ setOtherMenu }) => {
     {
       icon: <Images.menu.solution />,
       text: 'คอร์สเรียน',
-      next: '',
+      next: 'LearnIndex',
     },
     {
       icon: <Images.menu.service />,
       text: 'งานบริการ',
-      next: '',
+      next: 'ServiceIndex',
     },
     {
       icon: <Images.menu.other />,
