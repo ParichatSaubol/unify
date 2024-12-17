@@ -4,7 +4,7 @@ import {
   useLazyGetProducts,
   useLazyGetProductById,
 
-} from '@/services/gql/modules/product';
+} from '@/services/modules/product';
 
 export const queryProducts = async (page : number, perPage : number) => {
     try {

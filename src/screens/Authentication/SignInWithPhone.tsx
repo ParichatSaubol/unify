@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   ScrollView,
@@ -13,7 +13,6 @@ import { Button, ButtonIcon, Dividers, Input, Link } from '@/components';
 import { AuthenticationParamsList } from 'types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LinkColor, LinkSize } from '@/model/options';
-import { loginWithPhone } from '@/services/restapi/authApi';
 
 type Props = NativeStackScreenProps<
   AuthenticationParamsList,
@@ -24,26 +23,8 @@ type Props = NativeStackScreenProps<
 const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
   const { t } = useTranslation(['authentication']);
   const { Layout, Images, Fonts, Colors } = useTheme();
-  const [phoneNumber, setPhoneNumber] = useState('0916966649');
-  const [errorMsg, setErrorMsg] = useState('');
 
   const init = async (): Promise<void> => {};
-  const onSignIn = async (): Promise<void> => {
-    try {
-      const response = await loginWithPhone(phoneNumber);
-      if (response.status === 200) {
-        navigation.navigate('ConfirmOTP', {
-          isLogin: true,
-          otpRef: response.data?.otp_ref || '',
-          otpTel: response.data?.otp_tel || '',
-        });
-      } else {
-        setErrorMsg(response.message);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
     init();
@@ -73,12 +54,7 @@ const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
           </View>
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Input
-                value={phoneNumber}
-                keyboardType="phone-pad"
-                onChange={e => setPhoneNumber(e)}
-                placeholder={t('authentication:signIn.placeholder')}
-              />
+              <Input placeholder={t('authentication:signIn.placeholder')} />
             </View>
           </View>
           <View
@@ -102,16 +78,13 @@ const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
               }}
             />
           </View>
-          <Text style={[Fonts.text16, { color: Colors.error }]}>
-            {errorMsg}
-          </Text>
           <View
             style={[
               Layout.rowHCenter,
               Layout.fullWidth,
               Layout.center,
               Layout.bgGrey50,
-              Layout.mt89,
+              Layout.mt118,
               Layout.gap10,
             ]}
           >
@@ -133,13 +106,7 @@ const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
               Layout.justifyContentBetween,
             ]}
           >
-            <Button
-              onPress={() => {
-                onSignIn();
-              }}
-              title={t('authentication:signIn.next')}
-              fullWidth
-            />
+            <Button title={t('authentication:signIn.next')} fullWidth />
           </View>
           <View
             style={[

@@ -23,8 +23,6 @@ import {
   CarouselSize,
   ProductCatalogMethod,
 } from '@/model/options';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { ApplicationStackParamList } from 'types/navigation';
 
 type Props = NativeStackScreenProps<ProductParamsList, 'ServiceIndex'>;
 
@@ -34,7 +32,7 @@ const ServiceIndex = ({}: Props): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { t } = useTranslation(['register']);
   const { Layout, Images, Fonts } = useTheme();
-  const navigation = useNavigation<NavigationProp<ApplicationStackParamList>>();
+
   // state
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [topBrand, setTopBrand] = useState<TopBrand[]>([
@@ -79,17 +77,11 @@ const ServiceIndex = ({}: Props): JSX.Element => {
                   icon={<Images.icons.cart color="#475467" />}
                   colors={ButtonIconColors.white}
                   variant={ButtonIconVariant.circle}
-                  onPress={() => {
-                    navigation.navigate('CartIndex' as any);
-                  }}
                 />
                 <ButtonIcon
                   icon={<Images.icons.search color="#475467" />}
                   colors={ButtonIconColors.white}
                   variant={ButtonIconVariant.circle}
-                  onPress={() => {
-                    navigation.navigate('ServiceSearch' as any);
-                  }}
                 />
               </View>
             }

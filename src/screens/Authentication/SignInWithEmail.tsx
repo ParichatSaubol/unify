@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   ScrollView,
@@ -13,8 +13,6 @@ import { Button, ButtonIcon, Dividers, Input, Link } from '@/components';
 import { AuthenticationParamsList } from 'types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ButtonIconVariant, LinkColor, LinkSize } from '@/model/options';
-import { login } from '@/services/restapi/authApi';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Props = NativeStackScreenProps<
   AuthenticationParamsList,
@@ -25,46 +23,12 @@ type Props = NativeStackScreenProps<
 const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
   const { t } = useTranslation(['authentication']);
   const { Layout, Images, Fonts, Colors } = useTheme();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
 
   const init = async (): Promise<void> => {};
 
   useEffect(() => {
     init();
   }, []);
-
- const onSignIn = async (): Promise<void> => {
-    try {
-    const response = await login(username, password);
-       if (response.res_code === '00' && response.res_data) {
-         const userInfo = response?.res_data;
-         userInfo.member_password = '';
-         AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
-         navigation.reset({
-           index: 0,
-           routes: [
-             {
-               name: 'Product',
-               state: {
-                 routes: [
-                   {
-                     name: 'Home',
-                   },
-                 ],
-               },
-             },
-           ],
-         });
-       } else {
-         setErrorMsg(response.res_text);
-       }
-     } catch (error) {
-       console.log(error);
-     }
-   };
-
 
   return (
     <ImageBackground
@@ -90,15 +54,10 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill, Layout.gap10]}>
               <Input
-                value={username}
-                onChange={value => setUsername(value)}
                 startIcon={<Images.icons.sms color={'#475467'} />}
                 placeholder={t('authentication:signIn.emailOrPhonenumber')}
               />
               <Input
-                value={password}
-                secureTextEntry
-                onChange={value => setPassword(value)}
                 startIcon={<Images.icons.lock color={'#475467'} />}
                 placeholder={t('authentication:signIn.password')}
               />
@@ -128,9 +87,6 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
               }}
             />
           </View>
-          <Text style={[Fonts.text16, { color: Colors.error }]}>
-            {errorMsg}
-          </Text>
           <View
             style={[
               Layout.rowHCenter,
@@ -166,7 +122,7 @@ const SignInWithEmail = ({ navigation }: Props): JSX.Element => {
               title={t('authentication:signIn.next')}
               fullWidth
               onPress={() => {
-                onSignIn();
+                navigation.reset({ index: 0, routes: [{ name: 'Product' }] });
               }}
             />
           </View>

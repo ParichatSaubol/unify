@@ -3,8 +3,6 @@ import React, { FunctionComponent } from 'react';
 import { useTheme } from '@/hooks';
 import { View, TextInput, Text } from 'react-native';
 import { InputSearchColor, InputSearchVariant } from '@/model/options';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { ApplicationStackParamList } from 'types/navigation';
 
 interface Props {
   onChange?: (text: string) => void | undefined;
@@ -14,7 +12,6 @@ interface Props {
   disabled?: boolean;
   backgroundColor?: InputSearchColor;
   onSubmitEditing?: () => void;
-  onCartClick? : () => void;
 }
 
 const InputSearchProduct: FunctionComponent<Props> = ({
@@ -25,10 +22,9 @@ const InputSearchProduct: FunctionComponent<Props> = ({
   disabled,
   backgroundColor,
   onSubmitEditing,
-  // onCartClick,
 }) => {
-  const navigation = useNavigation<NavigationProp<ApplicationStackParamList>>();
   const { Layout, Common, Fonts, Colors, Images } = useTheme();
+
   return (
     <View style={[Layout.col]}>
       <View
@@ -66,11 +62,7 @@ const InputSearchProduct: FunctionComponent<Props> = ({
         </View>
       </View>
       <View style={[Common.search.rightIcon]}>
-        <Images.icons.cart color={Colors.white}
-        onPress = {() => {
-          navigation.navigate('CartIndex' as any);
-        }} 
-        />
+        <Images.icons.cart color={Colors.white} />
       </View>
     </View>
   );
@@ -79,7 +71,6 @@ const InputSearchProduct: FunctionComponent<Props> = ({
 InputSearchProduct.defaultProps = {
   onChange: () => {},
   onSubmitEditing: () => {},
-  onCartClick: () => {},
   value: '',
   placeholder: '',
   variant: InputSearchVariant.standard,

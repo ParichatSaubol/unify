@@ -2,17 +2,12 @@ import { CartItem } from '@/model/cart';
 import { type NavigatorScreenParams } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { OrderTabs, PaymentStatus, RoleType } from '../src/model/options';
-import { TRegisterAddress, TRegisterCustomer } from '@/model/customer';
 
 export type AuthenticationParamsList = {
   SignInWithEmail: undefined;
   SignInWithPhone: undefined;
   SignInWithOldCustomer: undefined;
-  ConfirmOTP: {
-    isLogin: boolean;
-    otpRef: string;
-    otpTel: string;
-  };
+  ConfirmOTP: undefined;
   ForgotPassword: undefined;
   ResetPassword: undefined;
   ResetSuccess: undefined;
@@ -21,12 +16,8 @@ export type AuthenticationParamsList = {
   Product: undefined;
   RegisterType: undefined;
   RegisterCustomer: { type: RoleType };
-  RegisterAddress: { type: RoleType; customer: TRegisterCustomer };
-  RegisterInvoice: {
-    type: RoleType;
-    customerAddress: TRegisterAddress;
-    customer: TRegisterCustomer;
-  };
+  RegisterAddress: { type: RoleType };
+  RegisterInvoice: { type: RoleType };
   RegisterOldProfile: undefined;
   RegisterOldAddress: undefined;
 };
@@ -83,11 +74,6 @@ export type ProductParamsList = {
 };
 
 export type ApplicationStackParamList = {
-  ConfirmOTP: {
-    isLogin: boolean;
-    otpRef: string;
-    otpTel: string;
-  };
   Startup: undefined;
   Main: NavigatorScreenParams<AuthenticationParamsList>;
   Product: NavigatorScreenParams<ProductParamsList>;
