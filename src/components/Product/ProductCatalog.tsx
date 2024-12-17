@@ -17,9 +17,9 @@ import {
   useLazyGetProductById,
   useLazyGetProducts,
   useLazyGetPopularProducts,
-} from '@/services/modules/product';
-import { useLazyGetFlashSaleListQuery } from '@/services/modules/flash_sale';
-import { useLazyGetSolutionListQuery } from '@/services/modules/solution';
+} from '@/services/gql/modules/product';
+import { useLazyGetFlashSaleListQuery } from '@/services/gql/modules/flash_sale';
+import { useLazyGetSolutionListQuery } from '@/services/gql/modules/solution';
 
 
 import config from '@/utils/config';

@@ -4,12 +4,14 @@ import { useTheme } from '@/hooks';
 import { TProfile } from '@/model/profile';
 import Chip from '../Chip/Chip';
 import { ChipColor } from '@/model/options';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { ApplicationStackParamList } from 'types/navigation';
 
 type Props = TProfile & {};
 
 const ProfileLastOrder: FunctionComponent<Props> = ({ lastOrder }) => {
   const { Layout, Fonts } = useTheme();
-
+  const navigation = useNavigation<NavigationProp<ApplicationStackParamList>>();
   return (
     <View style={[Layout.col, Layout.gap10]}>
       <Text style={[Fonts.text24Med]}>คำสั่งซื้อล่าสุด</Text>
