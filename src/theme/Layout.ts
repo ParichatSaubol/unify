@@ -96,11 +96,6 @@ const Layout = ({}: ThemeVariables) => {
       gap: 20,
       rowGap: 20,
     },
-    gap40: {
-      columnGap: 40,
-      gap: 40,
-      rowGap: 40,
-    },
     halfWidth: {
       width: '50%',
     },

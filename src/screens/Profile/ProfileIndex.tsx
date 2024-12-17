@@ -211,8 +211,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
             startIcon={
               <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
                 <View style={[Layout.row]}>
-                  <Images.icons.cart color={Colors.gray500} 
-                  />
+                  <Images.icons.cart color={Colors.gray500} />
                   <View style={styles.dots}>
                     <Text style={[styles.dotsFont, Fonts.textWhite]}>
                       {data.cart}
@@ -225,9 +224,6 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
             title=" "
             colors={ButtonColor.white}
             align={ButtonAlign.between}
-            onPress={() => {
-              navigation.navigate('CartIndex' as any);
-            }}
             endIcon={
               <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
                 <Text style={[Fonts.text21Bold, Fonts.textPrimary]}>

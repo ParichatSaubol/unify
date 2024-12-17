@@ -14,12 +14,11 @@ type Address = {
 
 type TRegisterCustomer = {
   type?: RoleType;
-  // prefix: string;
+  prefix: string;
   name: string;
   email: string;
   password: string;
   confirmPassword: string;
-  phoneNumber: string;
 };
 
 type TRegisterOldInvoice = {
@@ -45,11 +44,6 @@ type TRegisterAddress = Address & {
   isDefault?: boolean;
   isInvoice?: boolean;
   isNews?: boolean;
-  name?: string;
-  phoneNumber?: string;
-  provinceId?: string;
-  districtId?: string;
-  subDistrictId?: string;
 };
 
 type TRegisterInvoice = Address & {
@@ -59,9 +53,6 @@ type TRegisterInvoice = Address & {
   branch?: string;
   taxID: string;
   isAccept: boolean;
-  provinceId?: string;
-  districtId?: string;
-  subDistrictId?: string;
 };
 
 export type {

@@ -1,27 +1,18 @@
 import React, { FunctionComponent, useCallback, useState } from 'react';
 import { useTheme } from '@/hooks';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  DimensionValue,
-} from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { InputSelectionSize, InputSelectionVariant } from '@/model/options';
-import { ScrollView } from 'react-native-gesture-handler';
 
 interface Props {
   error?: boolean;
   helperText?: string;
-  onChange?: (text: any) => void | undefined;
-  option?: string[] | object[];
-  labelKey?: string;
+  onChange?: (text: string) => void | undefined;
+  option?: string[];
   placeholder?: string;
   size?: InputSelectionSize;
   startIcon?: JSX.Element;
   value?: string;
   variant?: InputSelectionVariant;
-  listHeight?: DimensionValue | undefined;
 }
 
 const InputSelection: FunctionComponent<Props> = ({
@@ -34,8 +25,6 @@ const InputSelection: FunctionComponent<Props> = ({
   startIcon,
   value,
   variant,
-  labelKey,
-  listHeight,
 }) => {
   // hooks
   const { Layout, Common, Images, Colors, Fonts } = useTheme();
@@ -57,7 +46,7 @@ const InputSelection: FunctionComponent<Props> = ({
   const handleSheetChanges = (index: number) => {
     setVisible(false);
     if (index >= 0) {
-      onChange && onChange(option[index]);
+      onChange && onChange(`${option[index]}`);
     }
   };
 
@@ -71,13 +60,7 @@ const InputSelection: FunctionComponent<Props> = ({
           onPress={() => handleSheetChanges(index)}
         >
           <View style={[styles.itemContainer]}>
-            <Text>
-              {typeof item === 'object'
-                ? labelKey
-                  ? item[labelKey as keyof typeof item]
-                  : ''
-                : item}
-            </Text>
+            <Text>{item}</Text>
           </View>
           {index !== option.length && <View style={[styles.divider]} />}
         </TouchableOpacity>,
@@ -85,7 +68,7 @@ const InputSelection: FunctionComponent<Props> = ({
     });
 
     return element;
-  }, [option, labelKey]);
+  }, []);
 
   return (
     <View style={[Layout.col]}>
@@ -116,18 +99,7 @@ const InputSelection: FunctionComponent<Props> = ({
           {helperText}
         </Text>
       )}
-      {visible && (
-        <View
-          style={[
-            styles.dropdown,
-            {
-              height: option.length > 0 && listHeight ? listHeight : 'auto',
-            },
-          ]}
-        >
-          <ScrollView>{renderDropdown()}</ScrollView>
-        </View>
-      )}
+      {visible && <View style={styles.dropdown}>{renderDropdown()}</View>}
     </View>
   );
 };

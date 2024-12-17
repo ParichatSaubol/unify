@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { View, ScrollView, Keyboard, Text, Alert } from 'react-native';
+import { View, ScrollView, Keyboard, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme, useYupValidationResolver } from '@/hooks';
 import { useBottomSheetModal } from '@gorhom/bottom-sheet';
 import {
-  AddressFormWithSelection,
+  AddressForm,
   AppBar,
   Button,
   Checkbox,
@@ -16,7 +16,6 @@ import * as yup from 'yup';
 import { AuthenticationParamsList } from 'types/navigation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RoleType } from '@/model/options';
-import { postRegister } from '@/services/restapi/authApi';
 
 const messageRequired = 'required';
 
@@ -32,23 +31,18 @@ const AddressSchema: yup.ObjectSchema<TRegisterAddress> = yup.object().shape({
   subdistrict: yup.string().required(messageRequired),
   long: yup.number(),
   lat: yup.number(),
-  isDefault: yup.bool().when('type', {
-    is: RoleType.PERSONAL,
-    then: schema => schema.required(messageRequired),
-  }),
-  isInvoice: yup.bool().when('type', {
-    is: RoleType.PERSONAL,
-    then: schema => schema.required(messageRequired),
-  }),
-  isNews: yup.bool().when('type', {
-    is: RoleType.PERSONAL,
-    then: schema => schema.required(messageRequired),
-  }),
-  name: yup.string().optional(),
-  phoneNumber: yup.string().optional(),
-  provinceId: yup.string().optional(),
-  districtId: yup.string().optional(),
-  subDistrictId: yup.string().optional(),
+  // isDefault: yup.bool().when('type', {
+  //   is: RoleType.PERSONAL,
+  //   then: schema => schema.required(messageRequired),
+  // }),
+  // isInvoice: yup.bool().when('type', {
+  //   is: RoleType.PERSONAL,
+  //   then: schema => schema.required(messageRequired),
+  // }),
+  // isNews: yup.bool().when('type', {
+  //   is: RoleType.PERSONAL,
+  //   then: schema => schema.required(messageRequired),
+  // }),
 });
 
 type Props = NativeStackScreenProps<
@@ -65,79 +59,17 @@ const RegisterAddress = ({ navigation, route }: Props): JSX.Element => {
   const method = useForm<TRegisterAddress>({
     defaultValues: {
       type: route?.params?.type,
-      isDefault: true,
-      isInvoice: false,
-      isNews: false,
-      lat: 0,
-      long: 0,
     },
     resolver: useYupValidationResolver(AddressSchema),
   });
-  const { handleSubmit, control, watch } = method;
+  const { handleSubmit, control } = method;
   const { dismissAll } = useBottomSheetModal();
 
   // function & handle
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const onSubmit = async (customerAddress: TRegisterAddress) => {
-    const { customer } = route.params;
-    const isNextToRegisterInvoice =
-      (customerAddress.isInvoice && route.params.type === RoleType.PERSONAL) ||
-      route.params.type === RoleType.COMPANY;
-
-    if (isNextToRegisterInvoice) {
-      navigation.navigate('RegisterInvoice', {
-        type: route.params.type,
-        customer: customer,
-        customerAddress,
-      });
-    } else {
-      try {
-        const [customerFirstName, customerLastName] = customer.name?.split(' ');
-        const memberCategory =
-          route.params.type === RoleType.PERSONAL ? 'n' : 'c';
-
-        const payload = {
-          member_category: memberCategory,
-          member_type: 'm',
-          member_password: customer.password,
-          member_first_name: customerFirstName || '',
-          member_last_name: customerLastName || '',
-          member_phone: customer.phoneNumber,
-          member_email: customer.email,
-
-          ads_house_number: customerAddress.address,
-          ads_building: customerAddress.building,
-          ads_moo: customerAddress.village,
-          ads_road: customerAddress.road,
-          ads_zip_code: customerAddress.postalCode,
-          ads_province: customerAddress.provinceId,
-          ads_amphur: customerAddress.districtId,
-          ads_district: customerAddress.subDistrictId,
-
-          tax_check: '0',
-        };
-
-        const data = await postRegister(payload);
-
-        if (data.status === 200) {
-          Alert.alert(
-            'ลงทะเบียนสำเร็จ',
-            'กดตกลงเพื่อไปยังหน้าล๊อกอินเข้าสู่ระบบ',
-            [
-              {
-                text: 'ตกลง',
-                onPress: () => navigation.navigate('SignInWithEmail'),
-              },
-            ],
-          );
-        } else if (data.status === 202) {
-          Alert.alert('ลงทะเบียนไม่สำเร็จ', data?.message);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
+  const onSubmit = (data: TRegisterAddress) => {
+    navigation.navigate('RegisterInvoice', { type: route.params.type });
   };
 
   // init
@@ -172,9 +104,7 @@ const RegisterAddress = ({ navigation, route }: Props): JSX.Element => {
       >
         <View style={[Layout.fill, Layout.gap20]}>
           <FormProvider {...method}>
-            <AddressFormWithSelection
-              fieldsDisabled={{ name: true, phoneNumber: true }}
-            />
+            <AddressForm />
           </FormProvider>
         </View>
 
@@ -186,25 +116,6 @@ const RegisterAddress = ({ navigation, route }: Props): JSX.Element => {
             Layout.justifyContentEnd,
           ]}
         >
-          {route.params.type === RoleType.PERSONAL && (
-            <View style={[Layout.row, Layout.gap10]}>
-              <Controller
-                name="isInvoice"
-                control={control}
-                render={({ field: { value, onChange } }) => (
-                  <Checkbox
-                    setIsEnabled={onChange}
-                    isEnabled={value || false}
-                  />
-                )}
-              />
-
-              <Text style={[Fonts.text18, Layout.fill]}>
-                ฉันต้องการใบกำกับภาษี
-              </Text>
-            </View>
-          )}
-
           <View style={[Layout.row, Layout.gap10]}>
             <Controller
               name="isNews"
@@ -220,11 +131,7 @@ const RegisterAddress = ({ navigation, route }: Props): JSX.Element => {
             </Text>
           </View>
 
-          <Button
-            title={watch('isInvoice') ? 'ถัดไป' : 'ยืนยัน'}
-            fullWidth
-            onPress={handleSubmit(onSubmit)}
-          />
+          <Button title="ถัดไป" fullWidth onPress={handleSubmit(onSubmit)} />
         </View>
       </ScrollView>
     </DefaultLayout>
