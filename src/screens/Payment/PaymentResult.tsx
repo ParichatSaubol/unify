@@ -20,8 +20,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'PaymentResult'>;
 // @refresh reset
 const PaymentResult = ({ navigation, route }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { orderId } = route.params;
 
   const { Layout, Fonts, Images } = useTheme();
@@ -63,7 +63,7 @@ const PaymentResult = ({ navigation, route }: Props): JSX.Element => {
     <SafeAreaView style={[Layout.bg, Layout.fill]}>
       <View style={[Layout.main, Layout.gap20, Layout.bgWhite]}>
         <Text style={[Fonts.text24Med, Fonts.textBlack, Fonts.textCenter]}>
-          สถานะการสั่งซื้อสินค้า
+          {t('paymentResult.orderStatus')}
         </Text>
       </View>
       <ScrollView
@@ -84,9 +84,11 @@ const PaymentResult = ({ navigation, route }: Props): JSX.Element => {
             />
             <View>
               <Text style={[Fonts.text32Light, Fonts.textPrimary]}>
-                สั่งซื้อสินค้าสำเร็จ!
+                {t('paymentResult.orderSuccess')}
               </Text>
-              <Text style={[Fonts.text24Med]}>เลขที่คำสั่งซื้อของท่าน</Text>
+              <Text style={[Fonts.text24Med]}>
+                {t('paymentResult.orderNumber')}
+              </Text>
               <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
                 <Text style={[Fonts.text24Med, Fonts.textPrimary]}>
                   UNI2023123094877
@@ -99,18 +101,17 @@ const PaymentResult = ({ navigation, route }: Props): JSX.Element => {
           </View>
           <View style={[Layout.col, Layout.gap10, styles.container]}>
             <Text style={[Fonts.text24Med, Fonts.textPrimary]}>
-              ชำระเงินสำเร็จ
+              {t('paymentResult.paymentSuccess')}
             </Text>
             <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
               <Text style={[Fonts.text18]}>
-                Unify จัดส่งสินค้าให้กับลูกค้าให้รวดเร็วที่สุดเพื่อ
-                ประสบการณ์ที่ดีกับการใช้งาน!
+                {t('paymentResult.orderDelivery')}
               </Text>
             </View>
           </View>
         </View>
         <Button
-          title="ดูสถานะคำสั่งซื้อ"
+          title={t('paymentResult.viewOrderStatus')}
           colors={ButtonColor.primary}
           onPress={() => {
             navigation.reset({

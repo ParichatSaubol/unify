@@ -9,6 +9,7 @@ import { ApplicationStackParamList } from 'types/navigation';
 import { TSolution } from '@/model/solution';
 import Button from '../Button/Button';
 import { ButtonColor, ButtonVariant, InputVariant } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
@@ -18,15 +19,16 @@ const ServiceMoreDetail: FunctionComponent<Props> = () => {
     useNavigation<NavigationProp<ApplicationStackParamList>>();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Fonts, Images, Colors } = useTheme();
+  const { t } = useTranslation('common');
 
   const { control } = useFormContext<TSolution>();
 
   return (
-    <Card title="รายละเอียดเพิ่มเติม">
+    <Card title={t('serviceMoreDetail.moreDetailsTitle')}>
       <View style={[Layout.col, Layout.gap20]}>
         <View style={[Layout.col, Layout.gap5]}>
           <Text style={[Fonts.text21]}>
-            รายละเอียดบริการที่ต้องการเพิ่มเติม
+            {t('serviceMoreDetail.moreDetails')}
           </Text>
           <Controller
             name="address"
@@ -34,7 +36,7 @@ const ServiceMoreDetail: FunctionComponent<Props> = () => {
             render={({ field: { value, onChange }, fieldState: { error } }) => (
               <Input
                 // disabled
-                placeholder="รายละเอียดเพิ่มเติม"
+                placeholder={t('serviceMoreDetail.moreDetailsTitle')}
                 variant={InputVariant.outlined}
                 value={value}
                 onChange={onChange}
@@ -46,9 +48,11 @@ const ServiceMoreDetail: FunctionComponent<Props> = () => {
         </View>
 
         <View style={[Layout.col, Layout.gap5]}>
-          <Text style={[Fonts.text21]}>อัพโหลดภาพบริเวณหน้างาน</Text>
+          <Text style={[Fonts.text21]}>
+            {t('serviceMoreDetail.uploadImage')}
+          </Text>
           <Button
-            title="อัพโหลดรูปภาพ"
+            title={t('serviceMoreDetail.uploadImageButton')}
             variant={ButtonVariant.outlined}
             colors={ButtonColor.primary}
           />

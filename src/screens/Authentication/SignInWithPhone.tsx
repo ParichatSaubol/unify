@@ -89,8 +89,7 @@ const SignInWithPhone = ({ navigation }: Props): JSX.Element => {
             ]}
           >
             <Text style={[Fonts.text21, { color: Colors.gray600 }]}>
-              {/* {t('authentication:signIn.promotion')} */}
-              หากคุณเคยเป็น ลูกค้าทีเคเค คอร์ปอเรชั่น
+              {t('authentication:signIn.oldCustomerPromotion')}
             </Text>
             <Link
               title={t('authentication:signIn.click')}

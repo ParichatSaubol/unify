@@ -39,8 +39,6 @@ const GET_BRAND = gql`
   }
 `;
 
-
-
 const useLazyGetBrandRecommend = () =>
   useLazyQuery<GetBrandRecommendQuery, GetBrandRecommendQueryVariables>(
     GET_BRAND,

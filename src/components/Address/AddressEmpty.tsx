@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   title?: string;
@@ -9,15 +10,15 @@ interface Props {
 // หน้าแสดงที่อยู่ว่าง
 const AddressEmpty: FunctionComponent<Props> = () => {
   const { Layout, Fonts, Images } = useTheme();
-
+  const { t } = useTranslation('address');
   return (
     <View style={[Layout.col, styles.container, Layout.center]}>
       <Image source={Images.address.empty} />
       <View style={styles.mt40}>
-        <Text style={Fonts.text32Med}>ท่านยังไม่มีที่อยู่การจัดส่ง</Text>
+        <Text style={Fonts.text32Med}>{t('addressEmpty.deliveryAddress')}</Text>
       </View>
       <View>
-        <Text style={Fonts.text24Med}>เพิ่มข้อมูลที่อยู่ในการจัดส่งสินค้า</Text>
+        <Text style={Fonts.text24Med}>{t('addressEmpty.addAddress')}</Text>
       </View>
     </View>
   );

@@ -22,8 +22,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'InvoiceInformation'>;
 
 const InvoiceInformation = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   // const dispatch = useDispatch();
@@ -69,7 +69,7 @@ const InvoiceInformation = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="ข้อมูลใบกำกับภาษี"
+        title={t('invoiceInformation.information')}
         onPress={() => {
           //กลับไปหน้าก่อนหน้า
           navigation.goBack();
@@ -93,7 +93,7 @@ const InvoiceInformation = ({ navigation }: Props): JSX.Element => {
                   render={({ field: { value, onChange } }) => (
                     <Button
                       active={value === RoleType.COMPANY}
-                      title="นิติบุคคล"
+                      title={t('invoiceInformation.company')}
                       fullWidth
                       onPress={() => {
                         onChange('company');
@@ -110,7 +110,7 @@ const InvoiceInformation = ({ navigation }: Props): JSX.Element => {
                   render={({ field: { value, onChange } }) => (
                     <Button
                       active={value === RoleType.PERSONAL}
-                      title="บุคคลธรรมดา"
+                      title={t('invoiceInformation.personal')}
                       fullWidth
                       onPress={() => {
                         onChange('personal');
@@ -129,7 +129,7 @@ const InvoiceInformation = ({ navigation }: Props): JSX.Element => {
 
           <View style={[styles.bottomArea]}>
             <Button
-              title="ยืนยัน"
+              title={t('invoiceInformation.confirm')}
               onPress={() => {
                 handleNext();
               }}
@@ -149,17 +149,19 @@ const InvoiceInformation = ({ navigation }: Props): JSX.Element => {
         >
           <View style={[Layout.main, Layout.gap10]}>
             <Text style={[Fonts.text21, Fonts.textBlack]}>
-              กรุณากรอกอีเมลที่ต้องการรับใบเสนอราคา
+              {t('invoiceInformation.emailPrompt')}
             </Text>
             <View style={[Layout.col, Layout.gap5]}>
-              <Text style={[Fonts.text21, styles.left]}>อีเมลของคุณ</Text>
-              <Input placeholder="อีเมล" />
+              <Text style={[Fonts.text21, styles.left]}>
+                {t('invoiceInformation.yourEmail')}
+              </Text>
+              <Input placeholder={t('invoiceInformation.email')} />
             </View>
           </View>
 
           <View style={[styles.bottomArea]}>
             <Button
-              title="ยืนยัน"
+              title={t('invoiceInformation.confirm')}
               onPress={() => {
                 handleNext();
               }}
@@ -180,10 +182,10 @@ const InvoiceInformation = ({ navigation }: Props): JSX.Element => {
             <Text
               style={[Fonts.text40Med, Fonts.textPrimary, Fonts.textCenter]}
             >
-              ส่งใบกำกับภาษีสำเร็จ
+              {t('invoiceInformation.successTitle')}
             </Text>
             <Text style={[Fonts.text21, Fonts.textCenter]}>
-              ระบบได้ทำการส่งใบกำกับภาษี ไปยังอีเมลของคุณแล้ว
+              {t('invoiceInformation.successMessage')}
             </Text>
             <Images.icons.checkCircleOutline
               width="100"
@@ -194,7 +196,7 @@ const InvoiceInformation = ({ navigation }: Props): JSX.Element => {
 
           <View style={[styles.bottomArea]}>
             <Button
-              title="กลับสู่หน้าหลัก"
+              title={t('invoiceInformation.backToHome')}
               onPress={() => {
                 handleSubmit();
               }}

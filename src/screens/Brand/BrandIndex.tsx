@@ -21,7 +21,7 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'BrandIndex'>;
 const BrandIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   const { Layout, Images } = useTheme();
 
   // handle callback
@@ -40,7 +40,7 @@ const BrandIndex = ({ navigation }: Props): JSX.Element => {
         onPress={() => {
           navigation.goBack();
         }}
-        title="HITACHI"
+        title={t('brandIndex.appTitle')}
         // image={<Images.icons.unistore height={29} width={143} />}
       />
       <ScrollView
@@ -60,9 +60,8 @@ const BrandIndex = ({ navigation }: Props): JSX.Element => {
           />
           <View style={styles.logoContainer}>
             <BrandLogo
-              title="HITACHI CONSUMER THAILAND"
-              description="ผลิตและจัดจำหน่าย มอเตอร์เซอร์โว และมอเตอร์ไฟฟ้า มอเตอร์เหนี่ยวนำ
-มอเตอร์อุตสาหกรรม และอุปกรณ์บำรุงรักษาเครื่องจักร จากประเทศญี่ปุ่น"
+              title={t('brandIndex.brandTitle')}
+              description={t('brandIndex.brandDescription')}
               logo={
                 <Image
                   source={Images.brand.hitachi}

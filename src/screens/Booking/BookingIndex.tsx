@@ -19,8 +19,8 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'BookingIndex'>;
 // @refresh reset
 const BookingIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Images, Fonts } = useTheme();
 
@@ -29,29 +29,29 @@ const BookingIndex = ({ navigation }: Props): JSX.Element => {
   const [data, setData] = useState<Booking[]>([
     {
       id: 1,
-      name: 'งานบริการที่คุณลงทะเบียนไว้',
-      description: '4 งานบริการที่คุณได้ทำการนัดหมาย',
+      name: t('bookingIndex.registeredServices'),
+      description: t('bookingIndex.servicesCount'),
       number: 1,
       amount: 1000000,
-      bookingDate: '10 พ.ค. 66',
+      bookingDate: t('bookingIndex.date'),
       status: BookingStatus.inProgress,
     },
     {
       id: 2,
-      name: 'งานบริการที่คุณลงทะเบียนไว้',
-      description: '4 งานบริการที่คุณได้ทำการนัดหมาย',
+      name: t('bookingIndex.registeredServices'),
+      description: t('bookingIndex.servicesCount'),
       number: 1,
       amount: 1000000,
-      bookingDate: '10 พ.ค. 66',
+      bookingDate: t('bookingIndex.date'),
       status: BookingStatus.completed,
     },
     {
       id: 2,
-      name: 'งานบริการที่คุณลงทะเบียนไว้',
-      description: '4 งานบริการที่คุณได้ทำการนัดหมาย',
+      name: t('bookingIndex.registeredServices'),
+      description: t('bookingIndex.servicesCount'),
       number: 1,
       amount: 1000000,
-      bookingDate: '10 พ.ค. 66',
+      bookingDate: t('bookingIndex.date'),
       status: BookingStatus.inPayment,
     },
   ]);
@@ -71,7 +71,7 @@ const BookingIndex = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="การนัดหมายของคุณ"
+        title={t('bookingIndex.bookingIndexTitle')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -85,7 +85,9 @@ const BookingIndex = ({ navigation }: Props): JSX.Element => {
         ]}
       >
         <View style={[styles.container]}>
-          <Text style={[Fonts.text21, Fonts.textBlack]}>กิจกรรม</Text>
+          <Text style={[Fonts.text21, Fonts.textBlack]}>
+            {t('bookingIndex.activities')}
+          </Text>
           <View
             style={[
               styles.banner,
@@ -96,10 +98,10 @@ const BookingIndex = ({ navigation }: Props): JSX.Element => {
           >
             <View>
               <Text style={[Fonts.text21Bold, Fonts.textPrimary]}>
-                งานบริการที่คุณลงทะเบียนไว้
+                {t('bookingIndex.registeredServices')}
               </Text>
               <Text style={[Fonts.text16, Fonts.textPrimary]}>
-                4 งานบริการที่คุณได้ทำการนัดหมาย
+                {t('bookingIndex.servicesCount')}
               </Text>
             </View>
             <View>
@@ -110,7 +112,7 @@ const BookingIndex = ({ navigation }: Props): JSX.Element => {
 
         <View style={[styles.container, styles.customTop]}>
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            งานบริการของคุณ ({data.length} รายการ)
+            {t('bookingIndex.yourServices', { count: data.length })}
           </Text>
           <View style={[styles.customTop, Layout.gap10]}>
             {data.map((item, index) => (

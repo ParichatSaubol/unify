@@ -21,6 +21,7 @@ import OrderWarning from './OrderWarning';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { ApplicationStackParamList, ProductParamsList } from 'types/navigation';
 import OrderWithEstimate from './OrderWithEstimate';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   order?: IOrder;
@@ -29,6 +30,7 @@ interface Props {
 //หน้าแสดงรายการสั่งซื้อ
 const OrderCard: FunctionComponent<Props> = ({ order }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
   const { role } = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const navigation =
@@ -86,9 +88,11 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
     <View style={[Layout.main, Layout.col, Layout.gap10, Layout.bgWhite]}>
       <View style={[styles.card, Layout.justifyContentBetween]}>
         <Text style={[Fonts.text21, Fonts.textBlack]}>
-          เลขที่ออเดอร์ :{order?.id}
+          {t('orderCard.orderNumber')} {order?.id}
         </Text>
-        <Text style={[Fonts.text21]}>({order?.itemsCount} รายการ)</Text>
+        <Text style={[Fonts.text21]}>
+          ({order?.itemsCount} {t('orderCard.itemsCount')})
+        </Text>
       </View>
       {order?.status === OrderStatus.BeReceived && <OrderWarning />}
 
@@ -98,7 +102,10 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
           <Image source={item.image || Images.mock.noImage} />
           <View style={[Layout.col, Layout.fill]}>
             <Text style={[Fonts.text21, Fonts.textBlack]}>{item.title}</Text>
-            <Text style={[Fonts.text16]}>ตัวเลือกสินค้า : {item.option}</Text>
+            <Text style={[Fonts.text16]}>
+              {t('orderCard.productOption')}
+              {item.option}
+            </Text>
             {item.amount && (
               <View style={[Layout.row, Layout.gap5]}>
                 <Text
@@ -112,7 +119,9 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
                     /\b(\w*THB\w*)\b/,
                     '฿ ',
                   )}
-                  <Text style={[Fonts.text16, Fonts.textGrey]}>/ ชิ้น</Text>
+                  <Text style={[Fonts.text16, Fonts.textGrey]}>
+                    {t('orderCard.pricePerPiece')}
+                  </Text>
                 </Text>
               </View>
             )}
@@ -160,7 +169,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
       {(order?.items?.length || 0) > 2 && end !== order?.items?.length ? (
         <View>
           <Button
-            title="ดูเพิ่มเติม"
+            title={t('orderCard.viewMore')}
             colors={ButtonColor.solid}
             size={ButtonSize.small}
             onPress={() => {
@@ -171,7 +180,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
       ) : (
         <View>
           <Button
-            title="ย่อ"
+            title={t('orderCard.collapse')}
             colors={ButtonColor.solid}
             size={ButtonSize.small}
             onPress={() => {
@@ -186,7 +195,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
               <Button
-                title="ยกเลิกสินค้า"
+                title={t('orderCard.cancelOrder')}
                 variant={ButtonVariant.outlined}
                 size={ButtonSize.small}
                 fullWidth
@@ -197,7 +206,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
             </View>
             <View style={[Layout.fill]}>
               <Button
-                title="ดูสถานะการจัดส่ง"
+                title={t('orderCard.checkDeliveryStatus')}
                 size={ButtonSize.small}
                 fullWidth
                 onPress={() => {
@@ -216,7 +225,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
           <View style={[Layout.col, Layout.gap10]}>
             <View style={[Layout.fill]}>
               <Button
-                title="ดาวน์โหลดใบกำกับภาษี"
+                title={t('orderCard.downloadInvoice')}
                 size={ButtonSize.small}
                 startIcon={<Images.icons.download color="#FFF" />}
                 onPress={() => {
@@ -226,7 +235,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
             </View>
             <View style={[Layout.fill]}>
               <Button
-                title="ยกเลิกสินค้า"
+                title={t('orderCard.cancelOrder')}
                 variant={ButtonVariant.outlined}
                 size={ButtonSize.small}
                 onPress={() => {
@@ -246,7 +255,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
                 <View style={[Layout.row, Layout.gap10]}>
                   <View style={[Layout.fill]}>
                     <Button
-                      title="ยกเลิกสินค้า"
+                      title={t('orderCard.cancelOrder')}
                       variant={ButtonVariant.outlined}
                       size={ButtonSize.small}
                       onPress={() => {
@@ -256,7 +265,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
                   </View>
                   <View style={[Layout.fill]}>
                     <Button
-                      title="ชำระเงิน"
+                      title={t('orderCard.payNow')}
                       size={ButtonSize.small}
                       onPress={() => {
                         handlePayment();
@@ -266,7 +275,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
                 </View>
                 <View style={[Layout.fill]}>
                   <Button
-                    title="ดาวน์โหลดใบเสนอราคา"
+                    title={t('orderCard.downloadQuotation')}
                     size={ButtonSize.small}
                     startIcon={<Images.icons.download color="#FFF" />}
                     onPress={() => {
@@ -279,7 +288,7 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
               <View style={[Layout.row, Layout.gap10]}>
                 <View style={[Layout.fill]}>
                   <Button
-                    title="ยกเลิกสินค้า"
+                    title={t('orderCard.cancelOrder')}
                     variant={ButtonVariant.outlined}
                     size={ButtonSize.small}
                     onPress={() => {
@@ -288,7 +297,10 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
                   />
                 </View>
                 <View style={[Layout.fill]}>
-                  <Button title="ชำระเงิน" size={ButtonSize.small} />
+                  <Button
+                    title={t('orderCard.payNow')}
+                    size={ButtonSize.small}
+                  />
                 </View>
               </View>
             )}

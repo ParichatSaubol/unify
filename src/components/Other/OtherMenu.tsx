@@ -10,6 +10,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { useFocusEffect } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   snapPosition?: 0 | 1 | 2;
@@ -31,6 +32,7 @@ const OtherMenu: FunctionComponent<Props> = ({
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   // hooks
   const sheetRef = useRef<BottomSheet>(null);
@@ -41,38 +43,38 @@ const OtherMenu: FunctionComponent<Props> = ({
   const [menu, setMenu] = useState<Menu[]>([
     {
       icon: <Images.menu.communityAndArticles />,
-      text: 'คอมมูนิตี้และบทความ',
-      description: 'บทความและข่าวสารเกี่ยวกับเทคโนโลยีโรงงาน',
+      text: t('otherMenu.communityAndArticles'),
+      description: t('otherMenu.communityAndArticlesDescription'),
       next: '',
     },
     {
       icon: <Images.menu.goodDeals />,
-      text: 'ดีลดี รวมโปรโมชั่น',
-      description: 'รวมโปรโมชั่นดีลดีสำหรับคุณ',
+      text: t('otherMenu.goodDeals'),
+      description: t('otherMenu.goodDealsDescription'),
       next: '',
     },
     {
       icon: <Images.menu.discountCode />,
-      text: 'โค้ดส่วนลด',
-      description: 'โค้ดส่วนลดพิเศษและสิทธิพิเศษ',
+      text: t('otherMenu.discountCode'),
+      description: t('otherMenu.discountCodeDescription'),
       next: '',
     },
     {
       icon: <Images.menu.flashStore />,
-      text: 'แฟรชสโตร์',
-      description: 'ช้อปสินค้าโรงงานราคาพิเศษสุด',
+      text: t('otherMenu.flashStore'),
+      description: t('otherMenu.flashStoreDescription'),
       next: '',
     },
     {
       icon: <Images.menu.privilegesAndPoints />,
-      text: 'สิทธิพิเศษและคะแนน',
-      description: 'สิทธิพิเศษกับของรางวัลมากมาย',
+      text: t('otherMenu.privilegesAndPoints'),
+      description: t('otherMenu.privilegesAndPointsDescription'),
       next: '',
     },
     {
       icon: <Images.menu.allProducts />,
-      text: 'สินค้าทั้งหมด',
-      description: 'สินค้ายอดนิยมในโรงงานคัดสรรให้เลือกช้อป',
+      text: t('otherMenu.allProducts'),
+      description: t('otherMenu.allProductsDescription'),
       next: '',
     },
   ]);
@@ -107,7 +109,9 @@ const OtherMenu: FunctionComponent<Props> = ({
       enablePanDownToClose
     >
       <BottomSheetScrollView style={[styles.container]}>
-        <Text style={[Fonts.text21, Fonts.textBlack]}>เมนูลัดทั้งหมด</Text>
+        <Text style={[Fonts.text21, Fonts.textBlack]}>
+          {t('otherMenu.allProducts')}
+        </Text>
         {menu.map((item, index) => (
           <TouchableOpacity key={`other-menu-${index}`}>
             <View style={[styles.menuBox]}>

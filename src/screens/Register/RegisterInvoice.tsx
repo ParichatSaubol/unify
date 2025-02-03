@@ -24,8 +24,8 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const RegisterInvoice = ({ navigation, route }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Fonts } = useTheme();
   const { dismissAll } = useBottomSheetModal();
   const method = useForm<TRegisterInvoice>({
@@ -50,7 +50,7 @@ const RegisterInvoice = ({ navigation, route }: Props): JSX.Element => {
   return (
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
-        title="ข้อมูลใบกำกับภาษี"
+        title={t('registerInvoice.information')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -70,7 +70,7 @@ const RegisterInvoice = ({ navigation, route }: Props): JSX.Element => {
               render={({ field: { value, onChange } }) => (
                 <Button
                   disable
-                  title="นิติบุคคล"
+                  title={t('registerInvoice.legalEntity')}
                   fullWidth
                   onPress={() => {
                     onChange('company');
@@ -92,7 +92,7 @@ const RegisterInvoice = ({ navigation, route }: Props): JSX.Element => {
                 <Button
                   disable
                   // active={value === RoleType.PERSONAL}
-                  title="บุคคลธรรมดา"
+                  title={t('registerInvoice.individual')}
                   fullWidth
                   onPress={() => {
                     onChange('personal');
@@ -122,12 +122,15 @@ const RegisterInvoice = ({ navigation, route }: Props): JSX.Element => {
           />
 
           <Text style={[Fonts.text18, Layout.fill]}>
-            ฉันต้องการรับสิทธิพิเศษและโปรโมชั่น รวมถึงข่าวสารจากกลุ่ม บริษัท
-            ทีเคเค คอร์ปอเรชั่น จำกัด ตามที่ระบุไว้ใน นโยบายความเป็นส่วนตัว
+            {t('registerInvoice.title')}
           </Text>
         </View>
 
-        <Button title="ยืนยัน" fullWidth onPress={handleSubmit(onSubmit)} />
+        <Button
+          title={t('registerInvoice.confirm')}
+          fullWidth
+          onPress={handleSubmit(onSubmit)}
+        />
       </ScrollView>
     </DefaultLayout>
   );

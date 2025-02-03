@@ -5,6 +5,7 @@ import { IServiceOptions } from '@/model/product';
 import { THB } from '@/utils';
 import Button from '../Button/Button';
 import { ButtonColor, ButtonSize } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 type Props = IServiceOptions & {
   active?: boolean;
@@ -22,6 +23,7 @@ const ServiceOptions: FunctionComponent<Props> = ({
   onViewDetail,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <>
@@ -35,7 +37,7 @@ const ServiceOptions: FunctionComponent<Props> = ({
           <View style={[Layout.col, Layout.gap10, Layout.fill]}>
             <View style={styles.buttonService}>
               <Button
-                title="งานบริการ"
+                title={t('ServiceOptions.service')}
                 size={ButtonSize.mini}
                 colors={ButtonColor.error}
               />
@@ -56,7 +58,9 @@ const ServiceOptions: FunctionComponent<Props> = ({
             <Text style={[Fonts.text24Med, Fonts.textRed]}>
               {THB.format(amount || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
             </Text>
-            <Text style={[Fonts.text16]}>ราคานี้ ไม่รวมค่าสินค้า</Text>
+            <Text style={[Fonts.text16]}>
+              {t('ServiceOptions.notIncludingProduct')}
+            </Text>
           </View>
         </View>
       </TouchableOpacity>

@@ -29,8 +29,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'ServiceIndex'>;
 // @refresh reset
 const ServiceIndex = ({}: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Images, Fonts } = useTheme();
 
   // state
@@ -99,10 +99,10 @@ const ServiceIndex = ({}: Props): JSX.Element => {
           <View style={[styles.headerBox]}>
             <View style={[Layout.col]}>
               <Text style={[Fonts.text18, Fonts.textWhite]}>
-                เลือกพื้นที่ให้บริการ
+                {t('serviceIndex.selectServiceArea')}
               </Text>
               <Text style={[Fonts.text16, Fonts.textWhite]}>
-                เลือกสถานที่ให้บริการเพื่องานต่อการนัดหมาย
+                {t('serviceIndex.selectLocation')}
               </Text>
             </View>
             <View>
@@ -117,28 +117,52 @@ const ServiceIndex = ({}: Props): JSX.Element => {
           <Catalog method="catalogSolution" />
           <CatalogList
             data={[
-              { id: 1, name: 'ระบบพ่นสี', image: Images.catalog.mockA },
+              {
+                id: 1,
+                name: t('serviceIndex.paintSystem'),
+                image: Images.catalog.mockA,
+              },
               {
                 id: 2,
-                name: 'อุปกรณ์ ความปลอดภัย',
+                name: t('serviceIndex.safetyEquipment'),
                 image: Images.catalog.mockB,
               },
-              { id: 3, name: 'อะไหล่เครื่องจักร', image: Images.catalog.mockC },
-              { id: 4, name: 'ระบบอัตโนมัติ', image: Images.catalog.mockD },
+              {
+                id: 3,
+                name: t('serviceIndex.machineParts'),
+                image: Images.catalog.mockC,
+              },
+              {
+                id: 4,
+                name: t('serviceIndex.automation'),
+                image: Images.catalog.mockD,
+              },
             ]}
           />
 
           <Catalog method="catalogService" />
           <CatalogList
             data={[
-              { id: 1, name: 'ระบบพ่นสี', image: Images.catalog.mockA },
+              {
+                id: 1,
+                name: t('serviceIndex.paintSystem'),
+                image: Images.catalog.mockA,
+              },
               {
                 id: 2,
-                name: 'อุปกรณ์ ความปลอดภัย',
+                name: t('serviceIndex.safetyEquipment'),
                 image: Images.catalog.mockB,
               },
-              { id: 3, name: 'อะไหล่เครื่องจักร', image: Images.catalog.mockC },
-              { id: 4, name: 'ระบบอัตโนมัติ', image: Images.catalog.mockD },
+              {
+                id: 3,
+                name: t('serviceIndex.machineParts'),
+                image: Images.catalog.mockC,
+              },
+              {
+                id: 4,
+                name: t('serviceIndex.automation'),
+                image: Images.catalog.mockD,
+              },
             ]}
           />
 

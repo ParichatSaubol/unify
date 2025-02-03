@@ -16,7 +16,9 @@ reset env powershell
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 
 download schema graphql
+
 - yarn download-schema
 
 generate typescript graphql
+
 - yarn codegen

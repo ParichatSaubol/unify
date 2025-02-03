@@ -18,8 +18,8 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'SearchBrand'>;
 // @refresh reset
 const SearchBrand = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Fonts, Layout, Images } = useTheme();
 
   // state
@@ -92,7 +92,7 @@ const SearchBrand = ({ navigation }: Props): JSX.Element => {
         onPress={() => {
           navigation.goBack();
         }}
-        title="ค้นหาแบรนด์"
+        title={t('searchBrand.title')}
       />
       <ScrollView
         contentContainerStyle={[
@@ -103,13 +103,15 @@ const SearchBrand = ({ navigation }: Props): JSX.Element => {
       >
         <View style={[Layout.gap20, Layout.main, Layout.bgWhite]}>
           <View style={styles.container}>
-            <InputSearchBrand placeholder="ค้นหาแบรนด์ได้ที่นี่" />
+            <InputSearchBrand placeholder={t('searchBrand.placeholder')} />
           </View>
 
-          <Text style={[Fonts.text24Med]}>สินค้าแบรนด์ชั้นนำ</Text>
+          <Text style={[Fonts.text24Med]}>{t('searchBrand.topBrand')}</Text>
           <CatalogImageList data={topBrand} />
 
-          <Text style={[Fonts.text24Med]}>เรียงตาม หมวดตัวอักษร</Text>
+          <Text style={[Fonts.text24Med]}>
+            {t('searchBrand.renderSortBoard')}
+          </Text>
           <View>{renderSortBoard()}</View>
         </View>
       </ScrollView>

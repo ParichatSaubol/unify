@@ -15,7 +15,7 @@ type Props = NativeStackScreenProps<
 const CommunityDetail = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Fonts, Layout, Images } = useTheme();
 
@@ -40,7 +40,7 @@ const CommunityDetail = ({ navigation }: Props): JSX.Element => {
         onPress={() => {
           navigation.goBack();
         }}
-        title="คอมมูนิตี้และบทความ"
+        title={t('communityDetail.title')}
       />
       <ScrollView
         contentContainerStyle={[
@@ -52,15 +52,8 @@ const CommunityDetail = ({ navigation }: Props): JSX.Element => {
         <View style={[Layout.gap20, Layout.main, Layout.bgWhite]}>
           <Detail
             bannerImage={Images.community.content}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
-            description="ตอนนี้ไม่ว่าจะหันไปทางไหนก็มีแต่ Automation เต็มไปหมด เพราะ
-            ปัจจุบัน Automation กำลังถูกพูดถึงในขณะนี้ยังรวมไปถึง ความกังวล
-            เกี่ยวกับเรื่องของหุ่นยนต์ที่จะเข้ามาแทนที่การทำงานของอีกด้วย ซึ่งเป็นความเข้าใจที่ ‘ผิดอย่างมากเลยครับ’ เพราะว่าแรกเริ่มเดิมทีเนี่ย การเกิดขึ้นของระบบ Automation มีขึ้นเพื่อสนับสนุนการทำงานของ
-            มนุษย์หรือทำงานในส่วนที่มนุษย์ไม่สามารถทำได้ ซึ่งจริงๆ แล้วระบบ
-            ออโตเมชันสามารถลดต้นทุนได้เป็นอย่างมากส่งผลให้เกิดความต้องการ
-            และการใช้ทรัพยากรมากขึ้นในภาคส่วนอื่นๆรวมถึงภาคส่วนของออโตเมชันเองด้วย ทั้งยังเพิ่มกำลังการผลิตและสร้างโอกาส ใหม่ๆของธุรกิจ
-            ได้อีกด้วยเราจะไปรู้จักกับ Automation กันก่อน"
+            createdBy={t('communityDetail.createdBy')}
+            title={t('communityDetail.description')}
             contentImage={Images.community.content2}
           />
         </View>

@@ -1,8 +1,14 @@
-import React, { FunctionComponent, useCallback, useRef, useState , useEffect } from 'react';
+import React, {
+  FunctionComponent,
+  useCallback,
+  useRef,
+  useState,
+  useEffect,
+} from 'react';
 import { Dimensions, FlatList } from 'react-native';
 import { useTheme } from '@/hooks';
 import CommunityCard, { CommunityCardProps } from './CommunityCard';
-import {useLazyGetContentAuthor} from '@/services/modules/author';
+import { useLazyGetContentAuthor } from '@/services/modules/author';
 import config from '@/utils/config';
 
 // {
@@ -59,47 +65,44 @@ const { width: windowWidth } = Dimensions.get('window');
 // แสดงรูปภาพแบบ Carousel
 const Community: FunctionComponent<Props> = () => {
   const { Images, Layout } = useTheme();
-  const [GetContentAuthor] = useLazyGetContentAuthor(); 
+  const [GetContentAuthor] = useLazyGetContentAuthor();
   const [page, setPage] = useState(1);
   const [perPage, setperPage] = useState(5);
   const flatListRef = useRef<FlatList>(null); // อ้างอิงไปยัง ScrollView
-  const [data , setData] = useState<CommunityCardProps[]>([]);
+  const [data, setData] = useState<CommunityCardProps[]>([]);
 
   const FETCH_DATA_COMMUNITY = async () => {
     const { loading, error, data } = await GetContentAuthor({
       variables: { page: page, perPage: perPage },
     });
-    const comunity_array : CommunityCardProps[]= []
-    if(data?.getContentAuthor?.content_author.length){
-      for (const item of data?.getContentAuthor?.content_author){
-        const community :CommunityCardProps = {
+    const comunity_array: CommunityCardProps[] = [];
+    if (data?.getContentAuthor?.content_author.length) {
+      for (const item of data?.getContentAuthor?.content_author) {
+        const community: CommunityCardProps = {
           id: item?.author_id,
           tag: 'tag',
           title: 'title',
           createdBy: item?.author_name,
           onMorePress: () => {},
           image: item?.author_img_path
-          ? { uri: config.baseURL + item?.author_img_path }
-          : undefined,
+            ? { uri: config.baseURL + item?.author_img_path }
+            : undefined,
           brandImage: Images.community.brand.a,
-        } 
-        comunity_array.push(community)
+        };
+        comunity_array.push(community);
       }
-      return comunity_array
-
-    }else if(loading){
-      console.log("FETCH_DATA_COMMUNITY loading")
-    }else {
-      console.log(error)
+      return comunity_array;
+    } else if (loading) {
+      console.log('FETCH_DATA_COMMUNITY loading');
+    } else {
+      console.log(error);
     }
-  }
-
+  };
 
   const fetchData = async () => {
     const communties = await FETCH_DATA_COMMUNITY();
-          console.log(communties);
-          setData([...data,...communties]);
-
+    console.log(communties);
+    setData([...data, ...communties]);
   };
 
   useEffect(() => {
@@ -118,8 +121,6 @@ const Community: FunctionComponent<Props> = () => {
       />
     );
   }, []);
-
-  
 
   return (
     <FlatList

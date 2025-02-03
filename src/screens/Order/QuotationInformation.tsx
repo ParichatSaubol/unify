@@ -21,8 +21,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'QuotationInformation'>;
 // @refresh reset
 const QuotationInformation = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -60,7 +60,7 @@ const QuotationInformation = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="ข้อมูลในการออกใบเสนอราคา"
+        title={t('quotationInformation.quotationInfoTitle')}
         onPress={() => {
           //กลับไปหน้าก่อนหน้า
           navigation.goBack();
@@ -82,7 +82,7 @@ const QuotationInformation = ({ navigation }: Props): JSX.Element => {
 
             <View style={[styles.bottomArea]}>
               <Button
-                title="ยืนยัน"
+                title={t('quotationInformation.confirm')}
                 onPress={() => {
                   handleNext();
                 }}
@@ -101,12 +101,14 @@ const QuotationInformation = ({ navigation }: Props): JSX.Element => {
         >
           <View style={[Layout.main, Layout.gap10]}>
             <Text style={[Fonts.text21, Fonts.textBlack]}>
-              กรุณากรอกอีเมลที่ต้องการรับใบเสนอราคา
+              {t('quotationInformation.emailPrompt')}
             </Text>
             <View style={[Layout.col, Layout.gap5]}>
-              <Text style={[Fonts.text21, styles.left]}>อีเมลของคุณ</Text>
+              <Text style={[Fonts.text21, styles.left]}>
+                {t('quotationInformation.yourEmail')}
+              </Text>
               <Input
-                placeholder="อีเมล"
+                placeholder={t('quotationInformation.email')}
                 value={email}
                 onChange={v => setEmail(v)}
                 variant={InputVariant.outlined}
@@ -116,7 +118,7 @@ const QuotationInformation = ({ navigation }: Props): JSX.Element => {
 
           <View style={[styles.bottomArea]}>
             <Button
-              title="ยืนยัน"
+              title={t('quotationInformation.confirm')}
               onPress={() => {
                 handleNext();
               }}
@@ -137,10 +139,10 @@ const QuotationInformation = ({ navigation }: Props): JSX.Element => {
             <Text
               style={[Fonts.text40Med, Fonts.textPrimary, Fonts.textCenter]}
             >
-              ส่งใบเสนอราคาสำเร็จ
+              {t('quotationInformation.quotationSuccess')}
             </Text>
             <Text style={[Fonts.text21, Fonts.textCenter]}>
-              ระบบได้ทำการส่งใบเสนอราคาไปยังอีเมลของคุณแล้ว
+              {t('quotationInformation.quotationSentMessage')}
             </Text>
             <Images.icons.checkCircleOutline
               width="100"
@@ -151,7 +153,7 @@ const QuotationInformation = ({ navigation }: Props): JSX.Element => {
 
           <View style={[styles.bottomArea]}>
             <Button
-              title="กลับสู่หน้าหลัก"
+              title={t('quotationInformation.backToHome')}
               onPress={() => {
                 handleSubmit();
               }}

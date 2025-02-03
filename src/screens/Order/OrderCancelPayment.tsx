@@ -36,8 +36,8 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   // const dispatch = useDispatch();
@@ -71,8 +71,8 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
         discountAmount: 1,
         netAmount: 1000,
         quantity: 1,
-        option: 'สีขาว',
-        title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+        option: t('orderCancelPayment.colorWhite'),
+        title: t('orderCancelPayment.titleMitsubishiHmi'),
       },
       {
         id: '2',
@@ -81,8 +81,8 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
         discountAmount: 1,
         netAmount: 1000,
         quantity: 1,
-        option: 'สีขาว',
-        title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+        option: t('orderCancelPayment.colorWhite'),
+        title: t('orderCancelPayment.titleMitsubishiHmi'),
       },
       {
         id: '3',
@@ -91,44 +91,43 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
         discountAmount: 1,
         netAmount: 1000,
         quantity: 1,
-        option: 'สีขาว',
-        title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+        option: t('orderCancelPayment.colorWhite'),
+        title: t('orderCancelPayment.titleMitsubishiHmi'),
       },
     ],
   });
 
   const [refundNote] = React.useState({
     optionOne: [
-      { title: 'ต้องการเปลี่ยนที่อยู่ในการจัดส่ง' },
-      { title: 'ต้องการเพิ่ม/เปลี่ยนโค้ดส่วนลด' },
-      { title: 'ต้องการแก้ไขรายละเอียดคำสั่งซื้อ' },
-      { title: 'ไม่ต้องการสินค้าชิ้นนี้แล้ว' },
-      { title: 'เจอสินค้าชนิดเดียวกันที่ราคาถูกกว่า' },
-      { title: 'อื่นๆ' },
+      { title: t('orderCancelPayment.updateShipping') },
+      { title: t('orderCancelPayment.modifyDiscountCode') },
+      { title: t('orderCancelPayment.reviseOrderDetails') },
+      { title: t('orderCancelPayment.cancelItem') },
+      { title: t('orderCancelPayment.betterDealFound') },
+      { title: t('orderCancelPayment.miscellaneous') },
     ],
     optionTwo: [
       {
-        title: 'ได้รับสินค้าไม่ครบ / ชิ้นส่วนไม่ครบ / ไม่ได้รับสินค้า',
-        sub: 'ได้รับพัสดุแล้ว แต่ไม่ได้รับสินค้าบางรายการ',
+        title: t('orderCancelPayment.partialDelivery'),
+        sub: t('orderCancelPayment.missingParcelItems'),
       },
       {
-        title:
-          'ได้รับสินค้าไม่ตรงกับรายการที่สั่ง เช่น สีผิด โมเดลผิด หรือสินค้าผิด',
-        sub: 'ผู้ขายส่งสินค้าให้ฉันไม่ตรงกับที่เลือกไว้',
+        title: t('orderCancelPayment.incorrectProduct'),
+        sub: t('orderCancelPayment.incorrectProductDetails'),
       },
       {
-        title: 'สินค้าสภาพไม่ดีหรือมีความเสียหาย',
-        sub: 'สินค้าที่ได้รับอยู่ในสภาพไม่เสียหายหรือแตกหัก/ไม่สามารถใช้งานได้',
+        title: t('orderCancelPayment.defectiveProduct'),
+        sub: t('orderCancelPayment.defectiveProductDetails'),
       },
     ],
     optionThree: [
       {
-        title: 'ฉันไม่ได้รับพัสดุของคำสั่งซื้อนี้',
-        sub: 'ผู้ขายจัดส่งพัสดุแล้ว แต่ฉันไม่ได้รับพัสดุใดๆ',
+        title: t('orderCancelPayment.undeliveredParcel'),
+        sub: t('orderCancelPayment.undeliveredParcelDetails'),
       },
       {
-        title: 'ได้รับสินค้าไม่ครบ / ชิ้นส่วนไม่ครบ / ไม่ได้รับสินค้า',
-        sub: 'ได้รับพัสดุแล้ว แต่ไม่ได้รับสินค้าบางรายการ',
+        title: t('orderCancelPayment.partialDelivery'),
+        sub: t('orderCancelPayment.missingParcelItems'),
       },
     ],
   });
@@ -167,7 +166,7 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
     const elements: JSX.Element[] = [];
 
     switch (titleNote) {
-      case 'ฉันได้ชำระเงินแล้ว แต่ต้องการเปลี่ยนคำสั่งซื้อ':
+      case t('orderCancelPayment.paidChangeOrder'):
         refundNote.optionOne.map((item, index) => {
           elements.push(
             <TouchableOpacity
@@ -188,7 +187,7 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
           );
         });
         break;
-      case 'ฉันได้รับสินค้าแล้ว แต่สินค้ายังไม่สมบูรณ์':
+      case t('orderCancelPayment.receivedIncomplete'):
         refundNote.optionTwo.map((item, index) => {
           elements.push(
             <TouchableOpacity
@@ -214,7 +213,7 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
           );
         });
         break;
-      case 'ฉันไม่ได้รับสินค้าบางรายการ':
+      case t('orderCancelPayment.missingItems'):
         refundNote.optionThree.map((item, index) => {
           elements.push(
             <TouchableOpacity
@@ -279,7 +278,7 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="การยกเลิกสินค้า"
+        title={t('orderCancelPayment.title')}
         onPress={() => {
           //กลับไปหน้าก่อนหน้า
           if (active === 0) {
@@ -307,23 +306,23 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
           ]}
         >
           <View style={[Layout.main, Layout.gap20]}>
-            <Text style={[Fonts.text21]}>เหตุผลในการยกเลิกสินค้า</Text>
+            <Text style={[Fonts.text21]}>{t('orderCancelPayment.reason')}</Text>
             <View style={[Layout.gap10]}>
               <TouchableOpacity
                 style={styles.infoBox}
                 onPress={() =>
                   handleOnPressTitleNote(
-                    'ฉันได้ชำระเงินแล้ว แต่ต้องการเปลี่ยนคำสั่งซื้อ',
+                    t('orderCancelPayment.paidChangeOrder'),
                   )
                 }
               >
                 <Images.icons.cancel1 width="60" />
                 <View style={[Layout.col, Layout.fill]}>
                   <Text style={[Fonts.text21, Fonts.textPrimary]}>
-                    ฉันได้ชำระเงินแล้ว แต่ต้องการเปลี่ยนคำสั่งซื้อ
+                    {t('orderCancelPayment.paidChangeOrder')}
                   </Text>
                   <Text style={[Fonts.text21]}>
-                    ฉันต้องการยกเลิกหรือเปลี่ยนคำสั่งซื้อ
+                    {t('orderCancelPayment.paidChangeOrderSub')}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -331,34 +330,33 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
                 style={styles.infoBox}
                 onPress={() =>
                   handleOnPressTitleNote(
-                    'ฉันได้รับสินค้าแล้ว แต่สินค้ายังไม่สมบูรณ์',
+                    t('orderCancelPayment.receivedIncomplete'),
                   )
                 }
               >
                 <Images.icons.cancel2 width="60" />
                 <View style={[Layout.col, Layout.fill]}>
                   <Text style={[Fonts.text21, Fonts.textPrimary]}>
-                    ฉันได้รับสินค้าแล้ว แต่สินค้ายังไม่สมบูรณ์
+                    {t('orderCancelPayment.receivedIncomplete')}
                   </Text>
                   <Text style={[Fonts.text21]}>
-                    ฉันต้องการรับเงินคืน/คืนสินค้า เพราะสินค้ามีความเสียหาย
-                    หรือได้รับสินค้าผิด
+                    {t('orderCancelPayment.receivedIncompleteSub')}
                   </Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.infoBox}
                 onPress={() => {
-                  handleOnPressTitleNote('ฉันไม่ได้รับสินค้าบางรายการ');
+                  handleOnPressTitleNote(t('orderCancelPayment.missingItems'));
                 }}
               >
                 <Images.icons.cancel3 width="60" />
                 <View style={[Layout.col, Layout.fill]}>
                   <Text style={[Fonts.text21, Fonts.textPrimary]}>
-                    ฉันไม่ได้รับสินค้าบางรายการ
+                    {t('orderCancelPayment.missingItems')}
                   </Text>
                   <Text style={[Fonts.text21]}>
-                    ฉันต้องการเงินคืน เพราะไม่ได้รับสินค้าบางรายการ
+                    {t('orderCancelPayment.missingItemsSub')}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -372,40 +370,48 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
           <OrderDetail order={order} />
           <View style={[styles.cancelRoot]}>
             <View style={[styles.cancelBox]}>
-              <Text style={[Fonts.text18]}>เหตุผลในการคืนเงิน</Text>
+              <Text style={[Fonts.text18]}>
+                {t('orderCancelPayment.refundReason')}
+              </Text>
               <TouchableOpacity
                 onPress={() => {
                   handleOnPressRefundNode();
                 }}
               >
-                <Text style={[Fonts.text18]}>เลือก</Text>
+                <Text style={[Fonts.text18]}>
+                  {t('orderCancelPayment.select')}
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
           <View style={[styles.cancelRoot]}>
             <View style={[styles.cancelBox]}>
-              <Text style={[Fonts.text18]}>จำนวนเงินคืน:</Text>
+              <Text style={[Fonts.text18]}>
+                {t('orderCancelPayment.refundAmount')}
+              </Text>
               <Text style={[Fonts.text18, Fonts.textPrimary]}>฿877</Text>
             </View>
           </View>
           <View style={[styles.cancelRoot]}>
             <Text style={[Fonts.text18]}>
-              คำอธิบายเพิ่มเติมเกี่ยวปัญหาที่คุณพบ (ข้อมูลจำเป็นต้องกรอก)
+              {t('orderCancelPayment.refundNote')}
             </Text>
             <Input
-              placeholder="กรุณาอธิบายเหตุผลในการยื่นขอ คืนเงิน/คืนสินค้า อย่างละเอียด"
+              placeholder={t('orderCancelPayment.refundPlaceholder')}
               numberOfLines={2}
             />
           </View>
           <View style={[styles.cameraRoot]}>
             <View style={styles.cameraBox}>
-              <ChipImage logo={<Images.icons.camera />} title="เพิ่มรูปภาพ" />
+              <ChipImage
+                logo={<Images.icons.camera />}
+                title={t('orderCancelPayment.addImage')}
+              />
             </View>
           </View>
           <View style={[styles.cancelRoot]}>
             <Text style={[Fonts.text18, Fonts.textCenter, Layout.fill]}>
-              หากคืนเงินสำเร็จ จะคืนเงินไปยังบัญชีธนาคารหรือบัตรเดบิต/เครดิต
-              ที่คุณทำการชำระเงินมา และโค้ดส่วนลดที่คุณใช้ไปจะได้รับคืนพร้อมกัน
+              {t('orderCancelPayment.refundPolicy')}
             </Text>
           </View>
         </ScrollView>
@@ -421,7 +427,7 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
         )} */}
         {active === 1 && (
           <Button
-            title="ส่งคำขอ"
+            title={t('orderCancelPayment.submitRequest')}
             onPress={() => {
               navigation.navigate('OrderResult');
             }}
@@ -445,7 +451,7 @@ const OrderCancelPayment = ({ navigation }: Props): JSX.Element => {
               <Text
                 style={[Fonts.text28Light, Fonts.textBlack, Fonts.textCenter]}
               >
-                เหตุผลในการยกเลิกสินค้า
+                {t('orderCancelPayment.reason')}
               </Text>
               <View style={styles.noteItems}>{renderNote()}</View>
             </View>

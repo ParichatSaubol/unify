@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FunctionComponent, useCallback, useState } from 'react';
 import { useTheme } from '@/hooks';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { InputSelectionSize, InputSelectionVariant } from '@/model/options';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 interface Props {
   error?: boolean;
@@ -28,6 +31,8 @@ const InputSelection: FunctionComponent<Props> = ({
 }) => {
   // hooks
   const { Layout, Common, Images, Colors, Fonts } = useTheme();
+  // eslint-disable-next-line @typescript-eslint/no-shadow
+  const { t } = useTranslation('common');
 
   // variables
   const [visible, setVisible] = useState(false);
@@ -35,8 +40,8 @@ const InputSelection: FunctionComponent<Props> = ({
     size === InputSelectionSize.small
       ? 40
       : size === InputSelectionSize.medium
-      ? 50
-      : 60;
+        ? 50
+        : 60;
 
   // callbacks
   const toggleDropdown = (): void => {
@@ -108,7 +113,7 @@ InputSelection.defaultProps = {
   error: false,
   helperText: undefined,
   onChange: () => {},
-  option: ['นาง', 'นางสาว', 'นาย'],
+  option: t('salutationOptions'),
   placeholder: '',
   size: InputSelectionSize.medium,
   startIcon: undefined,

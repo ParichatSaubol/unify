@@ -12,6 +12,7 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 type ProductDetailProps = IProductDetail & {};
 
@@ -33,10 +34,11 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
   description,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
-  useEffect(()=>{
-    console.log(title)
-  },[])
+  useEffect(() => {
+    console.log(title);
+  }, []);
 
   return (
     <View style={[Layout.col, Layout.gap10]}>
@@ -52,7 +54,10 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
             Layout.gap10,
           ]}
         >
-          <Text style={Fonts.text18}>รหัสสินค้า : {code}</Text>
+          <Text style={Fonts.text18}>
+            {' '}
+            {t('productDetail.productCode')} {code}
+          </Text>
           <ButtonIcon
             colors={ButtonIconColors.white}
             variant={ButtonIconVariant.box}
@@ -64,7 +69,9 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
             <Images.icons.star />
             <Text style={Fonts.text18}>{star}</Text>
             <View style={styles.dividers} />
-            <Text style={Fonts.text18}>ขายแล้ว {soldCount} ชิ้น</Text>
+            <Text style={Fonts.text18}>
+              {t('productDetail.sold')} {soldCount} {t('productDetail.pieces')}
+            </Text>
           </View>
         </View>
         <View>
@@ -75,7 +82,7 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
             <Text style={[Fonts.text18, styles.netAmount]}>
               {THB.format(netAmount || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
             </Text>
-            <Text style={[Fonts.text18]}>/ ชิ้น</Text>
+            <Text style={[Fonts.text18]}>{t('productDetail.perPiece')}</Text>
           </View>
         </View>
         <View>
@@ -83,14 +90,14 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
             {isGenuine && (
               <>
                 <Images.icons.warning2 color={'#0057FF'} />
-                <Text style={Fonts.text18}>ของแท้ 100%</Text>
+                <Text style={Fonts.text18}>{t('productDetail.genuine')}</Text>
                 <View style={styles.dividers} />
               </>
             )}
             {isReady && (
               <>
                 <Images.icons.truckfast color={'#0057FF'} />
-                <Text style={Fonts.text18}>สินค้าพร้อมส่ง</Text>
+                <Text style={Fonts.text18}>{t('productDetail.genuine')}</Text>
                 <View style={styles.dividers} />
               </>
             )}
@@ -106,7 +113,7 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
           <View style={[Layout.row, Layout.gap10]}>
             <View style={Layout.fill}>
               <Button
-                title="แคตตาล็อก"
+                title={t('productDetail.catalog')}
                 size={ButtonSize.mini}
                 endIcon={<Images.icons.arrowRight color="white" />}
                 fullWidth
@@ -132,7 +139,7 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
           <Text style={[Fonts.text16]}>{brandDescription}</Text>
           <View style={styles.brandButton}>
             <Button
-              title="ดูสินค้าแบรนด์นี้"
+              title={t('productDetail.viewBrandProducts')}
               colors={ButtonColor.primary}
               size={ButtonSize.mini}
               variant={ButtonVariant.outlined}
@@ -143,7 +150,9 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
         </View>
       </View>
       <View style={[Layout.col, styles.container, Layout.gap10]}>
-        <Text style={[Fonts.text21Med, Fonts.textBlack]}>รายละเอียดสินค้า</Text>
+        <Text style={[Fonts.text21Med, Fonts.textBlack]}>
+          {t('productDetail.productDetails')}
+        </Text>
         <View>
           {detail &&
             Object.keys(detail)?.map((key, index) => (
@@ -169,7 +178,7 @@ const ProductDetail: FunctionComponent<ProductDetailProps> = ({
       </View>
       <View style={[Layout.col, styles.container, Layout.gap10]}>
         <Text style={[Fonts.text21Med, Fonts.textBlack]}>
-          Product Description
+          {t('productDetail.productDetails')}
         </Text>
         {description?.map((item, index) => (
           <View style={[Layout.row, Layout.gap5]} key={index}>

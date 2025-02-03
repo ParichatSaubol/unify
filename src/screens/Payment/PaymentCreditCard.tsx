@@ -13,8 +13,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'PaymentCreditCard'>;
 // @refresh reset
 const PaymentCreditCard = ({ navigation, route }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { orderId } = route.params;
 
   const { Layout, Fonts, Images } = useTheme();
@@ -71,7 +71,7 @@ const PaymentCreditCard = ({ navigation, route }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="ชำระด้วย Credit / Debit Card"
+        title={t('paymentCreditCard.title')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -87,7 +87,7 @@ const PaymentCreditCard = ({ navigation, route }: Props): JSX.Element => {
       >
         <View style={[Layout.row, Layout.gap10, Layout.justifyContentBetween]}>
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            ประเภทบัตรที่รองรับ
+            {t('paymentCreditCard.supportedCards')}
           </Text>
           <View style={[Layout.row, Layout.gap5, Layout.alignItemsCenter]}>
             <Images.icons.visa />
@@ -96,10 +96,11 @@ const PaymentCreditCard = ({ navigation, route }: Props): JSX.Element => {
         </View>
         <View>
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            หมายเลขบัตร<Text style={[Fonts.textRed]}>*</Text>
+            {t('paymentCreditCard.cardNumber')}
+            <Text style={[Fonts.textRed]}>*</Text>
           </Text>
           <Input
-            placeholder="หมายเลขบนบัตร"
+            placeholder={t('paymentCreditCard.cardNumber')}
             value={cardName}
             onChange={val => {
               setCardName(val);
@@ -108,10 +109,11 @@ const PaymentCreditCard = ({ navigation, route }: Props): JSX.Element => {
         </View>
         <View>
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            ชื่อบนบัตร<Text style={[Fonts.textRed]}>*</Text>
+            {t('paymentCreditCard.cardName')}
+            <Text style={[Fonts.textRed]}>*</Text>
           </Text>
           <Input
-            placeholder="ชื่อบนบัตร"
+            placeholder={t('paymentCreditCard.cardName')}
             value={cardNumber}
             onChange={val => {
               setCardName(val);
@@ -121,10 +123,11 @@ const PaymentCreditCard = ({ navigation, route }: Props): JSX.Element => {
         <View style={[Layout.row, Layout.gap20]}>
           <View style={[Layout.fill]}>
             <Text style={[Fonts.text21, Fonts.textBlack]}>
-              Expiration<Text style={[Fonts.textRed]}>*</Text>
+              {t('paymentCreditCard.expiration')}
+              <Text style={[Fonts.textRed]}>*</Text>
             </Text>
             <Input
-              placeholder="Expiration"
+              placeholder={t('paymentCreditCard.expiration')}
               value={cardExpiration}
               onChange={val => {
                 setCardName(val);
@@ -147,11 +150,11 @@ const PaymentCreditCard = ({ navigation, route }: Props): JSX.Element => {
         <View style={styles.warningBox}>
           <Images.icons.warning1 color="#0057FF" />
           <Text style={[Fonts.text16, Fonts.textPrimary]}>
-            กรุณาตรวจสอบข้อมูลบนบัตรก่อนยืนยันการชำระเงิน
+            {t('paymentCreditCard.warning')}
           </Text>
         </View>
         <Button
-          title="ยืนยันคำสั่งซื้อ"
+          title={t('paymentCreditCard.confirm')}
           onPress={() => {
             navigation.navigate('PaymentResult', {
               orderId: orderId,

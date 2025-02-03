@@ -17,10 +17,10 @@ i18n.use(initReactI18next).init({
       {},
     ),
   },
-  lng: 'th',
+  lng: 'en',
   fallbackLng: 'en',
   interpolation: {
-    escapeValue: false, // not needed for react as it escapes by default
+    escapeValue: false,
   },
   compatibilityJSON: 'v3',
 });

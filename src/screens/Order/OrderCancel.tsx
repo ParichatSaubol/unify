@@ -14,20 +14,20 @@ type Props = NativeStackScreenProps<ProductParamsList, 'OrderCancel'>;
 const OrderCancel = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   // const dispatch = useDispatch();
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [note, setNote] = React.useState<string[]>([
-    'ต้องการเปลี่ยนที่อยู่ในการจัดส่ง',
-    'ต้องการเพิ่ม/เปลี่ยนโค้ดส่วนลด',
-    'ต้องการแก้ไขรายละเอียดคำสั่งซื้อ',
-    'ไม่ต้องการสินค้าชิ้นนี้แล้ว',
-    'ขั้นตอนการชำระเงินซับซ้อนเกินไป',
-    'เจอสินค้าชนิดเดียวกันที่ราคาถูกกว่า',
-    'อื่นๆ',
+    t('orderCancel.changeAddress'),
+    t('orderCancel.changeDiscount'),
+    t('orderCancel.editOrder'),
+    t('orderCancel.cancelItem'),
+    t('orderCancel.paymentTooComplex'),
+    t('orderCancel.foundCheaper'),
+    t('orderCancel.other'),
   ]);
 
   const [noteSelected, setNoteSelected] = React.useState<string[]>([]);
@@ -56,7 +56,7 @@ const OrderCancel = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="เหตุผลการยกเลิก"
+        title={t('orderCancel.title')}
         onPress={() => {
           //กลับไปหน้าก่อนหน้า
           navigation.goBack();
@@ -74,9 +74,7 @@ const OrderCancel = ({ navigation }: Props): JSX.Element => {
             <View style={[styles.infoBox]}>
               <Images.icons.warning1 color="#0046CC" width="24" height="24" />
               <Text style={[Fonts.text16, Fonts.textPrimary, Layout.fill]}>
-                กรุณาเลือกเหตุผลที่คุณต้องการยกเลิกคำสั่งซื้อ โดยสินค้าในคำสั่ง
-                ซื้อนี้จะถูกยกเลิกหลังจากกดยืนยันแล้วคุณไม่สามารถแก้ไขคำขอ
-                ยกเลิกได้หลังจากกดยืนยันแล้ว
+                {t('orderCancel.instruction')}
               </Text>
             </View>
           </View>
@@ -108,7 +106,7 @@ const OrderCancel = ({ navigation }: Props): JSX.Element => {
       </ScrollView>
       <View style={[Layout.main, styles.bottom]}>
         <Button
-          title="ยืนยัน"
+          title={t('orderCancel.confirm')}
           onPress={() => {
             navigation.goBack();
             // navigation.navigate('OrderIndex', {

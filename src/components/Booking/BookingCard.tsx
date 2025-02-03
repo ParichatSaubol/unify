@@ -5,6 +5,7 @@ import Chip from '../Chip/Chip';
 import { Booking } from '@/model/booking';
 import { THB } from '@/utils';
 import { BookingStatus, ChipColor } from '@/model/options';
+import { t } from 'i18next';
 
 type Props = Booking & {};
 
@@ -32,37 +33,54 @@ const BookingCard: FunctionComponent<Props> = ({
         ]}
       >
         <View style={[Layout.col, Layout.gap20]}>
-          <Text style={[Fonts.text16, Fonts.textCenter]}>จำนวน</Text>
+          <Text style={[Fonts.text16, Fonts.textCenter]}>
+            {t('bookingCard.quantity')}
+          </Text>
           <Text style={[Fonts.text21, Fonts.textBlack, Fonts.textCenter]}>
             {number}
           </Text>
         </View>
         <View style={styles.divider} />
         <View style={[Layout.col, Layout.gap20]}>
-          <Text style={[Fonts.text16, Fonts.textCenter]}>ราคา</Text>
+          <Text style={[Fonts.text16, Fonts.textCenter]}>
+            {t('bookingCard.price')}
+          </Text>
           <Text style={[Fonts.text21, Fonts.textBlack, Fonts.textCenter]}>
             {THB.format(amount || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
           </Text>
         </View>
         <View style={styles.divider} />
         <View style={[Layout.col, Layout.gap20]}>
-          <Text style={[Fonts.text16, Fonts.textCenter]}>วันที่นัดหมาย</Text>
+          <Text style={[Fonts.text16, Fonts.textCenter]}>
+            {t('bookingCard.appointmentDate')}
+          </Text>
           <Text style={[Fonts.text21, Fonts.textBlack, Fonts.textCenter]}>
             {bookingDate}
           </Text>
         </View>
         <View style={styles.divider} />
         <View style={[Layout.col, Layout.gap20]}>
-          <Text style={[Fonts.text16, Fonts.textCenter]}>สถานะ</Text>
+          <Text style={[Fonts.text16, Fonts.textCenter]}>
+            {t('bookingCard.status')}
+          </Text>
           <Text style={[Fonts.text21, Fonts.textBlack, Fonts.textCenter]}>
             {status === BookingStatus.inProgress && (
-              <Chip title="รอเจ้าหน้าที่ติดต่อ" color={ChipColor.primary} />
+              <Chip
+                title={t('bookingCard.statusInProgress')}
+                color={ChipColor.primary}
+              />
             )}
             {status === BookingStatus.inPayment && (
-              <Chip title="รอการชำระเงิน" color={ChipColor.warning} />
+              <Chip
+                title={t('bookingCard.statusInPayment')}
+                color={ChipColor.warning}
+              />
             )}
             {status === BookingStatus.completed && (
-              <Chip title="ชำระเงินแล้ว" color={ChipColor.success} />
+              <Chip
+                title={t('bookingCard.statusCompleted')}
+                color={ChipColor.success}
+              />
             )}
           </Text>
         </View>

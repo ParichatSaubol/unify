@@ -12,8 +12,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'UnipointHistory'>;
 // @refresh reset
 const UnipointHistory = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   // const dispatch = useDispatch();
@@ -22,20 +22,20 @@ const UnipointHistory = ({ navigation }: Props): JSX.Element => {
   const [history] = useState([
     {
       id: 1,
-      date: '10 พ.ค. 2566',
-      reward: 'อันดามันตรา รีสอร์ต แอนด์ วิลลา ภูเก็ต พูลวิลลา 2 ห้องนอน',
+      date: t('unipointHistory.date1'),
+      reward: t('unipointHistory.reward'),
       point: -1992,
     },
     {
       id: 1,
-      date: '7 พ.ค. 2566',
-      reward: 'การซื้อสินค้ากับ UNIFY',
+      date: t('unipointHistory.date2'),
+      reward: t('unipointHistory.reward2'),
       point: +302,
     },
     {
       id: 1,
-      date: '7 มี.ค. 2566',
-      reward: 'การซื้อสินค้ากับ UNIFY',
+      date: t('unipointHistory.date3'),
+      reward: t('unipointHistory.reward2'),
       point: +302,
     },
   ]);
@@ -57,7 +57,7 @@ const UnipointHistory = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="ประวัติการใช้คะแนน"
+        title={t('unipointHistory.historyTitle')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -73,25 +73,22 @@ const UnipointHistory = ({ navigation }: Props): JSX.Element => {
           <View style={[Layout.main, Layout.gap10]}>
             <View style={styles.box}>
               <Text style={[Fonts.text18, Fonts.textBlack]}>
-                Starbuck e-coupon มูลค่า 200 บาท (ใช้สิทธิ์ได้ที่สตาร์บัคส์
-                ทุกสาขา) เงื่อนไขและรายละเอียดเป็นไปตามที่บริษัทกำหนด
+                {t('unipointHistory.couponDescription')}
               </Text>
               <Text style={[Fonts.text24Med, Fonts.textPrimary]}>
-                1,500 คะแนน
+                {t('unipointHistory.couponPoints')}
               </Text>
             </View>
             <Text style={[Fonts.text16, Fonts.textCenter]}>
-              กรุณารอเจ้าหน้าที่ติดต่อกลับ
-              เพื่อทำการแจ้งที่อยู่จัดส่งของรางวัลครับ
+              {t('unipointHistory.waitingMessage')}
             </Text>
 
             <View>
               <Text style={[Fonts.text21, Fonts.textBlack]}>
-                ประวัติการแลกคะแนนของคุณล่าสุด
+                {t('unipointHistory.rewardHistory')}
               </Text>
               <Text style={[Fonts.text16, Fonts.textBlack]}>
-                รวมประวัติการแลกคอยน์ของคุณทั้ง Gift Voucher รวมถึง การแลกคะแนน
-                เพื่อใช้เป็นส่วนลด
+                {t('unipointHistory.historyDescription')}
               </Text>
             </View>
           </View>
@@ -121,7 +118,7 @@ const UnipointHistory = ({ navigation }: Props): JSX.Element => {
         ))}
 
         <View style={[Layout.main]}>
-          <Button title="ดูรายละเอียดทั้งหมด" />
+          <Button title={t('unipointHistory.viewAllDetails')} />
         </View>
       </ScrollView>
     </DefaultLayout>

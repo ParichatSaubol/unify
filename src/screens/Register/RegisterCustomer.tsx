@@ -37,8 +37,8 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Fonts, Colors, Images } = useTheme();
   const { dismissAll } = useBottomSheetModal();
   const { handleSubmit, control, watch } = useForm<TRegisterCustomer>({
@@ -64,7 +64,7 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
   return (
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
-        title="กรอกข้อมูลสมาชิก"
+        title={t('registerCustomer.title')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -79,14 +79,14 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
         <Card
           title={
             watch('type') === RoleType.COMPANY
-              ? 'ข้อมูลลงทะเบียน (สำหรับลูกค้าบริษัท)'
-              : 'ข้อมูลลงทะเบียน (สำหรับลูกค้าทั่วไป)'
+              ? t('registerCustomer.company')
+              : t('registerCustomer.general')
           }
         >
           <View style={[Layout.col, Layout.gap10]}>
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                คำนำหน้า
+                {t('registerCustomer.prefix')}
               </Text>
               <Controller
                 name="prefix"
@@ -96,7 +96,7 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <InputSelection
-                    placeholder="คำนำหน้า"
+                    placeholder={t('registerCustomer.prefix')}
                     variant={InputSelectionVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -108,7 +108,7 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
             </View>
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                ชื่อ / นามสกุล
+                {t('registerCustomer.nameL')}
               </Text>
               <Controller
                 name="name"
@@ -118,7 +118,7 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ชื่อ"
+                    placeholder={t('registerCustomer.name')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -129,7 +129,9 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
               />
             </View>
             <View>
-              <Text style={[Fonts.text18, { color: Colors.black }]}>อีเมล</Text>
+              <Text style={[Fonts.text18, { color: Colors.black }]}>
+                {t('registerCustomer.email')}
+              </Text>
               <Controller
                 name="email"
                 control={control}
@@ -138,7 +140,7 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="อีเมล"
+                    placeholder={t('registerCustomer.email')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -151,11 +153,11 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
           </View>
         </Card>
 
-        <Card title="ตั้งรหัสผ่านเข้าใช้งาน">
+        <Card title={t('registerCustomer.setPassword')}>
           <View style={[Layout.col, Layout.gap10]}>
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                รหัสผ่าน
+                {t('registerCustomer.password')}
               </Text>
               <Controller
                 name="password"
@@ -165,7 +167,7 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="รหัสผ่าน"
+                    placeholder={t('registerCustomer.password')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -179,7 +181,7 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
 
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                ยืนยันรหัสผ่าน
+                {t('registerCustomer.confirmPassword')}
               </Text>
               <Controller
                 name="confirmPassword"
@@ -189,7 +191,7 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ยืนยันรหัสผ่าน"
+                    placeholder={t('registerCustomer.confirmPassword')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -203,31 +205,35 @@ const RegisterCustomer = ({ navigation, route }: Props): JSX.Element => {
 
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                การตั้งรหัสเพื่อความปลอดภัย
+                {t('registerCustomer.safety')}
               </Text>
               <View style={[Layout.rowHCenter, Layout.gap10]}>
                 <Images.icons.checkCircleOutline color={Colors.gray600} />
                 <Text style={[Fonts.text16, { color: Colors.gray600 }]}>
-                  ตัวอักษรภาษาอังกฤษตัวเล็กและใหญ่ (a-z)
+                  {t('registerCustomer.character')}
                 </Text>
               </View>
               <View style={[Layout.rowHCenter, Layout.gap10]}>
                 <Images.icons.checkCircleOutline color={Colors.gray600} />
                 <Text style={[Fonts.text16, { color: Colors.gray600 }]}>
-                  ตัวเลขอย่างน้อย 1 ตัวอักษร (0-9)
+                  {t('registerCustomer.number')}
                 </Text>
               </View>
               <View style={[Layout.rowHCenter, Layout.gap10]}>
                 <Images.icons.checkCircleOutline color={Colors.gray600} />
                 <Text style={[Fonts.text16, { color: Colors.gray600 }]}>
-                  รหัสต้องมีความยาวอย่างน้อย 8 ตัวอักษร
+                  {t('registerCustomer.charactersLong')}
                 </Text>
               </View>
             </View>
           </View>
         </Card>
 
-        <Button title="ถัดไป" fullWidth onPress={handleSubmit(onSubmit)} />
+        <Button
+          title={t('registerCustomer.next')}
+          fullWidth
+          onPress={handleSubmit(onSubmit)}
+        />
       </ScrollView>
     </DefaultLayout>
   );

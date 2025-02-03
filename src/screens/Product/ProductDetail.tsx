@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react';
-import { View, ScrollView, StyleSheet, Image, ActivityIndicator } from 'react-native';
+import {
+  View,
+  ScrollView,
+  StyleSheet,
+  Image,
+  ActivityIndicator,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@/hooks';
 import {
@@ -89,16 +95,15 @@ const ProductDetail = ({ navigation, route }: Props): JSX.Element => {
   const isFlash = route?.params?.isFlash || false;
   const [loading, setloading] = React.useState(true);
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Images } = useTheme();
   const dispatch = useDispatch();
   // const bar = useStatus
   // state
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   const [detail, setDetail] = React.useState<IProductDetail>({
-    title:
-      'สวิตซ์ปุ่มฉุกเฉิน Emergency Switch IDEC สวิตซ์ปุ่ม ฉุกเฉิน Emergency Switch',
+    title: t('productDetail.title'),
     code: '123456789',
     star: 4,
     soldCount: 100,
@@ -106,12 +111,12 @@ const ProductDetail = ({ navigation, route }: Props): JSX.Element => {
     amount: 100,
     isGenuine: true,
     isReady: true,
-    delivered: '1 วันทำการ',
+    delivered: t('productDetail.delivered'),
     brandName: 'IDEA',
     brandDescription: 'IDEA',
     detail: {
-      Catagories: 'อุปกรณ์เพื่อความปลอดภัยเครื่องจักร',
-      Subcatagories: 'สวิสต์ปุ่มฉุกเฉิน',
+      Catagories: t('productDetail.catagories'),
+      Subcatagories: t('productDetail.subcatagories'),
       Brand: 'IDEC',
       'Product Name': 'IDEC สวิตซ์ปุ่มฉุกเฉิน Emergency Switch',
       Model: 'XN4E-BL411MRH ',
@@ -132,14 +137,14 @@ const ProductDetail = ({ navigation, route }: Props): JSX.Element => {
     images: [Images.carousel.a, Images.carousel.a, Images.carousel.a],
     serviceOptions: [
       {
-        title: 'งานติดตั้งสวิตซ์ปุ่มฉุกเฉิน แบรนด์ IDEC',
-        description: 'ไม่รวมค่าติดตั้ง',
+        title: t('productDetail.title1'),
+        description: t('productDetail.description1'),
         amount: 590,
         id: '1',
       },
       {
-        title: 'งานติดตั้งสวิตซ์ปุ่มฉุกเฉิน แบรนด์ IDEC',
-        description: 'ไม่รวมค่าติดตั้ง',
+        title: t('productDetail.title1'),
+        description: t('productDetail.description1'),
         amount: 590,
         id: '2',
       },
@@ -164,9 +169,8 @@ const ProductDetail = ({ navigation, route }: Props): JSX.Element => {
 
   // callback effect
   useEffect(() => {
-    setloading(true)
+    setloading(true);
     const setDetailData = async () => {
-      
       setDetail({
         title: route?.params?.title,
         code: route?.params?.description,
@@ -176,12 +180,12 @@ const ProductDetail = ({ navigation, route }: Props): JSX.Element => {
         amount: 100,
         isGenuine: true,
         isReady: true,
-        delivered: '1 วันทำการ',
+        delivered: t('productDetail.delivered'),
         brandName: 'IDEA',
         brandDescription: 'IDEA',
         detail: {
-          Catagories: 'อุปกรณ์เพื่อความปลอดภัยเครื่องจักร',
-          Subcatagories: 'สวิสต์ปุ่มฉุกเฉิน',
+          Catagories: t('productDetail.catagories'),
+          Subcatagories: t('productDetail.subcatagories'),
           Brand: 'IDEC',
           'Product Name': 'IDEC สวิตซ์ปุ่มฉุกเฉิน Emergency Switch',
           Model: 'XN4E-BL411MRH ',
@@ -199,17 +203,21 @@ const ProductDetail = ({ navigation, route }: Props): JSX.Element => {
           'Superior safety provided by the same safe-breaking action and safety-potential construction as seen in the ø166 XA/ø22 XW series.',
           'The switches naturally conform to all requirements emergency stop switches need, including a direct-opening feature and safety lock.',
         ],
-        images: [route?.params?.image, route?.params?.image, route?.params?.image],
+        images: [
+          route?.params?.image,
+          route?.params?.image,
+          route?.params?.image,
+        ],
         serviceOptions: [
           {
-            title: 'งานติดตั้งสวิตซ์ปุ่มฉุกเฉิน แบรนด์ IDEC',
-            description: 'ไม่รวมค่าติดตั้ง',
+            title: t('productDetail.title1'),
+            description: t('productDetail.description1'),
             amount: 590,
             id: '1',
           },
           {
-            title: 'งานติดตั้งสวิตซ์ปุ่มฉุกเฉิน แบรนด์ IDEC',
-            description: 'ไม่รวมค่าติดตั้ง',
+            title: t('productDetail.title1'),
+            description: t('productDetail.description1'),
             amount: 590,
             id: '2',
           },
@@ -222,26 +230,20 @@ const ProductDetail = ({ navigation, route }: Props): JSX.Element => {
           'FX2N-49ER-ES-05',
           'FX2N-49ER-ES-06',
         ],
-      })
+      });
       setTimeout(() => {
-        setloading(false)
+        setloading(false);
       }, 500);
-      
-    }
+    };
 
     setDetailData();
-    
 
-
-    
     init();
 
     return () => {
       dispatch(changeTheme({ darkMode: true }));
     };
-    
   }, [route]);
-  
 
   return (
     <DefaultLayout statusBarColor="dark-content">
@@ -286,24 +288,26 @@ const ProductDetail = ({ navigation, route }: Props): JSX.Element => {
         }
       />
 
-          <ScrollView contentContainerStyle={[]}>
-      
-            <View style={[Layout.gap20]}>
-              <Carousel
-                size={CarouselSize.medium}
-                fullWidth
-                isRadius={false}
-                dataImages={[route?.params?.image, route?.params?.image, route?.params?.image]}
-              />
-              <PromotionBenner isFlash={isFlash} />
-            </View>
-            <Detail {...detail} />
-            <View style={[Layout.gap20, styles.container, Layout.bgWhite]}>
-              <Catalog method="recommend" />
-              <ProductRecommend />
-            </View>
-          </ScrollView>
-
+      <ScrollView contentContainerStyle={[]}>
+        <View style={[Layout.gap20]}>
+          <Carousel
+            size={CarouselSize.medium}
+            fullWidth
+            isRadius={false}
+            dataImages={[
+              route?.params?.image,
+              route?.params?.image,
+              route?.params?.image,
+            ]}
+          />
+          <PromotionBenner isFlash={isFlash} />
+        </View>
+        <Detail {...detail} />
+        <View style={[Layout.gap20, styles.container, Layout.bgWhite]}>
+          <Catalog method="recommend" />
+          <ProductRecommend />
+        </View>
+      </ScrollView>
 
       <CartShopping
         {...detail}

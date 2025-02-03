@@ -4,6 +4,7 @@ import { useTheme } from '@/hooks';
 import Checkbox from '../Checkbox/Checkbox';
 import { AddressCart } from '@/model/address';
 import Button from '../Button/Button';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   address?: number;
@@ -13,29 +14,27 @@ interface Props {
 // แสดงที่อยู่สำหรับจัดส่ง
 const CartAddress: FunctionComponent<Props> = ({ address, setAddress }) => {
   const { Layout, Fonts } = useTheme();
+  const { t } = useTranslation('common');
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [addressList, setAddressList] = React.useState<AddressCart[]>([
     {
       id: 1,
-      name: 'สมคิด จิตชื่นบาน',
+      name: t('cartAddress.name'),
       phoneNumber: '081-567-8912',
-      address:
-        '9/8 บางกรวยไทรน้อย ซอย10 ต.บางกรวย อ.บางกรวย จังหวัดนนทบุรี 11130',
+      address: t('cartAddress.address'),
     },
     {
       id: 2,
-      name: 'สมคิด จิตชื่นบาน',
+      name: t('cartAddress.name'),
       phoneNumber: '081-567-8912',
-      address:
-        '9/8 บางกรวยไทรน้อย ซอย10 ต.บางกรวย อ.บางกรวย จังหวัดนนทบุรี 11130',
+      address: t('cartAddress.address'),
     },
     {
       id: 3,
-      name: 'สมคิด จิตชื่นบาน',
+      name: t('cartAddress.name'),
       phoneNumber: '081-567-8912',
-      address:
-        '9/8 บางกรวยไทรน้อย ซอย10 ต.บางกรวย อ.บางกรวย จังหวัดนนทบุรี 11130',
+      address: t('cartAddress.address'),
     },
   ]);
   const [addressSelected, setAddressSelected] = useState<number | undefined>(
@@ -45,7 +44,7 @@ const CartAddress: FunctionComponent<Props> = ({ address, setAddress }) => {
   return (
     <View style={[styles.header]}>
       <View style={[Layout.main]}>
-        <Text style={[Fonts.text24Med]}>ที่อยู่ของคุณ</Text>
+        <Text style={[Fonts.text24Med]}>{t('cartAddress.yourAddress')}</Text>
       </View>
       {/* Detail Service */}
       {addressList.map((item, index) => (
@@ -66,15 +65,14 @@ const CartAddress: FunctionComponent<Props> = ({ address, setAddress }) => {
             <View style={[Layout.fill]}>
               <View style={[Layout.row, Layout.justifyContentBetween]}>
                 <Text style={[Fonts.text18Bold, Fonts.textBlack]}>
-                  สมคิด จิตชื่นบาน
+                  {t('cartAddress.name')}
                 </Text>
                 <Text style={[Fonts.text18Bold, Fonts.textBlack]}>
                   081-567-8912
                 </Text>
               </View>
               <Text style={[Fonts.text18Bold]}>
-                9/8 บางกรวยไทรน้อย ซอย10 ต.บางกรวย อ.บางกรวย จังหวัดนนทบุรี
-                11130
+                {t('cartAddress.address')},
               </Text>
             </View>
           </View>
@@ -83,7 +81,7 @@ const CartAddress: FunctionComponent<Props> = ({ address, setAddress }) => {
       ))}
       <View style={[Layout.main]}>
         <Button
-          title="เลือกที่อยู่"
+          title={t('cartAddress.selectAddress')}
           onPress={() => {
             setAddress(addressSelected || address || 0);
           }}

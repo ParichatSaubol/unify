@@ -19,7 +19,7 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'ServiceFailed'>;
 const ServiceFailed = ({}: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -71,15 +71,13 @@ const ServiceFailed = ({}: Props): JSX.Element => {
                 styles.customMargin,
               ]}
             >
-              ที่อยู่ของคุณอยู่นอกบริเวณ{'\n'}พื้นที่ ให้บริการ
+              {t('serviceFailed.title')}
             </Text>
             <Text style={[Fonts.text21Med, Fonts.textCenter]}>
-              ขออภัย พื้นที่ของคุณอนู่นอกพื้นที่บริการ{'\n'}
-              ทางเราจะพยายามเพื่อที่จะขยายพื้นที่บริการ{'\n'}
-              ครอบคลุมไปยังพื้นที่ของคุณในอนาคต
+              {t('serviceFailed.description')}
             </Text>
             <View style={[Layout.fill, Layout.fullWidth, styles.customMargin]}>
-              <Button title="กลับหน้าแรก" />
+              <Button title={t('serviceFailed.button')} />
             </View>
           </View>
         </ScrollView>

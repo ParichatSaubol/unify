@@ -20,8 +20,8 @@ var { width, height } = Dimensions.get('window');
 // @refresh reset
 const AddressMap = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Fonts, Layout, Images } = useTheme();
 
@@ -92,13 +92,13 @@ const AddressMap = ({ navigation }: Props): JSX.Element => {
           onPress={() => {
             navigation.goBack();
           }}
-          title="ที่อยู่ในการจัดส่ง"
+          title={t('addressMap.title')}
         />
       </View>
       <View style={[styles.search]}>
         <View style={[styles.searchBox]}>
           <GooglePlacesAutocomplete
-            placeholder="ค้นหาที่อยู่"
+            placeholder={t('addressMap.placeholder')}
             onPress={(data, details = null) => {
               setRegion({
                 ...region,
@@ -167,10 +167,12 @@ const AddressMap = ({ navigation }: Props): JSX.Element => {
               </TouchableOpacity>
             ))}
 
-            {choiceAddress == null && <Button title="เลือกที่อยู่" fullWidth />}
+            {choiceAddress == null && (
+              <Button title={t('addressMap.titleButton')} fullWidth />
+            )}
             {choiceAddress != null && (
               <Button
-                title="เพิ่มลงในที่อยู่"
+                title={t('addressMap.titleButton1')}
                 fullWidth
                 onPress={() => {
                   navigation.navigate('AddressIndex');

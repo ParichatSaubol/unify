@@ -20,8 +20,8 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'Service'>;
 // @refresh reset
 const Service = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -34,8 +34,8 @@ const Service = ({ navigation }: Props): JSX.Element => {
   const [result, setResult] = useState<IProductCard[]>([
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('service.title'),
+      description: t('service.description'),
       amount: 1000000,
       netAmount: 1232990,
       discount: -44,
@@ -44,16 +44,16 @@ const Service = ({ navigation }: Props): JSX.Element => {
     },
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('service.title'),
+      description: t('service.description'),
       amount: 1232990,
       serviceCount: 100,
       image: Images.mock.solution,
     },
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('service.title'),
+      description: t('service.description'),
       amount: 1232990,
       netAmount: 1232990,
       discount: -44,
@@ -78,7 +78,7 @@ const Service = ({ navigation }: Props): JSX.Element => {
       <View style={styles.appBar}>
         <AppBar
           color={AppColor.white}
-          title="งานบริการ"
+          title={t('service.service')}
           onPress={() => {
             navigation.goBack();
           }}
@@ -95,25 +95,33 @@ const Service = ({ navigation }: Props): JSX.Element => {
         <View style={[styles.container]}>
           <View style={styles.inputBox}>
             <InputSelection
-              placeholder="เลือกบริการที่คุณต้องการ"
+              placeholder={t('service.placeholder')}
               variant={InputSelectionVariant.outlined}
               value={search}
               onChange={setSearch}
-              option={['ระบบพ่นสี', 'ระบบเครื่องฉีดน้ำ', 'ระบบเครื่องฉีดน้ำ']}
+              option={[
+                t('service.spraying'),
+                t('service.water'),
+                t('service.water'),
+              ]}
             />
           </View>
         </View>
         {
           <View style={[styles.container]}>
-            <Text style={[Fonts.text18]}>เลือกพื้นที่ให้บริการ</Text>
+            <Text style={[Fonts.text18]}>{t('service.selectService')}</Text>
             <View style={styles.inputBox}>
               <InputSelection
                 startIcon={<Images.icons.location color={Colors.gray600} />}
-                placeholder="เลือกพื้นที่ให้บริการ"
+                placeholder={t('service.selectService')}
                 variant={InputSelectionVariant.outlined}
                 value={localtion}
                 onChange={setLocaltion}
-                option={['กรุงเทพ', 'นนทบุรี', 'ปทุมธานี']}
+                option={[
+                  t('service.bangkok'),
+                  t('service.nonthaburi'),
+                  t('service.pathumThani'),
+                ]}
               />
             </View>
           </View>

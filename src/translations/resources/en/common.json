@@ -2,5 +2,413 @@
   "appName": {
     "full": "React Native Boilerplate",
     "initials": "RNB"
-  }
+  },
+  "addressCard": {
+    "default_shipping_address": "Default Shipping Address",
+  "address_label": "Address",
+  "phone_number": "Phone Number",
+  "edit": "Edit",
+  "delete": "Delete"
+  },
+  "cartEmpty": {
+    "emptyMessage": "Your cart is empty",
+    "emptyDescription": "You have no items in your cart. Please add products you like to your cart."
+  },
+  "cartAddress": {
+    "yourAddress": "Your Address",
+    "selectAddress": "Select Address",
+    "name": "Somkid Jitchuenban",
+    "address": "9/8 Bang Kruai-Sai Noi Soi 10, Bang Kruai Subdistrict, Bang Kruai District, Nonthaburi 11130"
+  },
+  "cartBooking": {
+    "deliveryTo": "Deliver to",
+    "district": "Bang Kruai District 11130",
+    "change": "Change",
+    "interestedInInstallation": "Interested in installation",
+    "addToCart": "Add to cart",
+    "totalPrice": "Total Price",
+    "bookService": "Book Service",
+    "scheduleService": "Schedule Service"
+  },
+  "cartItems": {
+    "cartTitle": "My Cart ({count} items)",
+    "courseTitle": "My Courses ({count} items)",
+    "serviceTitle": "Services ({count} items)",
+    "productTitle": "All Products ({count} items)",
+    "productOptions": "Product Options: A",
+    "pricePerItem": "/ item",
+    "delete": "Delete"
+  },
+  "cartProductDetail": {
+    "selectProductType": "Select Product Type",
+    "closeButton": "Close",
+    "productDetails": "Product Details",
+    "pricePerItem": "/ Piece",
+    "appointmentService": "Appointment Service",
+    "selectModel": "Product Type",
+    "requiredModel": "(*Please select a model)",
+    "serviceOptions": "Add service options with the product purchase",
+    "totalPrice": "Total Price",
+    "productName": "Product Name",
+    "model1": "Model 1",
+    "model2": "Model 2",
+    "model3": "Model 3"
+  },
+  "cartShopping":{
+    "buyProductsNow": "Buy products now",
+    "addToCart": "Add to Cart"
+  },
+  "cartServiceDetail": {
+    "selectServiceType": "Select service type",
+    "appointmentService": "Appointment Service",
+    "selectModel": "Product Type",
+    "requiredModel": "(*Please select a model)",
+    "productName": "Product Name",
+    "model1": "Model 1",
+    "model2": "Model 2",
+    "model3": "Model 3"
+  },
+  "bookingCard": {
+    "quantity": "Quantity",
+    "price": "Price",
+    "appointmentDate": "Appointment Date",
+    "status": "Status",
+    "statusInProgress": "Waiting for staff contact",
+    "statusInPayment": "Waiting for payment",
+    "statusCompleted": "Payment completed"
+  },
+  "categoryBody": {
+    "title": "Paint Spraying System",
+    "brand": "Popular Brands"
+  },
+  "categoryMenu": {
+   "productTitle": "Product",
+      "productSubTitle": "Select a product category",
+      "serviceTitle": "Services",
+      "serviceSubTitle": "Select a service category",
+      "solutionTitle": "Solutions",
+      "solutionSubTitle": "Select a solution category"
+  },
+  "checkoutSummary": {
+    "totalItems": "Total Items",
+    "totalAmount": "Total Amount",
+    "productAmount": "Product Amount",
+    "discountFromCoupon": "Discount from Coupon",
+    "discountFromPoints": "Discount from Points",
+    "vat": "VAT 7%",
+    "shippingFee": "Shipping Fee",
+    "rewardPoints": "Reward Points Earned",
+    "point": "Point",
+    "list": "List"
+  },
+  "checkoutWarning": {
+    "check": "Please check your order and address completely and correctly before paying."
+  },
+  "collapsibleMenuItem": {
+    "test": "Test"
+  },
+  "communityCard": {
+    "article": "Article by :",
+    "read": "Read more"
+  },
+  "communityContent": {
+  "see": "Viewed",
+  "time": "Times",
+  "title": "New-era automation system to reduce production costs"
+  },
+  "communityDetail": {
+   "visualizationTitle": "Visualization SCADA System for Organizations",
+    "visualizationDescription": "When it comes to automation in industries, people often think of working with hardware devices...",
+    "postDate": "Posted on 27-02-2023",
+"technologyCorner": "Industrial Technology Corner",
+"shareArticle": "Share this article",
+"relatedArticles": "Other related articles",
+"title": "New-era automation system to reduce production costs"
+  },
+  "couponCard": {
+    "additionalDiscount": "Additional 15% off",
+    "viewConditions": "View conditions",
+    "validUntil": "Valid until 20th Oct 2022, 23:59",
+    "couponDetails": [
+      "Purchase Mitsubishi branded products, save up to 2,000 THB",
+      "Valid until 20th Oct 2022, 23:59"
+    ],
+    "saveCode": "Save code",
+    "newCustomerOnly": "For new customers only, who have never made a purchase"
+  },
+  "couponDetailModal": {
+  "couponDetails": [
+  "Buy Mitsubishi brand products, up to 2,000 baht discount",
+  "Valid until 20 Oct 2022 23:59"
+  ],
+  "title": "Conditions for using discount codes",
+  "additionalDiscount": "Additional 15% discount",
+  "promotion": "Promotion period:",
+  "promotionPeriod": "1 Oct 2022 00:01 - 20 Oct 2022 23:59",
+  "termsAndConditions": "Terms and conditions"
+},
+"couponEmpty": {
+"title": "No coupon codes available at this time"
+},
+"couponModal": {
+ "title": "Available Coupons",
+    "enterCouponCode": "Enter Discount Code",
+    "search": "Search",
+    "applicableDiscounts": "Discounts applicable to this order" 
+},
+"inputSelection": {
+  "salutationOptions": ["Miss", "Mrs.", "Mr."]
+},
+"invoiceForm": {
+  "company": "Registration Information (For Company Customers)",
+  "individual": "Registration Information (For Individuals)",
+  "taxInvoiceNameLabel": "Name for Tax Invoice (*)",
+  "taxInvoiceNamePlaceholder": "Name for Tax Invoice",
+  "isHeadOffice": "Head Office",
+"branch": "Branch",
+"outlined": "Please enter branch name",
+"numberInvoiceNameLabel": "Taxpayer Identification Number (*)",
+"placeholder": "Taxpayer Identification Number",
+"address": "Address for tax invoice issuance",
+"houseNumber": "House Number",
+"building": "Building Name/Village",
+"village": "Village",
+"road": "Road",
+"postalCode": "Postal Code",
+"province": "Province",
+"district": "District/Area",
+"subdistrict": "Subdistrict/Sub-district"
+},
+"learnCatalog": {
+"description": "Install SCADAGENESIS64 system with equipment"
+},
+"learnDetail": {
+    "recommended": "Recommended Course",
+    "title": "SCADA",
+    "instructor": "Course by: ",
+    "certificate": "Receive a certificate upon completion",
+    "buttonsStart": "Start Learning",
+    "buttonsBuyNow": "Buy Now ฿25,900",
+    "buttonsAddToCart": "Add to Cart",
+    "learner": "Learner",
+    "buttonsDownloadCertificate": "Download Certificate",
+    "progress": "Already Learned",
+    "tabsDetails": "Course Details",
+    "tabsContent": "Course Content",
+    "read": "Read more",
+    "lecturer": "Lecturer",
+    "name": "Assoc. Prof. Dr. Siridech Boonsang",
+    "name1": "Assoc. Prof. Dr. Somkid Chitchaiban",
+    "position": "Dean, Faculty of Information Technology",
+    "university": "King Mongkut's Institute of Technology Ladkrabang"
+},
+"orderCard": {
+  "orderNumber": "Order Number",
+  "itemsCount": "items",
+  "viewMore": "View More",
+  "collapse": "Collapse",
+  "cancelOrder": "Cancel Order",
+  "checkDeliveryStatus": "Check Delivery Status",
+  "downloadInvoice": "Download Invoice",
+  "downloadQuotation": "Download Quotation",
+  "payNow": "Pay Now",
+  "waitingForPayment": "Waiting for Payment",
+  "waitingForDelivery": "Waiting for Delivery",
+  "toBeReceived": "To Be Received",
+  "productOption": "Product Option : ",
+  "pricePerPiece": "/ piece",
+  "discount": "% OFF",
+  "colorWhite": "White",
+    "productTitleMitsubishiHmi": "Mitsubishi Touchscreen HMI GT Series"
+},
+"orderDrtail": {
+  "orderNumber": "Order Number",
+  "itemsCount": "items",
+  "productOption": "Product Option : ",
+  "pricePerPiece": "/ piece"
+},
+"orderDetailCancel": {
+  "noOrderData": "No order data found",
+  "requester": "Requester: ",
+  "buyer": "Buyer",
+  "reason": "Reason:",
+  "defaultReason": "The received product does not match the order, such as wrong color, wrong model, or incorrect item.",
+  "additionalDetails": "Additional Details:",
+  "noAdditionalInfo": "No additional information",
+  "problemImages": "Problematic Product Images",
+  "noProductData": "No product data available"
+},
+"orderEmpty": {
+  "noOrders": "No orders. Continue shopping",
+  "productTitle": "All products"
+},
+"orderWarning": {
+  "transportation": "The transportation system has sold the goods",
+  "viewStatus": "View Status"
+},
+"orderWithEstimate": {
+  "waitingForEstimate": "The product is waiting for an officer to assess the price",
+  "paymentNotAvailable": "You cannot make a payment yet. An officer will contact you within 1 to 3 business days to inquire about additional service details.",
+  "closeWindow": "Close Window"
+},
+"otherMenu": {
+  "allShortcuts": "All Shortcuts",
+  "communityAndArticles": "Community and Articles",
+  "communityAndArticlesDescription": "Articles and news about factory technology",
+  "goodDeals": "Good Deals and Promotions",
+  "goodDealsDescription": "Great deals and promotions for you",
+  "discountCode": "Discount Code",
+  "discountCodeDescription": "Special discount codes and exclusive privileges",
+  "flashStore": "Flash Store",
+  "flashStoreDescription": "Shop factory products at the best prices",
+  "privilegesAndPoints": "Privileges and Points",
+  "privilegesAndPointsDescription": "Exclusive privileges and many rewards",
+  "allProducts": "All Products",
+  "allProductsDescription": "Popular factory-selected products for shopping"
+},
+"pointIndex": {
+  "point": "Your point"
+},
+"productCard": {
+  "perPiece": "/ piece",
+  "piece": "Piece",
+  "appointmentService": "Appointment Service",
+  "flashSale": "Participating items",
+  "installedBy": "Installed by :",
+  "hours": "hours"
+},
+"productDetail": {
+  "productCode": "Product Code :",
+  "sold": "Sold",
+  "perPiece": "/ piece",
+  "piece": "Piece",
+  "genuine": "100% Genuine",
+  "readyToShip": "Ready to Ship",
+  "deliveredBy": "Delivered by",
+  "catalog": "Catalog",
+  "cad": "CAD",
+  "viewBrandProducts": "View Brand Products",
+  "productDetails": "Product Details"
+},
+"profileLastOrder": {
+  "lastOrder": "Last Order",
+  "receivedItem": "Item to be received",
+  "parcelShipped": "Your parcel has been shipped"
+},
+"promotionBenner": {
+  "flashStore": "FLASH STORE",
+  "discountPercentage": "-89%",
+  "price": "฿322,000.00",
+  "pricePerItem": "฿1,202,990.00 / piece",
+  "sold": "2 pieces sold in this deal",
+  "promotionTitle": "8.8 Shop up to 88% off",
+  "promotionDescription": "Installments 0% up to 10 months, get up to 15% cashback"
+},
+"promotionDetailModal": {
+  "promotionConditions": "Promotion Conditions",
+  "additionalDiscount": "Additional 15% off",
+  "promotionPeriod": "Promotion period:",
+  "promotionPeriodDates": "1 Oct 2022 00:01 - 20 Oct 2022 23:59",
+  "termsAndConditions": "Terms and Conditions:",
+  "couponDetails": [
+      "ซื้อสินค้าแบรนด์ Mitsubishi, ลดสูงสุด 2,000 บาท",
+      "ใช้ได้ถึงวันที่ 20 ต.ค. 2565 23:59"
+    ]
+},
+"promotionEmpty": {
+  "title": "There are no promotions at this time."
+},
+"promotions": {
+  "promotionTitle": "Discount code when purchasing brand A products",
+  "promotionDescription": "Get 300 THB off when purchasing ACER products for a minimum of 300 THB",
+  "promotionFooter": "Ends on 31 January 2023"
+},
+"promotionsPoint": {
+  "promotionTitle": "Discount code when purchasing brand A products"
+},
+"serviceAddressForm": {
+  "address": "House Number",
+  "building": "Building/Village Name",
+  "village": "Village",
+  "road": "Road",
+  "postalCode": "Postal Code",
+  "province": "Province",
+  "district": "District",
+  "subdistrict": "Subdistrict",
+  "shippingAddress": "Enter Shipping Address",
+  "selectLocation": "Please select the location and date for the service appointment"
+},
+"serviceCategory": {
+  "service": "Service Work",
+  "solution": "Solution Work",
+  "appointments": "Your Appointments"
+},
+"serviceDetail": {
+  "serviceDetails": "Service Details",
+  "sold": "Sold",
+  "piece": "Piece",
+  "perPiece": "/ piece",
+  "serviceDescription": "More details",
+  "standardEquipmentFree": "Standard Equipment Included (Free)",
+  "standardEquipmentAdditional": "Standard Equipment Additional (Cost applicable, contact technician for purchase)",
+  "note": "Note",
+  "serviceArea": "Service Area",
+  "appointment": "Make an appointment for service"
+},
+"serviceInformationForm": {
+  "serviceFormTitle": "Please fill in the service recipient information",
+  "name": "Full Name of Service Recipient",
+  "fName": "Full Name",
+  "company": "Company Name of Service Recipient",
+  "position": "Position",
+  "department": "Department",
+  "phone": "Phone Number for Contact",
+  "placeholder": "company"
+},
+"serviceMoreDetail": {
+  "moreDetailsTitle": "Additional Details",
+  "moreDetails": "Additional Service Details",
+  "uploadImage": "Upload Image of the Service Area",
+  "uploadImageButton": "Upload Image"
+},
+"serviceOptionDetail": {
+  "serviceDetailsTitle": "Service Details",
+  "productServiceTitle": "Service for Installing Emergency Button Switch IDEC Brand, On-Site Assessment (excluding equipment cost)",
+  "standardEquipmentIncluded": "Standard Equipment Included (Free)",
+  "additionalStandardEquipment": "Additional Standard Equipment (Extra charge, can be purchased from technician)",
+  "productName": "product name",
+  "details": [
+    "Breaker with cover, 1 set, size 220 volts",
+    "Condensing rubber feet 1 set",
+    "PVC sewer pipe not more than 4 meters long",
+    "Electrical cable between hot coil and cold coil, not more than 10 meters long",
+    "Ground wire not more than 4 meters long"
+  ],
+  "addon": [
+    "Pipe cover rail 350 baht per meter including joints",
+    "ROD hanging bracket + large flat tire (18-24 kBtu/h) 1,500 baht per set"
+  ]
+},
+"ServiceOptions": {
+  "service": "Service",
+  "viewDetails": "View Details",
+  "price": "Price",
+  "notIncludingProduct": "Price does not include product cost"
+},
+"serviceReceiveForm": {
+  "serviceReceiveFormTitle": "Date and Time for Service",
+  "addressPlaceholder": "12 January 2023, 12:00"
+},
+"ProductNavigator": {
+  "homeTabLabel": "Buy Products",
+  "serviceTabLabel": "Services",
+  "learnTabLabel": "Courses",
+  "cartTabLabel": "Shopping Cart",
+  "profileTabLabel": "Profile",
+  "homeTabTitle": "Home",
+  "serviceIndexTabTitle": "Services",
+  "learnIndexTabTitle": "Courses",
+  "cartIndexTabTitle": "Shopping Cart",
+  "profileTabTitle": "Profile"
+}
 }

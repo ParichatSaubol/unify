@@ -159,7 +159,7 @@ const PDPA = ({ navigation }: Props): JSX.Element => {
           <>
             <Button
               fullWidth
-              title="เริ่มช้อปสินค้าเลย!"
+              title={t('pdpa.startShopping')}
               onPress={() => {
                 navigation.reset({
                   index: 0,
@@ -170,7 +170,7 @@ const PDPA = ({ navigation }: Props): JSX.Element => {
             <Button
               fullWidth
               colors={ButtonColor.solid}
-              title="เข้าสู่ระบบ หรือ สมัครสมาชิก"
+              title={t('pdpa.loginOrSignUp')}
               onPress={() => {
                 navigation.navigate('PDPAConfirm');
               }}
@@ -179,7 +179,7 @@ const PDPA = ({ navigation }: Props): JSX.Element => {
         ) : (
           <Button
             fullWidth
-            title="ถัดไป"
+            title={t('pdpa.next')}
             onPress={() => {
               if (current + 1 < page.length) {
                 ref.current?.setPage(current + 1);

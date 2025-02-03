@@ -15,7 +15,7 @@ type Props = NativeStackScreenProps<
 const CommunityResult = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Fonts, Layout, Images } = useTheme();
 
@@ -40,7 +40,7 @@ const CommunityResult = ({ navigation }: Props): JSX.Element => {
         onPress={() => {
           navigation.goBack();
         }}
-        title="บทความ"
+        title={t('communityResult.title')}
       />
       <ScrollView
         contentContainerStyle={[
@@ -53,26 +53,26 @@ const CommunityResult = ({ navigation }: Props): JSX.Element => {
           <CommunityContent
             bannerImage={Images.community.content}
             logoImage={Images.community.logo}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+            createdBy={t('communityResult.createdBy')}
+            title={t('communityResult.automationTitle')}
           />
           <CommunityContent
             bannerImage={Images.community.content}
             logoImage={Images.community.logo}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+            createdBy={t('communityResult.createdBy')}
+            title={t('communityResult.automationTitle')}
           />
           <CommunityContent
             bannerImage={Images.community.content}
             logoImage={Images.community.logo}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+            createdBy={t('communityResult.createdBy')}
+            title={t('communityResult.automationTitle')}
           />
           <CommunityContent
             bannerImage={Images.community.content}
             logoImage={Images.community.logo}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+            createdBy={t('communityResult.createdBy')}
+            title={t('communityResult.automationTitle')}
           />
         </View>
       </ScrollView>

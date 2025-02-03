@@ -22,13 +22,20 @@ const CarouselCard: FunctionComponent<Props> = ({
   isPadding,
 }) => {
   const { Layout, Images } = useTheme();
-  // ความสูงของรูปภาพ
-  const height =
-    size === CarouselSize.small
-      ? 160
-      : size === CarouselSize.medium
-      ? 205
-      : 365;
+
+  // แยกการคำนวณความสูงออกจาก ternary operation
+  let height: number;
+  switch (size) {
+    case CarouselSize.small:
+      height = 160;
+      break;
+    case CarouselSize.medium:
+      height = 205;
+      break;
+    default:
+      height = 365;
+      break;
+  }
 
   const customWidth = isPadding ? windowWidth - 30 : windowWidth; // ขนาดของรูปภาพ
 
@@ -38,8 +45,6 @@ const CarouselCard: FunctionComponent<Props> = ({
     >
       <Image
         source={image || Images.mock.noImage}
-        // resizeMethod="scale"
-        // resizeMode="contain"
         style={[
           { height: height },
           isRadius && Layout.radius10,

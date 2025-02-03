@@ -16,8 +16,8 @@ type Props = NativeStackScreenProps<
 
 const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Fonts, Images } = useTheme();
 
@@ -48,7 +48,7 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
       <View style={[Layout.main, Layout.bgPrimary]}>
         <AppBar
           color={AppColor.blue}
-          title="Certificate"
+          title={t('knowledgeCertificate.title')}
           onPress={() => {
             //กลับไปหน้าก่อนหน้า
             navigation.goBack();
@@ -61,15 +61,15 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
             <Text
               style={[Fonts.text48Med, Fonts.textPrimary, Fonts.textCenter]}
             >
-              Congratulations
+              {t('knowledgeCertificate.congratulations')}
             </Text>
             <Text
               style={[Fonts.text32Med, Fonts.textPrimary, Fonts.textCenter]}
             >
-              ยินดีด้วยคุณเรียนจบแล้ว
+              {t('knowledgeCertificate.message')}
             </Text>
             <Text style={[Fonts.text18, Fonts.textPrimary, Fonts.textCenter]}>
-              UNIFY ได้ทำการส่ง Certificate ไปยังอีเมลของคุณแล้ว
+              {t('knowledgeCertificate.sentEmail')}
             </Text>
             <View style={[Layout.center]}>
               <Images.icons.checkCircleOutline width={100} height={100} />
@@ -78,13 +78,15 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
         ) : (
           <View style={[Layout.main, Layout.gap20]}>
             <Text style={[Fonts.text24Med, Fonts.textBlack]}>
-              กรุณากรอกอีเมลที่ต้องการรับ Certificate
+              {t('knowledgeCertificate.certificate')}
             </Text>
 
             <View style={[Layout.gap5]}>
-              <Text style={[Fonts.text21]}>อีเมลของคุณ</Text>
+              <Text style={[Fonts.text21]}>
+                {t('knowledgeCertificate.email')}
+              </Text>
               <Input
-                placeholder="กรอกอีเมล์ของคุณ"
+                placeholder={t('knowledgeCertificate.placeholder')}
                 value={email}
                 onChange={val => setEmail(val)}
               />
@@ -94,9 +96,15 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
       </ScrollView>
       <View style={styles.bottom}>
         {isConfirm ? (
-          <Button title="กลับสู่หน้าหลัก" onPress={() => handleBack()} />
+          <Button
+            title={t('knowledgeCertificate.backToHome')}
+            onPress={() => handleBack()}
+          />
         ) : (
-          <Button title="ยืนยัน" onPress={() => handleConfirm()} />
+          <Button
+            title={t('knowledgeCertificate.confirm')}
+            onPress={() => handleConfirm()}
+          />
         )}
       </View>
     </SafeAreaView>

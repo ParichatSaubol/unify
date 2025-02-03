@@ -72,7 +72,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="กรอกข้อมูลการเข้ารับบริการ"
+        title={t('serviceBookingInformation.title')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -98,7 +98,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
         </View>
       </ScrollView>
       <View style={styles.bottom}>
-        <Button title="ถัดไป" />
+        <Button title={t('serviceBookingInformation.button')} />
       </View>
     </DefaultLayout>
   );

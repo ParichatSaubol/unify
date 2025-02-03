@@ -50,8 +50,8 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Gutters, Fonts } = useTheme();
   const { dismissAll } = useBottomSheetModal();
   const { handleSubmit, control } = useForm<TRegisterOldAddress>({
@@ -81,7 +81,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
   return (
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
-        title="ข้อมูลสำหรับลูกค้าเก่า"
+        title={t('registerOldAddress.oldCustomers')}
         onPress={() => navigation.goBack()}
       />
       <ScrollView
@@ -102,7 +102,9 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
               <View style={[Layout.col, Layout.gap10]}>
                 <View style={[Layout.row, Layout.gap10]}>
                   <View style={[Layout.fill]}>
-                    <Text style={[Fonts.text18]}>บ้านเลขที่</Text>
+                    <Text style={[Fonts.text18]}>
+                      {t('registerOldAddress.address')}
+                    </Text>
                     <Controller
                       name={`address.${index}.address`}
                       control={control}
@@ -111,7 +113,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                         fieldState: { error },
                       }) => (
                         <Input
-                          placeholder="บ้านเลขที่"
+                          placeholder={t('registerOldAddress.address')}
                           variant={InputVariant.outlined}
                           value={value}
                           onChange={onChange}
@@ -122,7 +124,9 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                     />
                   </View>
                   <View style={[Layout.fill]}>
-                    <Text style={[Fonts.text18]}>ชื่ออาคาร/หมู่บ้าน</Text>
+                    <Text style={[Fonts.text18]}>
+                      {t('registerOldAddress.village')}
+                    </Text>
                     <Controller
                       name={`address.${index}.building`}
                       control={control}
@@ -131,7 +135,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                         fieldState: { error },
                       }) => (
                         <Input
-                          placeholder="ชื่ออาคาร/หมู่บ้าน"
+                          placeholder={t('registerOldAddress.village')}
                           variant={InputVariant.outlined}
                           value={value}
                           onChange={onChange}
@@ -146,7 +150,9 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                 {/*  */}
                 <View style={[Layout.row, Layout.gap10]}>
                   <View style={[Layout.fill]}>
-                    <Text style={[Fonts.text18]}>หมู่ที่</Text>
+                    <Text style={[Fonts.text18]}>
+                      {t('registerOldAddress.villageNo')}
+                    </Text>
                     <Controller
                       name={`address.${index}.village`}
                       control={control}
@@ -155,7 +161,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                         fieldState: { error },
                       }) => (
                         <Input
-                          placeholder="หมู่ที่"
+                          placeholder={t('registerOldAddress.villageNo')}
                           variant={InputVariant.outlined}
                           value={value}
                           onChange={onChange}
@@ -166,7 +172,9 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                     />
                   </View>
                   <View style={[Layout.fill]}>
-                    <Text style={[Fonts.text18]}>ถนน</Text>
+                    <Text style={[Fonts.text18]}>
+                      {t('registerOldAddress.road')}
+                    </Text>
                     <Controller
                       name={`address.${index}.road`}
                       control={control}
@@ -175,7 +183,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                         fieldState: { error },
                       }) => (
                         <Input
-                          placeholder="ถนน"
+                          placeholder={t('registerOldAddress.road')}
                           variant={InputVariant.outlined}
                           value={value}
                           onChange={onChange}
@@ -190,7 +198,9 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                 {/*  */}
                 <View style={[Layout.row, Layout.gap10]}>
                   <View style={[Layout.fill]}>
-                    <Text style={[Fonts.text18]}>รหัสไปรษณีย์</Text>
+                    <Text style={[Fonts.text18]}>
+                      {t('registerOldAddress.postalCode')}
+                    </Text>
                     <Controller
                       name={`address.${index}.postalCode`}
                       control={control}
@@ -199,7 +209,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                         fieldState: { error },
                       }) => (
                         <Input
-                          placeholder="รหัสไปรษณีย์"
+                          placeholder={t('registerOldAddress.postalCode')}
                           variant={InputVariant.outlined}
                           value={value}
                           onChange={onChange}
@@ -210,7 +220,9 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                     />
                   </View>
                   <View style={[Layout.fill]}>
-                    <Text style={[Fonts.text18]}>จังหวัด</Text>
+                    <Text style={[Fonts.text18]}>
+                      {t('registerOldAddress.province')}
+                    </Text>
                     <Controller
                       name={`address.${index}.province`}
                       control={control}
@@ -219,7 +231,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                         fieldState: { error },
                       }) => (
                         <Input
-                          placeholder="จังหวัด"
+                          placeholder={t('registerOldAddress.province')}
                           variant={InputVariant.outlined}
                           value={value}
                           onChange={onChange}
@@ -234,7 +246,9 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                 {/*  */}
                 <View style={[Layout.row, Layout.gap10]}>
                   <View style={[Layout.fill]}>
-                    <Text style={[Fonts.text18]}>อำเภอ/เขต</Text>
+                    <Text style={[Fonts.text18]}>
+                      {t('registerOldAddress.district')}
+                    </Text>
                     <Controller
                       name={`address.${index}.district`}
                       control={control}
@@ -243,7 +257,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                         fieldState: { error },
                       }) => (
                         <Input
-                          placeholder="อำเภอ/เขต"
+                          placeholder={t('registerOldAddress.district')}
                           variant={InputVariant.outlined}
                           value={value}
                           onChange={onChange}
@@ -254,7 +268,9 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                     />
                   </View>
                   <View style={[Layout.fill]}>
-                    <Text style={[Fonts.text18]}>ตำบล/แขวง</Text>
+                    <Text style={[Fonts.text18]}>
+                      {t('registerOldAddress.subdistrict')}
+                    </Text>
                     <Controller
                       name={`address.${index}.subdistrict`}
                       control={control}
@@ -263,7 +279,7 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
                         fieldState: { error },
                       }) => (
                         <Input
-                          placeholder="ตำบล/แขวง"
+                          placeholder={t('registerOldAddress.subdistrict')}
                           variant={InputVariant.outlined}
                           value={value}
                           onChange={onChange}
@@ -289,13 +305,14 @@ const RegisterOldAddress = ({ navigation }: Props): JSX.Element => {
               )}
             />
 
-            <Text style={[Fonts.text18]}>
-              ฉันต้องการรับสิทธิพิเศษและโปรโมชั่น รวมถึงข่าวสารจากกลุ่ม บริษัท
-              ทีเคเค คอร์ปอเรชั่น จำกัด ตามที่ระบุไว้ใน นโยบายความเป็นส่วนตัว
-            </Text>
+            <Text style={[Fonts.text18]}>{t('registerOldAddress.title')}</Text>
           </View>
 
-          <Button title="ถัดไป" fullWidth onPress={handleSubmit(onSubmit)} />
+          <Button
+            title={t('registerOldAddress.next')}
+            fullWidth
+            onPress={handleSubmit(onSubmit)}
+          />
         </View>
       </ScrollView>
     </DefaultLayout>

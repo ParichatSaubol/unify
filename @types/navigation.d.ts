@@ -32,6 +32,7 @@ export type ProductParamsList = {
   ProductDetail: { id?: string; name?: string; isFlash?: boolean };
   ServiceDetail: { id?: string; name?: string };
   LearnDetail: { id?: string; name?: string };
+  ServiceDetail: { productId: string };
   CheckoutIndex: {
     items?: {
       [key: string]: CartItem;
@@ -89,6 +90,7 @@ export type ApplicationStackParamList = {
   CommunityDetail: undefined;
   AddressCreated: { type?: RoleType };
   AddressMap: undefined;
+  ServiceDetail: undefined;
   // LearnDetail: undefined;
   LearnCategory: undefined;
   CourseCategory: undefined;

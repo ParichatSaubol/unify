@@ -40,8 +40,8 @@ const Input: FunctionComponent<Props> = ({
     size === InputSize.small
       ? 40 * numberOfLines
       : size === InputSize.medium
-      ? 50 * numberOfLines
-      : 60 * numberOfLines;
+        ? 50 * numberOfLines
+        : 60 * numberOfLines;
 
   return (
     <View style={[Layout.col]}>

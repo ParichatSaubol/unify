@@ -5,6 +5,7 @@ import CatalogTitle, { CatalogTitleProps } from './CatalogTitle';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { ApplicationStackParamList, ProductParamsList } from 'types/navigation';
 import { CatalogTitleColorActived } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   method?:
@@ -45,6 +46,7 @@ interface IScreen extends ApplicationStackParamList, ProductParamsList {}
 
 const Catalog: FunctionComponent<Props> = ({ method, icon, brandName }) => {
   const { Layout, Images } = useTheme();
+  const { t } = useTranslation('catalogs');
 
   const [mateData, setMateData] = useState<CatalogTitleProps>();
   const { navigate } = useNavigation<NavigationProp<IScreen>>();
@@ -56,27 +58,27 @@ const Catalog: FunctionComponent<Props> = ({ method, icon, brandName }) => {
     //แยกเป็นหมวดหมู่ต่างๆ
     switch (method) {
       case 'topBrand':
-        data.subTitle = 'เอ็กซ์คลูซีฟแบรนด์ชั้นนำด้านอุตสาหกรรม';
+        data.subTitle = t('catalog.topBrand');
         data.titleIcon = <Images.icons.unistore />;
         data.onPress = () => {
           navigate('ProductIndex');
         };
         break;
       case 'popularTopBrands':
-        data.subTitle = 'แบรนด์ชั้นนำด้านอุตสาหกรรมกว่า 500 แบรนด์';
-        data.title = 'แบรนด์ชั้นนำยอดนิยม';
+        data.subTitle = t('catalog.popularTopBrands');
+        data.title = t('catalog.popularLeadingBrands');
         data.onPress = () => {
           // navigate('ProductIndex');
         };
         break;
       case 'catalogType':
-        data.title = 'ช้อปสินค้าตามหมวดหมู่';
-        data.subTitle = 'สินค้าแยกตามประเภทหมวดหมู่ อุตสาหกรรม ';
+        data.title = t('catalog.catalogType');
+        data.subTitle = t('catalog.productsSeparatedByCategory');
         break;
 
       case 'flashStore':
         data.flashSale = true;
-        data.subTitle = 'แฟลชสโตร์ดีลลดพิเศษ';
+        data.subTitle = t('catalog.flashStore');
         data.title = 'FLASH STORE';
         data.onPress = () => {
           navigate('ProductFlashStore');
@@ -84,8 +86,8 @@ const Catalog: FunctionComponent<Props> = ({ method, icon, brandName }) => {
         break;
 
       case 'community':
-        data.subTitle = 'เกี่ยวกับสินค้าอุตสาหกรรม และแบรนด์ผู้ผลิต';
-        data.title = 'คอมมูนิตี้และบทความน่ารู้';
+        data.subTitle = t('catalog.community');
+        data.title = t('catalog.communityInterestingArticles');
         data.textColors = 'white';
         data.onPress = () => {
           navigate('CommunityIndex');
@@ -93,64 +95,64 @@ const Catalog: FunctionComponent<Props> = ({ method, icon, brandName }) => {
         break;
 
       case 'unisolution':
-        data.subTitle = 'โซลูชั่นและงานบริการด้านอุตสาหกรรม';
+        data.subTitle = t('catalog.unisolution');
         data.titleIcon = <Images.icons.unisolution />;
         break;
 
       case 'unilearn':
-        data.subTitle = 'ศูนย์การเรียนรู้ด้านอุตสาหกรรม';
+        data.subTitle = t('catalog.unilearn');
         data.titleIcon = <Images.icons.unilearn />;
         break;
 
       case 'promotion':
-        data.subTitle = 'รวมโปรโมชั่นส่วนลดพิเศษทั้งหมด';
-        data.title = 'โปรโมชั่น';
+        data.subTitle = t('catalog.promotion');
+        data.title = t('catalog.promotion1');
         break;
 
       case 'recommend':
-        data.subTitle = 'รวบรวมสิ่งที่คุณสนใจมาไว้แล้วที่นี่!';
-        data.title = 'สินค้าโรงงานแนะนำสำหรับคุณ!';
+        data.subTitle = t('catalog.recommend');
+        data.title = t('catalog.recommendedForYou');
         break;
 
       case 'recommendForYou':
-        data.subTitle = 'จากแบรนด์ และการค้นหายอดนิยม!';
-        data.title = 'สินค้าแนะนำสำหรับคุณ!';
+        data.subTitle = t('catalog.recommendForYou');
+        data.title = t('catalog.introduce');
         break;
 
       case 'brandUnisolution':
-        data.subTitle = 'งานบริการและโซลูชั่นจากผู้ให้บริการ';
-        data.title = 'บริการ SOLUTION จากแบรนด์!';
+        data.subTitle = t('catalog.brandUnisolution');
+        data.title = t('catalog.solusion');
         break;
 
       case 'industrialTechnologyCorner':
-        data.subTitle = 'มุมเทคโนโลยีอุตสาหกรรม';
-        data.title = 'ข่าวสารด้านอุตสาหกรรม';
+        data.subTitle = t('catalog.industrialTechnologyCorner');
+        data.title = t('catalog.industryNews');
         break;
 
       case 'knowledge':
-        data.subTitle = 'Knowledge น่ารู้';
-        data.title = 'ข่าวสารด้านอุตสาหกรรม';
+        data.subTitle = t('catalog.knowledge');
+        data.title = t('catalog.industryNews');
         break;
 
       case 'knowledgeIndustry':
-        data.subTitle = 'งานบริการและโซลูชั่นจากผู้ให้บริการ';
-        data.title = 'บริการ SOLUTION จากแบรนด์!';
+        data.subTitle = t('catalog.knowledgeIndustry');
+        data.title = t('catalog.solusion');
         break;
 
       case 'technicalCenter':
         data.subTitle = 'Technical Center';
-        data.title = 'เทคนิคน่ารู้ เกี่ยวกับโรงงานอุตสาหกรรม';
+        data.title = t('catalog.technicalCenter');
         data.onPress = () => {
           navigate('CommunityResult');
         };
         break;
 
       case 'brandUnilearn':
-        data.subTitle = 'ศูนย์การเรียนรู้ด้านอุตสาหกรรม';
-        data.title = 'คอร์สเรียนแนะนำสำหรับคุณ!';
+        data.subTitle = t('catalog.unilearn');
+        data.title = t('catalog.course');
         break;
       case 'exclusiveBrand':
-        data.subTitle = 'เอ็กซ์คลูซีฟแบรนด์ชั้นนำด้านอุตสาหกรรม';
+        data.subTitle = t('catalog.topBrand');
         data.titleIcon = (
           <Image source={Images.brand.exclusive} style={styles.titleIcon} />
         );
@@ -161,70 +163,70 @@ const Catalog: FunctionComponent<Props> = ({ method, icon, brandName }) => {
         data.brandIcon = icon;
         break;
       case 'catalogLearn':
-        data.title = 'หมวดหมู่การเรียนรู้';
+        data.title = t('catalog.catalogLearn');
         data.onPress = () => {
           navigate('CourseCategory');
         };
         break;
       case 'catalogSolution':
-        data.title = 'หมวดหมู่ งานโซลูชัน';
-        data.subTitle = 'รวมงานบริการด้านเอ็นจิเนียร์มาไว้ที่นี่';
+        data.title = t('catalog.catalogSolution');
+        data.subTitle = t('catalog.engineering');
         data.isActived = true;
         data.onPress = () => {};
         break;
       case 'catalogService':
-        data.title = 'หมวดหมู่ งานบริการ';
-        data.subTitle = 'รวมงานบริการด้านติดตั้งและซ่อมบำรุงมาไว้ที่นี่';
+        data.title = t('catalog.catalogService');
+        data.subTitle = t('catalog.maintenance');
         data.isActived = true;
         data.colorActived = CatalogTitleColorActived.red;
         data.onPress = () => {};
         break;
       case 'productsPurchasedServices':
-        data.title = 'สินค้าซื้อคู่กับงานบริการ';
-        data.subTitle = 'สินค้าอุตสาหกรรม ที่ตรงตามความต้องการของคุณ';
+        data.title = t('catalog.productsPurchasedServices');
+        data.subTitle = t('catalog.industrialProducts');
         data.isActived = true;
         data.onPress = () => {};
         break;
       case 'brandServiceAndSolution':
-        data.title = 'งานบริการและโซลูชันตามแบรนด์';
-        data.subTitle = 'รวมงานบริการและโซลูชั่นตามแบรนด์ผู้ผลิต';
+        data.title = t('catalog.brandServiceAndSolution');
+        data.subTitle = t('catalog.includingServices');
         data.isActived = true;
         data.colorActived = CatalogTitleColorActived.red;
         data.onPress = () => {};
         break;
       case 'topSolution':
-        data.title = 'งานโซลูชั่นยอดนิยม';
-        data.subTitle = 'รวมโซลูชั่นยอดนิยมมาไว้ที่นี่ที่เดียว';
+        data.title = t('catalog.topSolution');
+        data.subTitle = t('catalog.popularSolutions');
         data.isActived = true;
         data.onPress = () => {};
         break;
       case 'topService':
-        data.title = 'งานบริการยอดนิยม';
-        data.subTitle = 'รวมงานบริการยอดนิยมมาไว้ที่นี่ที่เดียว';
+        data.title = t('catalog.topService');
+        data.subTitle = t('catalog.popularSolutions');
         data.isActived = true;
         data.onPress = () => {};
         break;
       case 'paintSystem':
-        data.title = 'ระบบพ่นสี';
-        data.subTitle = 'รวมโซลูชั่นงานพ่นสีมาไว้ที่นี่ที่เดียว';
+        data.title = t('catalog.paintSystem');
+        data.subTitle = t('catalog.paintSprayingSolutions');
         data.isActived = true;
         data.onPress = () => {};
         break;
       case 'discountCoupon':
-        data.title = 'คูปองส่วนลด';
+        data.title = t('catalog.discountCoupon');
         data.isActived = false;
         data.onPress = () => {
           navigate('UnipointCategory');
         };
         break;
       case 'allPrivileges':
-        data.title = 'สิทธิพิเศษทั้งหมด';
+        data.title = t('catalog.allPrivileges');
         data.onPress = () => {
           navigate('UnipointCategory');
         };
         break;
       case 'newPrivileges':
-        data.title = 'สิทธิพิเศษมาใหม่';
+        data.title = t('catalog.newPrivileges');
         data.onPress = () => {
           navigate('UnipointForyou');
         };

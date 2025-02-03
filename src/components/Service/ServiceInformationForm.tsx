@@ -8,6 +8,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { ApplicationStackParamList } from 'types/navigation';
 import { TSolution } from '@/model/solution';
 import { InputVariant } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
@@ -17,21 +18,22 @@ const ServiceInformationForm: FunctionComponent<Props> = () => {
     useNavigation<NavigationProp<ApplicationStackParamList>>();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Fonts, Images, Colors } = useTheme();
+  const { t } = useTranslation('common');
 
   const { control } = useFormContext<TSolution>();
 
   return (
-    <Card title="กรุณากรอกข้อมูลผู้รับบริการ">
+    <Card title={t('serviceInformationForm.serviceFormTitle')}>
       <View style={[Layout.col, Layout.gap20]}>
         <View style={[Layout.col, Layout.gap5]}>
-          <Text style={[Fonts.text21]}>ชื่อ - สกุล ผู้รับบริการ</Text>
+          <Text style={[Fonts.text21]}>{t('serviceInformationForm.name')}</Text>
           <Controller
             name="name"
             control={control}
             render={({ field: { value, onChange }, fieldState: { error } }) => (
               <Input
                 // disabled
-                placeholder="ชื่อ-สกุล"
+                placeholder={t('serviceInformationForm.fName')}
                 variant={InputVariant.outlined}
                 value={value}
                 onChange={onChange}
@@ -43,14 +45,16 @@ const ServiceInformationForm: FunctionComponent<Props> = () => {
         </View>
 
         <View style={[Layout.col, Layout.gap5]}>
-          <Text style={[Fonts.text21]}>ชื่อบริษัท ผู้รับบริการ</Text>
+          <Text style={[Fonts.text21]}>
+            {t('serviceInformationForm.company')}
+          </Text>
           <Controller
             name="company"
             control={control}
             render={({ field: { value, onChange }, fieldState: { error } }) => (
               <Input
                 // disabled
-                placeholder="ชื่อบริษัท"
+                placeholder={t('serviceInformationForm.placeholder')}
                 variant={InputVariant.outlined}
                 value={value}
                 onChange={onChange}
@@ -63,7 +67,9 @@ const ServiceInformationForm: FunctionComponent<Props> = () => {
 
         <View style={[Layout.row, Layout.gap5]}>
           <View style={[Layout.fill, Layout.col, Layout.gap5]}>
-            <Text style={[Fonts.text21]}>ตำแหน่ง</Text>
+            <Text style={[Fonts.text21]}>
+              {t('serviceInformationForm.position')}
+            </Text>
             <Controller
               name="position"
               control={control}
@@ -73,7 +79,7 @@ const ServiceInformationForm: FunctionComponent<Props> = () => {
               }) => (
                 <Input
                   // disabled
-                  placeholder="ตำแหน่ง"
+                  placeholder={t('serviceInformationForm.position')}
                   variant={InputVariant.outlined}
                   value={value}
                   onChange={onChange}
@@ -84,7 +90,9 @@ const ServiceInformationForm: FunctionComponent<Props> = () => {
             />
           </View>
           <View style={[Layout.fill, Layout.col, Layout.gap5]}>
-            <Text style={[Fonts.text21]}>แผนก</Text>
+            <Text style={[Fonts.text21]}>
+              {t('serviceInformationForm.department')}
+            </Text>
             <Controller
               name="department"
               control={control}
@@ -94,7 +102,7 @@ const ServiceInformationForm: FunctionComponent<Props> = () => {
               }) => (
                 <Input
                   // disabled
-                  placeholder="แผนก"
+                  placeholder={t('serviceInformationForm.department')}
                   variant={InputVariant.outlined}
                   value={value}
                   onChange={onChange}
@@ -107,14 +115,16 @@ const ServiceInformationForm: FunctionComponent<Props> = () => {
         </View>
 
         <View style={[Layout.col, Layout.gap5]}>
-          <Text style={[Fonts.text21]}>หมายเลขโทรศัพท์สำหรับติดต่อกลับ</Text>
+          <Text style={[Fonts.text21]}>
+            {t('serviceInformationForm.phone')}
+          </Text>
           <Controller
             name="phone"
             control={control}
             render={({ field: { value, onChange }, fieldState: { error } }) => (
               <Input
                 // disabled
-                placeholder="หมายเลขโทรศัพท์"
+                placeholder={t('serviceInformationForm.phone')}
                 variant={InputVariant.outlined}
                 value={value}
                 onChange={onChange}

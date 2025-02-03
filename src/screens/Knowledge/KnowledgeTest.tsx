@@ -14,8 +14,8 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'KnowledgeTest'>;
 
 const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Fonts } = useTheme();
   // const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
   const [test, setTest] = React.useState<IKnowledgeTest[]>([
     {
       id: 1,
-      title: 'ระบบ GENESIS64 มีองค์ประกอบอะไรบ้าง?',
+      title: t('knowledgeTest.genesi'),
       choices: [
         'SCADA',
         'HMI/SCADA',
@@ -35,7 +35,7 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
     },
     {
       id: 2,
-      title: 'ระบบ GENESIS64 มีองค์ประกอบอะไรบ้าง?',
+      title: t('knowledgeTest.genesi'),
       choices: [
         'SCADA',
         'HMI/SCADA',
@@ -45,7 +45,7 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
     },
     {
       id: 3,
-      title: 'ระบบ GENESIS64 มีองค์ประกอบอะไรบ้าง?',
+      title: t('knowledgeTest.genesi'),
       choices: [
         'SCADA',
         'HMI/SCADA',
@@ -81,7 +81,7 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
       <View style={[Layout.main, Layout.bgPrimary]}>
         <AppBar
           color={AppColor.blue}
-          title="แบบทดสอบ"
+          title={t('knowledgeTest.title')}
           onPress={() => {
             //กลับไปหน้าก่อนหน้า
             navigation.goBack();
@@ -96,10 +96,7 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
         ]}
       >
         <View style={[Layout.main]}>
-          <Text style={[Fonts.text21]}>
-            ระบบการจัดการพลังงาน Energy Monitoring วิเคราะห์โดย.. ซอฟต์แวร์
-            GENESIS64 จากมิซูบิชิ
-          </Text>
+          <Text style={[Fonts.text21]}>{t('knowledgeTest.energy')}</Text>
           <View style={styles.list}>
             {test.map((item, index) => (
               <View key={`test-${index}`}>
@@ -136,8 +133,7 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
                 {score > 0 && (
                   <View style={styles.box} key={`test-check${index}`}>
                     <Text style={[Fonts.text21]}>
-                      คำตอบ D : เพราะ Lorem Ipsum คือ
-                      เนื้อหาจำลองแบบเรียบๆใช้ในธุรกิจงานพิมพ์
+                      {t('knowledgeTest.answer')}
                     </Text>
                   </View>
                 )}
@@ -150,18 +146,21 @@ const KnowledgeTest = ({ navigation }: Props): JSX.Element => {
           {score > 0 ? (
             <>
               <Button
-                title="ดาวน์โหลดใบรับรอง Certificate"
+                title={t('knowledgeTest.downloadCertificate')}
                 onPress={() => handleDownloadCertificate()}
               />
               <Button
-                title="กลับสู่หน้าหลัก"
+                title={t('knowledgeTest.backToHome')}
                 onPress={() => handleBack()}
                 variant={ButtonVariant.outlined}
               />
             </>
           ) : (
             <>
-              <Button title="ส่งแบบทดสอบ" onPress={() => handleSubmitScore()} />
+              <Button
+                title={t('knowledgeTest.submit')}
+                onPress={() => handleSubmitScore()}
+              />
             </>
           )}
         </View>

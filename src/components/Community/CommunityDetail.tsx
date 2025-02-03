@@ -10,6 +10,8 @@ import {
 import { useTheme } from '@/hooks';
 import Chip from '../Chip/Chip';
 import { ChipColor } from '@/model/options';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 interface Props {
   id?: number;
@@ -40,32 +42,30 @@ const CommunityDetail: FunctionComponent<Props> = ({
   viewCount,
 }) => {
   const { Images, Layout, Fonts } = useTheme();
+  const { t } = useTranslation('common');
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [other, setOther] = React.useState<OtherData[]>([
     {
       id: 1,
       image: Images.community.content,
-      title: 'Visualization ระบบ SCADA สำหรับองค์กร',
-      description:
-        'เมื่อพูดถึงการทำงานในอุตสาหกรรมแบบอัตโนมัติ คนมักจะนึกถึงการทำงานในลักษณะของอุปกรณ์ Hardware ...',
-      createdBy: 'โพสต์เมื่อ 27-02-2023',
+      title: t('communityDetail.visualizationTitle'),
+      description: t('communityDetail.visualizationDescription'),
+      createdBy: t('communityDetail.postDate'),
     },
     {
       id: 1,
       image: Images.community.content,
-      title: 'Visualization ระบบ SCADA สำหรับองค์กร',
-      description:
-        'เมื่อพูดถึงการทำงานในอุตสาหกรรมแบบอัตโนมัติ คนมักจะนึกถึงการทำงานในลักษณะของอุปกรณ์ Hardware ...',
-      createdBy: 'โพสต์เมื่อ 27-02-2023',
+      title: t('communityDetail.visualizationTitle'),
+      description: t('communityDetail.visualizationDescription'),
+      createdBy: t('communityDetail.postDate'),
     },
     {
       id: 1,
       image: Images.community.content,
-      title: 'Visualization ระบบ SCADA สำหรับองค์กร',
-      description:
-        'เมื่อพูดถึงการทำงานในอุตสาหกรรมแบบอัตโนมัติ คนมักจะนึกถึงการทำงานในลักษณะของอุปกรณ์ Hardware ...',
-      createdBy: 'โพสต์เมื่อ 27-02-2023',
+      title: t('communityDetail.visualizationTitle'),
+      description: t('communityDetail.visualizationDescription'),
+      createdBy: t('communityDetail.postDate'),
     },
   ]);
 
@@ -95,14 +95,17 @@ const CommunityDetail: FunctionComponent<Props> = ({
       <View style={[Layout.col]}>
         <Text style={[Fonts.text18, Fonts.textBlack]}>{title}</Text>
         <View style={[Layout.row]}>
-          <Chip title="มุมเทคโนโลยีอุตสาหกรรม" color={ChipColor.primary} />
+          <Chip
+            title={t('communityDetail.technologyCorner')}
+            color={ChipColor.primary}
+          />
         </View>
       </View>
 
       <View style={[Layout.row, Layout.gap10, Layout.justifyContentBetween]}>
         <Text style={[Fonts.text18, Fonts.textBlack]}>{createdBy}</Text>
         <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
-          <Text style={[Fonts.text18]}>โพสต์เมื่อ 27-02-2023</Text>
+          <Text style={[Fonts.text18]}>{t('communityDetail.postDate')}</Text>
           <View style={styles.divider} />
           <Images.icons.view color={'#98A2B3'} />
           <Text style={[Fonts.text18]}>{viewCount}</Text>
@@ -133,7 +136,9 @@ const CommunityDetail: FunctionComponent<Props> = ({
       )}
 
       <View style={[Layout.col, Layout.gap10, Layout.center]}>
-        <Text style={[Fonts.text24Med]}>แชร์บทความนี้</Text>
+        <Text style={[Fonts.text24Med]}>
+          {t('communityDetail.shareArticle')}
+        </Text>
         <View style={styles.dividerHeight} />
         <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
           <Images.community.facebook />
@@ -145,7 +150,9 @@ const CommunityDetail: FunctionComponent<Props> = ({
       <View style={[styles.dividerWidth]} />
 
       <View style={[Layout.col, Layout.gap10]}>
-        <Text style={[Fonts.text24Med]}>บทความอื่นที่เกี่ยวข้อง</Text>
+        <Text style={[Fonts.text24Med]}>
+          {t('communityDetail.relatedArticles')}
+        </Text>
       </View>
 
       <View style={[Layout.row, Layout.gap10]}>
@@ -169,7 +176,7 @@ const CommunityDetail: FunctionComponent<Props> = ({
 
 CommunityDetail.defaultProps = {
   id: 0,
-  title: 'ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต',
+  title: t('communityDetail.title'),
   description: undefined,
   bannerImage: undefined,
   contentImage: undefined,

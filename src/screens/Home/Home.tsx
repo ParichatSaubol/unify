@@ -40,7 +40,7 @@ type Props = NativeStackScreenProps<ProductParamsList, 'Home'>;
 const Home = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   const { Layout, Images, Colors } = useTheme();
 
   //state
@@ -67,7 +67,7 @@ const Home = ({ navigation }: Props): JSX.Element => {
         />
         <View style={[Layout.main]}>
           <InputSearchProduct
-            placeholder="PATLITE ลดเกินคุ้มม! ไฟเตือน สูงสุด 20%.. "
+            placeholder={t('home.placeholder')}
             onSubmitEditing={() => {
               navigation.navigate('SearchIndex' as any);
             }}

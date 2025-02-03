@@ -22,8 +22,8 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const ServiceSuccess = ({}: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -75,17 +75,19 @@ const ServiceSuccess = ({}: Props): JSX.Element => {
                 styles.customMargin,
               ]}
             >
-              เราได้รับข้อมูลการขอเข้ารับ{'\n'}งานบริการ ของคุณแล้ว
+              {t('serviceSuccess.successMessage')}
             </Text>
             <Text style={[Fonts.text21Med, Fonts.textCenter]}>
-              จะมีเจ้าหน้าที่ติดต่อกลับไปภายใน 1 ถึง 3 วันทำการ
-              {'\n'}เพื่อสอบถามข้อมูลการเข้ารับบริการเพิ่มเติม
+              {t('serviceSuccess.contactMessage')}
             </Text>
             <View style={[Layout.fill, Layout.fullWidth, styles.customMargin]}>
-              <Button title="ดูการนัดหมายของคุณ" />
+              <Button title={t('serviceSuccess.viewAppointments')} />
             </View>
             <View style={[Layout.fill, Layout.fullWidth]}>
-              <Button title="กลับหน้าแรก" variant={ButtonVariant.text} />
+              <Button
+                title={t('serviceSuccess.backToHome')}
+                variant={ButtonVariant.text}
+              />
             </View>
           </View>
         </ScrollView>

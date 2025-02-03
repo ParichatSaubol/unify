@@ -34,6 +34,7 @@ import {
 } from '@/screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { ProductParamsList } from 'types/navigation';
 
@@ -43,6 +44,7 @@ const Tab = createBottomTabNavigator<ProductParamsList>();
 const ProductNavigator: () => React.JSX.Element = () => {
   const { Images } = useTheme();
   const { currentCart } = useCart();
+  const { t } = useTranslation('common');
 
   const cartCount =
     Object.keys(currentCart.items).length +
@@ -61,7 +63,7 @@ const ProductNavigator: () => React.JSX.Element = () => {
         component={Home}
         options={{
           title: 'Home|ProductDetail',
-          tabBarLabel: 'ซื้อสินค้า',
+          tabBarLabel: t('ProductNavigator.homeTabLabel'),
           tabBarIcon: ({ color, size }) => (
             <Images.icons.buyProducts
               color={color}
@@ -76,7 +78,7 @@ const ProductNavigator: () => React.JSX.Element = () => {
         component={ServiceIndex}
         options={{
           title: 'ServiceIndex|ServiceDetail',
-          tabBarLabel: 'งานบริการ',
+          tabBarLabel: t('ProductNavigator.serviceTabLabel'),
           tabBarIcon: ({ color, size }) => (
             <Images.icons.serviceWork
               color={color}
@@ -91,7 +93,7 @@ const ProductNavigator: () => React.JSX.Element = () => {
         component={LearnIndex}
         options={{
           title: 'LearnIndex|LearnDetail',
-          tabBarLabel: 'คอร์สเรียน',
+          tabBarLabel: t('ProductNavigator.learnTabLabel'),
           tabBarIcon: ({ color, size }) => (
             <Images.icons.course color={color} width={size} height={size} />
           ),
@@ -103,7 +105,7 @@ const ProductNavigator: () => React.JSX.Element = () => {
         options={{
           title:
             'CartIndex|CheckoutIndex|PaymentIndex|PaymentQrPromtpay|PaymentCreditCard|PaymentResult',
-          tabBarLabel: 'รถเข็น',
+          tabBarLabel: t('ProductNavigator.cartTabLabel'),
           tabBarIcon: ({ color, size }) => (
             <View>
               <Images.icons.shoppingcart
@@ -121,7 +123,7 @@ const ProductNavigator: () => React.JSX.Element = () => {
         component={ProfileIndex}
         options={{
           title: 'Profile',
-          tabBarLabel: 'โปรไฟล์',
+          tabBarLabel: t('ProductNavigator.profileTabLabel'),
           tabBarIcon: ({ color, size }) => (
             <Images.icons.profile2user
               color={color}

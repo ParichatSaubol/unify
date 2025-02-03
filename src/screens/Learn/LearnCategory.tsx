@@ -33,8 +33,8 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'LearnCategory'>;
 // @refresh reset
 const LearnCategory = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Images, Fonts } = useTheme();
 
   // state
@@ -48,7 +48,7 @@ const LearnCategory = ({ navigation }: Props): JSX.Element => {
   const [state, setState] = useState<'course' | 'package'>('course');
   const dataLearn: LearnCardProps = {
     brand: Images.learn.brand,
-    description: 'ติดตั้งระบบ SCADAGENESIS64 พร้อมอุปกรณ์',
+    description: t('learnCategory.courseDescription'),
     isPlay: false,
   };
 
@@ -66,7 +66,7 @@ const LearnCategory = ({ navigation }: Props): JSX.Element => {
   return (
     <DefaultLayout>
       <AppBar
-        title="คอร์สเรียนจากสถาบันชั้นนำ"
+        title={t('learnCategory.learnCategoryTitle')}
         color={AppColor.blue}
         right={
           <TouchableOpacity>
@@ -95,11 +95,10 @@ const LearnCategory = ({ navigation }: Props): JSX.Element => {
             <Image source={Images.brand.hitachiLogo} />
           </View>
           <Text style={[Fonts.text21, Fonts.textBlack, Fonts.textCenter]}>
-            คอร์สเรียนจาก Mitsubishi e-Factory Center
+            {t('learnCategory.learnFrom')}
           </Text>
           <Text style={[Fonts.text16, Fonts.textBlack, Fonts.textCenter]}>
-            รวมระบบการจัดการอุตสาหกรรม e-Factory เกี่ยวข้อมูลให้ความรู้
-            เกี่ยวกับอุปกรณ์การใช้งานของมิตซูบิชิโดยตรง..
+            {t('learnCategory.courseInfo')}
           </Text>
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
@@ -110,7 +109,7 @@ const LearnCategory = ({ navigation }: Props): JSX.Element => {
                   />
                 }
                 fullRadius
-                title="คอร์สเรียน"
+                title={t('learnCategory.course')}
                 variant={
                   state === 'course'
                     ? ButtonVariant.contained
@@ -129,7 +128,7 @@ const LearnCategory = ({ navigation }: Props): JSX.Element => {
                   />
                 }
                 fullRadius
-                title="แพ็คเก็จ"
+                title={t('learnCategory.package')}
                 variant={
                   state === 'package'
                     ? ButtonVariant.contained

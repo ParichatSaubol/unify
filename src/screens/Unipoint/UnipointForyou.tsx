@@ -13,8 +13,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'UnipointForyou'>;
 
 const UnipointForyou = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   // const dispatch = useDispatch();
@@ -23,32 +23,29 @@ const UnipointForyou = ({ navigation }: Props): JSX.Element => {
   const [data] = useState([
     {
       id: 1,
-      title: 'อันดามันตรา รีสอร์ต แอนด์ วิลลา ภูเก็ต พูลวิลลา 2 ห้องนอน',
-      detail: 'Gift Voucher Card จากสตาร์บัคส์ มูลค่า 200 บาท สำหรับดื่ม',
+      title: t('unipointForyou.yourPrivileges'),
+      detail: t('unipointForyou.promotionDetail1'),
       image: Images.mock.promotionPoint,
       isActive: true,
     },
     {
       id: 2,
-      title: 'ส่วนลดเมื่อซื้อสินค้า UNIFY มูลค่า 500 บาท',
-      detail:
-        'Gift Voucher Card จากสตาร์บัคส์ มูลค่า 200 บาท สำหรับดื่ม จากสตาร์บัคส์ มูลค่า 200 บาท สำหรับดื่ม...',
+      title: t('unipointForyou.promotionTitle2'),
+      detail: t('unipointForyou.promotionDetail4'),
       image: Images.mock.promotionPoint,
       isActive: true,
     },
     {
       id: 3,
-      title: 'iPhone 14 Pro Max (256GB) สีดำกราฟไฟท์',
-      detail:
-        'Gift Voucher Card จากสตาร์บัคส์ มูลค่า 200 บาท สำหรับดื่ม จากสตาร์บัคส์ มูลค่า 200 บาท สำหรับดื่ม...',
+      title: t('unipointForyou.promotionTitle3'),
+      detail: t('unipointForyou.promotionDetail4'),
       image: Images.mock.promotionPoint,
       isActive: true,
     },
     {
       id: 4,
-      title: 'Gift Voucher Card จากสตาร์บัคส์ มูลค่า 200 บาท',
-      detail:
-        'Gift Voucher Card จากสตาร์บัคส์ มูลค่า 200 บาท สำหรับดื่ม จากสตาร์บัคส์ มูลค่า 200 บาท สำหรับดื่ม...',
+      title: t('unipointForyou.promotionTitle4'),
+      detail: t('unipointForyou.promotionDetail4'),
       image: Images.mock.promotionPoint,
       isActive: false,
     },
@@ -71,7 +68,7 @@ const UnipointForyou = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="สิทธิพิเศษของคุณ"
+        title={t('unipointForyou.yourPrivileges')}
         onPress={() => {
           navigation.goBack();
         }}

@@ -35,7 +35,7 @@ const UnipointHistoryDetail = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="ประวัติการใช้คะแนน"
+        title={t('unipointHistoryDetail.historyTitle')}
         onPress={() => {
           navigation.goBack();
         }}

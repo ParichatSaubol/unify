@@ -27,8 +27,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'OrderIndex'>;
 const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
   const { tabs } = route.params;
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -60,8 +60,10 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite', { returnObjects: true }),
+          title: t('orderIndex.productTitleMitsubishiHmi', {
+            returnObjects: true,
+          }),
         },
         {
           id: '2',
@@ -70,8 +72,10 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite', { returnObjects: true }),
+          title: t('orderIndex.productTitleMitsubishiHmi', {
+            returnObjects: true,
+          }),
         },
         {
           id: '3',
@@ -80,8 +84,10 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite', { returnObjects: true }),
+          title: t('orderIndex.productTitleMitsubishiHmi', {
+            returnObjects: true,
+          }),
         },
       ],
     },
@@ -108,8 +114,10 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite', { returnObjects: true }),
+          title: t('orderIndex.productTitleMitsubishiHmi', {
+            returnObjects: true,
+          }),
         },
         {
           id: '2',
@@ -118,8 +126,10 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite', { returnObjects: true }),
+          title: t('orderIndex.productTitleMitsubishiHmi', {
+            returnObjects: true,
+          }),
         },
         {
           id: '3',
@@ -128,8 +138,10 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite', { returnObjects: true }),
+          title: t('orderIndex.productTitleMitsubishiHmi', {
+            returnObjects: true,
+          }),
         },
       ],
     },
@@ -160,8 +172,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
         {
           id: '2',
@@ -170,8 +182,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
         {
           id: '3',
@@ -180,8 +192,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
       ],
     },
@@ -208,8 +220,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
         {
           id: '2',
@@ -218,8 +230,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
         {
           id: '3',
@@ -228,8 +240,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
       ],
     },
@@ -258,8 +270,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
         {
           id: '2',
@@ -268,8 +280,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
         {
           id: '3',
@@ -278,8 +290,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
           discountAmount: 1,
           netAmount: 1000,
           quantity: 1,
-          option: 'สีขาว',
-          title: 'Mitsubishi หน้าจอสัมผัส HMI Touch screen HMI ซีรีย์ GT',
+          option: t('orderIndex.colorWhite'),
+          title: t('orderIndex.productTitleMitsubishiHmi'),
         },
       ],
     },
@@ -314,7 +326,7 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="สถานะการสั่งซื้อสินค้า"
+        title={t('orderIndex.title')}
         onPress={() => {
           //กลับไปหน้าก่อนหน้า
           navigation.goBack();
@@ -335,7 +347,7 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
             contentContainerStyle={[Layout.row, Layout.gap20]}
           >
             <Button
-              title="รอการชำระเงิน"
+              title={t('orderIndex.waitingForPayment')}
               variant={ButtonVariant.text}
               active={active === OrderTabs.WaitingForPayment}
               onPress={() => {
@@ -344,7 +356,7 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
               }}
             />
             <Button
-              title="รอการจัดส่ง"
+              title={t('orderIndex.waitingForDelivery')}
               variant={ButtonVariant.text}
               active={active === OrderTabs.WaitingForDelivery}
               onPress={() => {
@@ -353,7 +365,7 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
               }}
             />
             <Button
-              title="ที่ต้องได้รับ"
+              title={t('orderIndex.beReceived')}
               variant={ButtonVariant.text}
               active={active === OrderTabs.BeReceived}
               onPress={() => {
@@ -362,7 +374,7 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
               }}
             />
             <Button
-              title="ยกเลิกสินค้า"
+              title={t('orderIndex.cancelProduct')}
               variant={ButtonVariant.text}
               active={active === OrderTabs.CancelTheProduct}
               onPress={() => {

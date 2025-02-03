@@ -19,8 +19,8 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'OrderResult'>;
 // @refresh reset
 const OrderResult = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Fonts, Images } = useTheme();
   // state
@@ -53,15 +53,14 @@ const OrderResult = ({ navigation }: Props): JSX.Element => {
             <Text
               style={[Fonts.text34Med, Fonts.textPrimary, Fonts.textCenter]}
             >
-              ส่งคำขอยกเลิกสินค้าสำเร็จ
+              {t('orderResult.orderCancellationSuccess')}
             </Text>
             <Text style={[Fonts.text21Med, Fonts.textCenter]}>
-              กรุณารอเจ้าหน้าที่ติดต่อกลับ คำสั่งซื้อของคุณ
-              จะถูกยกเลิกโดยสมบูรณ์ เมื่ออนุมัติจากเจ้าหน้าที่เท่านั้น
+              {t('orderResult.orderCancellationMessage')}
             </Text>
             <View style={[Layout.fullWidth]}>
               <Button
-                title="กลับหน้าแรก"
+                title={t('orderResult.backToHome')}
                 onPress={() => {
                   navigation.reset({
                     index: 0,

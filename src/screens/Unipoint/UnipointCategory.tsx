@@ -16,7 +16,7 @@ type Props = NativeStackScreenProps<ProductParamsList, 'UnipointCategory'>;
 const UnipointCategory = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors } = useTheme();
   // const dispatch = useDispatch();
@@ -26,31 +26,31 @@ const UnipointCategory = ({ navigation }: Props): JSX.Element => {
     {
       id: 1,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointCategory.title'),
       point: 1500,
     },
     {
       id: 2,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointCategory.title'),
       point: 1500,
     },
     {
       id: 3,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointCategory.title'),
       point: 1500,
     },
     {
       id: 4,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointCategory.title'),
       point: 1500,
     },
     {
       id: 5,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointCategory.title'),
       point: 1500,
     },
   ]);
@@ -80,7 +80,7 @@ const UnipointCategory = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="หมวดโรงแรมและที่พัก"
+        title={t('unipointCategory.hotel')}
         onPress={() => {
           navigation.goBack();
         }}

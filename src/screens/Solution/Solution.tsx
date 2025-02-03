@@ -20,7 +20,7 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'Solution'>;
 const Solution = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -32,8 +32,8 @@ const Solution = ({ navigation }: Props): JSX.Element => {
   const [result, setResult] = useState<IProductCard[]>([
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('solution.title'),
+      description: t('solution.description'),
       // amount: 1232990,
       // netAmount: 1232990,
       // discount: -44,
@@ -45,8 +45,8 @@ const Solution = ({ navigation }: Props): JSX.Element => {
     },
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('solution.title'),
+      description: t('solution.description'),
       // amount: 1232990,
       // netAmount: 1232990,
       // discount: -44,
@@ -58,8 +58,8 @@ const Solution = ({ navigation }: Props): JSX.Element => {
     },
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('solution.title'),
+      description: t('solution.description'),
       // amount: 1232990,
       // netAmount: 1232990,
       // discount: -44,
@@ -87,7 +87,7 @@ const Solution = ({ navigation }: Props): JSX.Element => {
       <View style={styles.appBar}>
         <AppBar
           color={AppColor.white}
-          title="งานบริการ"
+          title={t('solution.series')}
           onPress={() => {
             navigation.goBack();
           }}
@@ -104,7 +104,7 @@ const Solution = ({ navigation }: Props): JSX.Element => {
         <View style={[styles.container]}>
           <View style={styles.inputBox}>
             <InputSelection
-              placeholder="เลือกบริการที่คุณต้องการ"
+              placeholder={t('solution.placeholder')}
               variant={InputSelectionVariant.outlined}
               value={search}
               onChange={setSearch}

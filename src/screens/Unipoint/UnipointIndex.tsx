@@ -28,8 +28,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'UnipointIndex'>;
 
 const UnipointIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   const insets = useSafeAreaInsets();
@@ -38,32 +38,32 @@ const UnipointIndex = ({ navigation }: Props): JSX.Element => {
   const [menu] = useState([
     {
       icon: Images.icons.like,
-      title: 'แนะนำ',
+      title: t('unipointIndex.recommended'),
       onPress: () => navigation.navigate('UnipointIndex'),
     },
     {
       icon: Images.icons.coupon2,
-      title: 'แลกฟรี',
+      title: t('unipointIndex.redeemFree'),
       onPress: () => navigation.navigate('UnipointIndex'),
     },
     {
       icon: Images.icons.discount,
-      title: 'ส่วนลด',
+      title: t('unipointIndex.discount'),
       onPress: () => navigation.navigate('UnipointIndex'),
     },
     {
       icon: Images.icons.reward,
-      title: 'ลุ้นรางวัล',
+      title: t('unipointIndex.winPrize'),
       onPress: () => navigation.navigate('UnipointIndex'),
     },
     {
       icon: Images.icons.product,
-      title: 'สินค้า',
+      title: t('unipointIndex.products'),
       onPress: () => navigation.navigate('UnipointIndex'),
     },
     {
       icon: Images.icons.other,
-      title: 'อื่นๆ',
+      title: t('unipointIndex.others'),
       onPress: () => navigation.navigate('UnipointIndex'),
     },
   ]);
@@ -72,31 +72,31 @@ const UnipointIndex = ({ navigation }: Props): JSX.Element => {
     {
       id: 1,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointIndex.discountCodeForBrandA'),
       point: 1500,
     },
     {
       id: 2,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointIndex.discountCodeForBrandA'),
       point: 1500,
     },
     {
       id: 3,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointIndex.discountCodeForBrandA'),
       point: 1500,
     },
     {
       id: 4,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointIndex.discountCodeForBrandA'),
       point: 1500,
     },
     {
       id: 5,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('unipointIndex.discountCodeForBrandA'),
       point: 1500,
     },
   ]);
@@ -135,21 +135,21 @@ const UnipointIndex = ({ navigation }: Props): JSX.Element => {
           >
             <View>
               <Text style={[Fonts.text21Bold, Fonts.textWhite]}>
-                คุณ ปิยะเดช ทวีิสินธนมงคล
+                {t('unipointIndex.name')}
               </Text>
               <Text style={[Fonts.text18, Fonts.textWhite]}>
-                บริษัท ทีเคเค คอร์ปอเรชั่น จำกัด
+                {t('unipointIndex.company')}
               </Text>
               <View style={[Layout.alignItemsCenter, Layout.row, Layout.gap10]}>
                 <Text style={[Fonts.text16, Fonts.textWhite]}>
-                  จัดการบัญชีที่นี่
+                  {t('unipointIndex.manageAccount')}
                 </Text>
                 <Images.icons.circleArrowRight color="#FFF" />
               </View>
             </View>
             <View>
               <Text style={[Fonts.text24Med, Fonts.textWhite]}>
-                คะแนน Unify
+                {t('unipointIndex.unifyPoints')}
               </Text>
               <Text style={[Fonts.text48Med, Fonts.textWhite, Fonts.textRight]}>
                 0
@@ -166,7 +166,7 @@ const UnipointIndex = ({ navigation }: Props): JSX.Element => {
           >
             <Images.icons.reload color="#FFF" />
             <Text style={[Fonts.text16, Fonts.textWhite]}>
-              อัพเดพ 30 เม.ษ 2566 เวลา 12:23 น.
+              {t('unipointIndex.lastUpdated')}
             </Text>
           </View>
           <View style={styles.menu} />
@@ -176,15 +176,15 @@ const UnipointIndex = ({ navigation }: Props): JSX.Element => {
       <View style={[styles.menuArea]}>
         <View style={[styles.menuBox]}>
           <ChipImage
-            title="ประวัติแลกคะแนน"
+            title={t('unipointIndex.exchangeHistory')}
             logo={<Images.promotions.icons.history />}
           />
           <ChipImage
-            title="คูปองของฉัน"
+            title={t('unipointIndex.myCoupons')}
             logo={<Images.promotions.icons.coupon />}
           />
           <ChipImage
-            title="สิทธิพิเศษที่แลกแล้ว"
+            title={t('unipointIndex.redeemedPrivileges')}
             logo={<Images.promotions.icons.reward />}
           />
         </View>

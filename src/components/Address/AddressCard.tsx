@@ -11,6 +11,7 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 type AddressCardProps = Address & {
   onEditPress?: () => void;
@@ -28,6 +29,7 @@ const AddressCard: FunctionComponent<AddressCardProps> = ({
   onEditPress,
 }) => {
   const { Images, Layout, Fonts } = useTheme();
+  const { t } = useTranslation('address');
 
   return (
     <View style={[Layout.col, Layout.gap10, styles.container]} key={id}>
@@ -46,7 +48,7 @@ const AddressCard: FunctionComponent<AddressCardProps> = ({
         {isDefault && (
           <Button
             startIcon={<Images.icons.car />}
-            title="ที่อยู่จัดส่งเริ่มต้น"
+            title={t('addressCard.default')}
             variant={ButtonVariant.outlined}
             colors={ButtonColor.primary}
             size={ButtonSize.tiny}

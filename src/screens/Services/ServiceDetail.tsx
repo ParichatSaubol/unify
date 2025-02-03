@@ -26,7 +26,7 @@ type Props = NativeStackScreenProps<ProductParamsList, 'ServiceDetail'>;
 const ServiceDetail = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors } = useTheme();
 
@@ -34,49 +34,17 @@ const ServiceDetail = ({ navigation }: Props): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [detail, setDetail] = useState<IServiceDetail>({
     id: '1',
-    title:
-      'บริการล้างแอร์แบบแขวน/ตั้งพื้น ขนาด 12,000 - 48,000 BTU บริการล้างแอร์แบบแขวน/ตั้งพื้น ขนาด 12,000 - 48..',
+    title: t('serviceDetail.title'),
     image: Images.service.detailMock,
     star: 4,
     soldCount: 12800,
     netAmount: 1029090,
     amount: undefined,
-    detail: [
-      'ติดตั้งโดยช่างที่ชำนาญการ',
-      'ช่างผ่านการรับรองความรู้ความสามารถช่างไฟฟ้าภายในอาคาร',
-      'รับประกันงานติดตั้ง 365 วัน',
-      'บริการติดตั้งเฉพาะในเขต กทม.ปริมณฑล',
-    ],
-    standardFree: [
-      'เบรกเกอร์พร้อมฝาครอบ 1 ชุด ขนาด 220 โวลต์',
-      'ขายางรอง Condensing 1 ชุด',
-      'ท่อน้ำทิ้ง PVC ยาวไม่เกิน 4 เมตร',
-      'สายไฟฟ้า ระหว่าง คอยล์ร้อน-คอลย์เย็น ยาวไม่เกิน 10 เมตร',
-      'สายดิน ยาวไม่เกิน 4 เมตร',
-    ],
-    standardCost: [
-      'รางครอบท่อเมตรละ 350 บาท รวมข้อต่อ',
-      'าแขวนแบบห้อย ROD+ยางแบน ขนาดใหญ่ (18-24 kBtu/h) ชุดละ 1500 บาท',
-      'ท่อน้ำทิ้ง PVC ยาวไม่เกิน 4 เมตร',
-      'สายไฟฟ้า ระหว่าง คอยล์ร้อน-คอลย์เย็น ยาวไม่เกิน 10 เมตร',
-      'สายดิน ยาวไม่เกิน 4 เมตร',
-    ],
-    serviceArea: [
-      'กรุงเทพมหานครและปริมณฑล - สมุทรปราการ, ปทุมธานี, นนทบุรี, กรุงเทพมหานคร, สมุทรสาคร, นครปฐม',
-      'ภาคเหนือ - อุตรดิตถ์, ลำปาง',
-      'ภาคใต้ - สงขลา, ยะลา, ภูเก็ต, พัทลุง, ปัตตานี, นราธิวาส, นครศรีธรรมราช, ตรัง, ชุมพร',
-      'ภาคกลาง - อุทัยธานี, สุโขทัย, อ่างทอง, สิงห์บุรี, สมุทรสงคราม, ลพบุรี, พระนครศรีอยุธยา',
-      'ภาคตะวันออก - ระยอง, ปราจีนบุรี, ชลบุรี, ฉะเชิงเทรา, จันทบุรี',
-      'ภาคตะวันออกเฉียงเหนือ - อุบลราชธานี, อุดรธานี, อำนาจเจริญ, สุรินทร์, ศรีสะเกษ, ร้อยเอ็ด, ยโสธร, มุกดาหาร, นครพนม, ชัยภูมิ',
-      'ภาคตะวันตก - ราชบุรี, เพชรบุรี',
-    ],
-    note: [
-      'ติดตั้งบริการแค่เพียง1จุด กรณีย้ายติดตั้งต้องเสียค่าใช้จ่ายเพิ่ม',
-      'การติดท่อน้ำยา และสายไฟฟ้า ติดลักษณะเดินลอยผนังเท่านั้น',
-      'ความสูงหน้างาน ไม่เกิน 8 เมตร กรณีต้องใช้นั่งร้านลูกค้าฝ่ายจัดเช่านั่งให้กับทางบริษัท',
-      'อุปกรณ์มาตรฐาน ไม่สามารถเปลี่ยน,ตัด หรือขอคืนแทนเงินสดหรือส่วนลดได้',
-      'งดให้บริการในสถานที่ไม่สะดวกระหว่างช่างฯปฎิบัติงาน',
-    ],
+    detail: t('serviceDetail.detail', { returnObjects: true }),
+    standardFree: t('serviceDetail.standardFree', { returnObjects: true }),
+    standardCost: t('serviceDetail.standardCost', { returnObjects: true }),
+    serviceArea: t('serviceDetail.serviceArea', { returnObjects: true }),
+    note: t('serviceDetail.note', { returnObjects: true }),
     model: [
       'FX2N-49ER-ES-01',
       'FX2N-49ER-ES-02',

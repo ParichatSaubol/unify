@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { View , TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { useTheme } from '@/hooks';
 import ProductCard from './ProductCard';
 import { IProductCard } from '@/model/product';
@@ -11,6 +11,7 @@ import {
   useLazyGetPopularProducts,
 } from '@/services/modules/product';
 import config from '@/utils/config';
+import { useTranslation } from 'react-i18next';
 interface Props {}
 
 const dataProduct: IProductCard = {
@@ -25,6 +26,7 @@ const dataProduct: IProductCard = {
 
 const ProductRecommend: FunctionComponent<Props> = () => {
   const { Layout } = useTheme();
+  const { t } = useTranslation('common');
   const navigation = useNavigation<NavigationProp<ApplicationStackParamList>>();
   const [data, setData] = useState<IProductCard[]>([]);
   const [Products] = useLazyGetPopularProducts();
@@ -121,15 +123,15 @@ const ProductRecommend: FunctionComponent<Props> = () => {
     for (let index = 0; index < data.length; index++) {
       row.push(
         <TouchableOpacity
-        key={index}
-        onPress={() => {
-          navigation.navigate('ProductDetail', data[index] );
-        }}
-      >
-        <ProductCard
-          key={`product-recommend-items-${index}`}
-          {...data[index]}
-        />
+          key={index}
+          onPress={() => {
+            navigation.navigate('ProductDetail', data[index]);
+          }}
+        >
+          <ProductCard
+            key={`product-recommend-items-${index}`}
+            {...data[index]}
+          />
         </TouchableOpacity>,
       );
       if (row.length === 2) {

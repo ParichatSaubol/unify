@@ -14,8 +14,8 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'BookingDetail'>;
 // @refresh reset
 const BookingDetail = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -54,7 +54,7 @@ const BookingDetail = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="รายละเอียดนัดหมายของคุณ"
+        title={t('bookingDetail.bookingDetailTitle')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -79,59 +79,70 @@ const BookingDetail = ({ navigation }: Props): JSX.Element => {
               styles.row,
             ]}
           >
-            <Text style={[Fonts.text18]}>จำนวน</Text>
+            <Text style={[Fonts.text18]}>{t('bookingDetail.quantity')}</Text>
             <Text style={[Fonts.text18, Fonts.textBlack]}>{data.number}</Text>
           </View>
           <View style={[Layout.row, Layout.justifyContentBetween, styles.row]}>
-            <Text style={[Fonts.text18]}>ราคา</Text>
+            <Text style={[Fonts.text18]}>{t('bookingDetail.price')}</Text>
             {data.amount ? (
               <Text style={[Fonts.text18, Fonts.textBlack]}>
                 {THB.format(data.amount || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
               </Text>
             ) : (
               <Text style={[Fonts.text18, Fonts.textPrimary]}>
-                เจ้าหน้าที่ประเมินราคาหน้างาน
+                {t('bookingDetail.priceAssessment')}
               </Text>
             )}
           </View>
           <View style={[Layout.row, Layout.justifyContentBetween, styles.row]}>
-            <Text style={[Fonts.text18]}>วันที่ทำการจอง</Text>
+            <Text style={[Fonts.text18]}>{t('bookingDetail.bookingDate')}</Text>
             <Text style={[Fonts.text18, Fonts.textBlack]}>
               {data.bookingDate}
             </Text>
           </View>
           <View style={[Layout.row, Layout.justifyContentBetween, styles.row]}>
-            <Text style={[Fonts.text18]}>วันที่เข้ารับบริการ</Text>
+            <Text style={[Fonts.text18]}>{t('bookingDetail.serviceDate')}</Text>
             <Text style={[Fonts.text18, Fonts.textBlack]}>
               {data.serviceDate}
             </Text>
           </View>
           <View style={[Layout.row, Layout.justifyContentBetween, styles.row]}>
-            <Text style={[Fonts.text18]}>สถานะ</Text>
+            <Text style={[Fonts.text18]}>{t('bookingDetail.status')}</Text>
             <Text style={[Fonts.text18, Fonts.textBlack]}>
               {data.status === BookingStatus.inProgress && (
-                <Chip title="รอเจ้าหน้าที่ติดต่อ" color={ChipColor.primary} />
+                <Chip
+                  title={t('bookingDetail.waitingForContact')}
+                  color={ChipColor.primary}
+                />
               )}
               {data.status === BookingStatus.inPayment && (
-                <Chip title="รอการชำระเงิน" color={ChipColor.warning} />
+                <Chip
+                  title={t('bookingDetail.waitingForPayment')}
+                  color={ChipColor.warning}
+                />
               )}
               {data.status === BookingStatus.completed && (
-                <Chip title="ชำระเงินแล้ว" color={ChipColor.success} />
+                <Chip
+                  title={t('bookingDetail.paymentCompleted')}
+                  color={ChipColor.success}
+                />
               )}
             </Text>
           </View>
 
           <View style={[Layout.mt50]}>
-            <Text style={[Fonts.text18, Fonts.textBlack]}>ข้อมูลลูกค้า</Text>
+            <Text style={[Fonts.text18, Fonts.textBlack]}>
+              {t('bookingDetail.customerInfo')}
+            </Text>
             <View style={[Layout.row, styles.customTop]}>
               <Text style={[Fonts.text18, Fonts.textBlack, styles.column]}>
-                ชื่อผู้รับบริการ :
+                {t('bookingDetail.serviceName')}
               </Text>
               <Text style={[Fonts.text18]}>{data.customerContact?.name}</Text>
             </View>
             <View style={[Layout.row]}>
               <Text style={[Fonts.text18, Fonts.textBlack, styles.column]}>
-                ชื่อบริษัท :
+                {t('bookingDetail.companyName')}
               </Text>
               <Text style={[Fonts.text18]}>
                 {data.customerContact?.company}
@@ -139,13 +150,13 @@ const BookingDetail = ({ navigation }: Props): JSX.Element => {
             </View>
             <View style={[Layout.row]}>
               <Text style={[Fonts.text18, Fonts.textBlack, styles.column]}>
-                โทร :
+                {t('bookingDetail.phone')}
               </Text>
               <Text style={[Fonts.text18]}>{data.customerContact?.tel}</Text>
             </View>
             <View style={[Layout.row]}>
               <Text style={[Fonts.text18, Fonts.textBlack, styles.column]}>
-                ที่อยู่ :
+                {t('bookingDetail.address')}
               </Text>
               <Text style={[Fonts.text18, Layout.fill]}>
                 {data.customerContact?.address}
@@ -153,7 +164,7 @@ const BookingDetail = ({ navigation }: Props): JSX.Element => {
             </View>
           </View>
         </View>
-        <Button title="ติดต่อเจ้าหน้าที่" />
+        <Button title={t('bookingDetail.contactAgent')} />
       </ScrollView>
     </DefaultLayout>
   );

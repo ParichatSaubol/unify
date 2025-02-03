@@ -12,53 +12,47 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'Notifications'>;
 // @refresh reset
 const Notifications = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Images } = useTheme();
 
   // state
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [notifications, setNotifications] = useState<NotificationCardProps[]>([
     {
-      title: '06:06 มี Flash Deal ช้อปด่วน',
+      title: t('home.title'),
       image: Images.mock.notification,
-      description:
-        'ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น',
+      description: t('home.description'),
       timestamp: '12-07-2565 12:00',
     },
     {
-      title: '06:06 มี Flash Deal ช้อปด่วน',
+      title: t('home.title'),
       image: Images.mock.notification,
-      description:
-        'ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น',
+      description: t('home.description'),
       timestamp: '12-07-2565 12:00',
     },
     {
-      title: '06:06 มี Flash Deal ช้อปด่วน',
+      title: t('home.title'),
       image: Images.mock.notification,
-      description:
-        'ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น',
+      description: t('home.description'),
       timestamp: '12-07-2565 12:00',
     },
     {
-      title: '06:06 มี Flash Deal ช้อปด่วน',
+      title: t('home.title'),
       image: Images.mock.notification,
-      description:
-        'ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น',
+      description: t('home.description'),
       timestamp: '12-07-2565 12:00',
     },
     {
-      title: '06:06 มี Flash Deal ช้อปด่วน',
+      title: t('home.title'),
       image: Images.mock.notification,
-      description:
-        'ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น',
+      description: t('home.description'),
       timestamp: '12-07-2565 12:00',
     },
     {
-      title: '06:06 มี Flash Deal ช้อปด่วน',
+      title: t('home.title'),
       image: Images.mock.notification,
-      description:
-        'ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น ช้อปเลย สินค้าอุตสาหกรรมส่วนลดถึง 40% ภายในวันนี้เท่านั้น',
+      description: t('home.description'),
       timestamp: '12-07-2565 12:00',
     },
   ]);
@@ -80,7 +74,7 @@ const Notifications = ({ navigation }: Props): JSX.Element => {
         onPress={() => {
           navigation.goBack();
         }}
-        title="การแจ้งเตือน"
+        title={t('notifications.title')}
       />
       <ScrollView
         contentContainerStyle={[

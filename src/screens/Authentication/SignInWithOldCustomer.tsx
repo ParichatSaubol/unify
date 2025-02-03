@@ -14,7 +14,10 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthenticationParamsList } from 'types/navigation';
 import { LinkSize } from '@/model/options';
 
-type Props = NativeStackScreenProps<AuthenticationParamsList, 'SignInWithOldCustomer'>;
+type Props = NativeStackScreenProps<
+  AuthenticationParamsList,
+  'SignInWithOldCustomer'
+>;
 
 // @refresh reset
 const SignInWithOldCustomer = ({}: Props): JSX.Element => {

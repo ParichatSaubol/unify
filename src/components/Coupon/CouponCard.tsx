@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import Button from '../Button/Button';
 import { ButtonSize } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   id?: string;
@@ -11,11 +12,9 @@ interface Props {
 
 const CouponCard: FunctionComponent<Props> = ({ id, onViewDetailPress }) => {
   const { Layout, Fonts } = useTheme();
+  const { t } = useTranslation('common');
 
-  const detail = [
-    'ซื้อสินค้าแบรนด์ Mitsubishi, ลดสูงสุด 2,000 บาท',
-    'ใช้ได้ถึงวันที่ 20 ต.ค. 2565 23:59',
-  ];
+  const detail = [t('couponCard.couponDetails', { returnObjects: true })];
 
   return (
     <View style={styles.root}>
@@ -29,14 +28,16 @@ const CouponCard: FunctionComponent<Props> = ({ id, onViewDetailPress }) => {
             ]}
           >
             <Text style={[Fonts.text21Bold, Fonts.textPrimary]}>
-              ลดเพิ่ม 15%
+              {t('couponCard.additionalDiscount')}
             </Text>
             <TouchableOpacity
               onPress={() => {
                 onViewDetailPress && id && onViewDetailPress(id);
               }}
             >
-              <Text style={[Fonts.text16, Fonts.textPrimary]}>ดูเงื่อนไข</Text>
+              <Text style={[Fonts.text16, Fonts.textPrimary]}>
+                {t('couponCard.viewConditions')}
+              </Text>
             </TouchableOpacity>
           </View>
           {detail?.map((item, index) => (
@@ -47,12 +48,12 @@ const CouponCard: FunctionComponent<Props> = ({ id, onViewDetailPress }) => {
           ))}
         </View>
         <View style={styles.button}>
-          <Button title="เก็บโค้ด" size={ButtonSize.tiny} />
+          <Button title={t('couponCard.saveCode')} size={ButtonSize.tiny} />
         </View>
       </View>
       <View style={styles.footer}>
         <Text style={[Fonts.text18, Fonts.textWhite]}>
-          เฉพาะลูกค้าใหม่ที่ยังไม่เคยมีคำสั่งซื้อ
+          {t('couponCard.newCustomerOnly')}
         </Text>
       </View>
     </View>

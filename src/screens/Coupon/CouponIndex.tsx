@@ -21,8 +21,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'CouponIndex'>;
 
 const CouponIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Images } = useTheme();
   // const dispatch = useDispatch();
@@ -36,18 +36,24 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
     {
       id: 1,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="ใช้คูปอง" size={ButtonSize.mini} disable />,
+      title: t('couponIndex.acer'),
+      description: t('couponIndex.description'),
+      button: (
+        <Button
+          title={t('couponIndex.buttonTitle')}
+          size={ButtonSize.mini}
+          disable
+        />
+      ),
     },
     {
       id: 2,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
+      title: t('couponIndex.acer'),
+      description: t('couponIndex.description'),
       button: (
         <Button
-          title="หมดอายุ"
+          title={t('couponIndex.buttonTitle2')}
           size={ButtonSize.mini}
           colors={ButtonColor.disabled}
         />
@@ -56,23 +62,29 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
     {
       id: 3,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="ใช้คูปอง" size={ButtonSize.mini} />,
+      title: t('couponIndex.acer'),
+      description: t('couponIndex.description'),
+      button: (
+        <Button title={t('couponIndex.buttonTitle')} size={ButtonSize.mini} />
+      ),
     },
     {
       id: 4,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="ใช้คูปอง" size={ButtonSize.mini} />,
+      title: t('couponIndex.acer'),
+      description: t('couponIndex.description'),
+      button: (
+        <Button title={t('couponIndex.buttonTitle')} size={ButtonSize.mini} />
+      ),
     },
     {
       id: 5,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="ใช้คูปอง" size={ButtonSize.mini} />,
+      title: t('couponIndex.acer'),
+      description: t('couponIndex.description'),
+      button: (
+        <Button title={t('couponIndex.buttonTitle')} size={ButtonSize.mini} />
+      ),
     },
   ]);
   // handle callback
@@ -93,7 +105,7 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
       <View style={[Layout.main, Layout.gap20, Layout.bgWhite]}>
         <AppBar
           color={AppColor.white}
-          title="โค้ดส่วนลดของฉัน"
+          title={t('couponIndex.title')}
           onPress={() => {
             navigation.goBack();
           }}
@@ -106,7 +118,7 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
           contentContainerStyle={[Layout.row, Layout.gap20]}
         >
           <Button
-            title="คูปองส่วนลดทั้งหมด"
+            title={t('couponIndex.allDiscountCodesForMe')}
             variant={ButtonVariant.text}
             active={active === ICouponForMeTabs.AllDiscountCodesForMe}
             onPress={() => {
@@ -115,7 +127,7 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="โค้ดที่ใช้แล้ว"
+            title={t('couponIndex.usedCode')}
             variant={ButtonVariant.text}
             active={active === ICouponForMeTabs.UsedCode}
             onPress={() => {
@@ -124,7 +136,7 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="โค้ดที่หมดอายุ"
+            title={t('couponIndex.expiredCode')}
             variant={ButtonVariant.text}
             active={active === ICouponForMeTabs.ExpiredCode}
             onPress={() => {

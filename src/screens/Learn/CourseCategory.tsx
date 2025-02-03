@@ -30,8 +30,8 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const CourseCategory = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Images, Fonts } = useTheme();
 
   // state
@@ -45,7 +45,7 @@ const CourseCategory = ({ navigation }: Props): JSX.Element => {
   const [state, setState] = useState<'course' | 'package'>('course');
   const dataLearn: LearnCardProps = {
     brand: Images.learn.brand,
-    description: 'ติดตั้งระบบ SCADAGENESIS64 พร้อมอุปกรณ์',
+    description: t('courseCategory.description'),
     isPlay: false,
   };
 
@@ -62,7 +62,7 @@ const CourseCategory = ({ navigation }: Props): JSX.Element => {
   return (
     <DefaultLayout>
       <AppBar
-        title="คอร์สเรียนแพ็กเก็จ"
+        title={t('courseCategory.categoryTitle')}
         color={AppColor.blue}
         right={
           <TouchableOpacity>
@@ -96,7 +96,7 @@ const CourseCategory = ({ navigation }: Props): JSX.Element => {
                   />
                 }
                 fullRadius
-                title="คอร์สเรียน"
+                title={t('courseCategory.courseButton')}
                 variant={
                   state === 'course'
                     ? ButtonVariant.contained
@@ -115,7 +115,7 @@ const CourseCategory = ({ navigation }: Props): JSX.Element => {
                   />
                 }
                 fullRadius
-                title="แพ็คเก็จ"
+                title={t('courseCategory.packageButton')}
                 variant={
                   state === 'package'
                     ? ButtonVariant.contained
@@ -128,7 +128,7 @@ const CourseCategory = ({ navigation }: Props): JSX.Element => {
             </View>
           </View>
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            หมวดหมู่ “Engineer”
+            {t('courseCategory.categoryTitle')}
           </Text>
 
           {state === 'package' && (

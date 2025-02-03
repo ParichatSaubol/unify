@@ -2,11 +2,13 @@ import React, { FunctionComponent } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 // แสดง Warning ในหน้า Checkout
 const OrderWarning: FunctionComponent<Props> = ({}) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View
@@ -25,13 +27,13 @@ const OrderWarning: FunctionComponent<Props> = ({}) => {
           width="18"
         />
         <Text style={[Fonts.text16, Fonts.textSuccess]}>
-          ระบบขนส่งจำหน่ายสินค้าแล้ว
+          {t('orderWarning.transportation')}
         </Text>
       </View>
       <TouchableOpacity
         style={[Layout.row, Layout.alignItemsCenter, Layout.gap5]}
       >
-        <Text style={[Fonts.text16]}>ดูสถานะ</Text>
+        <Text style={[Fonts.text16]}>{t('orderWarning.viewStatus')}</Text>
         <Images.icons.arrowRight color="#667085" height="18" width="18" />
       </TouchableOpacity>
     </View>

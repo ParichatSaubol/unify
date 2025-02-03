@@ -12,18 +12,18 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'ProfileUser'>;
 // @refresh reset
 const ProfileUser = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
   // state
   const [user] = useState({
-    name: 'นาย สมชาย ใจดี',
+    name: t('profileUser.name'),
     email: 'abc@abc.com',
     register: '01/01/2564',
     phone: '0812345678',
-    address: '123 ถ. สุขุมวิท แขวง คลองเตย เขต คลองเตย กรุงเทพมหานคร 10110',
+    address: t('profileUser.address'),
   });
   // handle callback
   const init = async (): Promise<void> => {
@@ -41,7 +41,7 @@ const ProfileUser = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="ข้อมูลของคุณ"
+        title={t('profileUser.information')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -55,33 +55,36 @@ const ProfileUser = ({ navigation }: Props): JSX.Element => {
         ]}
       >
         <View style={[Layout.fill, Layout.gap10]}>
-          <Text style={[Fonts.text24Med]}>ข้อมูลของคุณ</Text>
+          <Text style={[Fonts.text24Med]}>{t('profileUser.information')}</Text>
           <View style={styles.box}>
-            <Text style={[Fonts.text21]}>ชื่อ</Text>
+            <Text style={[Fonts.text21]}>{t('profileUser.nameOne')}</Text>
             <Text style={[Fonts.text21]}>{user.name}</Text>
           </View>
           <View style={styles.box}>
-            <Text style={[Fonts.text21]}>วันที่เริ่มเป็นสมาชิก</Text>
+            <Text style={[Fonts.text21]}>{t('profileUser.date')}</Text>
             <Text style={[Fonts.text21]}>{user.register}</Text>
           </View>
           <View style={styles.box}>
-            <Text style={[Fonts.text21]}>เบอร์โทรศัพท์</Text>
+            <Text style={[Fonts.text21]}>{t('profileUser.phone')}</Text>
             <Text style={[Fonts.text21]}>{user.phone}</Text>
           </View>
           <View style={styles.box}>
-            <Text style={[Fonts.text21]}>อีเมล</Text>
+            <Text style={[Fonts.text21]}>{t('profileUser.email')}</Text>
             <Text style={[Fonts.text21]}>{user.email}</Text>
           </View>
           <View style={styles.box}>
-            <Text style={[Fonts.text21]}>ที่อยู่</Text>
+            <Text style={[Fonts.text21]}>{t('profileUser.addressOne')}</Text>
             <View style={[Layout.row, Layout.gap10, Layout.center]}>
-              <Text style={[Fonts.text21]}>ดูรายละเอียด</Text>
+              <Text style={[Fonts.text21]}>{t('profileUser.viewDetails')}</Text>
               <Images.icons.arrowRight color="#667085" />
             </View>
           </View>
         </View>
         <View style={[Layout.gap10, styles.bottom]}>
-          <Button title="ลบบัญชี" size={ButtonSize.small} />
+          <Button
+            title={t('profileUser.deleteAccount')}
+            size={ButtonSize.small}
+          />
         </View>
       </ScrollView>
     </DefaultLayout>

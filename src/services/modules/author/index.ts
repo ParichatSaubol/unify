@@ -1,11 +1,11 @@
 import {
-    GetContentAuthorQuery,
-    GetContentAuthorQueryVariables,
-  } from '../modules';
-  
+  GetContentAuthorQuery,
+  GetContentAuthorQueryVariables,
+} from '../modules';
+
 import { gql, useLazyQuery } from '@apollo/client';
 const GET_CONTENT_AUTHOR = gql`
-query GetContentAuthor($page: Int, $perPage: Int) {
+  query GetContentAuthor($page: Int, $perPage: Int) {
     getContentAuthor(page: $page, perPage: $perPage) {
       content_author {
         author_create_by

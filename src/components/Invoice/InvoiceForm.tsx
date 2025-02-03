@@ -13,12 +13,13 @@ import Card from '../Card/Card';
 import Input from '../Input/Input';
 import { TRegisterInvoice } from '@/model/customer';
 import Button from '../Button/Button';
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
 const InvoiceForm: FunctionComponent<Props> = ({}) => {
   const { Layout, Fonts, Images } = useTheme();
-
+  const { t } = useTranslation('common');
   const { control, watch } = useFormContext<TRegisterInvoice>();
 
   return (
@@ -26,14 +27,14 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
       <Card
         title={
           watch('type') === RoleType.COMPANY
-            ? 'ข้อมูลลงทะเบียน (สำหรับลูกค้าบริษัท)'
-            : 'ข้อมูลลงทะเบียน (บุคคลธรรมดา)'
+            ? t('invoiceForm.company')
+            : t('invoiceForm.individual')
         }
       >
         <View style={[Layout.col, Layout.gap10]}>
           <View>
             <Text style={[Fonts.text18, { color: Colors.black }]}>
-              ชื่อสำหรับการออกใบกำกับภาษี (*)
+              {t('invoiceForm.taxInvoiceNameLabel')}
             </Text>
             <Controller
               name="name"
@@ -43,7 +44,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                 fieldState: { error },
               }) => (
                 <Input
-                  placeholder="ชื่อสำหรับการออกใบกำกับภาษี"
+                  placeholder={t('invoiceForm.taxInvoiceNamePlaceholder')}
                   variant={InputVariant.outlined}
                   value={value}
                   onChange={onChange}
@@ -76,7 +77,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                         )
                       }
                       variant={ButtonVariant.text}
-                      title="สำนักงานใหญ่"
+                      title={t('invoiceForm.isHeadOffice')}
                       onPress={() => {
                         onChange(true);
                       }}
@@ -105,7 +106,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                         )
                       }
                       variant={ButtonVariant.text}
-                      title="สาขา"
+                      title={t('invoiceForm.branch')}
                       onPress={() => {
                         onChange(false);
                       }}
@@ -123,7 +124,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                             <View style={[Layout.fill, { width: 140 }]}>
                               <Input
                                 disabled={value}
-                                placeholder="กรุณากรอกชื่อสาขา"
+                                placeholder={t('invoiceForm.outlined')}
                                 variant={InputVariant.outlined}
                                 value={valueBranch}
                                 onChange={OnChangeBranch}
@@ -142,7 +143,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
           )}
           <View>
             <Text style={[Fonts.text18, { color: Colors.black }]}>
-              เลขประจำตัวผู้เสียภาษีอากร (*)
+              {t('invoiceForm.numberInvoiceNameLabel')}
             </Text>
             <Controller
               name="taxID"
@@ -152,7 +153,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                 fieldState: { error },
               }) => (
                 <Input
-                  placeholder="เลขประจำตัวผู้เสียภาษีอากร"
+                  placeholder={t('invoiceForm.placeholder')}
                   variant={InputVariant.outlined}
                   value={value}
                   onChange={onChange}
@@ -165,11 +166,11 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
         </View>
       </Card>
 
-      <Card title="ที่อยู่สำหรับการออกใบกำกับภาษี">
+      <Card title={t('invoiceForm.address')}>
         <View style={[Layout.col, Layout.gap10]}>
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>บ้านเลขที่</Text>
+              <Text style={[Fonts.text18]}>{t('invoiceForm.houseNumber')}</Text>
               <Controller
                 name="address"
                 control={control}
@@ -178,7 +179,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="บ้านเลขที่"
+                    placeholder={t('invoiceForm.houseNumber')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -189,7 +190,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
               />
             </View>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>ชื่ออาคาร/หมู่บ้าน</Text>
+              <Text style={[Fonts.text18]}>{t('invoiceForm.building')}</Text>
               <Controller
                 name="building"
                 control={control}
@@ -198,7 +199,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ชื่ออาคาร/หมู่บ้าน"
+                    placeholder={t('invoiceForm.building')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -213,7 +214,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
           {/*  */}
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>หมู่ที่</Text>
+              <Text style={[Fonts.text18]}>{t('invoiceForm.village')}</Text>
               <Controller
                 name="village"
                 control={control}
@@ -222,7 +223,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="หมู่ที่"
+                    placeholder={t('invoiceForm.village')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -233,7 +234,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
               />
             </View>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>ถนน</Text>
+              <Text style={[Fonts.text18]}>{t('invoiceForm.road')}</Text>
               <Controller
                 name="road"
                 control={control}
@@ -242,7 +243,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ถนน"
+                    placeholder={t('invoiceForm.road')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -257,7 +258,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
           {/*  */}
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>รหัสไปรษณีย์</Text>
+              <Text style={[Fonts.text18]}>{t('invoiceForm.postalCode')}</Text>
               <Controller
                 name="postalCode"
                 control={control}
@@ -266,7 +267,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="รหัสไปรษณีย์"
+                    placeholder={t('invoiceForm.postalCode')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -277,7 +278,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
               />
             </View>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>จังหวัด</Text>
+              <Text style={[Fonts.text18]}>{t('invoiceForm.province')}</Text>
               <Controller
                 name="province"
                 control={control}
@@ -286,7 +287,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="จังหวัด"
+                    placeholder={t('invoiceForm.province')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -301,7 +302,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
           {/*  */}
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>อำเภอ/เขต</Text>
+              <Text style={[Fonts.text18]}>{t('invoiceForm.district')}</Text>
               <Controller
                 name="district"
                 control={control}
@@ -310,7 +311,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="อำเภอ/เขต"
+                    placeholder={t('invoiceForm.district')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -321,7 +322,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
               />
             </View>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>ตำบล/แขวง</Text>
+              <Text style={[Fonts.text18]}>{t('invoiceForm.subdistrict')}</Text>
               <Controller
                 name="subdistrict"
                 control={control}
@@ -330,7 +331,7 @@ const InvoiceForm: FunctionComponent<Props> = ({}) => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ตำบล/แขวง"
+                    placeholder={t('invoiceForm.subdistrict')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}

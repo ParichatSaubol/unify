@@ -13,7 +13,7 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'ProfileUser'>;
 const ProfileUser = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -35,7 +35,7 @@ const ProfileUser = ({ navigation }: Props): JSX.Element => {
       <View style={[Layout.main, Layout.gap20, Layout.bgWhite]}>
         <AppBar
           color={AppColor.white}
-          title="แชทติดต่อเจ้าหน้าที่"
+          title={t('profileUser.title')}
           onPress={() => {
             navigation.goBack();
           }}

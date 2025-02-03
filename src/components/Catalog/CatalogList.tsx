@@ -13,6 +13,7 @@ import { useTheme } from '@/hooks';
 import { CatalogListData } from '@/model/category';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { ApplicationStackParamList } from 'types/navigation';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   rowNumber?: number;
@@ -26,28 +27,41 @@ const CatalogList: FunctionComponent<Props> = ({ rowNumber = 2, data }) => {
   const { navigate } =
     useNavigation<NavigationProp<ApplicationStackParamList>>();
   const { Layout, Images, Fonts } = useTheme();
+  const { t } = useTranslation('catalogs');
   // ข้อมูลของหมวดหมู่
   const [mockData] = useState<CatalogListData[]>([
-    { id: 1, name: 'ระบบพ่นสี', image: Images.catalog.mockA },
-    { id: 2, name: 'อุปกรณ์ ความปลอดภัย', image: Images.catalog.mockB },
-    { id: 3, name: 'อะไหล่เครื่องจักร', image: Images.catalog.mockC },
-    { id: 4, name: 'ระบบอัตโนมัติ', image: Images.catalog.mockD },
+    { id: 1, name: t('catalogList.paintSystem'), image: Images.catalog.mockA },
+    {
+      id: 2,
+      name: t('catalogList.safetyEquipment'),
+      image: Images.catalog.mockB,
+    },
+    { id: 3, name: t('catalogList.machineParts'), image: Images.catalog.mockC },
+    {
+      id: 4,
+      name: t('catalogList.automationSystem'),
+      image: Images.catalog.mockD,
+    },
     {
       id: 5,
-      name: 'อุปกรณ์ความ ปลอดภัย เครื่องจักร',
+      name: t('catalogList.safetyMachineParts'),
       image: Images.catalog.mockE,
     },
     {
       id: 6,
-      name: 'เคมีภัณฑ์ของเหลว ผลิตภัณฑ์เพื่อ สิ่งแวดล้อม',
+      name: t('catalogList.chemicalLiquidEnvironmentProducts'),
       image: Images.catalog.mockF,
     },
     {
       id: 7,
-      name: 'ระบบขับเคลื่อน และหุ่นยนต์ขนส่ง',
+      name: t('catalogList.drivesAndTransportRobots'),
       image: Images.catalog.mockG,
     },
-    { id: 8, name: 'สินค้า และ ผลิตภัณฑ์อื่นๆ', image: Images.catalog.mockH },
+    {
+      id: 8,
+      name: t('catalogList.otherProducts'),
+      image: Images.catalog.mockH,
+    },
   ]);
 
   const renderItem = (v: CatalogListData) => {

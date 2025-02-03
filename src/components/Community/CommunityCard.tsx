@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { useTheme } from '@/hooks';
 import StepperFullsize from '../Stepper/StepperFullsize';
+import { useTranslation } from 'react-i18next';
 
 export interface CommunityCardProps {
   id?: number;
@@ -38,6 +39,7 @@ const CommunityCard: FunctionComponent<CommunityCardProps> = ({
   currentStepper,
 }) => {
   const { Layout, Images, Fonts } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View style={[Layout.col, Layout.gap5, styles.container]}>
@@ -55,13 +57,15 @@ const CommunityCard: FunctionComponent<CommunityCardProps> = ({
           <View style={[Layout.col]}>
             <Text style={[Fonts.textWhite, Fonts.text16Med]}>{title}</Text>
             <Text style={[Fonts.textWhite, Fonts.text16Med]}>
-              บทความโดย : {createdBy}
+              {t('communityCard.article')} {createdBy}
             </Text>
           </View>
         </View>
         <View>
           <TouchableOpacity onPress={onMorePress}>
-            <Text style={[Fonts.textWhite, Fonts.text16Med]}>อ่านต่อ</Text>
+            <Text style={[Fonts.textWhite, Fonts.text16Med]}>
+              {t('communityCard.read')}
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

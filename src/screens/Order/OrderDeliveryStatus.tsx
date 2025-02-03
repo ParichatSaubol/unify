@@ -30,8 +30,8 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { orderId } = route.params;
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -39,27 +39,27 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [timeline, setTimeline] = React.useState<ITimeline[]>([
     {
-      title: 'วันนี้',
+      title: t('orderDeliveryStatus.today'),
       subTitle: '13:30',
-      description: 'พัสดุอยู่ระหว่างการจัดส่งไปที่สาขาปลายทาง',
+      description: t('orderDeliveryStatus.parcelInTransit'),
       active: true,
     },
     {
-      title: '4 ต.ค. 65',
+      title: t('orderDeliveryStatus.oct4'),
       subTitle: '13:30',
-      description: 'พัสดุอยู่ถูกจัดส่งถึงศูนย์รับสินค้า',
+      description: t('orderDeliveryStatus.parcelReceived'),
       active: false,
     },
     {
-      title: '3 ต.ค. 65',
+      title: t('orderDeliveryStatus.oct3'),
       subTitle: '13:30',
-      description: 'DHL ได้ทำการเข้ารับพัสดุเรียบร้อยแล้ว',
+      description: t('orderDeliveryStatus.parcelPickedUp'),
       active: false,
     },
     {
-      title: '3 ต.ค. 65',
+      title: t('orderDeliveryStatus.oct3'),
       subTitle: '13:30',
-      description: 'ผู้ขายกำลังจัดเตรียมสินค้าของคุณ',
+      description: t('orderDeliveryStatus.sellerPreparing'),
       active: false,
     },
   ]);
@@ -93,7 +93,7 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="สถานะการจัดส่ง"
+        title={t('orderDeliveryStatus.deliveryStatus')}
         onPress={() => {
           //กลับไปหน้าก่อนหน้า
           navigation.goBack();
@@ -112,7 +112,9 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
               Layout.alignItemsCenter,
             ]}
           >
-            <Text style={[Fonts.text21]}>หมายเลขติดตามพัสดุ :</Text>
+            <Text style={[Fonts.text21]}>
+              {t('orderDeliveryStatus.trackingNumber')}
+            </Text>
             <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
               <Text style={[Fonts.text21, Fonts.textPrimary]}>
                 TH015063650999
@@ -129,7 +131,9 @@ const OrderIndex = ({ navigation, route }: Props): JSX.Element => {
 
           <View style={[Layout.row, Layout.gap20, Layout.alignItemsCenter]}>
             <Image source={Images.order.dhl} />
-            <Text style={[Fonts.text21]}>Logistics Company : DHL</Text>
+            <Text style={[Fonts.text21]}>
+              {t('orderDeliveryStatus.logistics')}
+            </Text>
           </View>
         </View>
 

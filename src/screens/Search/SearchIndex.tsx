@@ -22,7 +22,7 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'SearchIndex'>;
 const SearchIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   const { Fonts, Layout, Images } = useTheme();
 
   // state
@@ -30,13 +30,13 @@ const SearchIndex = ({ navigation }: Props): JSX.Element => {
   const [history, setHistory] = useState<string[]>([
     'Mitsubishi',
     'TRUSCO',
-    'ระบบสกาด้า',
+    t('searchIndex.scada'),
     'AC SERVO',
     'PLC',
-    'สวิตซ์ฉุกเฉิน',
-    'จอ HMI',
+    t('searchIndex.switch'),
+    t('searchIndex.display'),
     'IDEC',
-    'ระบบพ่นสี',
+    t('searchIndex.spraying'),
   ]);
 
   // handle callback
@@ -58,7 +58,7 @@ const SearchIndex = ({ navigation }: Props): JSX.Element => {
         }}
         right={
           <View style={[Layout.fill]}>
-            <InputSearch placeholder="Mitsubishi SCADA ส่วนลดสูงสุด 10% ติดตั้งฟรี" />
+            <InputSearch placeholder={t('searchIndex.placeholder')} />
           </View>
         }
       />
@@ -71,9 +71,9 @@ const SearchIndex = ({ navigation }: Props): JSX.Element => {
               Layout.alignItemsCenter,
             ]}
           >
-            <Text style={[Fonts.text24Med]}>การค้นหาล่าสุด</Text>
+            <Text style={[Fonts.text24Med]}>{t('searchIndex.searches')}</Text>
             <Button
-              title="ล้างทั้งหมด"
+              title={t('searchIndex.clear')}
               colors={ButtonColor.solid}
               size={ButtonSize.mini}
               endIcon={<Images.icons.trashcan />}

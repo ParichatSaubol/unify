@@ -34,8 +34,7 @@ type Props = NativeStackScreenProps<
 const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
   // hooks
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   const { Layout, Fonts, Gutters, Colors, Images } = useTheme();
   const { dismissAll } = useBottomSheetModal();
   const { handleSubmit, control } = useForm<TRegisterOldInvoice>({
@@ -58,7 +57,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
   return (
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
-        title="ข้อมูลใบกำกับภาษี"
+        title={t('registerOldProfile.information')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -70,11 +69,11 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
           Keyboard.dismiss();
         }}
       >
-        <Card title="ข้อมูลลงทะเบียน (สำหรับลูกค้าบริษัท)">
+        <Card title={t('registerOldProfile.company')}>
           <View style={[Layout.col, Layout.gap10]}>
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                ชื่อสำหรับการออกใบกำกับภาษี
+                {t('registerOldProfile.nameInvoice')}
               </Text>
               <Controller
                 name="prefix"
@@ -84,7 +83,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ชื่อสำหรับการออกใบกำกับภาษี"
+                    placeholder={t('registerOldProfile.nameInvoice')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -116,7 +115,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
                         )
                       }
                       variant={ButtonVariant.text}
-                      title="สำนักงานใหญ่"
+                      title={t('registerOldProfile.isHeadOffice')}
                       onPress={() => {
                         onChange(true);
                       }}
@@ -145,7 +144,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
                         )
                       }
                       variant={ButtonVariant.text}
-                      title="สาขา"
+                      title={t('registerOldProfile.branch')}
                       onPress={() => {
                         onChange(false);
                       }}
@@ -163,7 +162,9 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
                             <View style={[Layout.fill]}>
                               <Input
                                 disabled={value}
-                                placeholder="กรุณากรอกชื่อสาขา"
+                                placeholder={t(
+                                  'registerOldProfile.enterBranch',
+                                )}
                                 variant={InputVariant.outlined}
                                 value={valueBranch}
                                 onChange={OnChangeBranch}
@@ -181,7 +182,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
             </View>
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                เลขประจำตัวผู้เสียภาษีอาการ
+                {t('registerOldProfile.taxID')}
               </Text>
               <Controller
                 name="taxID"
@@ -191,7 +192,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="เลขประจำตัวผู้เสียภาษีอาการ"
+                    placeholder={t('registerOldProfile.taxID')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -202,7 +203,9 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
               />
             </View>
             <View>
-              <Text style={[Fonts.text18, { color: Colors.black }]}>อีเมล</Text>
+              <Text style={[Fonts.text18, { color: Colors.black }]}>
+                {t('registerOldProfile.email')}
+              </Text>
               <Controller
                 name="email"
                 control={control}
@@ -211,7 +214,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="อีเมล"
+                    placeholder={t('registerOldProfile.email')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -224,11 +227,11 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
           </View>
         </Card>
 
-        <Card title="ตั้งรหัสผ่านเข้าใช้งาน">
+        <Card title={t('registerOldProfile.setPassword')}>
           <View style={[Layout.col, Layout.gap10]}>
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                รหัสผ่าน
+                {t('registerOldProfile.password')}
               </Text>
               <Controller
                 name="password"
@@ -238,7 +241,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="รหัสผ่าน"
+                    placeholder={t('registerOldProfile.password')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -251,7 +254,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
 
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                ยืนยันรหัสผ่าน
+                {t('registerOldProfile.confirmPassword')}
               </Text>
               <Controller
                 name="confirmPassword"
@@ -261,7 +264,7 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ยืนยันรหัสผ่าน"
+                    placeholder={t('registerOldProfile.confirmPassword')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -274,31 +277,35 @@ const RegisterOldProfile = ({ navigation }: Props): JSX.Element => {
 
             <View>
               <Text style={[Fonts.text18, { color: Colors.black }]}>
-                การตั้งรหัสเพื่อความปลอดภัย
+                {t('registerOldProfile.safety')}
               </Text>
               <View style={[Layout.rowHCenter, Layout.gap10]}>
                 <Images.icons.checkCircleOutline color={Colors.gray600} />
                 <Text style={[Fonts.text16, { color: Colors.gray600 }]}>
-                  ตัวอักษรภาษาอังกฤษตัวเล็กและใหญ่ (a-z)
+                  {t('registerOldProfile.character')}
                 </Text>
               </View>
               <View style={[Layout.rowHCenter, Layout.gap10]}>
                 <Images.icons.checkCircleOutline color={Colors.gray600} />
                 <Text style={[Fonts.text16, { color: Colors.gray600 }]}>
-                  ตัวเลขอย่างน้อย 1 ตัวอักษร (0-9)
+                  {t('registerOldProfile.number')}
                 </Text>
               </View>
               <View style={[Layout.rowHCenter, Layout.gap10]}>
                 <Images.icons.checkCircleOutline color={Colors.gray600} />
                 <Text style={[Fonts.text16, { color: Colors.gray600 }]}>
-                  รหัสต้องมีความยาวอย่างน้อย 8 ตัวอักษร
+                  {t('registerOldProfile.charactersLong')}
                 </Text>
               </View>
             </View>
           </View>
         </Card>
 
-        <Button title="ถัดไป" fullWidth onPress={handleSubmit(onSubmit)} />
+        <Button
+          title={t('registerOldProfile.next')}
+          fullWidth
+          onPress={handleSubmit(onSubmit)}
+        />
       </ScrollView>
     </DefaultLayout>
   );

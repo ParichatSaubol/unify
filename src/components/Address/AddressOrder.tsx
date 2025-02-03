@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '@/hooks';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 interface Props {
   name?: string;
@@ -19,6 +21,7 @@ const AddressOrder: FunctionComponent<Props> = ({
   onPress,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('address');
 
   // const [address, setAddress] = useState<number>();
   return (
@@ -34,7 +37,7 @@ const AddressOrder: FunctionComponent<Props> = ({
           <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
             <Images.icons.location color="#0057FF" />
             <Text style={[Fonts.text21, Fonts.textPrimary]}>
-              ที่อยู่สำหรับจัดส่ง
+              {t('addressOrder.deliveryAddress')}
             </Text>
           </View>
           {isEdit && (
@@ -44,7 +47,7 @@ const AddressOrder: FunctionComponent<Props> = ({
               }}
             >
               <Text style={[Fonts.text16, Fonts.textPrimary]}>
-                เปลี่ยนที่อยู่
+                {t('addressOrder.changeAddress')}
               </Text>
             </TouchableOpacity>
           )}
@@ -62,9 +65,9 @@ const AddressOrder: FunctionComponent<Props> = ({
 };
 
 AddressOrder.defaultProps = {
-  name: 'สมคิด จิตชื่นบาน',
+  name: t('addressOrder.defaultName', { returnObjects: true }),
   phoneNumber: '081-567-8912',
-  address: '9/8 บางกรวยไทรน้อย ซอย10 ต.บางกรวย อ.บางกรวย จังหวัดนนทบุรี 11130',
+  address: t('addressOrder.defaultAddress', { returnObjects: true }),
   isEdit: true,
   onPress: undefined,
 };

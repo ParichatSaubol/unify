@@ -14,8 +14,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'CouponSearch'>;
 // @refresh reset
 const CouponIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Images } = useTheme();
   // const dispatch = useDispatch();
@@ -25,25 +25,33 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
     {
       id: 1,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="ใช้คูปอง" size={ButtonSize.mini} disable />,
+      title: t('couponSearch.acer'),
+      description: t('couponSearch.description'),
+      button: (
+        <Button
+          title={t('couponSearch.buttonTitle')}
+          size={ButtonSize.mini}
+          disable
+        />
+      ),
     },
     {
       id: 2,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="ใช้คูปอง" size={ButtonSize.mini} />,
+      title: t('couponSearch.acer'),
+      description: t('couponSearch.description'),
+      button: (
+        <Button title={t('couponSearch.buttonTitle')} size={ButtonSize.mini} />
+      ),
     },
     {
       id: 3,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
+      title: t('couponSearch.acer'),
+      description: t('couponSearch.description'),
       button: (
         <Button
-          title="หมดอายุ"
+          title={t('couponSearch.buttonTitle2')}
           size={ButtonSize.mini}
           colors={ButtonColor.secondary}
         />
@@ -52,16 +60,20 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
     {
       id: 4,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="ใช้คูปอง" size={ButtonSize.mini} />,
+      title: t('couponSearch.acer'),
+      description: t('couponSearch.description'),
+      button: (
+        <Button title={t('couponSearch.buttonTitle')} size={ButtonSize.mini} />
+      ),
     },
     {
       id: 5,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="ใช้คูปอง" size={ButtonSize.mini} />,
+      title: t('couponSearch.acer'),
+      description: t('couponSearch.description'),
+      button: (
+        <Button title={t('couponSearch.buttonTitle')} size={ButtonSize.mini} />
+      ),
     },
   ]);
   // handle callback
@@ -82,7 +94,7 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
       <View style={[Layout.main, Layout.gap20, Layout.bgWhite]}>
         <AppBar
           color={AppColor.white}
-          title="โค้ดส่วนลด"
+          title={t('couponSearch.title')}
           onPress={() => {
             navigation.goBack();
           }}
@@ -92,13 +104,16 @@ const CouponIndex = ({ navigation }: Props): JSX.Element => {
         <View style={[Layout.row, Layout.gap10]}>
           <View style={[Layout.fill]}>
             <Input
-              placeholder="กรอกโค้ดส่วนลด"
+              placeholder={t('couponSearch.placeholder')}
               error
-              helperText="โค้ดส่วนลดไม่ถูกต้อง"
+              helperText={t('couponSearch.invalidCode')}
             />
           </View>
           <View>
-            <Button title="ค้นหา" size={ButtonSize.small} />
+            <Button
+              title={t('couponSearch.searchButton')}
+              size={ButtonSize.small}
+            />
           </View>
         </View>
       </View>

@@ -12,6 +12,7 @@ import {
   ButtonSize,
   InputVariant,
 } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   modalVisible?: boolean;
@@ -23,6 +24,7 @@ const CouponModal: FunctionComponent<Props> = ({
   setModalVisible,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   const [isCoupon, setIsCoupon] = React.useState(false);
   const [couponSelected, setCouponSelected] = React.useState('');
@@ -46,7 +48,7 @@ const CouponModal: FunctionComponent<Props> = ({
         <View style={styles.container}>
           <View style={[styles.modalView]}>
             <View>
-              <Text style={Fonts.text24Med}>โค้ดที่ใช้ได้</Text>
+              <Text style={Fonts.text24Med}>{t('couponModal.title')}</Text>
             </View>
             <View style={styles.buttonClose}>
               <ButtonIcon
@@ -61,12 +63,12 @@ const CouponModal: FunctionComponent<Props> = ({
               <View style={[Layout.row, Layout.gap10]}>
                 <View style={[Layout.fill]}>
                   <Input
-                    placeholder="กรอกโค้ดส่วนลด"
+                    placeholder={t('couponModal.enterCouponCode')}
                     variant={InputVariant.outlined}
                   />
                 </View>
                 <Button
-                  title="ค้นหา"
+                  title={t('couponModal.search')}
                   colors={ButtonColor.primary}
                   size={ButtonSize.small}
                 />
@@ -76,7 +78,7 @@ const CouponModal: FunctionComponent<Props> = ({
             <View style={styles.root}>
               <ScrollView contentContainerStyle={[Layout.col, Layout.gap20]}>
                 <Text style={Fonts.text24Med}>
-                  ส่วนลดที่สามารถใช้กับคำสั่งซื้อนี้ได้
+                  {t('couponModal.applicableDiscounts')}
                 </Text>
                 <CouponCard
                   onViewDetailPress={id => {

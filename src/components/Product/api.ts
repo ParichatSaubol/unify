@@ -3,38 +3,34 @@ import config from '@/utils/config';
 import {
   useLazyGetProducts,
   useLazyGetProductById,
-
 } from '@/services/modules/product';
 
-export const queryProducts = async (page : number, perPage : number) => {
-    try {
-      const [getProducts, { loading, error, data }] = useLazyGetProducts();
-  
-      // Perform the query
-      await getProducts({variables: { page : page, perPage :perPage }});
-      console.log(data)
-  
-      // Handle the response
-      if (data?.getProducts?.products) {
-        const arrayProducts = data.getProducts.products.map((item) => ({
-          id: item.pd_id?.toString() || '',
-        }));
-        return arrayProducts;
-      } else if (loading) {
-        console.log('Products are loading...');
-      } else if (error) {
-        console.log('An error occurred:', error);
-      }
-  
-      return [];
-    } catch (error) {
-      console.error('Error in queryProducts:', error);
-      throw error;
+export const queryProducts = async (page: number, perPage: number) => {
+  try {
+    const [getProducts, { loading, error, data }] = useLazyGetProducts();
+
+    // Perform the query
+    await getProducts({ variables: { page: page, perPage: perPage } });
+    console.log(data);
+
+    // Handle the response
+    if (data?.getProducts?.products) {
+      const arrayProducts = data.getProducts.products.map(item => ({
+        id: item.pd_id?.toString() || '',
+      }));
+      return arrayProducts;
+    } else if (loading) {
+      console.log('Products are loading...');
+    } else if (error) {
+      console.log('An error occurred:', error);
     }
-  };
 
-
-
+    return [];
+  } catch (error) {
+    console.error('Error in queryProducts:', error);
+    throw error;
+  }
+};
 
 // export const queryProductById = async id => {
 //   try {

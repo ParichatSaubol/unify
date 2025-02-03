@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Modal, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import Button from '../Button/Button';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   modalVisible?: boolean;
@@ -13,6 +14,7 @@ const OrderWithEstimate: FunctionComponent<Props> = ({
   setModalVisible,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <>
@@ -28,15 +30,14 @@ const OrderWithEstimate: FunctionComponent<Props> = ({
           <View style={[styles.modalView, Layout.center]}>
             <Images.icons.warning1 height="80" width="80" color="#0057FF" />
             <Text style={[Fonts.text32Med, Fonts.textBlack, Fonts.textCenter]}>
-              สินค้ารอเจ้าหน้าที่ประเมินราคา
+              {t('orderWithEstimate.waitingForEstimate')}
             </Text>
             <Text style={[Fonts.text21, Fonts.textCenter]}>
-              คุณยังไม่สามารถชำระเงินได้ จะมีเจ้าหน้าที่ติดต่อกลับไปภายใน 1 ถึง
-              3 วันทำการเพื่อสอบถามข้อมูลการเข้ารับบริการเพิ่มเติม
+              {t('orderWithEstimate.paymentNotAvailable')}
             </Text>
             <Button
               fullRadius
-              title="ปิดหน้าต่าง"
+              title={t('orderWithEstimate.closeWindow')}
               onPress={() => {
                 setModalVisible && setModalVisible(false);
               }}

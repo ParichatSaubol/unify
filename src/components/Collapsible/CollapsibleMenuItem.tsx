@@ -1,5 +1,6 @@
 import { useTheme } from '@/hooks';
 import React, { FunctionComponent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   View,
   Text,
@@ -27,6 +28,7 @@ const CollapsibleMenuItem: FunctionComponent<MenuItemProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [heightAnim] = useState(new Animated.Value(isOpen ? 100 : 0));
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
   const toggleOpen = () => {
     Animated.timing(heightAnim, {
       toValue: isOpen ? 0 : 100,
@@ -45,7 +47,7 @@ const CollapsibleMenuItem: FunctionComponent<MenuItemProps> = ({
       >
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
-            {title === 'แบบทดสอบ' ? (
+            {title === t('collapsibleMenuItem.test') ? (
               <Images.icons.exam />
             ) : (
               <Images.icons.playlistPlus />

@@ -43,15 +43,15 @@ const LearnCard: FunctionComponent<LearnCardProps> = ({
       size === LearnCardSize.small
         ? 100
         : size === LearnCardSize.medium
-        ? 128
-        : windowWidth / 2 - 20,
+          ? 128
+          : windowWidth / 2 - 20,
     );
     setHeight(
       size === LearnCardSize.small
         ? 100
         : size === LearnCardSize.medium
-        ? 128
-        : windowWidth / 2 - 20,
+          ? 128
+          : windowWidth / 2 - 20,
     );
   }, [size]);
 

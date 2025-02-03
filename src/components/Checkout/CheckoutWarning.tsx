@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 // แสดง Warning ในหน้า Checkout
 const CheckoutWarning: FunctionComponent<Props> = ({}) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View
@@ -18,7 +20,7 @@ const CheckoutWarning: FunctionComponent<Props> = ({}) => {
     >
       <Images.icons.warning1 color="#FC1B13" />
       <Text style={[Fonts.text16, Fonts.textRed]}>
-        กรุณาตรวจสอบคำสั่งซื้อและที่อยู่ให้ครบถ้วนและถูกต้องก่อนชำระเงิน
+        {t('checkoutWarning.check')}
       </Text>
     </View>
   );

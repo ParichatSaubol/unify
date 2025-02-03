@@ -14,19 +14,19 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'SearchCourse'>;
 // @refresh reset
 const SearchCourse = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Fonts, Layout, Images } = useTheme();
   // const dispatch = useDispatch();
 
   // state
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [recentSearch, setRecentSearch] = useState<string[]>([
-    'คอร์สเรียนสกาด้า',
-    'การจัดการพลังงาน',
-    'การลดต้นทุน',
-    'การเพิ่มผลผลิต',
-    'การใช้เครื่องมือวัด',
+    t('searchCourse.scadaCourse'),
+    t('searchCourse.energyManagement'),
+    t('searchCourse.costReduction'),
+    t('searchCourse.increasingProductivity'),
+    t('searchCourse.usingMeasuringTools'),
     'IOT',
     'SCADA',
   ]);
@@ -45,7 +45,7 @@ const SearchCourse = ({ navigation }: Props): JSX.Element => {
   return (
     <DefaultLayout>
       <AppBar
-        title="ค้นหาคอร์สเรียน"
+        title={t('searchCourse.searchACourse')}
         color={AppColor.blue}
         onPress={() => {
           navigation.goBack();
@@ -60,11 +60,13 @@ const SearchCourse = ({ navigation }: Props): JSX.Element => {
       >
         <View style={[Layout.gap20, Layout.main, styles.grey]}>
           <View style={styles.search}>
-            <InputSearchCourse placeholder="ค้นหาคอร์สเรียนได้ที่นี่" />
+            <InputSearchCourse placeholder={t('searchCourse.searchHere')} />
           </View>
 
           <View style={[Layout.row, Layout.justifyContentBetween]}>
-            <Text style={[Fonts.text21Med, Fonts.textBlack]}>คำค้นหาบ่อยๆ</Text>
+            <Text style={[Fonts.text21Med, Fonts.textBlack]}>
+              {t('searchCourse.recentSearch')}
+            </Text>
             <Images.icons.delete />
           </View>
           <View style={[Layout.row, Layout.gap10, styles.recent]}>
@@ -83,7 +85,7 @@ const SearchCourse = ({ navigation }: Props): JSX.Element => {
             style={[Layout.col, Layout.gap20, Layout.justifyContentBetween]}
           >
             <Text style={[Fonts.text21Med, Fonts.textBlack]}>
-              เรียนต่อสำหรับคุณ
+              {t('searchCourse.recommendedForYou')}
             </Text>
             <LearnCatalog />
           </View>
@@ -92,7 +94,7 @@ const SearchCourse = ({ navigation }: Props): JSX.Element => {
             style={[Layout.col, Layout.gap20, Layout.justifyContentBetween]}
           >
             <Text style={[Fonts.text21Med, Fonts.textBlack]}>
-              คอรส์เรียนแนะนำ
+              {t('searchCourse.recommendedCourses')}
             </Text>
             <LearnCatalog />
           </View>

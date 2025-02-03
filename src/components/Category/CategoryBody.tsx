@@ -11,6 +11,8 @@ import { useTheme } from '@/hooks';
 import CatalogList from '../Catalog/CatalogList';
 import CatalogImageList from '../Catalog/CatalogImageList';
 import { TopBrand } from '@/model/brand';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 interface Props {}
 
@@ -23,12 +25,12 @@ interface ICategoryType {
 // แสดงหัวข้อแคตตาล็อก
 const CategoryBody: FunctionComponent<Props> = () => {
   const { Layout, Fonts, Images } = useTheme();
-
+  const { t } = useTranslation('common');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [categoryType, setCategoryType] = useState<ICategoryType[]>([
     {
       name: 'product',
-      title: 'ระบบพ่นสี',
+      title: t('categoryBody.title'),
       icon: Images.category.a,
     },
   ]);
@@ -77,7 +79,9 @@ const CategoryBody: FunctionComponent<Props> = () => {
         </View>
 
         <View style={[styles.body, Layout.gap10]}>
-          <Text style={[Fonts.text16Med, Fonts.textBlack]}>แบรนด์ยอดนิยม</Text>
+          <Text style={[Fonts.text16Med, Fonts.textBlack]}>
+            {t('categoryBody.brand')}
+          </Text>
           <CatalogImageList data={topBrand} />
         </View>
       </View>
@@ -86,7 +90,7 @@ const CategoryBody: FunctionComponent<Props> = () => {
 };
 
 CategoryBody.defaultProps = {
-  title: 'ระบบพ่นสี',
+  title: t('categoryBody.title'),
 };
 
 const styles = StyleSheet.create({

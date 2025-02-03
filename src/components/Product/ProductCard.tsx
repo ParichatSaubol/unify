@@ -5,6 +5,7 @@ import { IProductCard } from '@/model/product';
 import { THB } from '@/utils';
 import { CardSize } from '@/model/options';
 import RenderHtml from 'react-native-render-html';
+import { useTranslation } from 'react-i18next';
 
 const { width: windowWidth } = Dimensions.get('window');
 
@@ -29,51 +30,54 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
   booking,
 }) => {
   const { Layout, Fonts, Images, Colors } = useTheme();
+  const { t } = useTranslation('common');
 
   const [width, setWidth] = useState(140);
   const [height, setHeight] = useState(140);
   const borderRadius = 5;
- 
+
   useEffect(() => {
-    
     setWidth(
       size === CardSize.SMALL
         ? 100
         : size === CardSize.MEDIUM
-        ? 140
-        : windowWidth / 2 - 20,
+          ? 140
+          : windowWidth / 2 - 20,
     );
     setHeight(
       size === CardSize.SMALL
         ? 100
         : size === CardSize.MEDIUM
-        ? 140
-        : windowWidth / 2 - 20,
+          ? 140
+          : windowWidth / 2 - 20,
     );
   }, [size]);
 
   return (
     <View style={[Layout.col, Layout.gap5, styles.container, { width: width }]}>
       <View style={[Layout.center]}>
-      {image?.uri ? 
-              <Image
-              source={image || Images.mock.noImage}
-              style={{ width: width, height: height, borderRadius: borderRadius }}
-            />
-            : 
-            <Image
+        {image?.uri ? (
+          <Image
+            source={image || Images.mock.noImage}
+            style={{ width: width, height: height, borderRadius: borderRadius }}
+          />
+        ) : (
+          <Image
             source={Images.mock.noImage}
             style={{ width: width, height: height, borderRadius: borderRadius }}
           />
-      }
-
+        )}
       </View>
       {/* Brand */}
       {brand && <Text style={[Fonts.text16, Fonts.textGrey]}>{brand}</Text>}
 
       {/* Title or Name */}
       {title && <Text style={[Fonts.text16, Fonts.textBlack]}>{title}</Text>}
-      {description && <Text style={[Fonts.text16, Fonts.textGrey]}>{description.replace(/<\/?[^>]+(>|$)/g, "")}</Text>}
+      {description && (
+        <Text style={[Fonts.text16, Fonts.textGrey]}>
+          {description.replace(/<\/?[^>]+(>|$)/g, '')}
+        </Text>
+      )}
       {/* Price */}
       <View>
         {amount !== null && (
@@ -83,7 +87,9 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
             >
               {THB.format(amount || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
             </Text>
-            <Text style={[Fonts.text16, Fonts.textGrey]}>/ ชิ้น</Text>
+            <Text style={[Fonts.text16, Fonts.textGrey]}>
+              {t('productCard.perPiece')}
+            </Text>
           </View>
         )}
 
@@ -109,7 +115,7 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
               style={[Fonts.text21Med, Fonts.textPrimary]}
               numberOfLines={1}
             >
-              นัดหมายเข้าบริการ
+              {t('productCard.appointmentService')}
             </Text>
           </View>
         )}
@@ -117,14 +123,14 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
         {flashSale && (
           <View style={[Layout.row, Layout.gap5]}>
             <Text style={[Fonts.text16, Fonts.textRed]}>
-              เข้าร่วมจำนวน {quantity} ชิ้น
+              {t('productCard.flashSale')} {quantity} {t('productCard.piece')}
             </Text>
           </View>
         )}
         {service && (
           <View style={[Layout.row, Layout.gap5]}>
             <Text style={[Fonts.text16, Fonts.textBlack]} numberOfLines={1}>
-              ติดตั้งโดย : {serviceBy}
+              {t('productCard.installedBy')} {serviceBy}
             </Text>
           </View>
         )}
@@ -132,7 +138,7 @@ const ProductCard: FunctionComponent<ProductCardProps> = ({
           <View style={[Layout.row, Layout.gap5, Layout.alignItemsCenter]}>
             <Images.icons.clock color={Colors.black} />
             <Text style={[Fonts.text16, Fonts.textBlack]} numberOfLines={1}>
-              {learnTime} ชั่วโมง
+              {learnTime} {t('productCard.hours')}
             </Text>
           </View>
         )}

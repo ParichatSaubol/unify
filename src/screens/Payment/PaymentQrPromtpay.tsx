@@ -18,8 +18,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'PaymentQrPromtpay'>;
 // @refresh reset
 const PaymentQrPromtpay = ({ navigation, route }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { orderId } = route.params;
 
   const { Layout, Fonts, Images } = useTheme();
@@ -70,7 +70,7 @@ const PaymentQrPromtpay = ({ navigation, route }: Props): JSX.Element => {
       <View style={[Layout.main, Layout.gap20, Layout.bgWhite]}>
         <AppBar
           color={AppColor.white}
-          title="การชำระเงิน"
+          title={t('paymentIndex.title')}
           onPress={() => {
             navigation.goBack();
           }}
@@ -86,10 +86,10 @@ const PaymentQrPromtpay = ({ navigation, route }: Props): JSX.Element => {
         ]}
       >
         <Text style={[Fonts.text21, Fonts.textBlack]}>
-          เลือกวิธีการชำระเงิน
+          {t('paymentIndex.chooseMethod')}
         </Text>
         <Button
-          title="บัตรเครดิตและบัตรเดบิต"
+          title={t('paymentIndex.creditCard')}
           variant={ButtonVariant.outlined}
           colors={ButtonColor.secondary}
           align={ButtonAlign.between}
@@ -101,7 +101,7 @@ const PaymentQrPromtpay = ({ navigation, route }: Props): JSX.Element => {
           }
         />
         <Button
-          title="ชำระผ่าน QR Code"
+          title={t('paymentIndex.qrPayment')}
           variant={ButtonVariant.outlined}
           colors={ButtonColor.secondary}
           align={ButtonAlign.between}

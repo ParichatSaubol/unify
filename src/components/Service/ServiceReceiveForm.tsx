@@ -9,6 +9,7 @@ import { ApplicationStackParamList } from 'types/navigation';
 import ButtonIcon from '../Button/ButtonIcon';
 import { TSolutionAddress } from '@/model/solution';
 import { ButtonIconColors, InputVariant } from '@/model/options';
+import { t } from 'i18next';
 
 interface Props {}
 
@@ -22,7 +23,7 @@ const ServiceReceiveForm: FunctionComponent<Props> = () => {
   const { control } = useFormContext<TSolutionAddress>();
 
   return (
-    <Card title="วันและเวลาที่ต้องการเข้ารับบริการ">
+    <Card title={t('serviceReceiveForm.serviceReceiveFormTitle')}>
       <View style={[Layout.col]}>
         <View style={[Layout.row, Layout.gap10, Layout.justifyContentCenter]}>
           <View style={[Layout.fill]}>
@@ -35,7 +36,7 @@ const ServiceReceiveForm: FunctionComponent<Props> = () => {
               }) => (
                 <Input
                   // disabled
-                  placeholder="12 มกราคม 2566 , 12:00"
+                  placeholder={t('serviceReceiveForm.addressPlaceholder')}
                   variant={InputVariant.outlined}
                   value={value}
                   onChange={onChange}

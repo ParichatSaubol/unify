@@ -2,6 +2,8 @@ import React, { FunctionComponent, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import ButtonIcon from '../Button/ButtonIcon';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 interface Props {
   title?: string;
@@ -11,29 +13,21 @@ interface Props {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ServiceOptionDetail: FunctionComponent<Props> = ({ title, setAddon }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [datail, setDatail] = useState({
     id: 1,
-    title: 'ชื่อสินค้า',
-    details: [
-      'เบรกเกอร์พร้อมฝาครอบ 1 ชุด ขนาด 220 โวลต์',
-      'ขายางรอง Condensing 1 ชุด',
-      'ท่อน้ำทิ้ง PVC ยาวไม่เกิน 4 เมตร',
-      'สายไฟฟ้า ระหว่าง คอยล์ร้อน-คอลย์เย็น ยาวไม่เกิน 10 เมตร',
-      'สายดิน ยาวไม่เกิน 4 เมตร',
-    ],
-    addon: [
-      'รางครอบท่อเมตรละ 350 บาท รวมข้อต่อ',
-      'ขาแขวนแบบห้อย ROD+ยางแบน ขนาดใหญ่ (18-24 kBtu/h) ชุดละ 1,500 บาท',
-    ],
+    title: t('serviceOptionDetail.productName'),
+    details: [t('serviceOptionDetail.details', { returnObjects: true })],
+    addon: [t('serviceOptionDetail.addon', { returnObjects: true })],
   });
 
   return (
     <View style={[styles.header]}>
       <View style={[Layout.main]}>
         <Text style={[Fonts.text24Med, Fonts.textCenter]}>
-          รายละเอียดงานบริการ
+          {t('serviceOptionDetail.serviceDetailsTitle')}
         </Text>
         <View style={styles.buttonClose}>
           <ButtonIcon
@@ -49,11 +43,10 @@ const ServiceOptionDetail: FunctionComponent<Props> = ({ title, setAddon }) => {
       <ScrollView style={styles.container}>
         <View style={[styles.product, Layout.col, Layout.gap10]}>
           <Text style={[Fonts.text21]}>
-            บริการติดตั้งสวิสซ์ปุ่มฉุกเฉิน แบรนด์ IDEC ประเมินหน้างาน
-            (ไม่รวมค่าอุปกรณ์)
+            {t('serviceOptionDetail.productServiceTitle')}
           </Text>
           <Text style={[Fonts.text21, Fonts.textPrimary]}>
-            อุปกรณ์มาตรฐานพร้อมติดตั้ง (ฟรี)
+            {t('serviceOptionDetail.standardEquipmentIncluded')}
           </Text>
           {datail.details?.map((item, index) => (
             <View style={[Layout.row, Layout.gap5]} key={index}>
@@ -63,7 +56,7 @@ const ServiceOptionDetail: FunctionComponent<Props> = ({ title, setAddon }) => {
           ))}
 
           <Text style={[Fonts.text21, Fonts.textPrimary]}>
-            อุปกรณ์มาตรฐานส่วนเพิ่ม (มีค่าใช้จ่าย) สามารถติดต่อซื้อจากช่างได้เลย
+            {t('serviceOptionDetail.additionalStandardEquipment')}
           </Text>
           {datail.addon?.map((item, index) => (
             <View style={[Layout.row, Layout.gap5]} key={index}>
@@ -79,7 +72,7 @@ const ServiceOptionDetail: FunctionComponent<Props> = ({ title, setAddon }) => {
 };
 
 ServiceOptionDetail.defaultProps = {
-  title: 'ชื่อสินค้า',
+  title: t('serviceOptionDetail.productName'),
 };
 
 const styles = StyleSheet.create({

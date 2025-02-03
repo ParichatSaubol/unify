@@ -3,11 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import ButtonIcon from '../Button/ButtonIcon';
 import { ButtonIconColors, ButtonIconVariant } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
 const ServiceCategory: FunctionComponent<Props> = () => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View style={[Layout.row, styles.container]}>
@@ -16,14 +18,18 @@ const ServiceCategory: FunctionComponent<Props> = () => {
           icon={<Images.icons.brifecasetick color="white" />}
           variant={ButtonIconVariant.box}
         />
-        <Text style={[Fonts.text18, Fonts.textWhite]}>งานบริการ</Text>
+        <Text style={[Fonts.text18, Fonts.textWhite]}>
+          {t('serviceCategory.service')}
+        </Text>
       </View>
       <View style={[Layout.col, Layout.gap10, Layout.center]}>
         <ButtonIcon
           icon={<Images.icons.setting2 color="white" />}
           variant={ButtonIconVariant.box}
         />
-        <Text style={[Fonts.text18, Fonts.textWhite]}>งานโซลูชั่น</Text>
+        <Text style={[Fonts.text18, Fonts.textWhite]}>
+          {t('serviceCategory.solution')}
+        </Text>
       </View>
       <View style={[Layout.col, Layout.gap10, Layout.center]}>
         <ButtonIcon
@@ -31,7 +37,9 @@ const ServiceCategory: FunctionComponent<Props> = () => {
           variant={ButtonIconVariant.box}
           isNotify
         />
-        <Text style={[Fonts.text18, Fonts.textWhite]}>นัดหมายของคุณ</Text>
+        <Text style={[Fonts.text18, Fonts.textWhite]}>
+          {t('serviceCategory.appointments')}
+        </Text>
       </View>
     </View>
   );

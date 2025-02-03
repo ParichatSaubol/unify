@@ -8,6 +8,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { ApplicationStackParamList } from 'types/navigation';
 import { TSolutionAddress } from '@/model/solution';
 import { InputVariant } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {}
 
@@ -17,20 +18,23 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
     useNavigation<NavigationProp<ApplicationStackParamList>>();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Fonts, Images, Colors } = useTheme();
+  const { t } = useTranslation('common');
 
   const { control } = useFormContext<TSolutionAddress>();
 
   return (
     <View>
-      <Card title="กรอกที่อยู่สำหรับจัดส่งสินค้า">
+      <Card title={t('serviceAddressForm.shippingAddress')}>
         <View style={[Layout.col, Layout.gap10]}>
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            กรุณาเลือกสถานที่และวันนัดหมายที่ต้องการให้หน้าที่ เข้าบริการ
+            {t('serviceAddressForm.selectLocation')}
           </Text>
 
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>บ้านเลขที่</Text>
+              <Text style={[Fonts.text18]}>
+                {t('serviceAddressForm.address')}
+              </Text>
               <Controller
                 name="address"
                 control={control}
@@ -39,7 +43,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="บ้านเลขที่"
+                    placeholder={t('serviceAddressForm.address')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -50,7 +54,9 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
               />
             </View>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>ชื่ออาคาร/หมู่บ้าน</Text>
+              <Text style={[Fonts.text18]}>
+                {t('serviceAddressForm.building')}
+              </Text>
               <Controller
                 name="building"
                 control={control}
@@ -59,7 +65,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ชื่ออาคาร/หมู่บ้าน"
+                    placeholder={t('serviceAddressForm.building')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -74,7 +80,9 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
           {/*  */}
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>หมู่ที่</Text>
+              <Text style={[Fonts.text18]}>
+                {t('serviceAddressForm.village')}
+              </Text>
               <Controller
                 name="village"
                 control={control}
@@ -83,7 +91,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="หมู่ที่"
+                    placeholder={t('serviceAddressForm.village')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -94,7 +102,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
               />
             </View>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>ถนน</Text>
+              <Text style={[Fonts.text18]}>{t('serviceAddressForm.road')}</Text>
               <Controller
                 name="road"
                 control={control}
@@ -103,7 +111,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ถนน"
+                    placeholder={t('serviceAddressForm.road')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -118,7 +126,9 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
           {/*  */}
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>รหัสไปรษณีย์</Text>
+              <Text style={[Fonts.text18]}>
+                {t('serviceAddressForm.postalCode')}
+              </Text>
               <Controller
                 name="postalCode"
                 control={control}
@@ -127,7 +137,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="รหัสไปรษณีย์"
+                    placeholder={t('serviceAddressForm.postalCode')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -138,7 +148,9 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
               />
             </View>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>จังหวัด</Text>
+              <Text style={[Fonts.text18]}>
+                {t('serviceAddressForm.province')}
+              </Text>
               <Controller
                 name="province"
                 control={control}
@@ -147,7 +159,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="จังหวัด"
+                    placeholder={t('serviceAddressForm.province')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -162,7 +174,9 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
           {/*  */}
           <View style={[Layout.row, Layout.gap10]}>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>อำเภอ/เขต</Text>
+              <Text style={[Fonts.text18]}>
+                {t('serviceAddressForm.district')}
+              </Text>
               <Controller
                 name="district"
                 control={control}
@@ -171,7 +185,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="อำเภอ/เขต"
+                    placeholder={t('serviceAddressForm.district')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -182,7 +196,9 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
               />
             </View>
             <View style={[Layout.fill]}>
-              <Text style={[Fonts.text18]}>ตำบล/แขวง</Text>
+              <Text style={[Fonts.text18]}>
+                {t('serviceAddressForm.subdistrict')}
+              </Text>
               <Controller
                 name="subdistrict"
                 control={control}
@@ -191,7 +207,7 @@ const ServiceAddressForm: FunctionComponent<Props> = () => {
                   fieldState: { error },
                 }) => (
                   <Input
-                    placeholder="ตำบล/แขวง"
+                    placeholder={t('serviceAddressForm.subdistrict')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}

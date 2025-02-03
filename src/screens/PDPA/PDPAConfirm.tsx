@@ -74,7 +74,7 @@ const PDPAConfirm = ({ navigation }: Props): JSX.Element => {
                     <Images.icons.circle color={Colors.white} />
                   )
                 }
-                title="ยินยอม"
+                title={t('pdpaConfirm.agree')}
                 onPress={() => {
                   setAccpt(!accept);
                 }}
@@ -84,7 +84,7 @@ const PDPAConfirm = ({ navigation }: Props): JSX.Element => {
             <View style={[Layout.fill]}>
               <Button
                 colors={ButtonColor.solid}
-                title="ไม่ยินยอม"
+                title={t('pdpaConfirm.disagree')}
                 onPress={() => {}}
                 fullWidth
               />
@@ -98,7 +98,7 @@ const PDPAConfirm = ({ navigation }: Props): JSX.Element => {
           <View style={[Layout.fullWidth, Layout.colCenter]}>
             <Button
               colors={!accept ? ButtonColor.disabled : ButtonColor.secondary}
-              title="ยืนยัน"
+              title={t('pdpaConfirm.confirm')}
               onPress={() => {
                 navigation.navigate('SignInWithEmail');
               }}

@@ -20,7 +20,7 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'Category'>;
 const Category = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   const { Layout } = useTheme();
 
   // state
@@ -47,7 +47,7 @@ const Category = ({ navigation }: Props): JSX.Element => {
         onPress={() => {
           navigation.goBack();
         }}
-        title="หมวดหมู่"
+        title={t('category.title')}
       />
 
       <ScrollView
@@ -61,7 +61,7 @@ const Category = ({ navigation }: Props): JSX.Element => {
           style={[Layout.main, Layout.gap20, Layout.bgWhite, styles.header]}
         >
           <InputSearchProduct
-            placeholder="ค้นหาหมวดหมู่ทั้งหมดได้ที่นี่"
+            placeholder={t('category.placeholder')}
             backgroundColor={InputSearchColor.gray}
           />
 

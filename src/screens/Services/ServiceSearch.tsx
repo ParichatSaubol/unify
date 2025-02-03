@@ -35,8 +35,8 @@ const SolutionSchema: yup.ObjectSchema<TSolution> = yup.object().shape({
 // @refresh reset
 const ServiceBooking = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
@@ -66,7 +66,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
       <DefaultLayout>
         <AppBar
           color={AppColor.white}
-          title="ค้นหาบริการและโซลูชัน"
+          title={t('serviceBooking.searchServiceAndSolution')}
           onPress={() => {
             navigation.goBack();
           }}
@@ -91,7 +91,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
                   <Input
                     startIcon={<Images.icons.search color="#98A2B3" />}
                     size={InputSize.large}
-                    placeholder="เลือกบริการที่คุณต้องการ"
+                    placeholder={t('serviceBooking.selectService')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -105,7 +105,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
 
           <View style={[styles.container]}>
             <Text style={[Fonts.text18, Fonts.textBlack]}>
-              เลือกบริการที่คุณต้องการ
+              {t('serviceBooking.selectService')}
             </Text>
             <Controller
               name="department"
@@ -118,7 +118,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
                   <Input
                     startIcon={<Images.icons.search color="#98A2B3" />}
                     size={InputSize.large}
-                    placeholder="ค้นหาบริการและ Solution ที่คุณต้องการ"
+                    placeholder={t('serviceBooking.placeholder')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -132,7 +132,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
 
           <View style={[styles.container]}>
             <Text style={[Fonts.text18, Fonts.textBlack]}>
-              เลือกพื้นที่ให้บริการ
+              {t('serviceBooking.chooseServiceArea')}
             </Text>
             <Controller
               name="department"
@@ -145,7 +145,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
                   <Input
                     startIcon={<Images.icons.search color="#98A2B3" />}
                     size={InputSize.large}
-                    placeholder="เลือกพื้นที่ให้บริการ"
+                    placeholder={t('serviceBooking.chooseServiceArea')}
                     variant={InputVariant.outlined}
                     value={value}
                     onChange={onChange}
@@ -157,7 +157,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
             />
           </View>
           <View style={styles.bottom}>
-            <Button title="ค้นหาบริการ" />
+            <Button title={t('serviceBooking.search')} />
           </View>
         </ScrollView>
       </DefaultLayout>

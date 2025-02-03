@@ -46,7 +46,7 @@ const SolutionSchema: yup.ObjectSchema<TSolution> = yup.object().shape({
 const ServiceSearchResult = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -60,15 +60,15 @@ const ServiceSearchResult = ({ navigation }: Props): JSX.Element => {
   const [detail, setDetail] = useState();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchItem, setSearchItem] = useState<string[]>([
-    'ระบบ EV Charger',
-    'นนทบุรี',
+    t('serviceSearchResult.evChargerSystem'),
+    t('serviceSearchResult.nonthaburi'),
   ]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [result, setResult] = useState<IProductCard[]>([
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('serviceSearchResult.installPlcHdmi'),
+      description: t('serviceSearchResult.installed106times'),
       amount: 1232990,
       netAmount: 1232990,
       discount: -44,
@@ -79,8 +79,8 @@ const ServiceSearchResult = ({ navigation }: Props): JSX.Element => {
     },
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('serviceSearchResult.installPlcHdmi'),
+      description: t('serviceSearchResult.installed106times'),
       amount: 1232990,
       netAmount: 1232990,
       discount: -44,
@@ -91,8 +91,8 @@ const ServiceSearchResult = ({ navigation }: Props): JSX.Element => {
     },
     {
       brand: 'MITSUBISHI',
-      title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-      description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+      title: t('serviceSearchResult.installPlcHdmi'),
+      description: t('serviceSearchResult.installed106times'),
       amount: 1232990,
       netAmount: 1232990,
       discount: -44,
@@ -117,7 +117,7 @@ const ServiceSearchResult = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="การค้นหา"
+        title={t('serviceSearchResult.search')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -147,7 +147,7 @@ const ServiceSearchResult = ({ navigation }: Props): JSX.Element => {
               ))}
             </View>
             <Chip
-              title="ค้นหาอีกครั้ง"
+              title={t('serviceSearchResult.searchAgain')}
               startIcon={
                 <Images.icons.search color="#475467" height="12" width="12" />
               }
@@ -156,7 +156,9 @@ const ServiceSearchResult = ({ navigation }: Props): JSX.Element => {
         </View>
 
         <View style={[styles.container]}>
-          <Text style={[Fonts.text18, Fonts.textBlack]}>ค้นพบ 5 รายการ</Text>
+          <Text style={[Fonts.text18, Fonts.textBlack]}>
+            {t('serviceSearchResult.foundResults')}
+          </Text>
         </View>
 
         <View style={styles.itemsBox}>

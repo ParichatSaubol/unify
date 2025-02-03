@@ -1,11 +1,11 @@
 import { gql, useLazyQuery } from '@apollo/client';
 import {
-    GetFlashSaleListQuery,
-    GetFlashSaleListQueryVariables,
-  } from '../modules';
+  GetFlashSaleListQuery,
+  GetFlashSaleListQueryVariables,
+} from '../modules';
 
 const GET_FLASH_SALE_LIST = gql`
-query GetFlashSaleList($page: Int, $perPage: Int) {
+  query GetFlashSaleList($page: Int, $perPage: Int) {
     getFlashSaleList(page: $page, perPage: $perPage) {
       current_page
       flashsale {
@@ -155,17 +155,9 @@ query GetFlashSaleList($page: Int, $perPage: Int) {
   }
 `;
 
-
 const useLazyGetFlashSaleListQuery = () =>
-useLazyQuery<GetFlashSaleListQuery, GetFlashSaleListQueryVariables>(
+  useLazyQuery<GetFlashSaleListQuery, GetFlashSaleListQueryVariables>(
     GET_FLASH_SALE_LIST,
-);
+  );
 
 export { useLazyGetFlashSaleListQuery };
-
-
-
-
-
-
-

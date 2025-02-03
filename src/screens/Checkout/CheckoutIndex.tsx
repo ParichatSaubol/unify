@@ -27,7 +27,7 @@ type Props = NativeStackScreenProps<ProductParamsList, 'CheckoutIndex'>;
 const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   const { courses, items, services } = route.params;
 
   const { Layout, Fonts, Images } = useTheme();
@@ -114,8 +114,8 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
       Object.keys(services).map(item => ({
         id: item,
         brand: 'MITSUBISHI',
-        title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-        description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+        title: t('checkoutIndex.title'),
+        description: t('checkoutIndex.description'),
         amount: 1232990,
         netAmount: 1232990,
         discount: -44,
@@ -138,8 +138,8 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
       Object.keys(courses).map(item => ({
         id: item,
         brand: 'MITSUBISHI',
-        title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-        description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+        title: t('checkoutIndex.title'),
+        description: t('checkoutIndex.description'),
         amount: 1232990,
         netAmount: 1232990,
         discount: -44,
@@ -162,8 +162,8 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
       Object.keys(items).map(item => ({
         id: item,
         brand: 'MITSUBISHI',
-        title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-        description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+        title: t('checkoutIndex.title'),
+        description: t('checkoutIndex.description'),
         amount: 1232990,
         netAmount: 1232990,
         discount: -44,
@@ -181,7 +181,7 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="การสั่งซื้อ"
+        title={t('checkoutIndex.checkoutTitle')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -194,8 +194,10 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
             Layout.alignItemsCenter,
           ]}
         >
-          <Text style={[Fonts.text21]}>รถเข็นของฉัน</Text>
-          <Text style={[Fonts.text21]}>({order.itemsCount} รายการ)</Text>
+          <Text style={[Fonts.text21]}>{t('checkoutIndex.myCart')}</Text>
+          <Text style={[Fonts.text21]}>
+            ({order.itemsCount} {t('checkoutIndex.itemsCount')})
+          </Text>
         </View>
       </View>
       <ScrollView
@@ -243,7 +245,7 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
           <View style={[Layout.fill]}>
             <Button
               variant={ButtonVariant.outlined}
-              title="ออกใบเสนอราคา"
+              title={t('checkoutIndex.quoteButton')}
               onPress={() => {
                 //
               }}
@@ -251,7 +253,7 @@ const CheckoutIndex = ({ navigation, route }: Props): JSX.Element => {
           </View>
           <View style={[Layout.fill]}>
             <Button
-              title="ชำระเงิน"
+              title={t('checkoutIndex.payButton')}
               onPress={() => {
                 navigation.navigate('PaymentIndex', { orderId: order.id });
               }}

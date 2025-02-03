@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import CatalogTitle from './CatalogTitle';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   title?: string;
@@ -10,11 +11,12 @@ interface Props {
 // แสดงหัวข้อแคตตาล็อก
 const Catalog: FunctionComponent<Props> = ({ title }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('catalogs');
 
   return (
     <View style={[Layout.col]}>
       <CatalogTitle
-        subTitle="เอ็กซ์คลูซีฟแบรนด์ชั้นนำด้านอุตสาหกรรม"
+        subTitle={t('catalog.topBrand')}
         titleIcon={<Images.icons.unistore />}
       />
       <View style={Layout.fill}>

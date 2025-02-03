@@ -12,6 +12,8 @@ import ButtonIcon from '../Button/ButtonIcon';
 import Button from '../Button/Button';
 import InputNumber from '../Input/InputNumber';
 import { ButtonColor, ButtonSize, ButtonVariant } from '@/model/options';
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   title?: string;
@@ -40,12 +42,13 @@ const CartServiceDetail: FunctionComponent<Props> = ({
   setQuantity,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View style={[styles.header]}>
       <View style={[Layout.main]}>
         <Text style={[Fonts.text24Med, Fonts.textCenter]}>
-          เลือกประเภทงานบริการ
+          {t('cartServiceDetail.selectServiceType')}
         </Text>
         <View style={styles.buttonClose}>
           <ButtonIcon
@@ -74,7 +77,7 @@ const CartServiceDetail: FunctionComponent<Props> = ({
             </View>
           ) : (
             <Text style={[Fonts.text21Med, Fonts.textRed]} numberOfLines={1}>
-              นัดหมายเข้าบริการ
+              {t('cartServiceDetail.appointmentService')}
             </Text>
           )}
         </View>
@@ -90,7 +93,10 @@ const CartServiceDetail: FunctionComponent<Props> = ({
 
       <View style={[Layout.main, Layout.gap20, styles.root]}>
         <Text style={[Fonts.text21Bold]}>
-          ลักษณะสินค้า <Text style={[Fonts.textRed]}>(*กรุณาเลือกโมเดล)</Text>
+          {t('cartServiceDetail.selectModel')}
+          <Text style={[Fonts.textRed]}>
+            {t('cartServiceDetail.requiredModel')}
+          </Text>
         </Text>
         <View style={styles.model}>
           {model?.map((item, index) => (
@@ -113,10 +119,14 @@ const CartServiceDetail: FunctionComponent<Props> = ({
 };
 
 CartServiceDetail.defaultProps = {
-  title: 'ชื่อสินค้า',
+  title: t('cartServiceDetail.productName'),
   amount: 0,
   netAmount: 0,
-  model: ['โมเดล 1', 'โมเดล 2', 'โมเดล 3'],
+  model: [
+    t('cartServiceDetail.model1'),
+    t('cartServiceDetail.model2'),
+    t('cartServiceDetail.model3'),
+  ],
   image: undefined,
 };
 

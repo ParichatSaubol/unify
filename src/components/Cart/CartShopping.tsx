@@ -6,6 +6,7 @@ import CartProductDetail from './CartProductDetail';
 import { IProductDetail, IServiceOptions } from '@/model/product';
 import ServiceOptionDetail from '../Service/ServiceOptionDetail';
 import { ButtonVariant } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 type Props = IProductDetail & {};
 
@@ -20,6 +21,7 @@ const CartShopping: FunctionComponent<Props> = ({
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Fonts, Images, Colors } = useTheme();
+  const { t } = useTranslation('common');
   const { add } = useCart();
 
   const [addon, setAddon] = useState(false); // แสดงรายละเอียดสินค้า
@@ -71,7 +73,7 @@ const CartShopping: FunctionComponent<Props> = ({
             <View style={[Layout.row, Layout.gap10]}>
               <View style={[Layout.fill]}>
                 <Button
-                  title="ซื้อสินค้าทันที"
+                  title={t('cartShopping.buyProductsNow')}
                   onPress={() => {
                     setAddon(true);
                     setIsService(false);
@@ -82,7 +84,7 @@ const CartShopping: FunctionComponent<Props> = ({
                 <Button
                   startIcon={<Images.icons.cart color={Colors.primary} />}
                   variant={ButtonVariant.outlined}
-                  title="เพิ่มลงในรถเข็น"
+                  title={t('cartShopping.addToCart')}
                   onPress={() => {
                     id && add(id, { isChecked: true, quantity: 1 }, 'product');
                   }}

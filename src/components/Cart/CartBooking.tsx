@@ -7,6 +7,7 @@ import { THB } from '@/utils';
 import CartServiceDetail from './CartServiceDetail';
 import CartAddress from './CartAddress';
 import { ButtonVariant } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 type Props = IServiceDetail & {};
 
@@ -21,6 +22,7 @@ const CartBooking: FunctionComponent<Props> = ({
 }) => {
   const { Layout, Fonts, Images, Colors } = useTheme();
   const { add } = useCart();
+  const { t } = useTranslation('common');
 
   const [addon, setAddon] = useState(false); // แสดงรายละเอียดการจองบริการ
   const [isAddress, setIsAddress] = useState(false); // แสดงที่อยู่สำหรับจัดส่ง
@@ -63,9 +65,11 @@ const CartBooking: FunctionComponent<Props> = ({
             >
               <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
                 <Images.icons.delivery color={Colors.gray800} />
-                <Text style={[Fonts.text18]}>จัดส่งสินค้าไปที่</Text>
+                <Text style={[Fonts.text18]}>
+                  {t('cartBooking.deliveryTo')}
+                </Text>
                 <Text style={[Fonts.text18, Fonts.textBlack]}>
-                  อำเภอบางกรวย, 11130
+                  {t('cartBooking.district')}
                 </Text>
               </View>
               <TouchableOpacity
@@ -75,7 +79,7 @@ const CartBooking: FunctionComponent<Props> = ({
                 }}
               >
                 <Text style={[Fonts.text18Bold, Fonts.textPrimary]}>
-                  เปลี่ยน
+                  {t('cartBooking.change')}
                 </Text>
               </TouchableOpacity>
             </View>
@@ -84,7 +88,7 @@ const CartBooking: FunctionComponent<Props> = ({
               <View style={[Layout.row, Layout.gap10]}>
                 <View style={[Layout.fill]}>
                   <Button
-                    title="สนใจติดตั้ง"
+                    title={t('cartBooking.interestedInInstallation')}
                     onPress={() => {
                       setAddon(true);
                       setIsAddress(false);
@@ -93,7 +97,7 @@ const CartBooking: FunctionComponent<Props> = ({
                 </View>
                 <View style={[Layout.fill]}>
                   <Button
-                    title="เพิ่มลงในรถเข็น"
+                    title={t('cartBooking.addToCart')}
                     startIcon={<Images.icons.cart color={Colors.primary} />}
                     variant={ButtonVariant.outlined}
                     onPress={() => {
@@ -111,17 +115,17 @@ const CartBooking: FunctionComponent<Props> = ({
               <View style={[Layout.col, Layout.gap10]}>
                 <View style={styles.totalBox}>
                   <Text style={[Fonts.text21Bold, Fonts.textPrimary]}>
-                    ราคารวม
+                    {t('cartBooking.totalPrice')}
                   </Text>
                   <Text style={[Fonts.text21Bold, Fonts.textPrimary]}>
                     {THB.format(amount || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
                   </Text>
                 </View>
-                <Button title="จองบริการ" />
+                <Button title={t('cartBooking.bookService')} />
               </View>
             ) : (
               <View style={[Layout.col, Layout.gap10]}>
-                <Button title="นัดหมายเข้าบริการ" />
+                <Button title={t('cartBooking.scheduleService')} />
               </View>
             )}
           </View>

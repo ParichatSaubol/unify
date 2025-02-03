@@ -1,11 +1,8 @@
-import {
-    GetContentCardQuery,
-    GetContentCardQueryVariables,
-  } from '../modules';
-  
+import { GetContentCardQuery, GetContentCardQueryVariables } from '../modules';
+
 import { gql, useLazyQuery } from '@apollo/client';
-const GET_CONTENT_CARD = gql`query 
-GetContentCard($page: Int, $perPage: Int) {
+const GET_CONTENT_CARD = gql`
+  query GetContentCard($page: Int, $perPage: Int) {
     getContentCard(page: $page, perPage: $perPage) {
       content {
         technical_author {

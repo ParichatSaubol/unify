@@ -4,6 +4,8 @@ import { useTheme } from '@/hooks';
 import FlashSaleRuntime from '../FlashSale/FlashSaleRuntime';
 import Chip from '../Chip/Chip';
 import { ChipColor, FlashSaleRuntimeBgColor } from '@/model/options';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 interface Props {
   title?: string;
@@ -17,6 +19,7 @@ const PromotionBenner: FunctionComponent<Props> = ({
   isFlash,
 }) => {
   const { Images, Fonts, Layout } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <>
@@ -28,7 +31,7 @@ const PromotionBenner: FunctionComponent<Props> = ({
             <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
               <Images.icons.flashSale height={19} color="#FFF" />
               <Text style={[Fonts.text21Bold, Fonts.textWhite]}>
-                FLASH STORE
+                ({t('promotionBenner.flashStore')})
               </Text>
               <Chip title="-89%" color={ChipColor.error} />
             </View>
@@ -50,11 +53,11 @@ const PromotionBenner: FunctionComponent<Props> = ({
                 ฿322,000.00
               </Text>
               <Text style={[Fonts.text16, Fonts.textWhite]} numberOfLines={1}>
-                ฿1,202,990.00 / ชิ้น
+                ({t('promotionBenner.pricePerItem')})
               </Text>
             </View>
             <Text style={[Fonts.text16, Fonts.textWhite]}>
-              ขายแล้วในดีลนี้ 2 ชิ้น
+              ({t('promotionBenner.sold')})
             </Text>
           </View>
         </View>
@@ -80,8 +83,8 @@ const PromotionBenner: FunctionComponent<Props> = ({
 };
 
 PromotionBenner.defaultProps = {
-  title: '8.8 ช้อปสินค้าลดสูงสุด 88%',
-  description: 'ผ่อน 0% นานสูงสุด 10 เดือน รับเงินคืน สูงสุด 15%',
+  title: t('promotionBenner.promotionTitle'),
+  description: t('promotionBenner.promotionDescription'),
   isFlash: false,
 };
 

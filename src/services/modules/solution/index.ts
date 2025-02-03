@@ -1,12 +1,22 @@
 import { gql, useLazyQuery } from '@apollo/client';
 import {
-    GetSolutionListQuery,
-    GetSolutionListQueryVariables,
-  } from '../modules';
+  GetSolutionListQuery,
+  GetSolutionListQueryVariables,
+} from '../modules';
 
 const GET_SOLUTIONS_LIST = gql`
-query GetSolutionList($orderBy: String, $orderDir: String, $page: Int, $perPage: Int) {
-    getSolutionList(orderBy: $orderBy, orderDir: $orderDir, page: $page, perPage: $perPage) {
+  query GetSolutionList(
+    $orderBy: String
+    $orderDir: String
+    $page: Int
+    $perPage: Int
+  ) {
+    getSolutionList(
+      orderBy: $orderBy
+      orderDir: $orderDir
+      page: $page
+      perPage: $perPage
+    ) {
       current_page
       has_next_page
       per_page
@@ -64,17 +74,9 @@ query GetSolutionList($orderBy: String, $orderDir: String, $page: Int, $perPage:
   }
 `;
 
-
 const useLazyGetSolutionListQuery = () =>
-useLazyQuery<GetSolutionListQuery, GetSolutionListQueryVariables>(
+  useLazyQuery<GetSolutionListQuery, GetSolutionListQueryVariables>(
     GET_SOLUTIONS_LIST,
-);
+  );
 
 export { useLazyGetSolutionListQuery };
-
-
-
-
-
-
-

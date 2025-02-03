@@ -11,6 +11,7 @@ import PromotionCard from './PromotionCard';
 import { IPromotionCard } from '@/model/promotion';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { ApplicationStackParamList, ProductParamsList } from 'types/navigation';
+import { useTranslation } from 'react-i18next';
 
 interface IScreen extends ApplicationStackParamList, ProductParamsList {}
 interface Props {
@@ -21,6 +22,7 @@ const { width: windowWidth } = Dimensions.get('window');
 
 const PromotionsPoint: FunctionComponent<Props> = ({ method }) => {
   const { Images, Layout } = useTheme();
+  const { t } = useTranslation('common');
   const { navigate } = useNavigation<NavigationProp<IScreen>>();
 
   const flatListRef = useRef<FlatList>(null);
@@ -28,31 +30,31 @@ const PromotionsPoint: FunctionComponent<Props> = ({ method }) => {
     {
       id: 1,
       image: method === 'default' ? Images.promotions.c : Images.promotions.a,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('promotionsPoint.promotionTitle'),
       point: 1500,
     },
     {
       id: 2,
       image: method === 'default' ? Images.promotions.c : Images.promotions.a,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('promotionsPoint.promotionTitle'),
       point: 1500,
     },
     {
       id: 3,
       image: method === 'default' ? Images.promotions.c : Images.promotions.a,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('promotionsPoint.promotionTitle'),
       point: 1500,
     },
     {
       id: 4,
       image: method === 'default' ? Images.promotions.c : Images.promotions.a,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('promotionsPoint.promotionTitle'),
       point: 1500,
     },
     {
       id: 5,
       image: method === 'default' ? Images.promotions.c : Images.promotions.a,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+      title: t('promotionsPoint.promotionTitle'),
       point: 1500,
     },
   ]);

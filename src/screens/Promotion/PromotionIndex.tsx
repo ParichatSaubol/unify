@@ -23,8 +23,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'PromotionIndex'>;
 
 const PromotionIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Images } = useTheme();
   // const dispatch = useDispatch();
@@ -39,11 +39,11 @@ const PromotionIndex = ({ navigation }: Props): JSX.Element => {
     {
       id: 1,
       image: Images.promotions.c,
-      title: 'ลดคุ้ม 15% ทุกรายการ เมื่อซื้อสินค้าแบรนด์ IDEC',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
+      title: t('promotionIndex.title'),
+      description: t('promotionIndex.description'),
       button: (
         <Button
-          title="เพิ่มเติม"
+          title={t('promotionIndex.buttonTitle')}
           size={ButtonSize.mini}
           onPress={() => setIsDetail(true)}
         />
@@ -52,16 +52,26 @@ const PromotionIndex = ({ navigation }: Props): JSX.Element => {
     {
       id: 2,
       image: Images.promotions.c,
-      title: 'ลดคุ้ม 15% ทุกรายการ เมื่อซื้อสินค้าแบรนด์ IDEC',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="เพิ่มเติม" size={ButtonSize.mini} />,
+      title: t('promotionIndex.title'),
+      description: t('promotionIndex.description'),
+      button: (
+        <Button
+          title={t('promotionIndex.buttonTitle')}
+          size={ButtonSize.mini}
+        />
+      ),
     },
     {
       id: 3,
       image: Images.promotions.c,
-      title: 'ลดคุ้ม 15% ทุกรายการ เมื่อซื้อสินค้าแบรนด์ IDEC',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="เพิ่มเติม" size={ButtonSize.mini} />,
+      title: t('promotionIndex.title'),
+      description: t('promotionIndex.description'),
+      button: (
+        <Button
+          title={t('promotionIndex.buttonTitle')}
+          size={ButtonSize.mini}
+        />
+      ),
     },
   ]);
   // handle callback
@@ -81,7 +91,7 @@ const PromotionIndex = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="โปรโมชั่น"
+        title={t('promotionIndex.promotion')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -93,7 +103,7 @@ const PromotionIndex = ({ navigation }: Props): JSX.Element => {
           contentContainerStyle={[Layout.row, Layout.gap20]}
         >
           <Button
-            title="โค้ดส่วนลดทั้งหมด"
+            title={t('promotionIndex.codes')}
             variant={ButtonVariant.text}
             active={active === ICouponTabs.AllDiscountCodes}
             onPress={() => {
@@ -102,7 +112,7 @@ const PromotionIndex = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="แบรนด์"
+            title={t('promotionIndex.brand')}
             variant={ButtonVariant.text}
             active={active === ICouponTabs.Brand}
             onPress={() => {
@@ -111,7 +121,7 @@ const PromotionIndex = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="ขั้นต่ำ"
+            title={t('promotionIndex.minimum')}
             variant={ButtonVariant.text}
             active={active === ICouponTabs.Minimum}
             onPress={() => {
@@ -120,7 +130,7 @@ const PromotionIndex = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="ซื้อคู่คุ้มกว่า"
+            title={t('promotionIndex.buy')}
             variant={ButtonVariant.text}
             active={active === ICouponTabs.BuyingWorthwhile}
             onPress={() => {

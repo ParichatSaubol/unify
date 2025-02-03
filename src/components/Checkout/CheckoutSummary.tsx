@@ -5,6 +5,7 @@ import { THB } from '@/utils';
 import { IOrder } from '@/model/order';
 import { ICoupon } from '@/model/coupon';
 import { IPoint } from '@/model/point';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   order: IOrder;
@@ -21,6 +22,7 @@ const CheckoutSummary: FunctionComponent<Props> = ({
   isMinShow,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View style={[styles.bottom, Layout.gap10]}>
@@ -31,15 +33,20 @@ const CheckoutSummary: FunctionComponent<Props> = ({
               <View
                 style={[Layout.row, Layout.scrollSpaceBetween, styles.totalBox]}
               >
-                <Text style={[Fonts.text21]}>จำนวนรายการทั้งหมด</Text>
+                <Text style={[Fonts.text21]}>
+                  {t('checkoutSummary.totalItems')}
+                </Text>
                 <Text style={[Fonts.text21Med, Fonts.textBlack]}>
-                  {order.itemsCount} รายการ
+                  {order.itemsCount} {t('checkoutSummary.list')}
                 </Text>
               </View>
               <View
                 style={[Layout.row, Layout.scrollSpaceBetween, styles.totalBox]}
               >
-                <Text style={[Fonts.text18]}>ยอดรวมสินค้า</Text>
+                <Text style={[Fonts.text18]}>
+                  {' '}
+                  {t('checkoutSummary.productAmount')}
+                </Text>
                 <Text style={[Fonts.text18]}>
                   {THB.format(order.netAmount || 0).replace(
                     /\b(\w*THB\w*)\b/,
@@ -56,7 +63,9 @@ const CheckoutSummary: FunctionComponent<Props> = ({
                     styles.totalBox,
                   ]}
                 >
-                  <Text style={[Fonts.text18]}>ลดจากคูปอง</Text>
+                  <Text style={[Fonts.text18]}>
+                    {t('checkoutSummary.discountFromCoupon')}
+                  </Text>
                   <Text style={[Fonts.text18]}>
                     {THB.format(coupon.discount || 0).replace(
                       /\b(\w*THB\w*)\b/,
@@ -73,7 +82,9 @@ const CheckoutSummary: FunctionComponent<Props> = ({
                     styles.totalBox,
                   ]}
                 >
-                  <Text style={[Fonts.text18]}>ลดจากคูปอง</Text>
+                  <Text style={[Fonts.text18]}>
+                    {t('checkoutSummary.discountFromPoints')}
+                  </Text>
                   <Text style={[Fonts.text18]}>
                     {THB.format(point.discount || 0).replace(
                       /\b(\w*THB\w*)\b/,
@@ -85,7 +96,7 @@ const CheckoutSummary: FunctionComponent<Props> = ({
               <View
                 style={[Layout.row, Layout.scrollSpaceBetween, styles.totalBox]}
               >
-                <Text style={[Fonts.text18]}>ภาษีมูลค่าเพิ่ม Vat 7%</Text>
+                <Text style={[Fonts.text18]}>{t('checkoutSummary.vat')}</Text>
                 <Text style={[Fonts.text18]}>
                   {THB.format(order.vat || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
                 </Text>
@@ -93,7 +104,9 @@ const CheckoutSummary: FunctionComponent<Props> = ({
               <View
                 style={[Layout.row, Layout.scrollSpaceBetween, styles.totalBox]}
               >
-                <Text style={[Fonts.text18]}>ค่าจัดส่ง</Text>
+                <Text style={[Fonts.text18]}>
+                  {t('checkoutSummary.shippingFee')}
+                </Text>
                 <Text style={[Fonts.text18]}>
                   {THB.format(order.deliveryFee || 0).replace(
                     /\b(\w*THB\w*)\b/,
@@ -106,7 +119,8 @@ const CheckoutSummary: FunctionComponent<Props> = ({
               >
                 <Images.point.unipoint />
                 <Text style={[Fonts.text18]}>
-                  คะแนนที่ได้รับ {order.rewardPoint} คะแนน
+                  {t('checkoutSummary.rewardPoints')} {order.rewardPoint}{' '}
+                  {t('checkoutSummary.point')}
                 </Text>
               </View>
             </>
@@ -119,7 +133,9 @@ const CheckoutSummary: FunctionComponent<Props> = ({
               styles.totalAmountBox,
             ]}
           >
-            <Text style={[Fonts.text18]}>ราคารวม</Text>
+            <Text style={[Fonts.text18]}>
+              {t('checkoutSummary.totalAmount')}
+            </Text>
             <Text style={[Fonts.text18]}>
               {THB.format(order.amount || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
             </Text>

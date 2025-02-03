@@ -28,5 +28,15 @@
     "description": "Privacy Disclosure Policy",
     "label": "Privacy Disclosure Policy on Membership and Logging Consolidated To send news, privileges, and others, we may need your information to improve and provide you with a shopping experience through this digital platform. We may use your information as described in specification or Privacy Disclosure Policy Using this Unify application \n Policy on disclosure of personal information for being a member and logging in, including sending news, privileges, and others, we may need your information to improve and provide a shopping experience through digital channels. We may use your information on this platform as described in the Terms. or Privacy Disclosure Policy Using this Unify application, ordering products through this digital platform, we may use your information as Informed in terms or privacy disclosure policy. using the application To order products through this digital platform, we may use your information as Informed in terms or privacy disclosure policy. Using this Unify application",
     "accept": "Consent Once clicked You accept the terms and conditions of the privacy policy\ndisclosure. Using this Unify application"
+  },
+  "pdpa": {
+   "startShopping": "Start Shopping Now!",
+    "loginOrSignUp": "Login or Sign Up",
+    "next": "Next" 
+  },
+  "pdpaConfirm": {
+    "agree": "Agree",
+    "disagree": "Disagree",
+    "confirm": "Confirm"
   }
 }

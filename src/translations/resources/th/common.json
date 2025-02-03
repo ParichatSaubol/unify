@@ -2,5 +2,415 @@
   "appName": {
     "full": "Boilerplate React Native",
     "initials": "RNB"
-  }
+  },
+  "addressCard": {
+    "default_shipping_address": "ที่อยู่จัดส่งเริ่มต้น",
+  "address_label": "ที่อยู่",
+  "phone_number": "เบอร์โทรศัพท์",
+  "edit": "แก้ไข",
+  "delete": "ลบ"
+  },
+  "cartEmpty": {
+    "emptyMessage": "คุณยังไม่มีสินค้าในรถเข็น",
+    "emptyDescription": "คุณยังไม่มีสินค้าในรถเข็น กรุณาเพิ่มสินค้า ที่คุณสนใจลงในรถเข็น"
+  },
+  "cartAddress": {
+    "yourAddress": "ที่อยู่ของคุณ",
+    "selectAddress": "เลือกที่อยู่",
+    "name": "สมคิด จิตชื่นบาน",
+    "address": "9/8 บางกรวยไทรน้อย ซอย10 ต.บางกรวย อ.บางกรวย จังหวัดนนทบุรี 11130"
+  },
+  "cartBooking": {
+    "deliveryTo": "จัดส่งสินค้าไปที่",
+    "district": "อำเภอบางกรวย, 11130",
+    "change": "เปลี่ยน",
+    "interestedInInstallation": "สนใจติดตั้ง",
+    "addToCart": "เพิ่มลงในรถเข็น",
+    "totalPrice": "ราคารวม",
+    "bookService": "จองบริการ",
+    "scheduleService": "นัดหมายเข้าบริการ"
+  },
+  "cartItems": {
+    "cartTitle": "ตะกร้าของฉัน ({count} รายการ)",
+    "courseTitle": "คอร์สเรียนของฉัน ({count} รายการ)",
+    "serviceTitle": "บริการติดตั้ง ({count} รายการ)",
+    "productTitle": "สินค้าทั้งหมด ({count} รายการ)",
+    "productOptions": "ตัวเลือกสินค้า : A",
+    "pricePerItem": "/ ชิ้น",
+    "delete": "ลบ"
+  },
+  "cartProductDetail": {
+    "selectProductType": "เลือกลักษณะสินค้า",
+    "closeButton": "ปิด",
+    "productDetails": "รายละเอียดสินค้า",
+    "pricePerItem": "/ ชิ้น",
+    "appointmentService": "นัดหมายเข้าบริการ",
+    "selectModel": "ลักษณะสินค้า",
+    "requiredModel": "(*กรุณาเลือกโมเดล)",
+    "serviceOptions": "เพิ่มงานบริการพร้อมการซื้อสินค้าได้ทันที",
+    "totalPrice": "ราคารวม",
+    "productName": "ชื่อสินค้า",
+    "model1": "โมเดล 1",
+    "model2": "โมเดล 2",
+    "model3": "โมเดล 3"
+  },
+  "cartServiceDetail": {
+    "selectServiceType": "เลือกประเภทงานบริการ",
+    "appointmentService": "นัดหมายเข้าบริการ",
+    "selectModel": "ลักษณะสินค้า",
+    "requiredModel": "(*กรุณาเลือกโมเดล)",
+    "productName": "ชื่อสินค้า",
+    "model1": "โมเดล 1",
+    "model2": "โมเดล 2",
+    "model3": "โมเดล 3"
+  },
+  "cartShopping":{
+    "buyProductsNow": "ซื้อสินค้าทันที",
+    "addToCart": "เพิ่มลงในรถเข็น"
+  },
+  "bookingCard": {
+    "quantity": "จำนวน",
+    "price": "ราคา",
+    "appointmentDate": "วันที่นัดหมาย",
+    "status": "สถานะ",
+    "statusInProgress": "รอเจ้าหน้าที่ติดต่อ",
+    "statusInPayment": "รอการชำระเงิน",
+    "statusCompleted": "ชำระเงินแล้ว"
+  },
+  "categoryBody": {
+    "title": "ระบบพ่นสี",
+    "brand": "แบรนด์ยอดนิยม"
+  },
+  "categoryMenu": {
+    "productTitle": "สินค้า",
+    "productSubTitle": "เลือกหมวดหมู่ สินค้า",
+    "serviceTitle": "งานบริการ",
+    "serviceSubTitle": "เลือกหมวดหมู่ งานบริการ",
+    "solutionTitle": "งานโซลูชัน",
+    "solutionSubTitle": "เลือกหมวดหมู่ งานโซลูชัน"
+  },
+  "checkoutSummary": {
+    "totalItems": "จำนวนรายการทั้งหมด",
+    "totalAmount": "ราคารวม",
+    "productAmount": "ยอดรวมสินค้า",
+    "discountFromCoupon": "ลดจากคูปอง",
+    "discountFromPoints": "ลดจากคะแนน",
+    "vat": "ภาษีมูลค่าเพิ่ม Vat 7%",
+    "shippingFee": "ค่าจัดส่ง",
+    "rewardPoints": "คะแนนที่ได้รับ",
+    "point": "คะแนน",
+    "list": "รายการ"
+  },
+  "checkoutWarning": {
+    "check": "กรุณาตรวจสอบคำสั่งซื้อและที่อยู่ให้ครบถ้วนและถูกต้องก่อนชำระเงิน"
+  },
+  "collapsibleMenuItem": {
+    "test": "แบบทดสอบ"
+  },
+  "communityCard": {
+    "article": "บทความโดย :",
+    "read": "อ่านต่อ"
+  },
+  "communityContent": {
+    "see": "ดูแล้ว",
+    "time": "ครั้ง",
+    "title": "ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+  },
+  "communityDetail": {
+    "visualizationTitle": "Visualization ระบบ SCADA สำหรับองค์กร",
+    "visualizationDescription": "เมื่อพูดถึงการทำงานในอุตสาหกรรมแบบอัตโนมัติ คนมักจะนึกถึงการทำงานในลักษณะของอุปกรณ์ Hardware ...",
+    "postDate": "โพสต์เมื่อ 27-02-2023",
+    "technologyCorner": "มุมเทคโนโลยีอุตสาหกรรม",
+    "shareArticle": "แชร์บทความนี้",
+    "relatedArticles": "บทความอื่นที่เกี่ยวข้อง",
+    "title": "ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+  },
+  "couponCard": {
+    "additionalDiscount": "ลดเพิ่ม 15%",
+    "viewConditions": "ดูเงื่อนไข",
+    "validUntil": "ใช้ได้ถึงวันที่ 20 ต.ค. 2565 23:59",
+    "couponDetails": [
+      "ซื้อสินค้าแบรนด์ Mitsubishi, ลดสูงสุด 2,000 บาท",
+      "ใช้ได้ถึงวันที่ 20 ต.ค. 2565 23:59"
+    ],
+    "saveCode": "เก็บโค้ด",
+    "newCustomerOnly": "เฉพาะลูกค้าใหม่ที่ยังไม่เคยมีคำสั่งซื้อ"
+  },
+  "couponDetailModal": {
+    "couponDetails": [
+      "ซื้อสินค้าแบรนด์ Mitsubishi, ลดสูงสุด 2,000 บาท",
+      "ใช้ได้ถึงวันที่ 20 ต.ค. 2565 23:59"
+    ],
+    "title": "เงื่อนไขการใช้โค้ดส่วนลด",
+    "additionalDiscount": "ลดเพิ่ม 15%",
+    "promotion": "ระยะเวลาโปรโมชัน :",
+    "promotionPeriod": "1 ต.ค. 2565 00:01 - 20 ต.ค. 2565 23:59",
+    "termsAndConditions": "ข้อตกลงและเงื่อนไข"
+  },
+  "couponEmpty": {
+    "title": "ยังไม่มีโค้ดส่วนในขณะนี้"
+  },
+  "couponModal": {
+    "title": "โค้ดที่ใช้ได้",
+    "enterCouponCode": "กรอกโค้ดส่วนลด",
+    "search": "ค้นหา",
+    "applicableDiscounts": "ส่วนลดที่สามารถใช้กับคำสั่งซื้อนี้ได้"
+  },
+  "inputSelection": {
+    "salutationOptions": ["นาง", "นางสาว", "นาย"]
+  },
+  "invoiceForm": {
+    "company": "ข้อมูลลงทะเบียน (สำหรับลูกค้าบริษัท)",
+    "individual": "ข้อมูลลงทะเบียน (บุคคลธรรมดา)",
+    "taxInvoiceNameLabel": "ชื่อสำหรับการออกใบกำกับภาษี (*)",
+    "taxInvoiceNamePlaceholder": "ชื่อสำหรับการออกใบกำกับภาษี",
+    "isHeadOffice": "สำนักงานใหญ่",
+    "branch": "สาขา",
+    "outlined": "กรุณากรอกชื่อสาขา",
+    "numberInvoiceNameLabel": "เลขประจำตัวผู้เสียภาษีอากร (*)",
+    "placeholder": "เลขประจำตัวผู้เสียภาษีอากร",
+    "address": "ที่อยู่สำหรับการออกใบกำกับภาษี",
+    "houseNumber": "บ้านเลขที่",
+    "building": "ชื่ออาคาร/หมู่บ้าน",
+    "village": "หมู่ที่",
+    "road": "ถนน",
+    "postalCode": "รหัสไปรษณีย์",
+    "province": "จังหวัด",
+    "district": "อำเภอ/เขต",
+    "subdistrict": "ตำบล/แขวง"
+  },
+  "learnCatalog": {
+    "description": "ติดตั้งระบบ SCADAGENESIS64 พร้อมอุปกรณ์"
+  },
+  "learnDetail": {
+    "recommended": "คอร์สแนะนำ",
+    "title": "SCADA",
+    "instructor": "คอร์สเรียนโดย : ",
+    "certificate": "เรียนจบได้ใบรับรอง",
+    "buttonsStart": "เริ่มเรียน",
+    "buttonsBuyNow": "ซื้อเลย ฿25,900",
+    "buttonsAddToCart": "เพิ่มลงรถเข็น",
+    "learner": "ผู้เรียน",
+    "buttonsDownloadCertificate": "ดาวน์โหลดใบรับรอง Certificate",
+    "progress": "เรียนแล้ว",
+    "tabsDetails": "รายละเอียดคอร์สเรียน",
+    "tabsContent": "เนื้อหาการเรียนรู้",
+    "read": "อ่านต่อเพิ่มเติม",
+    "lecturer": "วิทยากรผู้สอน",
+    "name": "รศ. ดร.ศิริเดช บุญแสง",
+    "name1": "รศ. ดร.สมคิด จิตชื่อบาน",
+    "position": "คณบดีคณะเทคโนโลยีสารสนเทศ",
+    "university": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง"
+},
+"orderCard": {
+  "orderNumber": "เลขที่ออเดอร์ :",
+  "itemsCount": "รายการ",
+  "viewMore": "ดูเพิ่มเติม",
+  "collapse": "ย่อ",
+  "cancelOrder": "ยกเลิกสินค้า",
+  "checkDeliveryStatus": "ดูสถานะการจัดส่ง",
+  "downloadInvoice": "ดาวน์โหลดใบกำกับภาษี",
+  "downloadQuotation": "ดาวน์โหลดใบเสนอราคา",
+  "payNow": "ชำระเงิน",
+  "waitingForPayment": "รอการชำระเงิน",
+  "waitingForDelivery": "รอการจัดส่ง",
+  "toBeReceived": "รอการรับสินค้า",
+  "productOption": "ตัวเลือกสินค้า : ",
+  "pricePerPiece": "/ ชิ้น",
+  "discount": "ลด %",
+  "colorWhite": "สีขาว",
+    "productTitleMitsubishiHmi": "Mitsubishi หน้าจอสัมผัส HMI ซีรีย์ GT"
+},
+"orderDrtail": {
+  "orderNumber": "เลขที่ออเดอร์ :",
+  "itemsCount": "รายการ",
+  "productOption": "ตัวเลือกสินค้า : ",
+  "pricePerPiece": "/ ชิ้น"
+},
+"orderDetailCancel": {
+  "noOrderData": "ไม่พบข้อมูลคำสั่งซื้อ",
+  "requester": "ผู้ยื่นคำขอ:",
+  "buyer": "ผู้ซื้อ",
+  "reason": "เหตุผล:",
+  "defaultReason": "ได้รับสินค้าไม่ตรงกับรายการที่สั่ง เช่น สีผิด โมเดลผิด หรือสินค้าผิด",
+  "additionalDetails": "รายละเอียดเพิ่มเติม:",
+  "noAdditionalInfo": "ไม่มีข้อมูลเพิ่มเติม",
+  "problemImages": "รูปภาพสินค้าที่มีปัญหา",
+  "noProductData": "ไม่มีข้อมูลสินค้า"
+},
+"orderEmpty": {
+  "noOrders": "ไม่มีคำสั่งซื้อ เลือกซื้อสินค้าต่อเลย",
+  "productTitle": "สินค้าทั้งหมด"
+},
+"orderWarning": {
+  "transportation": "ระบบขนส่งจำหน่ายสินค้าแล้ว",
+  "viewStatus": "ดูสถานะ"
+},
+"orderWithEstimate": {
+  "waitingForEstimate": "สินค้ารอเจ้าหน้าที่ประเมินราคา",
+  "paymentNotAvailable": "คุณยังไม่สามารถชำระเงินได้ จะมีเจ้าหน้าที่ติดต่อกลับไปภายใน 1 ถึง 3 วันทำการเพื่อสอบถามข้อมูลการเข้ารับบริการเพิ่มเติม",
+  "closeWindow": "ปิดหน้าต่าง"
+},
+"otherMenu": {
+  "allShortcuts": "เมนูลัดทั้งหมด",
+  "communityAndArticles": "คอมมูนิตี้และบทความ",
+  "communityAndArticlesDescription": "บทความและข่าวสารเกี่ยวกับเทคโนโลยีโรงงาน",
+  "goodDeals": "ดีลดี รวมโปรโมชั่น",
+  "goodDealsDescription": "รวมโปรโมชั่นดีลดีสำหรับคุณ",
+  "discountCode": "โค้ดส่วนลด",
+  "discountCodeDescription": "โค้ดส่วนลดพิเศษและสิทธิพิเศษ",
+  "flashStore": "แฟรชสโตร์",
+  "flashStoreDescription": "ช้อปสินค้าโรงงานราคาพิเศษสุด",
+  "privilegesAndPoints": "สิทธิพิเศษและคะแนน",
+  "privilegesAndPointsDescription": "สิทธิพิเศษกับของรางวัลมากมาย",
+  "allProducts": "สินค้าทั้งหมด",
+  "allProductsDescription": "สินค้ายอดนิยมในโรงงานคัดสรรให้เลือกช้อป"
+},
+"pointIndex": {
+  "point": "คะแนนของคุณ"
+},
+"productCard": {
+  "perPiece": "/ ชิ้น",
+  "piece": "ชิ้น",
+  "appointmentService": "นัดหมายเข้าบริการ",
+  "flashSale": "เข้าร่วมจำนวน",
+  "installedBy": "ติดตั้งโดย :",
+  "hours": "ชั่วโมง"
+},
+"productDetail": {
+  "productCode": "รหัสสินค้า :",
+  "sold": "ขายแล้ว",
+  "perPiece": "/ ชิ้น",
+  "piece": "ชิ้น",
+  "genuine": "ของแท้ 100%",
+  "readyToShip": "สินค้าพร้อมส่ง",
+  "deliveredBy": "จัดส่งโดย",
+  "catalog": "แคตตาล็อก",
+  "cad": "CAD",
+  "viewBrandProducts": "ดูสินค้าแบรนด์นี้",
+  "productDetails": "รายละเอียดสินค้า"
+},
+"profileLastOrder": {
+  "lastOrder": "คำสั่งซื้อล่าสุด",
+  "receivedItem": "ที่ต้องได้รับ",
+  "parcelShipped": "พัสดุของคุณได้ถูกจัดส่งออกไปแล้ว"
+},
+"promotionBenner": {
+  "flashStore": "FLASH STORE",
+  "discountPercentage": "-89%",
+  "price": "฿322,000.00",
+  "pricePerItem": "฿1,202,990.00 / ชิ้น",
+  "sold": "ขายแล้วในดีลนี้ 2 ชิ้น",
+  "promotionTitle": "8.8 ช้อปสินค้าลดสูงสุด 88%",
+  "promotionDescription": "ผ่อน 0% นานสูงสุด 10 เดือน รับเงินคืน สูงสุด 15%"
+},
+"promotionDetailModal": {
+  "promotionConditions": "เงื่อนไขโปรโมชั่น",
+  "additionalDiscount": "ลดเพิ่ม 15%",
+  "promotionPeriod": "ระยะเวลาโปรโมชัน :",
+  "promotionPeriodDates": "1 ต.ค. 2565 00:01 - 20 ต.ค. 2565 23:59",
+  "termsAndConditions": "ข้อตกลงและเงื่อนไข :",
+  "couponDetails": [
+      "ซื้อสินค้าแบรนด์ Mitsubishi, ลดสูงสุด 2,000 บาท",
+      "ใช้ได้ถึงวันที่ 20 ต.ค. 2565 23:59"
+    ]
+},
+"promotionEmpty": {
+  "title": "ยังไม่มีโปรโมชันในขณะนี้"
+},
+"promotions": {
+  "promotionTitle": "โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A",
+  "promotionDescription": "ลด 300 บาท เมื่อซื้อสินค้าแบรนด์ ACER ขั้นต่ำ 300 บาท",
+  "promotionFooter": "สิ้นสุด 31 มกราคม 2566"
+},
+"promotionsPoint": {
+  "promotionTitle": "โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A"
+},
+"serviceAddressForm": {
+ "address": "บ้านเลขที่",
+  "building": "ชื่ออาคาร/หมู่บ้าน",
+  "village": "หมู่ที่",
+  "road": "ถนน",
+  "postalCode": "รหัสไปรษณีย์",
+  "province": "จังหวัด",
+  "district": "อำเภอ/เขต",
+  "subdistrict": "ตำบล/แขวง",
+  "shippingAddress": "กรอกที่อยู่สำหรับจัดส่งสินค้า",
+  "selectLocation": "กรุณาเลือกสถานที่และวันนัดหมายที่ต้องการให้หน้าที่ เข้าบริการ"
+},
+"serviceCategory": {
+  "service": "งานบริการ",
+  "solution": "งานโซลูชั่น",
+  "appointments": "นัดหมายของคุณ"
+},
+"serviceDetail": {
+  "serviceDetails": "รายละเอียดการให้บริการ",
+  "sold": "ขายแล้ว",
+  "perPiece": "/ ชิ้น",
+  "piece": "ชิ้น",
+  "serviceDescription": "รายละเอียดเพิ่มเติม",
+  "standardEquipmentFree": "อุปกรณ์มาตรฐานพร้อมติดตั้ง (ฟรี)",
+  "standardEquipmentAdditional": "อุปกรณ์มาตรฐานส่วนเพิ่ม (มีค่าใช้จ่าย)สามารถติดต่อซื้อจากช่างได้เลย",
+  "note": "หมายเหตุ",
+  "serviceArea": "พื้นที่ให้บริการ",
+  "appointment": "นัดหมายเข้าบริการ"
+},
+"serviceInformationForm": {
+  "serviceFormTitle": "กรุณากรอกข้อมูลผู้รับบริการ",
+  "name": "ชื่อ - สกุล ผู้รับบริการ",
+  "fName": "ชื่อ-นามสกุล",
+  "company": "ชื่อบริษัท ผู้รับบริการ",
+  "position": "ตำแหน่ง",
+  "department": "แผนก",
+  "phone": "หมายเลขโทรศัพท์สำหรับติดต่อกลับ",
+  "placeholder": "ชื่อบริษัท"
+},
+"serviceMoreDetail": {
+  "moreDetailsTitle": "รายละเอียดเพิ่มเติม",
+  "moreDetails": "รายละเอียดบริการที่ต้องการเพิ่มเติม",
+  "uploadImage": "อัพโหลดภาพบริเวณหน้างาน",
+  "uploadImageButton": "อัพโหลดรูปภาพ"
+},
+"serviceOptionDetail": {
+  "serviceDetailsTitle": "รายละเอียดงานบริการ",
+  "productServiceTitle": "บริการติดตั้งสวิสซ์ปุ่มฉุกเฉิน แบรนด์ IDEC ประเมินหน้างาน (ไม่รวมค่าอุปกรณ์)",
+  "standardEquipmentIncluded": "อุปกรณ์มาตรฐานพร้อมติดตั้ง (ฟรี)",
+  "additionalStandardEquipment": "อุปกรณ์มาตรฐานส่วนเพิ่ม (มีค่าใช้จ่าย) สามารถติดต่อซื้อจากช่างได้เลย",
+  "productName": "ชื่อสินค้า",
+  "details": [
+    "เบรกเกอร์พร้อมฝาครอบ 1 ชุด ขนาด 220 โวลต์",
+    "ขายางรอง Condensing 1 ชุด",
+    "ท่อน้ำทิ้ง PVC ยาวไม่เกิน 4 เมตร",
+    "สายไฟฟ้า ระหว่าง คอยล์ร้อน-คอลย์เย็น ยาวไม่เกิน 10 เมตร",
+    "สายดิน ยาวไม่เกิน 4 เมตร"
+  ],
+  "addon": [
+    "รางครอบท่อเมตรละ 350 บาท รวมข้อต่อ",
+    "ขาแขวนแบบห้อย ROD+ยางแบน ขนาดใหญ่ (18-24 kBtu/h) ชุดละ 1,500 บาท"
+  ]
+},
+"ServiceOptions": {
+  "service": "งานบริการ",
+  "viewDetails": "ดูรายละเอียด",
+  "price": "ราคา",
+  "notIncludingProduct": "ราคานี้ ไม่รวมค่าสินค้า"
+},
+"serviceReceiveForm": {
+  "serviceReceiveFormTitle": "วันและเวลาที่ต้องการเข้ารับบริการ",
+  "addressPlaceholder": "12 มกราคม 2566 , 12:00"
+},
+"ProductNavigator": {
+  "homeTabLabel": "ซื้อสินค้า",
+  "serviceTabLabel": "งานบริการ",
+  "learnTabLabel": "คอร์สเรียน",
+  "cartTabLabel": "รถเข็น",
+  "profileTabLabel": "โปรไฟล์",
+  "homeTabTitle": "หน้าหลัก",
+  "serviceIndexTabTitle": "งานบริการ",
+  "learnIndexTabTitle": "คอร์สเรียน",
+  "cartIndexTabTitle": "รถเข็น",
+  "profileTabTitle": "โปรไฟล์"
+}
+
+
 }

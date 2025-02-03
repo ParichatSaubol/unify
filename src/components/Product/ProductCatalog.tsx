@@ -21,7 +21,6 @@ import {
 import { useLazyGetFlashSaleListQuery } from '@/services/modules/flash_sale';
 import { useLazyGetSolutionListQuery } from '@/services/modules/solution';
 
-
 import config from '@/utils/config';
 import { number } from 'yup';
 
@@ -83,7 +82,7 @@ const ProductCatalog: FunctionComponent<Props> = ({ method }) => {
   const [GetSolutionList] = useLazyGetSolutionListQuery();
   const [GetPopularProducts] = useLazyGetPopularProducts();
   const [GetFlashSale] = useLazyGetFlashSaleListQuery();
-  
+
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [perPage, setperPage] = useState(5);
@@ -131,8 +130,7 @@ const ProductCatalog: FunctionComponent<Props> = ({ method }) => {
     } catch (error) {}
   };
 
-
-  const  QUERY_FLASH_SALE = async () => {
+  const QUERY_FLASH_SALE = async () => {
     try {
       const array_products: IProductCard[] = [];
       const { loading, error, data } = await GetFlashSale({
@@ -146,7 +144,6 @@ const ProductCatalog: FunctionComponent<Props> = ({ method }) => {
               : undefined,
             id: item.flash_id?.toString() || '',
             brand: '',
-
           };
           array_products.push(product_data);
         }
@@ -158,8 +155,6 @@ const ProductCatalog: FunctionComponent<Props> = ({ method }) => {
       }
     } catch (error) {}
   };
-
-
 
   const QUERY_SOLUTION = async () => {
     try {
@@ -202,7 +197,7 @@ const ProductCatalog: FunctionComponent<Props> = ({ method }) => {
       switch (method) {
         case ProductCatalogMethod.product:
           const products = await QUERY_POPPULAR_PRODUCTS();
-          
+
           setData([...data, ...products]);
           break;
         case ProductCatalogMethod.flashSale:
@@ -230,7 +225,9 @@ const ProductCatalog: FunctionComponent<Props> = ({ method }) => {
   };
 
   const handleScroll = ({ nativeEvent }) => {
-    if (loading) return;
+    if (loading) {
+      return;
+    }
 
     const isCloseToEnd =
       nativeEvent.layoutMeasurement.width + nativeEvent.contentOffset.x >=

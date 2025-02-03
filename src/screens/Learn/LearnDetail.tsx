@@ -25,77 +25,77 @@ type Props = NativeStackScreenProps<ProductParamsList, 'LearnDetail'>;
 // @refresh reset
 const LearnDetail = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Fonts } = useTheme();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [courseItems, setCourseItems] = React.useState<any>([
     {
-      title: 'ส่วนที่ 1 AI Deep Learning',
+      title: t('learnDetail.section1'),
       items: [
         {
-          title: 'Part 1 : Introduction',
+          title: t('learnDetail.part1'),
           url: 'text',
         },
         {
-          title: 'Part 2 : รู้จัก AI Deep Learning PART 1',
+          title: t('learnDetail.part2'),
           url: 'text',
         },
         {
-          title: 'Part 3 :  รู้จัก AI Deep Learning PART 2',
+          title: t('learnDetail.part3'),
           url: 'text',
         },
         {
-          title: 'Part 4 : เริ่มต้นใช้โปรแกรม CIRA CORE',
+          title: t('learnDetail.part4'),
           url: 'text',
         },
       ],
     },
     {
-      title: 'ส่วนที่ 2 การใช้งานโปรแกรม',
+      title: t('learnDetail.section2'),
       items: [
         {
-          title: 'Part 1 : Introduction',
+          title: t('learnDetail.part1'),
           url: 'text',
         },
         {
-          title: 'Part 2 : รู้จัก AI Deep Learning PART 1',
+          title: t('learnDetail.part2'),
           url: 'text',
         },
         {
-          title: 'Part 3 :  รู้จัก AI Deep Learning PART 2',
+          title: t('learnDetail.part3'),
           url: 'text',
         },
         {
-          title: 'Part 4 : เริ่มต้นใช้โปรแกรม CIRA CORE',
+          title: t('learnDetail.part4'),
           url: 'text',
         },
       ],
     },
     {
-      title: 'ส่วนที่ 3 การวางกลยุทธ์',
+      title: t('learnDetail.section3'),
       items: [
         {
-          title: 'Part 1 : Introduction',
+          title: t('learnDetail.part1'),
           url: 'text',
         },
         {
-          title: 'Part 2 : รู้จัก AI Deep Learning PART 1',
+          title: t('learnDetail.part2'),
           url: 'text',
         },
         {
-          title: 'Part 3 :  รู้จัก AI Deep Learning PART 2',
+          title: t('learnDetail.part3'),
           url: 'text',
         },
         {
-          title: 'Part 4 : เริ่มต้นใช้โปรแกรม CIRA CORE',
+          title: t('learnDetail.part4'),
           url: 'text',
         },
       ],
     },
     {
-      title: 'แบบทดสอบ',
+      title: t('learnDetail.test'),
       items: [
         {
           title: 'TEST',
@@ -108,20 +108,17 @@ const LearnDetail = ({ navigation }: Props): JSX.Element => {
   // state
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [detail, setDetail] = React.useState<ILearnDetail>({
-    title:
-      'ระบบการจัดการพลังงาน Energy Monitoring วิเคราะห์ โดย..ซอฟต์แวร์ GENESIS64 ด้วย SCADA จาก มิซูบิชิ',
-    code: 'Mitsubishi e-Factory Learning Center',
+    title: t('learnDetail.title'),
     star: 4,
-    learnDuration: '1 ชั่วโมง 55 นาที',
+    learnDuration: t('learnDetail.learnDuration'),
     learnerCount: '4,539',
     amount: 100,
     isGenuine: true,
     isReady: false,
-    delivered: '1 วันทำการ',
+    delivered: t('learnDetail.delivered'),
     brandName: 'IDEA',
     brandDescription: 'IDEA',
-    detail:
-      'CiRA CORE เป็นแพลตฟอร์มปัญญาประดิษฐ์ (AI) ที่เกิดจากการความร่วมมือ ระหว่างสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง กับมหาวิทยา ลัยขอนแก่น และมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ โดยย้อน กลับไปก่อนหน้านี้นับ ตั้งแต่ปี 2010 เป็นต้นมา Deep Learning ซึ่งเป็นสาขา ของ AI เริ่มได้รับความนิยมมากขึ้น และมีความต้องการใช้ในการพัฒนามีเพิ่ม มากขึ้นอย่างยิ่งยวด...',
+    detail: t('learnDetail.detail'),
     description: <Image source={Images.mock.description} />,
     courseItems: courseItems,
   });
@@ -143,7 +140,7 @@ const LearnDetail = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <View style={[Layout.bgPrimary]}>
         <AppBar
-          title="คอร์สเรียน"
+          title={t('learnDetail.course')}
           titleAlign="center"
           color={AppColor.blue}
           right={

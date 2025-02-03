@@ -16,8 +16,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'CouponCategory'>;
 
 const CouponCategory = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Images } = useTheme();
   // const dispatch = useDispatch();
@@ -31,37 +31,63 @@ const CouponCategory = ({ navigation }: Props): JSX.Element => {
     {
       id: 1,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="เก็บแล้ว" size={ButtonSize.mini} disable />,
+      title: t('couponCategory.acer'),
+      description: t('couponCategory.description'),
+      button: (
+        <Button
+          title={t('couponCategory.buttonTitle')}
+          size={ButtonSize.mini}
+          disable
+        />
+      ),
     },
     {
       id: 2,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="เก็บคูปอง" size={ButtonSize.mini} />,
+      title: t('couponCategory.acer'),
+      description: t('couponCategory.description'),
+      button: (
+        <Button
+          title={t('couponCategory.buttonTitle2')}
+          size={ButtonSize.mini}
+        />
+      ),
     },
     {
       id: 3,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="เก็บคูปอง" size={ButtonSize.mini} />,
+      title: t('couponCategory.acer'),
+      description: t('couponCategory.description'),
+      button: (
+        <Button
+          title={t('couponCategory.buttonTitle2')}
+          size={ButtonSize.mini}
+        />
+      ),
     },
     {
       id: 4,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="เก็บคูปอง" size={ButtonSize.mini} />,
+      title: t('couponCategory.acer'),
+      description: t('couponCategory.description'),
+      button: (
+        <Button
+          title={t('couponCategory.buttonTitle2')}
+          size={ButtonSize.mini}
+        />
+      ),
     },
     {
       id: 5,
       image: Images.promotions.c,
-      title: 'โค้ดส่วนลดเมื่อซื้อสินค้า แบรนด์ ACER',
-      description: 'ลด 300 บาท เมื่อซื้อสินค้า แบรนด์ ACER ขั้นต่ำ ฿300',
-      button: <Button title="เก็บคูปอง" size={ButtonSize.mini} />,
+      title: t('couponCategory.acer'),
+      description: t('couponCategory.description'),
+      button: (
+        <Button
+          title={t('couponCategory.buttonTitle2')}
+          size={ButtonSize.mini}
+        />
+      ),
     },
   ]);
   // handle callback
@@ -82,7 +108,7 @@ const CouponCategory = ({ navigation }: Props): JSX.Element => {
       <View style={[Layout.main, Layout.gap20, Layout.bgWhite]}>
         <AppBar
           color={AppColor.white}
-          title="โค้ดส่วนลด"
+          title={t('couponCategory.title')}
           onPress={() => {
             navigation.goBack();
           }}
@@ -95,7 +121,7 @@ const CouponCategory = ({ navigation }: Props): JSX.Element => {
           contentContainerStyle={[Layout.row, Layout.gap20]}
         >
           <Button
-            title="โค้ดส่วนลดทั้งหมด"
+            title={t('couponCategory.allDiscountCodes')}
             variant={ButtonVariant.text}
             active={active === ICouponTabs.AllDiscountCodes}
             onPress={() => {
@@ -104,7 +130,7 @@ const CouponCategory = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="แบรนด์"
+            title={t('couponCategory.brand')}
             variant={ButtonVariant.text}
             active={active === ICouponTabs.Brand}
             onPress={() => {
@@ -113,7 +139,7 @@ const CouponCategory = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="ขั้นต่ำ"
+            title={t('couponCategory.minimum')}
             variant={ButtonVariant.text}
             active={active === ICouponTabs.Minimum}
             onPress={() => {
@@ -122,7 +148,7 @@ const CouponCategory = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="ซื้อคู่คุ้มกว่า"
+            title={t('couponCategory.buyingWorthwhile')}
             variant={ButtonVariant.text}
             active={active === ICouponTabs.BuyingWorthwhile}
             onPress={() => {

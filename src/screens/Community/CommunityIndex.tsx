@@ -25,7 +25,7 @@ type Props = NativeStackScreenProps<
 const CommunityIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Fonts, Layout, Images } = useTheme();
 
@@ -56,12 +56,14 @@ const CommunityIndex = ({ navigation }: Props): JSX.Element => {
           onPress={() => {
             navigation.goBack();
           }}
-          title="คอมมูนิตี้และบทความ"
+          title={t('communityIndex.title')}
           color={AppColor.blue}
         />
         <View style={[Layout.gap20, Layout.main]}>
           <View style={styles.container}>
-            <InputSearchBrand placeholder="ค้นหาคอมมูนิตี้และบทความได้ที่นี่" />
+            <InputSearchBrand
+              placeholder={t('communityIndex.searchPlaceholder')}
+            />
           </View>
 
           <Catalog method="community" />
@@ -72,8 +74,8 @@ const CommunityIndex = ({ navigation }: Props): JSX.Element => {
           <CommunityContent
             bannerImage={Images.community.content}
             logoImage={Images.community.logo}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+            createdBy={t('communityIndex.createdBy')}
+            title={t('communityIndex.automationTitle')}
             onPress={() => {
               navigation.navigate('CommunityDetail' as any);
             }}
@@ -82,22 +84,22 @@ const CommunityIndex = ({ navigation }: Props): JSX.Element => {
           <CommunityContent
             bannerImage={Images.community.content}
             logoImage={Images.community.logo}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+            createdBy={t('communityIndex.createdBy')}
+            title={t('communityIndex.automationTitle')}
           />
           <Catalog method="knowledge" />
           <CommunityContent
             bannerImage={Images.community.content}
             logoImage={Images.community.logo}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+            createdBy={t('communityIndex.createdBy')}
+            title={t('communityIndex.automationTitle')}
           />
           <Catalog method="industrialTechnologyCorner" />
           <CommunityContent
             bannerImage={Images.community.content}
             logoImage={Images.community.logo}
-            createdBy="ข่าวสารด้านอุตสาหกรรม"
-            title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+            createdBy={t('communityIndex.createdBy')}
+            title={t('communityIndex.automationTitle')}
           />
         </View>
       </CustomScrollView>

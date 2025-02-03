@@ -53,8 +53,8 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const RegisterAddress = ({ navigation, route }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Gutters, Fonts } = useTheme();
   const method = useForm<TRegisterAddress>({
     defaultValues: {
@@ -85,7 +85,7 @@ const RegisterAddress = ({ navigation, route }: Props): JSX.Element => {
   return (
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
-        title="ที่อยู่การจัดส่งสินค้า"
+        title={t('registerAddress.title')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -126,12 +126,15 @@ const RegisterAddress = ({ navigation, route }: Props): JSX.Element => {
             />
 
             <Text style={[Fonts.text18, Layout.fill]}>
-              ฉันต้องการรับสิทธิพิเศษและโปรโมชั่น รวมถึงข่าวสารจากกลุ่ม บริษัท
-              ทีเคเค คอร์ปอเรชั่น จำกัด ตามที่ระบุไว้ใน นโยบายความเป็นส่วนตัว
+              {t('registerAddress.promotion')}
             </Text>
           </View>
 
-          <Button title="ถัดไป" fullWidth onPress={handleSubmit(onSubmit)} />
+          <Button
+            title={t('registerAddress.next')}
+            fullWidth
+            onPress={handleSubmit(onSubmit)}
+          />
         </View>
       </ScrollView>
     </DefaultLayout>

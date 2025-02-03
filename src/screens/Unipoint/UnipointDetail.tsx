@@ -20,8 +20,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'UnipointDetail'>;
 
 const UnipointDetail = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   // const dispatch = useDispatch();
@@ -32,18 +32,9 @@ const UnipointDetail = ({ navigation }: Props): JSX.Element => {
   const [data] = useState<IPromotionCard>({
     id: 1,
     image: Images.promotions.c,
-    title: 'โค้ดส่วนลดเมื่อซื้อสินค้าแบรนด์ A',
+    title: t('unipointDetail.details'),
     point: 1500,
-    details: [
-      'บริษัทขอสงวนสิทธิ์จำหน่ายให้เฉพาะกลุ่มลูกค้าที่สั่งซื้อในนามบริษัทเท่านั้น',
-      'จำหน่ายขั้นต่ำ 50,000 บาทต่อครั้ง',
-      'เติมเงินได้ตั้งแต่ 100 – 20,000 บาท ต่อใบ ***บัตรสตาร์บัคส์ไม่มีภาษีมูลค่าเพิ่ม',
-      'สะสมยอดสั่งซื้อเพื่อรับส่วนลด',
-      'จำหน่ายขั้นต่ำ 50,000 บาทต่อครั้ง',
-      'บริษัทขอสงวนสิทธิ์จำหน่ายให้เฉพาะกลุ่มลูกค้าที่สั่งซื้อในนามบริษัทเท่านั้น',
-      'เติมเงินได้ตั้งแต่ 100 – 20,000 บาท ต่อใบ ***บัตรสตาร์บัคส์ไม่มีภาษีมูลค่าเพิ่ม',
-      'เติมเงินได้ตั้งแต่ 100 – 20,000 บาท ต่อใบ ',
-    ],
+    details: t('unipointDetail.details1', { returnObjects: true }),
   });
 
   // handle callback
@@ -100,7 +91,7 @@ const UnipointDetail = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="แลกคะแนน"
+        title={t('unipointDetail.redeem')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -121,30 +112,39 @@ const UnipointDetail = ({ navigation }: Props): JSX.Element => {
           />
           <View style={styles.body}>
             <Text style={[Fonts.text18]}>
-              Starbuck e-coupon มูลค่า 200 บาท (ใช้สิทธิ์ได้ที่สตาร์บัคส์
-              ทุกสาขา) เงื่อนไขและรายละเอียดเป็นไปตามที่บริษัทกำหนด
+              {t('unipointDetail.giftVoucher')}
             </Text>
           </View>
           <View style={[Layout.row, Layout.gap5, Layout.justifyContentCenter]}>
             <View style={styles.box}>
-              <Text style={[Fonts.text14]}>สิทธิ์คงเหลือ</Text>
-              <Text style={[Fonts.text18]}>169 สิทธิ์</Text>
+              <Text style={[Fonts.text14]}>
+                {t('unipointDetail.redeemRightsLeft')}
+              </Text>
+              <Text style={[Fonts.text18]}>{t('unipointDetail.right')}</Text>
               <Text style={[Fonts.text14, Fonts.textRed]}>
-                จาก 1,900 สิทธิ์
+                {t('unipointDetail.right1')}
               </Text>
             </View>
             <View style={styles.box}>
-              <Text style={[Fonts.text14]}>คะแนนที่ใช้</Text>
-              <Text style={[Fonts.text18]}>1,500 คะแนน</Text>
+              <Text style={[Fonts.text14]}>
+                {t('unipointDetail.pointsUsed')}
+              </Text>
+              <Text style={[Fonts.text18]}>{t('unipointDetail.point')}</Text>
             </View>
             <View style={styles.box}>
-              <Text style={[Fonts.text14]}>วันหมดอายุ</Text>
-              <Text style={[Fonts.text21, Fonts.textRed]}>31 ก.ค 2566</Text>
-              <Text style={[Fonts.text14]}>(หรือจนกว่าคูปองจะหมด)</Text>
+              <Text style={[Fonts.text14]}>
+                {t('unipointDetail.expirationDate')}
+              </Text>
+              <Text style={[Fonts.text21, Fonts.textRed]}>
+                {t('unipointDetail.date')}
+              </Text>
+              <Text style={[Fonts.text14]}>
+                {t('unipointDetail.orExpired')}
+              </Text>
             </View>
           </View>
           <Button
-            title="แลกคะแนน"
+            title={t('unipointDetail.redeem')}
             onPress={() => {
               handleOnRedeem();
             }}
@@ -153,11 +153,14 @@ const UnipointDetail = ({ navigation }: Props): JSX.Element => {
           <View style={styles.body}>
             <View style={styles.divider} />
             <View style={[Layout.row, Layout.gap20]}>
-              <Chip title="รายละเอียด" color={ChipColor.primary} />
-              <Chip title="เงื่อนไขการแลกคะแนน" />
+              <Chip
+                title={t('unipointDetail.details')}
+                color={ChipColor.primary}
+              />
+              <Chip title={t('unipointDetail.redeemCondition')} />
             </View>
             <Text style={[Fonts.text16, Fonts.textBlack]}>
-              Gift Voucher Card จากสตาร์บัคส์ มูลค่า 200 บาท
+              {t('unipointDetail.voucher')}
             </Text>
             <View>
               {data.details?.map((item, index) => (
@@ -186,21 +189,21 @@ const UnipointDetail = ({ navigation }: Props): JSX.Element => {
             <Text
               style={[Fonts.text28Light, Fonts.textBlack, Fonts.textCenter]}
             >
-              ยืนยันการแลกคะแนน
+              {t('unipointDetail.redeemConfirm')}
             </Text>
-            <Text style={[Fonts.text16]}>
-              Gift Voucher Card จากสตาร์บัคส์ มูลค่า 200 บาท ใช้ 1,500
-              คะแนนใช้ได้ทุก สาขาที่สตาร์บัคส์
-            </Text>
+            <Text style={[Fonts.text16]}>{t('unipointDetail.gift')}</Text>
             <Text style={[Fonts.text21, Fonts.textPrimary]}>
-              คะแนนของคุณ 12,879
+              {t('unipointDetail.yourPoints')}
             </Text>
             <View style={[Layout.row, Layout.gap10]}>
               <View style={[Layout.fill]}>
-                <Button title="ยกเลิก" variant={ButtonVariant.outlined} />
+                <Button
+                  title={t('unipointDetail.cancel')}
+                  variant={ButtonVariant.outlined}
+                />
               </View>
               <View style={[Layout.fill]}>
-                <Button title="แลกคะแนน" />
+                <Button title={t('unipointDetail.redeem')} />
               </View>
             </View>
           </View>

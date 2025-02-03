@@ -7,6 +7,7 @@ import CheckoutSummary from '../Checkout/CheckoutSummary';
 import { ICoupon } from '@/model/coupon';
 import { IPoint } from '@/model/point';
 import OrderWithEstimate from './OrderWithEstimate';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   order?: IOrder;
@@ -15,6 +16,7 @@ interface Props {
 //หน้าแสดงรายการสั่งซื้อ
 const OrderCard: FunctionComponent<Props> = ({ order }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [coupon, setCoupon] = React.useState<ICoupon>({});
@@ -26,16 +28,20 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
     <View style={[styles.container, Layout.col, Layout.gap10]}>
       <View style={[styles.card, Layout.justifyContentBetween]}>
         <Text style={[Fonts.text21, Fonts.textBlack]}>
-          เลขที่ออเดอร์ :{order?.id}
+          {t('orderDrtail.orderNumber')} {order?.id}
         </Text>
-        <Text style={[Fonts.text21]}>({order?.itemsCount} รายการ)</Text>
+        <Text style={[Fonts.text21]}>
+          ({order?.itemsCount} {t('orderDrtail.itemsCount')})
+        </Text>
       </View>
       {order?.items?.map((item, index) => (
         <View key={index} style={[styles.card]}>
           <Image source={item.image || Images.mock.noImage} />
           <View style={[Layout.col, Layout.fill]}>
             <Text style={[Fonts.text21, Fonts.textBlack]}>{item.title}</Text>
-            <Text style={[Fonts.text16]}>ตัวเลือกสินค้า : {item.option}</Text>
+            <Text style={[Fonts.text16]}>
+              {t('orderDrtail.productOption')} {item.option}
+            </Text>
             {item.amount && (
               <View style={[Layout.row, Layout.gap5]}>
                 <Text
@@ -49,7 +55,9 @@ const OrderCard: FunctionComponent<Props> = ({ order }) => {
                     /\b(\w*THB\w*)\b/,
                     '฿ ',
                   )}
-                  <Text style={[Fonts.text16, Fonts.textGrey]}>/ ชิ้น</Text>
+                  <Text style={[Fonts.text16, Fonts.textGrey]}>
+                    {t('orderDrtail.pricePerPiece')}
+                  </Text>
                 </Text>
               </View>
             )}

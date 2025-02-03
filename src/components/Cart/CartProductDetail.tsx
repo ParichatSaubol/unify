@@ -15,6 +15,8 @@ import InputNumber from '../Input/InputNumber';
 import { IServiceOptions } from '@/model/product';
 import ServiceOptions from '../Service/ServiceOptions';
 import { ButtonColor, ButtonSize, ButtonVariant } from '@/model/options';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 interface Props {
   amount?: number;
@@ -51,12 +53,13 @@ const CartProductDetail: FunctionComponent<Props> = ({
   title,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View style={[styles.header]}>
       <View style={[Layout.main]}>
         <Text style={[Fonts.text24Med, Fonts.textCenter]}>
-          เลือกลักษณะสินค้า
+          {t('cartProductDetail.selectProductType')}
         </Text>
         <View style={styles.buttonClose}>
           <ButtonIcon
@@ -86,7 +89,7 @@ const CartProductDetail: FunctionComponent<Props> = ({
             </View>
           ) : (
             <Text style={[Fonts.text21Med, Fonts.textRed]} numberOfLines={1}>
-              นัดหมายเข้าบริการ
+              {t('cartProductDetail.appointmentService')}
             </Text>
           )}
         </View>
@@ -103,7 +106,10 @@ const CartProductDetail: FunctionComponent<Props> = ({
       {/* Model Selection */}
       <View style={[Layout.main, Layout.gap20, styles.root]}>
         <Text style={[Fonts.text21Bold]}>
-          ลักษณะสินค้า <Text style={[Fonts.textRed]}>(*กรุณาเลือกโมเดล)</Text>
+          {t('cartProductDetail.selectModel')}{' '}
+          <Text style={[Fonts.textRed]}>
+            {t('cartProductDetail.requiredModel')}
+          </Text>
         </Text>
         <View style={styles.model}>
           {model?.map((item, index) => (
@@ -125,7 +131,7 @@ const CartProductDetail: FunctionComponent<Props> = ({
       {/* Service Options */}
       <View style={[Layout.main, Layout.gap20, styles.root]}>
         <Text style={[Fonts.text21Bold]}>
-          เพิ่มงานบริการพร้อมการซื้อสินค้าได้ทันที
+          {t('cartProductDetail.serviceOptions')}
         </Text>
         <ScrollView contentContainerStyle={styles.serviceOptions} horizontal>
           {serviceOptions?.map((item, index) => (
@@ -152,7 +158,9 @@ const CartProductDetail: FunctionComponent<Props> = ({
 
       <View style={[Layout.main, Layout.col, Layout.justifyContentBetween]}>
         <View style={[styles.totalBox]}>
-          <Text style={[Fonts.text21Bold, Fonts.textPrimary]}>ราคารวม</Text>
+          <Text style={[Fonts.text21Bold, Fonts.textPrimary]}>
+            {t('cartProductDetail.totalPrice')}
+          </Text>
           <Text style={[Fonts.text21Bold, Fonts.textPrimary]}>฿909,590.00</Text>
         </View>
       </View>
@@ -161,10 +169,14 @@ const CartProductDetail: FunctionComponent<Props> = ({
 };
 
 CartProductDetail.defaultProps = {
-  title: 'ชื่อสินค้า',
+  title: t('cartProductDetail.productName'),
   amount: 0,
   netAmount: 0,
-  model: ['โมเดล 1', 'โมเดล 2', 'โมเดล 3'],
+  model: [
+    t('cartProductDetail.model1'),
+    t('cartProductDetail.model2'),
+    t('cartProductDetail.model3'),
+  ],
   image: undefined,
 };
 

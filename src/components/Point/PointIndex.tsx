@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useTheme } from '@/hooks';
 import { View, Text, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   onChange?: (text: string) => void | undefined;
@@ -26,6 +27,7 @@ const styles = StyleSheet.create({
 
 const PointIndex: FunctionComponent<Props> = ({ point }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View style={[Layout.row, styles.container]}>
@@ -43,7 +45,7 @@ const PointIndex: FunctionComponent<Props> = ({ point }) => {
       >
         <Images.icons.coin />
         <View style={[Layout.col]}>
-          <Text style={[Fonts.text18]}>คะแนนของคุณ</Text>
+          <Text style={[Fonts.text18]}>{t('pointIndex.point')}</Text>
           <Text style={[Fonts.text18Bold]}>{point}</Text>
         </View>
       </View>

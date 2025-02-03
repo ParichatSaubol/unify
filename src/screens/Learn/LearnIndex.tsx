@@ -23,8 +23,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'LearnIndex'>;
 // @refresh reset
 const LearnIndex = ({}: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   const { Layout, Images, Fonts } = useTheme();
   // const dispatch = useDispatch();
 
@@ -80,7 +80,7 @@ const LearnIndex = ({}: Props): JSX.Element => {
                   />
                 }
                 fullRadius
-                title="คอร์สเรียนทั้งหมด"
+                title={t('learnIndex.learnAllCourses')}
                 variant={
                   state === 'all' ? ButtonVariant.contained : ButtonVariant.text
                 }
@@ -97,7 +97,7 @@ const LearnIndex = ({}: Props): JSX.Element => {
                   />
                 }
                 fullRadius
-                title="คอร์สเรียนของคุณ"
+                title={t('learnIndex.yourCourses')}
                 variant={
                   state === 'foryou'
                     ? ButtonVariant.contained
@@ -112,17 +112,17 @@ const LearnIndex = ({}: Props): JSX.Element => {
           {state === 'foryou' && (
             <>
               <Text style={[Fonts.text28Light, Fonts.textBlack]}>
-                เรียนต่อสำหรับคุณ
+                {t('learnIndex.learnForYou')}
               </Text>
               <LearnCatalog />
 
               <Text style={[Fonts.text28Light, Fonts.textWhite]}>
-                คอรส์เรียนแนะนำ
+                {t('learnIndex.recommendedCourses')}
               </Text>
               <LearnCatalog />
 
               <Text style={[Fonts.text28Light, Fonts.textBlack]}>
-                คอร์สเรียนสถาบันชั้นนำ
+                {t('learnIndex.courseIinstitutes')}
               </Text>
               <CatalogImageList rowNumber={1} data={topBrand} />
 
@@ -142,32 +142,32 @@ const LearnIndex = ({}: Props): JSX.Element => {
                 ]}
               />
               <Text style={[Fonts.text28Light, Fonts.textWhite]}>
-                TOP 10 คอร์สเรียนยอดนิยม
+                {t('learnIndex.top10Courses')}
               </Text>
               <LearnCatalog />
 
               <Text style={[Fonts.text28Light, Fonts.textWhite]}>
-                คอร์สเรียนจาก Denso Thailand
+                {t('learnIndex.densoCourses')}
               </Text>
               <LearnCatalog />
 
               <Text style={[Fonts.text28Light, Fonts.textWhite]}>
-                คอร์สเรียนจาก Mitsubishi FA.
+                {t('learnIndex.mitsubishiCourses')}
               </Text>
               <LearnCatalog />
 
               <Text style={[Fonts.text28Light, Fonts.textWhite]}>
-                คอร์สเรียนจาก สถาบัน MARA
+                {t('learnIndex.MARACourses')}
               </Text>
               <LearnCatalog />
 
               <Text style={[Fonts.text28Light, Fonts.textWhite]}>
-                คอร์สเรียนจาก สถาบันไทยญี่ปุ่น
+                {t('learnIndex.thaiJapaneseCourses')}
               </Text>
               <LearnCatalog />
 
               <Text style={[Fonts.text28Light, Fonts.textBlack]}>
-                คอร์สเรียนสถาบันชั้นนำ
+                {t('learnIndex.courseIinstitutes')}
               </Text>
               <CatalogImageList rowNumber={1} data={topBrand} />
               <Catalog method="catalogLearn" />
@@ -180,21 +180,21 @@ const LearnIndex = ({}: Props): JSX.Element => {
                   <CommunityContent
                     bannerImage={Images.community.content}
                     logoImage={Images.community.logo}
-                    createdBy="ข่าวสารด้านอุตสาหกรรม"
-                    title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+                    createdBy={t('learnIndex.createdBy')}
+                    title={t('learnIndex.title')}
                     isWhite
                   />,
                   <CommunityContent
                     bannerImage={Images.community.content}
                     logoImage={Images.community.logo}
-                    createdBy="ข่าวสารด้านอุตสาหกรรม"
-                    title="ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต"
+                    createdBy={t('learnIndex.createdBy')}
+                    title={t('learnIndex.title')}
                     isWhite
                   />,
                 ]}
               />
               <Button
-                title="ดูทั้งหมด"
+                title={t('learnIndex.titleButton')}
                 colors={ButtonColor.white}
                 variant={ButtonVariant.contained}
                 onPress={() => {

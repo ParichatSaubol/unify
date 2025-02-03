@@ -39,52 +39,52 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const ProfileIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Images, Fonts, Colors } = useTheme();
 
   // state
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [data, setData] = useState<TProfile>({
-    name: 'คุณ ปิยะเดช ทวีิสินธนมงคล',
-    company: 'บริษัท ทีเคเค คอร์ปอเรชั่น จำกัด',
+    name: t('profileIndex.name'),
+    company: t('profileIndex.company'),
     point: 92345,
     cart: 3,
     cartSummary: 10153945,
     lastOrder: {
       image: Images.mock.a,
-      status: 'ดูสถานะการจัดส่ง',
+      status: t('profileIndex.status'),
     },
   });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [menu, setMenu] = useState<TMenu[]>([
     {
-      title: 'การตั้งค่า และ ศูนย์ความช่วยเหลือ',
+      title: t('profileIndex.settings'),
       name: 'ProfileSetting',
       isOption: true,
       icon: <Images.icons.setting2 color="#667085" />,
     },
     {
-      title: 'รายการโปรด',
+      title: t('profileIndex.favorites'),
       name: 'ProfileSetting',
       isOption: true,
       icon: <Images.icons.heartadd color="#667085" />,
     },
     {
-      title: 'บริการที่นัดหมายไว้',
+      title: t('profileIndex.serve'),
       name: 'BookingIndex',
       isOption: true,
       icon: <Images.icons.isolation color="#667085" />,
     },
     {
-      title: 'คอร์สเรียนของคุณ',
+      title: t('profileIndex.course'),
       name: 'ProfileSetting',
       isOption: false,
       icon: <Images.icons.courseProfile color="#667085" />,
     },
     {
-      title: 'แชทหาเรา',
+      title: t('profileIndex.chat'),
       name: 'ProfileSetting',
       isOption: false,
       icon: <Images.icons.chat color="#667085" />,
@@ -94,19 +94,19 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [profileMenu, setProfileMenu] = useState<TMenu[]>([
     {
-      title: 'บัตรและการชำระเงินของคุณ',
+      title: t('profileIndex.card'),
       name: 'ProfileSetting',
       isOption: true,
       icon: <Images.icons.payment color="#667085" />,
     },
     {
-      title: 'ที่อยู่ของคุณ',
+      title: t('profileIndex.address'),
       name: 'AddressIndex',
       isOption: true,
       icon: <Images.icons.locationProfile color="#667085" />,
     },
     {
-      title: 'ใบกำกับภาษีและใบเสร็จรับเงิน',
+      title: t('profileIndex.invoice'),
       name: 'Main',
       isOption: true,
       icon: <Images.icons.invoice color="#667085" />,
@@ -128,7 +128,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <View style={[Layout.bgPrimary]}>
         <AppBar
-          title="โปรไฟล์"
+          title={t('profileIndex.profile')}
           titleAlign="center"
           color={AppColor.blue}
           right={
@@ -172,7 +172,9 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
             <Text style={[Fonts.text24Med]}>{data.name}</Text>
             <Text style={[Fonts.text18]}>{data.company}</Text>
             <View style={[Layout.row, Layout.gap5]}>
-              <Text style={[Fonts.text16]}>จัดการบัญชีที่นี่</Text>
+              <Text style={[Fonts.text16]}>
+                {t('profileIndex.manageAccount')}
+              </Text>
               <View
                 style={[
                   styles.customSmallIcon,
@@ -184,7 +186,9 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
             </View>
           </View>
           <View>
-            <Text style={[Fonts.text16, Fonts.textRight]}>คะแนนของคุณ</Text>
+            <Text style={[Fonts.text16, Fonts.textRight]}>
+              {t('profileIndex.Point')}
+            </Text>
             <Text
               style={[Fonts.text28Light, Fonts.textRight, Fonts.textPrimary]}
             >
@@ -199,10 +203,16 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
         {/*  */}
         <View style={[Layout.row, Layout.gap10]}>
           <View style={[Layout.fill]}>
-            <Button title="คูปองของฉัน" colors={ButtonColor.white} />
+            <Button
+              title={t('profileIndex.coupon')}
+              colors={ButtonColor.white}
+            />
           </View>
           <View style={[Layout.fill]}>
-            <Button title="ใบเสนอราคาของฉัน" colors={ButtonColor.white} />
+            <Button
+              title={t('profileIndex.quotation')}
+              colors={ButtonColor.white}
+            />
           </View>
         </View>
         {/*  */}
@@ -218,7 +228,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
                     </Text>
                   </View>
                 </View>
-                <Text style={[Fonts.text21Bold]}>รถเข็นของฉัน</Text>
+                <Text style={[Fonts.text21Bold]}>{t('profileIndex.cart')}</Text>
               </View>
             }
             title=" "
@@ -239,7 +249,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
         </View>
         {/*  */}
         <View style={[Layout.col, Layout.gap10]}>
-          <Text style={[Fonts.text24Med]}>คำสั่งซื้อของฉัน</Text>
+          <Text style={[Fonts.text24Med]}>{t('profileIndex.orders')}</Text>
           <View style={[Layout.bgWhite, Layout.main, Layout.radius5]}>
             <View style={[Layout.row, Layout.justifyContentBetween]}>
               <ChipImage
@@ -249,7 +259,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
                     style={styles.orderImage}
                   />
                 }
-                title="รอชำระเงิน"
+                title={t('profileIndex.payment')}
                 onPress={() => {
                   navigation.navigate('OrderIndex', {
                     tabs: OrderTabs.WaitingForPayment,
@@ -263,7 +273,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
                     style={styles.orderImage}
                   />
                 }
-                title="รอการจัดส่ง"
+                title={t('profileIndex.delivery')}
                 onPress={() => {
                   navigation.navigate('OrderIndex', {
                     tabs: OrderTabs.WaitingForDelivery,
@@ -277,7 +287,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
                     style={styles.orderImage}
                   />
                 }
-                title="ที่ต้องได้รับ"
+                title={t('profileIndex.received')}
                 onPress={() => {
                   navigation.navigate('OrderIndex', {
                     tabs: OrderTabs.BeReceived,
@@ -292,7 +302,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
                     style={styles.orderImage}
                   />
                 }
-                title="ยกเลิกสินค้า"
+                title={t('profileIndex.cancelProduct')}
                 onPress={() => {
                   navigation.navigate('OrderIndex', {
                     tabs: OrderTabs.CancelTheProduct,
@@ -306,7 +316,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
         <ProfileLastOrder lastOrder={data.lastOrder} />
         {/*  */}
         <View style={[Layout.fill, Layout.gap10]}>
-          <Text style={[Fonts.text24Med]}>เมนูลัด</Text>
+          <Text style={[Fonts.text24Med]}>{t('profileIndex.menu')}</Text>
           <View style={[Layout.radius5, Layout.gap10]}>
             {/*  */}
             {menu.map((item, index) => (
@@ -339,7 +349,7 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
         </View>
         {/*  */}
         <View style={[Layout.fill, Layout.gap10]}>
-          <Text style={[Fonts.text24Med]}>บัญชีของคุณ</Text>
+          <Text style={[Fonts.text24Med]}>{t('profileIndex.account')}</Text>
           <View style={[Layout.radius5, Layout.gap10]}>
             {/*  */}
             {profileMenu.map((item, index) => (
@@ -374,10 +384,10 @@ const ProfileIndex = ({ navigation }: Props): JSX.Element => {
         {/*  */}
         <View style={[Layout.fill, Layout.gap10]}>
           <Text style={[Fonts.text18, Fonts.textBlack, Fonts.textCenter]}>
-            เวอร์ชั่นแอปพลิเคชัน (1.0)
+            {t('profileIndex.version')}
           </Text>
           <Text style={[Fonts.text16, Fonts.textCenter]}>
-            © ลิขสิทธิ์ของ บริษัท ทีเคเค คอร์ปอเรชั่น จำกัด (2023)
+            {t('profileIndex.copyright')}
           </Text>
         </View>
       </ScrollView>

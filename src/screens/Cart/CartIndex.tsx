@@ -28,8 +28,8 @@ type Props = NativeStackScreenProps<ProductParamsList, 'CartIndex'>;
 // @refresh reset
 const CartIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
 
   const { Layout, Fonts, Images } = useTheme();
   const { currentCart } = useCart();
@@ -77,8 +77,8 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
       Object.keys(currentCart.services).map(item => ({
         id: item,
         brand: 'MITSUBISHI',
-        title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-        description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+        title: t('cartIndex.title'),
+        description: t('cartIndex.description'),
         amount: 1232990,
         netAmount: 1232990,
         discount: -44,
@@ -97,8 +97,8 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
       Object.keys(currentCart.courses).map(item => ({
         id: item,
         brand: 'MITSUBISHI',
-        title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-        description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+        title: t('cartIndex.title'),
+        description: t('cartIndex.description'),
         amount: 1232990,
         netAmount: 1232990,
         discount: -44,
@@ -117,8 +117,8 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
       Object.keys(currentCart.items).map(item => ({
         id: item,
         brand: 'MITSUBISHI',
-        title: 'ติดตั้งระบบ PLC และ HDMI พร้อมอุปกรณ์ รุ่น GOT2000',
-        description: 'ติดตั้งแล้ว จำนวน 106 ครั้ง',
+        title: t('cartIndex.title'),
+        description: t('cartIndex.description'),
         amount: 1232990,
         netAmount: 1232990,
         discount: -44,
@@ -136,7 +136,7 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="รถเข็นของฉัน"
+        title={t('cartIndex.cartTitle')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -149,8 +149,10 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
             Layout.alignItemsCenter,
           ]}
         >
-          <Text style={[Fonts.text21]}>รถเข็นของฉัน</Text>
-          <Text style={[Fonts.text21]}>({cartCount} รายการ)</Text>
+          <Text style={[Fonts.text21]}>{t('cartIndex.myCart')}</Text>
+          <Text style={[Fonts.text21]}>
+            ({cartCount} {t('cartIndex.items')})
+          </Text>
         </View>
       </View>
       <ScrollView
@@ -184,9 +186,9 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
               <View
                 style={[Layout.row, Layout.scrollSpaceBetween, styles.totalBox]}
               >
-                <Text style={[Fonts.text21]}>จำนวนรายการทั้งหมด</Text>
+                <Text style={[Fonts.text21]}>{t('cartIndex.totalItems')}</Text>
                 <Text style={[Fonts.text21Med, Fonts.textBlack]}>
-                  {cartCheckedCount} รายการ
+                  {cartCheckedCount} {t('cartIndex.items')}
                 </Text>
               </View>
               <View
@@ -196,7 +198,7 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
                   styles.totalAmountBox,
                 ]}
               >
-                <Text style={[Fonts.text21]}>ยอดรวมสินค้า</Text>
+                <Text style={[Fonts.text21]}>{t('cartIndex.totalAmount')}</Text>
                 <Text style={[Fonts.text21Bold, Fonts.textRed]}>
                   {THB.format(cartTotalAmount || 0).replace(
                     /\b(\w*THB\w*)\b/,
@@ -214,7 +216,7 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
                 <View style={[Layout.rowCenter]}>
                   <Images.icons.coupon color="#0057FF" />
                   <Text style={[Fonts.text18, Fonts.textPrimary]}>
-                    เลือกใช้คูปองส่วนลด
+                    {t('cartIndex.selectCoupon')}
                   </Text>
                 </View>
                 <TouchableOpacity
@@ -222,7 +224,9 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
                     setIsCoupon(!isCoupon);
                   }}
                 >
-                  <Text style={[Fonts.text18, Fonts.textPrimary]}>เลือก</Text>
+                  <Text style={[Fonts.text18, Fonts.textPrimary]}>
+                    {t('cartIndex.select')}
+                  </Text>
                 </TouchableOpacity>
               </View>
               <View
@@ -234,9 +238,9 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
                   <Images.icons.coin />
                   <Text style={[Fonts.text16]}>
                     <Text style={[Fonts.textBlack]}>
-                      ใช้ Unipoint แทนเงินสด
+                      {t('cartIndex.useUnipoint')}
                     </Text>{' '}
-                    (คุณมี 30 คอยน์ = 30 บาท)
+                    {t('cartIndex.userpoint', { points: 30, currency: 30 })}
                   </Text>
                 </View>
                 <Text>
@@ -251,7 +255,7 @@ const CartIndex = ({ navigation }: Props): JSX.Element => {
             </View>
           )}
           <Button
-            title="สั่งซื้อสินค้า"
+            title={t('cartIndex.checkout')}
             onPress={() => {
               navigation.navigate('CheckoutIndex', {
                 courses: { '1': { isChecked: true, no: 1, quantity: 1 } },

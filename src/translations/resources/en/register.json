@@ -1,6 +1,724 @@
 {
   "registerType": {
-    "title": "กรุณาเลือกประเภทลูกค้า",
-    "description": "ลูกค้าทั่วไป หรือนิติบุคคล"
+    "title": "Please select customer type.",
+    "description": "General customers or juristic persons"
+  },
+  "bookingDetail":{
+    "bookingDetailTitle": "Your Booking Details",
+    "quantity": "Quantity",
+    "price": "Price",
+    "priceAssessment": "Price to be assessed on-site",
+    "bookingDate": "Booking Date",
+    "serviceDate": "Service Date",
+    "status": "Status",
+    "waitingForContact": "Waiting for contact",
+    "waitingForPayment": "Waiting for payment",
+    "paymentCompleted": "Payment completed",
+    "customerInfo": "Customer Information",
+    "serviceName": "Service Name :",
+    "companyName": "Company Name :",
+    "phone": "Phone :",
+    "address": "Address :",
+    "contactAgent": "Contact Agent"
+    },
+  "bookingIndex": {
+    "bookingIndexTitle": "Your Appointments",
+    "activities": "Activities",
+    "registeredServices": "Registered Services",
+    "servicesCount": "4 services that you have scheduled",
+    "yourServices": "Your Services ({count} items)",
+    "date": "10 May 2023"
+    },
+    "brandIndex": {
+      "appTitle": "HITACHI",
+      "brandTitle": "HITACHI CONSUMER THAILAND",
+      "brandDescription": "Manufacturer and distributor of servo motors, electric motors, induction motors, industrial motors, and machinery maintenance equipment from Japan."
+    },
+    "cartIndex": {
+      "cartTitle": "My Cart",
+      "myCart": "My Cart",
+      "items": "items",
+      "totalItems": "Total Items",
+      "totalAmount": "Total Amount",
+      "selectCoupon": "Select Discount Coupon",
+      "select": "Select",
+      "useUnipoint": "Use Unipoint instead of Cash",
+      "userpoint": "You have 30 coins = 30 baht.",
+      "checkout": "Checkout",
+      "title": "Install PLC and HDMI system with GOT2000 model equipment.",
+  "description": "Installed 106 times"
+    },
+    "cartEmpty": {
+      "cartEmptyTitle": "Your cart is empty",
+      "cartEmptyMessage": "You have no items in your cart. Please add items to your cart."
+    },
+    "checkoutIndex": {
+      "checkoutTitle": "Checkout",
+      "myCart": "My Cart",
+      "itemsCount": "items",
+      "quoteButton": "Issue a quotation",
+      "payButton": "Pay Now",
+      "title": "Install PLC and HDMI system with GOT2000 model equipment.",
+  "description": "Installed 106 times"
+    },
+    "communityDetail": {
+      "title": "Community and Articles",
+      "createdBy": "Industry News",
+      "description": "Automation is everywhere. Nowadays, automation is being discussed more and more, including concerns about robots replacing human jobs, which is a huge misconception. Automation was originally created to support human work or to handle tasks that humans couldn't do."
+    },
+    "communityIndex": {
+      "title": "Community and Articles",
+      "searchPlaceholder": "Search for community and articles here",
+      "createdBy": "Industry News",
+      "automationTitle": "New Generation Automation to Reduce Production Costs"
+    },
+    "communityResult": {
+      "title": "Articles",
+      "createdBy": "Industry News",
+      "automationTitle": "New Generation Automation to Reduce Production Costs"
+  },
+    "couponCategory": {
+      "allDiscountCodes": "All Discount Codes",
+      "brand": "Brand",
+      "minimum": "Minimum",
+      "buyingWorthwhile": "Buying Worthwhile",
+      "title": "Discount Codes",
+      "acer": "Discount code when purchasing products, ACER brand",
+      "description": "Discount 300 baht when purchasing products, ACER brand, minimum ฿300",
+      "buttonTitle": "Collected",
+      "buttonTitle2": "Collect coupon"
+  },
+  "couponIndex": {
+    "allDiscountCodesForMe": "All Discount Codes For Me",
+    "usedCode": "Used Codes",
+    "expiredCode": "Expired Codes",
+    "title": "My Discount Codes",
+    "acer": "Discount code when purchasing products, ACER brand",
+      "description": "Discount 300 baht when purchasing products, ACER brand, minimum ฿300",
+      "buttonTitle": "Use Coupon",
+      "buttonTitle2": "expire"
+  },
+  "couponSearch": {
+    "title": "Discount Codes",
+    "placeholder": "Enter discount code",
+    "searchButton": "Search",
+    "invalidCode": "Invalid discount code",
+    "acer": "Discount code when purchasing products, ACER brand",
+      "description": "Discount 300 baht when purchasing products, ACER brand, minimum ฿300",
+      "buttonTitle": "Use Coupon",
+      "buttonTitle2": "expire"
+  },
+  "category": {
+    "title": "Categories",
+    "placeholder": "Search all categories here"
+  },
+  "home": {
+    "placeholder": "PATLITE, Get up to 20% off on warning lights!",
+    "title": "06:06 There is a Flash Deal. Shop quickly.",
+    "description": "Shop now, industrial products, discount up to 40% within today only. Shop now, industrial products, discount up to 40% within today only. Shop now, industrial products, discount up to 40% within today only."
+  },
+  "notifications": {
+    "title": "Notifications"
+  },
+  "knowledgeCertificate": {
+    "title": "Certificate",
+    "congratulations": "Congratulations",
+    "message": "You have completed the course.",
+    "sentEmail": "The certificate has been sent to your email.",
+    "certificate": "Please enter the email address where you would like to receive the certificate.",
+    "email": "Your Email",
+    "placeholder": "Enter your email",
+    "confirm": "Confirm",
+    "backToHome": "Back to Home"
+  },
+  "knowledgeTest":{
+    "title": "Knowledge Test",
+    "instruction": "Please answer the following questions",
+    "submit": "Submit Test",
+    "downloadCertificate": "Download Certificate",
+    "backToHome": "Back to Home",
+    "correctAnswer": "Correct Answer",
+    "wrongAnswer": "Wrong Answer",
+    "answer": "Answer D : Because Lorem Ipsum is simply dummy text of the printing press.",
+    "energy": "Energy management system Energy Monitoring analyzed by.. GENESIS64 software from Mitsubishi",
+    "genesi": "What components does the GENESIS64 system have?"
+  },
+  "courseCategory": {
+    "courseCategoryTitle": "Course & Package",
+    "courseButton": "Courses",
+    "packageButton": "Packages",
+    "categoryTitle": "Category ‘Engineer’",
+    "description": "Install SCADAGENESIS64 system with equipment"
+  },
+  "learnAllCategory": {
+    "learnAllCategoryTitle": "All Course Categories"
+  },
+  "learnCategory": {
+    "learnCategoryTitle": "Courses from Leading Institutes",
+    "course": "Course",
+    "package": "Package",
+    "courseDescription": "SCADAGENESIS64 system installation with equipment",
+    "learnFrom": "Learn from Mitsubishi e-Factory Center",
+    "courseInfo": "Complete e-Factory industrial management system information and directly related equipment knowledge."
+  },
+  "learnDetail": {
+    "test": "Quiz",
+    "course": "Course",
+    "section1": "Section 1: AI Deep Learning",
+    "section2": "Section 2: Software Usage",
+    "section3": "Section 3: Strategy Planning",
+    "part1": "Part 1: Introduction",
+    "part2": "Part 2: Understanding AI Deep Learning PART 1",
+    "part3": "Part 3: Understanding AI Deep Learning PART 2",
+    "part4": "Part 4: Getting Started with CIRA CORE",
+    "title": "Energy Monitoring System Analysis using GENESIS64 SCADA Software by Mitsubishi",
+    "code": "Mitsubishi e-Factory Learning Center",
+    "learnDuration": "1 hour 55 minutes",
+    "delivered": "1 business day",
+    "detail": "CiRA CORE is an AI platform developed through a collaboration between King Mongkut’s Institute of Technology Ladkrabang, Khon Kaen University, and King Mongkut’s University of Technology North Bangkok. Since 2010, Deep Learning, a branch of AI, has gained popularity and is increasingly in demand for development..."
+  },
+  "learnIndex": {
+    "learnAllCourses": "All courses",
+    "yourCourses": "Your courses",
+    "learnForYou": "Studying for you",
+    "recommendedCourses": "Recommended courses",
+    "courseIinstitutes": "Top institute courses",
+    "top10Courses": "Top 10 popular courses",
+    "densoCourses": "Courses from Denso Thailand",
+    "mitsubishiCourses": "Courses from Mitsubishi FA.",
+    "MARACourses": "Courses from MARA Institute",
+    "thaiJapaneseCourses": "Courses from Thai-Japanese Institute",
+    "createdBy": "Industry news",
+    "title": "Modern automation systems to reduce production costs",
+    "titleButton": "View all"
+  },
+  "searchCourse": {
+    "searchACourse": "search Course",
+    "recentSearch": "Search often",
+    "searchHere": "Search for courses here.",
+    "recommendedForYou": "Studying for you",
+    "recommendedCourses": "Recommended courses",
+    "scadaCourse": "Scada Course",
+    "energyManagement": "Energy Management",
+    "costReduction": "Cost Reduction",
+    "increasingProductivity": "Increasing Productivity",
+    "usingMeasuringTools": "Using Measuring Tools"
+  },
+  "invoiceInformation": {
+    "information": "Invoice Information",
+    "company": "Company",
+    "personal": "Individual",
+    "yourEmail": "Your Email",
+    "email": "Email",
+    "confirm": "Confirm",
+    "emailPrompt": "Please enter the email address to receive the invoice",
+    "successTitle": "Invoice Sent Successfully",
+    "successMessage": "The invoice has been sent to your email.",
+    "backToHome": "Back to Home"
+  },
+  "orderCancel": {
+    "title": "Cancel Order Reason",
+    "instruction": "Please select a reason for canceling your order. Once confirmed, the item(s) will be canceled and you will not be able to modify the cancellation request.",
+    "confirm": "Confirm",
+    "changeAddress": "Want to change the shipping address",
+    "changeDiscount": "Want to add/change a discount code",
+    "editOrder": "Want to edit the order details",
+    "cancelItem": "No longer want this item",
+    "paymentTooComplex": "The payment process is too complicated",
+    "foundCheaper": "Found the same product at a lower price",
+    "other": "Other"
+  },
+  "orderCancelPayment": {
+    "title": "Order Cancellation",
+    "reason": "Reason for Cancellation",
+    "paidChangeOrder": "I have paid but want to change my order",
+    "paidChangeOrderSub": "I want to cancel or modify my order",
+    "receivedIncomplete": "I received my order but it's incomplete",
+    "receivedIncompleteSub": "I want a refund/return because my item is damaged or incorrect",
+    "missingItems": "I did not receive some items",
+    "missingItemsSub": "I want a refund because I didn't receive some items",
+    "refundReason": "Reason for Refund",
+    "select": "Select",
+    "refundAmount": "Refund Amount:",
+    "refundNote": "Additional explanation about your issue (Required)",
+    "refundPlaceholder": "Please describe in detail why you are requesting a refund/return",
+    "addImage": "Add Image",
+    "refundPolicy": "If the refund is successful, the amount will be returned to your bank account or credit/debit card used for payment. Any discount codes used will also be refunded.",
+    "confirm": "Confirm",
+    "submitRequest": "Submit Request",
+    "updateShipping": "I want to update the shipping address",
+    "modifyDiscountCode": "I need to add/change a discount code",
+    "reviseOrderDetails": "I wish to edit my order details",
+    "cancelItem": "I no longer want this item",
+    "betterDealFound": "I found the same item at a lower price",
+    "miscellaneous": "Other",
+    "partialDelivery": "Items missing / parts incomplete / not received",
+    "missingParcelItems": "The package arrived, but some items were missing",
+    "incorrectProduct": "Received the wrong product, such as incorrect color, model, or item",
+    "incorrectProductDetails": "The seller sent me a product different from what I ordered",
+    "defectiveProduct": "The item is damaged or not in good condition",
+    "defectiveProductDetails": "The item received is broken, damaged, or unusable",
+    "undeliveredParcel": "I have not received my package",
+    "undeliveredParcelDetails": "The seller shipped the package, but I did not receive anything",
+    "colorWhite": "White",
+    "titleMitsubishiHmi": "Mitsubishi Touchscreen HMI GT Series"
+  },
+  "orderDeliveryStatus": {
+    "deliveryStatus": "Delivery Status",
+    "trackingNumber": "Tracking Number :",
+    "logisticsCompany": "Logistics Company",
+    "today": "Today",
+    "parcelInTransit": "Parcel is in transit to the destination branch",
+    "oct4": "Oct 4, 22",
+    "parcelReceived": "Parcel has arrived at the distribution center",
+    "oct3": "Oct 3, 22",
+    "parcelPickedUp": "DHL has picked up the parcel",
+    "sellerPreparing": "Seller is preparing your order",
+    "logistics": "Logistics Company : DHL"
+  },
+  "orderIndex": {
+    "title": "Order Status",
+    "waitingForPayment": "Waiting for Payment",
+    "waitingForDelivery": "Waiting for Delivery",
+    "beReceived": "To be Received",
+    "cancelProduct": "Cancel Product",
+    "colorWhite": "White",
+    "productTitleMitsubishiHmi": "Mitsubishi Touchscreen HMI GT Series"
+  },
+  "orderResult": {
+    "orderCancellationSuccess": "Order cancellation successful",
+    "orderCancellationMessage": "Please wait for our staff to contact you. Your order will be fully canceled upon approval.",
+    "backToHome": "Back to Home"
+  },
+  "quotationInformation": {
+    "quotationInfoTitle": "Quotation Information",
+    "emailPrompt": "Please enter the email to receive the quotation",
+    "yourEmail": "Your Email",
+    "email": "Email",
+    "confirm": "Confirm",
+    "quotationSuccess": "Quotation Sent Successfully",
+    "quotationSentMessage": "The quotation has been sent to your email.",
+    "backToHome": "Back to Home"
+  },
+  "paymentCreditCard": {
+    "title": "Pay with Credit / Debit Card",
+    "supportedCards": "Supported Card Types",
+    "cardNumber": "Card Number",
+    "cardNumberPlaceholder": "Enter card number",
+    "cardName": "Cardholder Name",
+    "cardNamePlaceholder": "Enter cardholder name",
+    "expiration": "Expiration",
+    "expirationPlaceholder": "MM/YY",
+    "cvv": "CVV",
+    "cvvPlaceholder": "Enter CVV",
+    "warning": "Please check your card details before confirming payment.",
+    "confirm": "Confirm Order"
+  },
+  "paymentIndex": {
+    "title": "Payment",
+    "chooseMethod": "Select Payment Method",
+    "creditCard": "Credit / Debit Card",
+    "qrPayment": "Pay via QR Code"
+  },
+  "paymentQrPromtpay": {
+    "title": "Payment",
+    "chooseMethod": "Select Payment Method",
+    "creditCard": "Credit / Debit Card",
+    "qrPayment": "Pay via QR Code"
+  },
+  "paymentResult": {
+    "orderStatus": "Order Status",
+    "orderSuccess": "Order Successful!",
+    "orderNumber": "Your Order Number",
+    "paymentSuccess": "Payment Successful",
+    "orderDelivery": "Unify delivers products to customers quickly for a better experience!",
+    "viewOrderStatus": "View Order Status"  
+  },
+  "productDetail": {
+    "title": "Emergency Switch IDEC Emergency Switch Button",
+    "delivered": "1 business day",
+    "catagories": "Machine Safety Equipment",
+    "subcatagories": "Emergency Switch Button",
+    "description": "A ø30 emergency stop switch that comes in a variety of types. The padlock type lets you lock it in place, while the flash-bezel type has an attractive design. Large number of variations: padlock-supporting type, flash-bezel type, ø60 extra-large type, illuminated type, linked illumination type, and more. Superior safety provided by the same safe-breaking action and safety-potential construction as seen in the ø166 XA/ø22 XW series. The switches naturally conform to all requirements emergency stop switches need, including a direct-opening feature and safety lock.",
+    "title1": "Installation of IDEC Emergency Switch",
+    "description1": "Installation cost not included"
+  },
+  "productFlashStore": {
+    "title": "Vacuum cleaner and blower, size 20 liters, HEPA system",
+    "description": "model HEPA-MAR22",
+    "deals": "Great deals, discounts, special price products"
+  },
+  "productIndex": {
+    "placeholder": "PATLITE discounts are worth it! Warning light maximum 20%.. ",
+    "brandName": "Exclusive, industry-leading brands"
+  },
+  "addressCreated": {
+    "name": "Home",
+    "address": "House number 123 Village No. 1, Tha Kham Subdistrict, Tha Kham District, Uttaradit Province 53110",
+    "title": "Delivery address",
+    "titleButton": "Record"
+  },
+  "addressIndex": {
+    "name": "Home",
+    "address": "House number 123 Village No. 1, Tha Kham Subdistrict, Tha Kham District, Uttaradit Province 53110",
+    "title": "Delivery address",
+    "titleButton": "Add an address"
+  },
+  "addressMap": {
+    "title": "Delivery address",
+    "titleButton": "Choose an address",
+    "placeholder": "Find an address",
+    "titleButton1": "Add an address"
+  },
+  "profileIndex": {
+   "name": "Mr. Piyadet Thavisinthamongkol",
+   "company": "TKK Corporation Co., Ltd.",
+   "status": "View delivery status",
+   "settings": "Settings and Help Center",
+   "favorites": "Favorites",
+   "serve": "Appointed service",
+   "course": "Appointment service",
+   "chat": "Chat with us",
+   "card": "Your cards and payments",
+   "address": "Your address",
+   "invoice": "Tax invoice and receipt",
+   "profile": "Profile",
+   "manageAccount": "Manage your account here",
+   "Point": "Your point",
+   "coupon": "My Coupons",
+   "quotation": "My quotation",
+   "cart": "My cart",
+   "orders": "My Orders",
+   "payment": "Waiting for payment",
+   "delivery": "Waiting for delivery",
+   "received": "That must be received",
+   "cancelProduct": "Cancel product",
+   "menu": "Shortcut menu",
+   "account": "Your account",
+   "version": "Application version",
+   "copyright": "© Copyright TKK Corporation Co., Ltd. (2023)"
+  },
+  "profilePolicy": {
+    "policy": "Privacy Policy",
+    "tkk": "TKK Corporation Public Company Limited respects the privacy rights of visitors and/or users of the website (“Visitors/Website Users”) and is aware of visitors’/website users’ expectation that the information (“Information”) that visitors/website users provide to TKK through this website (“Website”) will be properly protected. TKK therefore announces the Cookies Policy (“Cookies Policy”) for this website.",
+    "cookies": "Use of cookies",
+    "smallTextFile": "Cookies are small text files made up of letters and numbers that TKK stores on your browser or the hard disk of your computer, tablet or mobile device. TKK may collect information about you through these cookies when you visit our website.",
+    "necessity": "1. Necessary Cookies",
+    "navigation": "These cookies are essential for the website to function and include cookies that enable the website to perform basic functions such as scrolling or to allow visitors to log in and access areas of the website that are reserved for members only. The website will not function properly without the collection of these cookies and TKK is not required to ask for your consent to place these cookies on your device. These cookies do not contain any personally identifiable information.",
+    "details": "Details of the different types of TKK cookies that may be used on the website are as follows:",
+    "performance": "2. Performance Cookies",
+    "performanceCookies": "These cookies allow TKK to count the number of visitors to the website and the source of those visitors, understand how visitors/users interact with the website, and which pages are most or least popular. By collecting and reporting anonymous and non-specific information to TKK, TKK can improve and provide you with a better website experience. If you do not allow these cookies, TKK will not be able to know when you have visited TKK's website and will not be able to track the performance of the web pages."
+},
+"profileSetting": {
+  "policy": "Privacy Policy",
+  "condition": "Terms of service",
+  "question": "Frequently asked questions",
+  "about": "About Unify",
+  "contact": "Contact us",
+  "setting": "Setting",
+  "language": "Language",
+  "currency": "Currency adjustment",
+  "serviceCenter": "Service and Help Center",
+  "logOut": "Log Out",
+  "deleteAccount": "Delete Account",
+  "currentLanguage": "English",
+  "currentCurrency": "Thai (Baht)"
+},
+"profileUser": {
+  "title": "Chat to contact staff",
+  "name": "Mr. Somchai Jaidee",
+  "address": "123 Sukhumvit Road, Khlong Toei Subdistrict, Khlong Toei District, Bangkok 10110",
+  "information": "Your information",
+  "nameOne": "Name",
+  "date": "Membership start date",
+  "phone": "Telephone number",
+  "email": "Email",
+  "addressOne": "Address",
+  "viewDetails": "view Details",
+  "deleteAccount": "Delete Account"
+},
+"promotionIndex": {
+  "title": "Get a 15% discount on all items when purchasing IDEC brand products.",
+  "description": "Discount 300 baht when purchasing ACER brand products, minimum ฿300",
+  "buttonTitle": "More",
+  "promotion": "Promotion",
+  "codes": "All discount codes",
+  "brand": "Brand",
+  "minimum": "Minimum",
+  "buy": "Buying a pair is more worthwhile."
+},
+"registerAddress": {
+  "title": "Shipping address",
+  "promotion": "Promotion",
+  "next": "Next"
+},
+"registerCustomer": {
+  "title": "Fill in member information",
+  "company": "Registration information (for corporate clients)",
+  "general": "Registration information (for general customers)",
+  "prefix": "Prefix",
+  "name": "Name",
+  "nameL": "Name / Lasname",
+  "email": "Email",
+  "setPassword": "Set a login password",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "safety": "Setting a security code",
+  "character": "English lowercase and uppercase letters (a-z)",
+  "number": "At least 1 number (0-9)",
+  "charactersLong": "The code must be at least 8 characters long.",
+  "next": "Next"
+},
+"registerInvoice": {
+  "information": "Invoice Information",
+  "legalEntity": "Legal entity",
+  "individual": "Individual",
+  "title": "I would like to receive privileges and promotions, including news from TKK Corporation Group as specified in the Privacy Policy.",
+  "confirm": "Confirm"
+},
+"registerOldAddress": {
+  "oldCustomers": "Information for old customers",
+  "address": "House number",
+  "village": "Village",
+  "villageNo": "Village No",
+  "road": "Road",
+  "postalCode": "Postal Code",
+  "province": "Province",
+  "district": "District",
+  "subdistrict": "Subdistrict",
+  "title": "I would like to receive privileges and promotions, including news from TKK Corporation Group as specified in the Privacy Policy.",
+  "next": "Next"
+},
+"registerOldProfile": {
+  "information": "Invoice Information",
+  "company": "Registration information (for corporate clients)",
+  "nameInvoice": "Name for tax invoice issuance",
+  "isHeadOffice": "Head Office",
+  "branch": "Branch",
+  "enterBranch": "Please enter branch name.",
+  "taxID": "Taxpayer Identification Number",
+  "email": "Email",
+  "setPassword": "Set a login password",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "safety": "Setting a security code",
+  "character": "English lowercase and uppercase letters (a-z)",
+  "number": "At least 1 number (0-9)",
+  "charactersLong": "The code must be at least 8 characters long.",
+  "next": "Next"
+},
+"searchBrand": {
+  "title": "Search Brands",
+  "placeholder": "Search brands here",
+  "topBrand": "Leading brand products",
+  "renderSortBoard": "Sort by alphabetical category"
+},
+"searchIndex": {
+  "scada": "SCADA system",
+  "switch": "Emergency switch",
+  "display": "HMI display",
+  "spraying": "Paint spraying system",
+  "placeholder": "Mitsubishi SCADA, up to 10% discount, free installation",
+  "searches": "Recent searches",
+  "clear": "Clear all"
+},
+"service": {
+  "title": "Install PLC and HDMI system with GOT2000 model equipment.",
+  "description": "Installed 106 times",
+  "service": "Service",
+  "placeholder": "Select the service you want",
+  "spraying": "Paint spraying system",
+  "water": "Water jet system",
+  "selectService": "Select service area",
+  "bangkok": "Bangkok",
+  "nonthaburi": "Nonthaburi",
+  "pathumThani": "Pathum Thani"
+},
+"serviceBooking1": {
+  "title": "Fill in the service address",
+  "button": "Next"
+},
+"serviceBookingInformation": {
+  "title": "Fill in the service information",
+  "button": "Next"
+},
+"serviceBrand": {
+  "title": "Install PLC and HDMI system with GOT2000 model equipment.",
+  "description": "Installed 106 times",
+  "service": "Service Brand",
+  "placeholder": "Select the service you want",
+  "spraying": "Paint spraying system",
+  "water": "Water jet system",
+  "selectService": "Select service area",
+  "bangkok": "Bangkok",
+  "nonthaburi": "Nonthaburi",
+  "pathumThani": "Pathum Thani"
+},
+"serviceDetail": {
+    "title": "Air conditioner cleaning service, hanging type/floor standing type, size 12,000 - 48,000 BTU. Air conditioner cleaning service, hanging type/floor standing type, size 12,000 - 48..",
+    "detail": [
+      "Installed by experienced technicians",
+      "Certified electricians for indoor electrical work",
+      "Installation warranty for 365 days",
+      "Installation service available only in Bangkok and metropolitan areas"
+    ],
+    "standardFree": [
+      "Breaker with cover (1 set) 220V",
+      "Condensing rubber stand (1 set)",
+      "PVC drain pipe (up to 4 meters)",
+      "Electrical wiring between outdoor and indoor units (up to 10 meters)",
+      "Ground wire (up to 4 meters)"
+    ],
+    "standardCost": [
+      "Cable cover (350 THB per meter, including connector)",
+      "Hanging installation (ROD + large rubber) (18-24 kBtu/h) (1,500 THB per set)",
+      "PVC drain pipe (up to 4 meters)",
+      "Electrical wiring between outdoor and indoor units (up to 10 meters)",
+      "Ground wire (up to 4 meters)"
+    ],
+    "serviceArea": [
+      "Bangkok and metropolitan areas - Samut Prakan, Pathum Thani, Nonthaburi, Bangkok, Samut Sakhon, Nakhon Pathom",
+      "Northern region - Uttaradit, Lampang",
+      "Southern region - Songkhla, Yala, Phuket, Phatthalung, Pattani, Narathiwat, Nakhon Si Thammarat, Trang, Chumphon",
+      "Central region - Uthai Thani, Sukhothai, Ang Thong, Sing Buri, Samut Songkhram, Lop Buri, Ayutthaya",
+      "Eastern region - Rayong, Prachin Buri, Chon Buri, Chachoengsao, Chanthaburi",
+      "Northeastern region - Ubon Ratchathani, Udon Thani, Amnat Charoen, Surin, Si Sa Ket, Roi Et, Yasothon, Mukdahan, Nakhon Phanom, Chaiyaphum",
+      "Western region - Ratchaburi, Phetchaburi"
+    ],
+    "note": [
+      "Installation service covers only one location; relocation requires additional charges",
+      "Refrigerant pipe and electrical wiring are installed as surface-mounted only",
+      "Working height should not exceed 8 meters; scaffolding rental is the customer's responsibility",
+      "Standard equipment cannot be exchanged, deducted, or refunded for cash or discounts",
+      "Service is not available in locations that are unsafe for technicians"
+    ]
+  },
+  "serviceFailed": {
+    "title": "Your address is outside\nour service area",
+    "description": "Sorry, your area is outside our service coverage.\nWe will try to expand our services to\ncover your area in the future.",
+    "button": "Back to Home"
+  },
+  "serviceIndex": {
+    "selectServiceArea": "Select Service Area",
+    "selectLocation": "Choose a service location for easier scheduling",
+    "paintSystem": "Paint System",
+    "safetyEquipment": "Safety Equipment",
+    "machineParts": "Machine Parts",
+    "automation": "Automation"
+  },
+  "serviceBooking": {
+    "searchServiceAndSolution": "Search for Services and Solutions",
+    "selectService": "Select the service you need",
+    "placeholder": "Find the services and solutions you need",
+    "chooseServiceArea": "Choose a service area",
+    "search": "Search Services"
+  },
+  "serviceSearchResult": {
+    "search": "Search",
+    "searchAgain": "Search Again",
+    "evChargerSystem": "EV Charger System",
+    "nonthaburi": "Nonthaburi",
+    "installPlcHdmi": "Install PLC and HDMI System with GOT2000 Model",
+    "installed106times": "Installed 106 times",
+    "foundResults": "Found five results"
+  },
+  "serviceSuccess": {
+    "successMessage": "We have received your\nservice request.",
+    "contactMessage": "Our staff will contact you within 1 to 3 business days\nfor further service details.",
+    "viewAppointments": "View Your Appointments",
+    "backToHome": "Back to Home"
+  },
+  "solution": {
+    "title": "Install PLC and HDMI system with GOT2000 model equipment.",
+    "description": "Installed 106 times",
+    "series": "Service",
+    "placeholder": "Select the service you need"
+  },
+  "unipointCategory": {
+    "title": "Discount code when purchasing products from Brand A",
+    "hotel": "Hotel and Accommodation Categories"
+  },
+  "unipointDetail": {
+    "promotionCodeTitle": "Discount Code when purchasing A brand items",
+    "giftVoucher": "Starbucks e-coupon worth 200 THB (can be used at all Starbucks locations) Terms and conditions apply as specified by the company",
+    "redeem": "Exchange point",
+    "redeemRightsLeft": "Remaining Rights",
+    "remainingFrom": "From",
+    "pointsUsed": "Points Used",
+    "expirationDate": "Expiration Date",
+    "orExpired": "(or until the coupon runs out)",
+    "details": "Details",
+    "redeemCondition": "Redemption Conditions",
+    "redeemConfirm": "Confirm Exchange",
+    "yourPoints": "Your Points 12,879",
+    "cancel": "Cancel",
+    "voucher": "Gift Voucher Card from Starbucks, worth 200 baht",
+  "point": "1,500 points",
+  "date": "31 Jul 2023",
+  "right": "169 rights",
+  "right1": "From 1,900 rights",
+  "gift": "Gift Voucher Card from Starbucks, worth 200 baht, use 1,500 points, can be used at all Starbucks branches",
+  "details1": [
+  "The company reserves the right to sell only to customers who place orders in the name of a company.",
+  "Minimum sale of 50,000 THB per transaction.",
+  "Top-up amount can be from 100 – 20,000 THB per card ***Starbucks cards are not subject to VAT.",
+  "Accumulate purchase amount to receive discounts.",
+  "Minimum sale of 50,000 THB per transaction.",
+  "The company reserves the right to sell only to customers who place orders in the name of a company.",
+  "Top-up amount can be from 100 – 20,000 THB per card ***Starbucks cards are not subject to VAT.",
+  "Top-up amount can be from 100 – 20,000 THB per card."
+]
+  },
+  "unipointForyou": {
+    "yourPrivileges": "Your Privileges",
+  "promotionTitle1": "Andamantra Resort & Villa Phuket 2 Bedroom Pool Villa",
+  "promotionDetail1": "Gift Voucher Card from Starbucks, value 200 baht for drinking",
+  "promotionTitle2": "UNIFY Products Discount of 500 THB",
+  "promotionTitle3": "iPhone 14 Pro Max (256GB) Graphite Color",
+  "promotionTitle4": "Gift Voucher Card from Starbucks, value 200 baht",
+  "promotionDetail4": "Gift Voucher Card from Starbucks, 200 baht value for drinking from Starbucks, 200 baht value for drinking..."
+  },
+  "unipointHistory": {
+    "historyTitle": "Reward History",
+  "couponDescription": "Starbuck e-coupon worth 200 THB (can be used at any Starbucks location). Terms and conditions apply as determined by the company.",
+  "couponPoints": "1,500 points",
+  "waitingMessage": "Please wait for the staff to contact you regarding the shipping address of your prize.",
+  "rewardHistory": "Your most recent reward history",
+  "historyDescription": "Includes all Gift Voucher exchanges as well as point exchanges used for discounts.",
+  "viewAllDetails": "View All Details",
+  "date1": "May 10, 2023",
+  "date2": "May 7, 2023",
+  "date3": "Mar 7, 2023",
+  "reward": "Andamantra Resort & Villas Phuket 2 Bedroom Pool Villa",
+  "reward2": "Purchase with UNIFY"
+  },
+  "unipointHistoryDetail": {
+    "historyTitle": "Reward History"
+  },
+  "unipointIndex": {
+    "recommended": "Recommended",
+  "redeemFree": "Redeem Free",
+  "discount": "Discount",
+  "winPrize": "Win Prizes",
+  "products": "Products",
+  "others": "Others",
+  "discountCodeForBrandA": "Discount code when purchasing Brand A products",
+  "manageAccount": "Manage Account",
+  "unifyPoints": "Unify Points",
+  "lastUpdated": "Last updated on 30th April 2023, 12:23 PM",
+  "exchangeHistory": "Exchange History",
+  "myCoupons": "My Coupons",
+  "redeemedPrivileges": "Redeemed Privileges",
+  "name": "Mr. Piyadet Thavisinthamongkol",
+   "company": "TKK Corporation Co., Ltd."
   }
+  
+  
+  
+
+
 }
+  
+
+
+

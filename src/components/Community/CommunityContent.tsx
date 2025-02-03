@@ -8,6 +8,8 @@ import {
   View,
 } from 'react-native';
 import { useTheme } from '@/hooks';
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   id?: number;
@@ -31,6 +33,7 @@ const CommunityContent: FunctionComponent<Props> = ({
   isWhite,
 }) => {
   const { Layout, Fonts } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <TouchableOpacity
@@ -47,7 +50,8 @@ const CommunityContent: FunctionComponent<Props> = ({
           />
           <View style={styles.viewCount}>
             <Text style={[Fonts.text16Med, Fonts.textWhite]}>
-              ดูแล้ว {viewCount} ครั้ง
+              {t('communityContent.see')} {viewCount}{' '}
+              {t('communityContent.time')}
             </Text>
           </View>
         </View>
@@ -80,7 +84,7 @@ const CommunityContent: FunctionComponent<Props> = ({
 
 CommunityContent.defaultProps = {
   id: 0,
-  title: 'ระบบออโตเมชัน ยุคใหม่เพื่อลดต้นทุนการผลิต',
+  title: t('communityContent.title'),
   bannerImage: undefined,
   logoImage: undefined,
   createdBy: 'admin',

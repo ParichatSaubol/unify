@@ -23,7 +23,7 @@ const LearnAllCategory = ({ navigation }: Props): JSX.Element => {
   // hooks
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   const { Layout, Images, Fonts } = useTheme();
 
   // state
@@ -41,7 +41,7 @@ const LearnAllCategory = ({ navigation }: Props): JSX.Element => {
   return (
     <DefaultLayout>
       <AppBar
-        title="หมวดหมู่คอร์สเรียนทั้งหมด"
+        title={t('learnAllCategory.learnAllCategoryTitle')}
         color={AppColor.blue}
         right={
           <TouchableOpacity>

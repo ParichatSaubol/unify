@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Modal, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import AppBar from '../AppBar/AppBar';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   modalVisible?: boolean;
@@ -13,10 +14,10 @@ const CouponDetailModal: FunctionComponent<Props> = ({
   setModalVisible,
 }) => {
   const { Layout, Fonts } = useTheme();
+  const { t } = useTranslation('common');
 
   const detail = [
-    'ซื้อสินค้าแบรนด์ Mitsubishi, ลดสูงสุด 2,000 บาท',
-    'ใช้ได้ถึงวันที่ 20 ต.ค. 2565 23:59',
+    t('couponDetailModal.couponDetails', { returnObjects: true }),
   ];
 
   return (
@@ -32,7 +33,7 @@ const CouponDetailModal: FunctionComponent<Props> = ({
         <View style={[styles.modalView]}>
           <View>
             <AppBar
-              title="เงื่อนไขการใช้โค้ดส่วนลด"
+              title={t('couponDetailModal.title')}
               onPress={() => {
                 setModalVisible && setModalVisible(false);
               }}
@@ -40,20 +41,20 @@ const CouponDetailModal: FunctionComponent<Props> = ({
           </View>
           <View style={styles.root}>
             <Text style={[Fonts.text24Med, Fonts.textPrimary]}>
-              ลดเพิ่ม 15%
+              {t('couponDetailModal.additionalDiscount')}
             </Text>
             <View style={[Layout.col, Layout.gap5]}>
               <Text style={[Fonts.text21, Fonts.textBlack]}>
-                ระยะเวลาโปรโมชัน :
+                {t('couponDetailModal.promotion')}
               </Text>
               <Text style={[Fonts.text16, Fonts.textBlack]}>
-                1 ต.ค. 2565 00:01 - 20 ต.ค. 2565 23:59
+                {t('couponDetailModal.promotionPeriod')}
               </Text>
             </View>
 
             <View style={[Layout.col, Layout.gap5]}>
               <Text style={[Fonts.text21, Fonts.textBlack]}>
-                ข้อตกลงและเงื่อนไข :
+                {t('couponDetailModal.termsAndConditions')}
               </Text>
               {detail?.map((item, index) => (
                 <View style={[Layout.row, Layout.gap5]} key={index}>

@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import LearnCard, { LearnCardProps } from './LearnCard';
 import { LearnCatalogMethod } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   method?: LearnCatalogMethod;
@@ -10,6 +11,7 @@ interface Props {
 
 const LearnCatalog: FunctionComponent<Props> = ({ method }) => {
   const { Layout, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   const [contentOffset, setContentOffset] = useState({ x: 0, y: 0 });
   const scrollRef = useRef<ScrollView>(null);
@@ -19,7 +21,7 @@ const LearnCatalog: FunctionComponent<Props> = ({ method }) => {
 
   const dataLearn: LearnCardProps = {
     brand: Images.learn.brand,
-    description: 'ติดตั้งระบบ SCADAGENESIS64 พร้อมอุปกรณ์',
+    description: t('learnCatalog.description'),
   };
 
   const scrollElementHeightPercent = 40;

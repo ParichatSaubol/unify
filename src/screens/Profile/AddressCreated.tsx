@@ -48,8 +48,8 @@ const AddressSchema: yup.ObjectSchema<TRegisterAddress> = yup.object().shape({
 // @refresh reset
 const AddressCreated = ({ navigation, route }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Fonts, Layout, Images } = useTheme();
   const methods = useForm<TRegisterAddress>({
@@ -64,17 +64,15 @@ const AddressCreated = ({ navigation, route }: Props): JSX.Element => {
   const [address, setAddress] = useState<Address[]>([
     {
       id: 1,
-      name: 'บ้าน',
-      address:
-        'บ้านเลขที่ 123 หมู่ 1 ตำบล ท่าข้าม อำเภอ ท่าข้าม จังหวัด อุตรดิตถ์ 53110',
+      name: t('addressCreated.name'),
+      address: t('addressCreated.address'),
       phoneNumber: '0987654321',
       isDefault: true,
     },
     {
       id: 2,
-      name: 'บ้าน',
-      address:
-        'บ้านเลขที่ 123 หมู่ 1 ตำบล ท่าข้าม อำเภอ ท่าข้าม จังหวัด อุตรดิตถ์ 53110',
+      name: t('addressCreated.name'),
+      address: t('addressCreated.address'),
       phoneNumber: '0987654321',
       isDefault: false,
     },
@@ -100,7 +98,7 @@ const AddressCreated = ({ navigation, route }: Props): JSX.Element => {
           onPress={() => {
             navigation.goBack();
           }}
-          title="ที่อยู่ในการจัดส่ง"
+          title={t('addressCreated.title')}
         />
       </View>
       <ScrollView
@@ -118,7 +116,7 @@ const AddressCreated = ({ navigation, route }: Props): JSX.Element => {
 
         <View style={[Layout.main, Layout.justifyContentEnd]}>
           <Button
-            title="บันทึก"
+            title={t('addressCreated.titleButton')}
             onPress={() => {
               navigation.goBack();
             }}

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import { THB } from '@/utils';
 import { IServiceDetail } from '@/model/service';
+import { useTranslation } from 'react-i18next';
 
 type Props = IServiceDetail & {};
 
@@ -19,6 +20,7 @@ const ServiceDetail: FunctionComponent<Props> = ({
   note,
 }) => {
   const { Layout, Fonts, Images } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View style={[Layout.col, Layout.gap10]}>
@@ -33,7 +35,9 @@ const ServiceDetail: FunctionComponent<Props> = ({
             <Images.icons.star />
             <Text style={Fonts.text18}>{star}</Text>
             <View style={styles.dividers} />
-            <Text style={Fonts.text18}>ขายแล้ว {soldCount} ชิ้น</Text>
+            <Text style={Fonts.text18}>
+              {t('serviceDetail.sold')} {soldCount} {t('serviceDetail.piece')}
+            </Text>
           </View>
         </View>
         {amount ? (
@@ -44,19 +48,19 @@ const ServiceDetail: FunctionComponent<Props> = ({
             <Text style={[Fonts.text18, styles.netAmount]}>
               {THB.format(netAmount || 0).replace(/\b(\w*THB\w*)\b/, '฿ ')}
             </Text>
-            <Text style={[Fonts.text18]}>/ ชิ้น</Text>
+            <Text style={[Fonts.text18]}>{t('serviceDetail.perPiece')}</Text>
           </View>
         ) : (
           <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
             <Text style={[Fonts.text34Med, Fonts.textRed]}>
-              นัดหมายเข้าบริการ
+              {t('serviceDetail.appointment')}
             </Text>
           </View>
         )}
 
         <View style={[Layout.col, Layout.gap10]}>
           <Text style={[Fonts.text18, Fonts.textBlack]}>
-            รายละเอียดการให้บริการ
+            {t('serviceDetail.serviceDetails')}
           </Text>
           {detail?.map((item, index) => (
             <View style={[Layout.row, Layout.gap5]} key={index}>
@@ -71,12 +75,12 @@ const ServiceDetail: FunctionComponent<Props> = ({
         style={[Layout.col, styles.container, Layout.gap10, Layout.bgWhite]}
       >
         <Text style={[Fonts.text24Med, Fonts.textBlack]}>
-          รายละเอียดเพิ่มเติม
+          {t('serviceDetail.serviceDescription')}
         </Text>
         <View style={styles.dividerHorizontal} />
         <View style={Layout.gap10}>
           <Text style={[Fonts.text21, Fonts.textPrimary]}>
-            อุปกรณ์มาตรฐานพร้อมติดตั้ง (ฟรี)
+            {t('serviceDetail.standardEquipmentFree')}
           </Text>
           <View>
             {standardFree?.map((item, index) => (
@@ -88,7 +92,7 @@ const ServiceDetail: FunctionComponent<Props> = ({
           </View>
 
           <Text style={[Fonts.text21, Fonts.textPrimary]}>
-            อุปกรณ์มาตรฐานส่วนเพิ่ม (มีค่าใช้จ่าย)สามารถติดต่อซื้อจากช่างได้เลย
+            {t('serviceDetail.standardEquipmentAdditional')}
           </Text>
           <View>
             {standardCost?.map((item, index) => (
@@ -99,7 +103,9 @@ const ServiceDetail: FunctionComponent<Props> = ({
             ))}
           </View>
 
-          <Text style={[Fonts.text21, Fonts.textPrimary]}>หมายเหตุ</Text>
+          <Text style={[Fonts.text21, Fonts.textPrimary]}>
+            {t('serviceDetail.note')}
+          </Text>
           <View>
             {note?.map((item, index) => (
               <View style={[Layout.row, Layout.gap5]} key={index}>
@@ -111,7 +117,7 @@ const ServiceDetail: FunctionComponent<Props> = ({
         </View>
 
         <Text style={[Fonts.text24Med, Fonts.textBlack, styles.marginTop]}>
-          พื้นที่ให้บริการ
+          {t('serviceDetail.serviceArea')}
         </Text>
         <View style={styles.dividerHorizontal} />
         <View style={Layout.gap10}>

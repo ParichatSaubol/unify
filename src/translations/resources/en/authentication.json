@@ -5,49 +5,50 @@
     "placeholder": "Enter your phone number",
     "validation": "Enter your phone number without spaces.",
     "loginWithEmail": "Login with email here!",
-    "loginWithPhone": "เข้าสู่ระบบด้วย SMS ที่นี่",
-    "forgotPassword": "ลืมรหัสผ่าน!",
-    "emailOrPhonenumber": "อีเมล์ หรือ เบอร์โทรศัพท์",
-    "password": "รหัสผ่าน",
+    "loginWithPhone": "Login with SMS here",
+    "forgotPassword": "Forgot your password!",
+    "emailOrPhonenumber": "Email or phone number",
+    "password": "password",
     "promotion": "Customers who receive a registration code from an email",
     "click": "Click here!",
     "next": "Next",
     "nonAccount": "Don't have an account yet?",
     "registerNow": "Register Here",
-    "loginWith": "Or login with"
+    "loginWith": "Or login with",
+    "oldCustomerPromotion": "If you were a customer of TKK Corporation"
   },
   "oldCustomer": {
-    "title": "ลูกค้าเก่ากรอกหมายเลขอ้างอิง",
-    "desctiption": "ที่ได้รับจากอีเมล์ของคุณ เพื่อยืนยันการลงทะเบียน",
-    "placeholderRef": "กรอกหมายเลขโค้ดอ้างอิงที่นี่",
-    "placeholderEmailOrPhonenumber": "อีเมล์ หรือ เบอร์โทรศัพท์",
-    "validation": "กรอหมายเลขอ้างอิง์ที่ได้รับ และอีเมล เพื่อยืนยันความปลอดภัย"
+    "title": "Existing customers fill in the reference number.",
+    "desctiption": "received from your email to confirm registration",
+    "placeholderRef": "Enter your reference code number here.",
+    "placeholderEmailOrPhonenumber": "Email or phone number",
+    "validation": "Enter the reference number received and email to confirm security."
   },
   "otp": {
-    "title": "กรอกรหัส OTP",
-    "desctiption": "ล็อกอินเข้าสู่ระบบ เพื่อรับสิทธิพิเศษมากมาย",
-    "confirm": "กรุณากรอกรหัส OTP 6 หลัก ที่ส่งไปยัง {{phoneNumber}}\nหากยังไม่ได้รับ กดขอรหัสใหม่ได้เมื่อครบเวลา",
-    "reConfirm": "ส่งรหัสผ่านอีกครั้ง",
-    "policy": "เมื่อกดยืนยัน ฉันได้อ่านและยอมรับ นโยบายความเป็นส่วนตัว\nข้อตกลง เงื่อนการใช้งาน และ นโยบายการเปิดเผยข้อมูลส่วนบุคคล",
-    "submit": "ยืนยัน"
+    "title": "Enter OTP code",
+    "desctiption": "Login into the system to receive many special privileges",
+    "confirm": "Please enter the 6 digit OTP sent to {{phoneNumber}}\nIf you have not received it yet. Click to request a new code when the time has elapsed.",
+    "reConfirm": "Resend password",
+    "policy": "When you press confirm I have read and accept Privacy Policy\nAgreement Terms of use and personal information disclosure policy",
+    "submit": "confirm"
   },
   "forgot": {
-    "title": "ลืมรหัสผ่าน!",
-    "desctiption": "กรุณากรอกเบอร์โทรศัพท์ เพื่อตรวจสอบข้อมูล",
-    "placeholder": "กรอกเบอร์โทรศัพท์ หรือ อีเมล์",
-    "validation": "กรอกเบอร์โทรศัพท์ไม่ต้องใส่ขีดและเว้นวรรค",
+    "title": "Forgot your password!",
+    "desctiption": "Please enter your phone number. to check information",
+    "placeholder": "Enter your phone number or email.",
+    "validation": "Enter your phone number without dashes and spaces.",
     "next": "Next"
   },
   "resetPassword": {
-    "title": "ตั้งรหัสผ่านใหม่",
-    "desctiption": "กรุณาตั้งรหัสผ่านใหม่ และยืนยันรหัสผ่านอีกครั้ง",
-    "placeholder": "รหัสผ่านใหม่",
-    "placeholderConfirm": "ยืนยันรหัสผ่านใหม่",
-    "validation": "ตั้งรหัสผ่านอย่างน้อย 8 ตัวอักษรขึ้นไป (ไม่ต้องเว้นวรรค)"
+    "title": "Set a new password",
+    "desctiption": "Please set a new password. and confirm your password again.",
+    "placeholder": "New password",
+    "placeholderConfirm": "Confirm new password",
+    "validation": "Set a password of at least 8 characters or more. (no spaces required)"
   },
   "resetSuccess": {
-    "title": "ตั้งรหัสผ่านใหม่เรียบร้อย!",
-    "desctiption": "การตั้งรหัสผ่านเสร็จเรียบร้อยกรุณาเข้าสู่ระบบอีกครั้ง",
-    "login": "เข้าสู่ระบบ"
+    "title": "Successfully set a new password!",
+    "desctiption": "Password setting is completed. Please log in again.",
+    "login": "Login"
   }
 }

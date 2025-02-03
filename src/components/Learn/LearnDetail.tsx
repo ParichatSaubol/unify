@@ -10,6 +10,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Colors } from '@/theme/Variables';
 import * as Progress from 'react-native-progress';
 import CollapsibleMenuItem from '../Collapsible/CollapsibleMenuItem';
+import { useTranslation } from 'react-i18next';
 
 type LearnDetailProps = ILearnDetail & {};
 
@@ -28,16 +29,17 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
 
   const { add } = useCart();
   const [selectedTab, setSelectedTab] = useState(0);
+  const { t } = useTranslation('common');
 
   return (
     <View style={[Layout.col, Layout.gap10]}>
       <View style={[Layout.col, styles.container, Layout.gap10]}>
         <View style={[Layout.row, Layout.gap10]}>
           <Text style={[styles.tagRecommend, Fonts.text16Med, Fonts.textWhite]}>
-            คอร์สแนะนำ
+            {t('learnDetail.recommended')}
           </Text>
           <Text style={[styles.tags, Fonts.text16Med, Fonts.textBlack]}>
-            SCADA
+            {t('learnDetail.title')}
           </Text>
         </View>
         <View style={Layout.fill}>
@@ -52,14 +54,14 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
           ]}
         >
           <Text style={[Fonts.text16, Fonts.textBlack]}>
-            คอร์สเรียนโดย : {code}
+            {t('learnDetail.instructor')} {code}
           </Text>
         </View>
         <View>
           <View style={[Layout.row, Layout.gap5]}>
             <Images.icons.certificate />
             <Text style={[Fonts.text18, Fonts.textPrimary]}>
-              เรียนจบได้ใบรับรอง
+              {t('learnDetail.certificate')}
             </Text>
           </View>
         </View>
@@ -68,7 +70,7 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
             {isGenuine ? (
               <View style={Layout.fill}>
                 <Button
-                  title="เริ่มเรียน"
+                  title={t('learnDetail.buttonsStart')}
                   size={ButtonSize.regular}
                   fullWidth
                   startIcon={
@@ -89,7 +91,7 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
               <>
                 <View style={Layout.fill}>
                   <Button
-                    title="ซื้อเลย ฿25,900"
+                    title={t('learnDetail.buttonsBuyNow')}
                     size={ButtonSize.regular}
                     fullWidth
                     onPress={() => {
@@ -103,7 +105,7 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
                 </View>
                 <View style={Layout.fill}>
                   <Button
-                    title="เพิ่มลงรถเข็น"
+                    title={t('learnDetail.buttonsAddToCart')}
                     size={ButtonSize.regular}
                     variant={ButtonVariant.outlined}
                     colors={ButtonColor.secondary}
@@ -141,7 +143,7 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
           <View style={[Layout.gap10, Layout.row]}>
             <Images.icons.watch color="#475467" />
             <Text style={[Fonts.text21, Fonts.textBlack]}>
-              {learnerCount} ผู้เรียน
+              {learnerCount} {t('learnDetail.learner')}
             </Text>
           </View>
         </View>
@@ -149,7 +151,7 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
         {isReady ? (
           <View style={Layout.fill}>
             <Button
-              title="ดาวน์โหลดใบรับรอง Certificate"
+              title={t('learnDetail.buttonsDownloadCertificate')}
               size={ButtonSize.regular}
               fullWidth
               // onPress={() => {
@@ -168,7 +170,9 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
               Layout.gap10,
             ]}
           >
-            <Text style={[Fonts.text21Med, Fonts.textBlack]}>เรียนแล้ว</Text>
+            <Text style={[Fonts.text21Med, Fonts.textBlack]}>
+              {t('learnDetail.progress')}
+            </Text>
             <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
               <Progress.Bar
                 progress={0.9}
@@ -205,7 +209,7 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
                     },
                   ]}
                 >
-                  รายละเอียดคอร์สเรียน
+                  {t('learnDetail.tabsDetails')}
                 </Text>
               </View>
             </TouchableOpacity>
@@ -228,7 +232,7 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
                     },
                   ]}
                 >
-                  เนื้อหาการเรียนรู้
+                  {t('learnDetail.tabsContent')}
                 </Text>
               </View>
             </TouchableOpacity>
@@ -244,13 +248,13 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
                   { textAlign: 'center' },
                 ]}
               >
-                รายละเอียดคอร์สเรียน
+                {t('learnDetail.tabsDetails')}
               </Text>
               <Text style={[Fonts.text16, Fonts.textBlack]}>{detail}</Text>
               <Text
                 style={[Fonts.text21Med, Fonts.textBlack, Fonts.textCenter]}
               >
-                อ่านต่อเพิ่มเติม
+                {t('learnDetail.read')}
               </Text>
             </View>
           ) : (
@@ -269,19 +273,21 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
         </ScrollView>
         <View style={styles.dividers} />
         <View style={[Layout.col, Layout.gap20, styles.containerLecturer]}>
-          <Text style={[Fonts.text24Med, Fonts.textBlack]}>วิทยากรผู้สอน</Text>
+          <Text style={[Fonts.text24Med, Fonts.textBlack]}>
+            {t('learnDetail.lecturer')}
+          </Text>
           <View style={[Layout.row, Layout.gap10]}>
             <Images.icons.avatar color="#475467" />
             <View style={[Layout.col, Layout.gap10]}>
               <Text style={[Fonts.text21Med, Fonts.textBlack]}>
-                รศ. ดร.ศิริเดช บุญแสง
+                {t('learnDetail.name')}
               </Text>
               <View style={[Layout.col, Layout.gap5]}>
                 <Text style={[Fonts.text16, Fonts.textBlack]}>
-                  คณบดีคณะเทคโนโลยีสารสนเทศ
+                  {t('learnDetail.position')}
                 </Text>
                 <Text style={[Fonts.text16, Fonts.textBlack]}>
-                  สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+                  {t('learnDetail.university')}
                 </Text>
               </View>
             </View>
@@ -290,14 +296,14 @@ const LearnDetail: FunctionComponent<LearnDetailProps> = ({
             <Images.icons.avatar color="#475467" />
             <View style={[Layout.col, Layout.gap10]}>
               <Text style={[Fonts.text21Med, Fonts.textBlack]}>
-                รศ. ดร.สมคิด จิตชื่อบาน
+                {t('learnDetail.name1')}
               </Text>
               <View style={[Layout.col, Layout.gap5]}>
                 <Text style={[Fonts.text16, Fonts.textBlack]}>
-                  คณบดีคณะเทคโนโลยีสารสนเทศ
+                  {t('learnDetail.position')}
                 </Text>
                 <Text style={[Fonts.text16, Fonts.textBlack]}>
-                  สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+                  {t('learnDetail.university')}
                 </Text>
               </View>
             </View>

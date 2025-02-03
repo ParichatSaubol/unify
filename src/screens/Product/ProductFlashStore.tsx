@@ -22,16 +22,16 @@ type Props = NativeStackScreenProps<ProductParamsList, 'ProductFlashStore'>;
 const ProductFlashStore = ({ navigation, route }: Props): JSX.Element => {
   const name = route?.params?.name || 'Flash Store';
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
   // const dispatch = useDispatch();
 
   const dataFlashSale: IProductCard = {
     brand: 'MIKITA',
-    title: 'เครื่องดูดฝุ่นและเป่าลมขนาด 20 ลิตร ระบบ HEPA',
-    description: 'รุ่น HEPA-MAR22',
+    title: t('productFlashStore.title'),
+    description: t('productFlashStore.description'),
     amount: 1232990,
     netAmount: 1232990,
     discount: -44,
@@ -100,7 +100,7 @@ const ProductFlashStore = ({ navigation, route }: Props): JSX.Element => {
                   FLASH STORE
                 </Text>
                 <Text style={Fonts.text16} numberOfLines={1}>
-                  ดีลลดแรงๆ สินค้าราคาพิเศษ
+                  {t('productFlashStore.deals')}
                 </Text>
               </View>
             </View>

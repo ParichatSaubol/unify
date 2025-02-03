@@ -7,6 +7,7 @@ import { THB } from '@/utils';
 import ButtonIcon from '../Button/ButtonIcon';
 import InputNumber from '../Input/InputNumber';
 import { ButtonIconColors } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   cert: IProductCart[];
@@ -17,6 +18,7 @@ interface Props {
 const CartItems: FunctionComponent<Props> = ({ cert, method, cartType }) => {
   const { Layout, Fonts, Images } = useTheme();
   const { currentCart, remove, update } = useCart();
+  const { t } = useTranslation('common');
 
   const [checkAll, setCheckAll] = React.useState(false);
 
@@ -60,17 +62,17 @@ const CartItems: FunctionComponent<Props> = ({ cert, method, cartType }) => {
 
         {method === 'course' && (
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            คอร์สเรียนของฉัน ({cert.length} รายการ)
+            {t('cartItems.courseTitle', { count: cert.length })}
           </Text>
         )}
         {method === 'product' && (
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            สินค้าทั้งหมด ({cert.length} รายการ)
+            {t('cartItems.productTitle', { count: cert.length })}
           </Text>
         )}
         {method === 'service&solution' && (
           <Text style={[Fonts.text21, Fonts.textBlack]}>
-            บริการติดตั้ง ({cert.length} รายการ)
+            {t('cartItems.serviceTitle', { count: cert.length })}
           </Text>
         )}
       </View>
@@ -120,7 +122,7 @@ const CartItems: FunctionComponent<Props> = ({ cert, method, cartType }) => {
             </View>
             <View>
               <Text style={[Fonts.text16]} numberOfLines={1}>
-                ตัวเลือกสินค้า : A
+                {t('cartItems.productOptions')}
               </Text>
               <View style={[Layout.row]}>
                 <View style={[Layout.fill]}>
@@ -138,7 +140,7 @@ const CartItems: FunctionComponent<Props> = ({ cert, method, cartType }) => {
                           '฿ ',
                         )}
                         <Text style={[Fonts.text16, Fonts.textGrey]}>
-                          / ชิ้น
+                          {t('cartItems.pricePerItem')}
                         </Text>
                       </Text>
                     </View>

@@ -4,15 +4,17 @@ import { useTheme } from '@/hooks';
 import { TProfile } from '@/model/profile';
 import Chip from '../Chip/Chip';
 import { ChipColor } from '@/model/options';
+import { useTranslation } from 'react-i18next';
 
 type Props = TProfile & {};
 
 const ProfileLastOrder: FunctionComponent<Props> = ({ lastOrder }) => {
   const { Layout, Fonts } = useTheme();
+  const { t } = useTranslation('common');
 
   return (
     <View style={[Layout.col, Layout.gap10]}>
-      <Text style={[Fonts.text24Med]}>คำสั่งซื้อล่าสุด</Text>
+      <Text style={[Fonts.text24Med]}>{t('profileLastOrder.lastOrder')}</Text>
       <View
         style={[
           Layout.bgWhite,
@@ -28,10 +30,10 @@ const ProfileLastOrder: FunctionComponent<Props> = ({ lastOrder }) => {
         )}
         <View>
           <Text style={[Fonts.text21, Fonts.textPrimary]} numberOfLines={1}>
-            ที่ต้องได้รับ
+            {t('profileLastOrder.receivedItem')}
           </Text>
           <Text style={[Fonts.text16]} numberOfLines={1}>
-            พัสดุของคุณได้ถูกจัดส่งออกไปแล้ว
+            {t('profileLastOrder.parcelShipped')}
           </Text>
         </View>
         <View style={[Layout.fill]}>

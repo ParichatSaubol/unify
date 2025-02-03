@@ -21,43 +21,47 @@ type Props = NativeStackScreenProps<
 // @refresh reset
 const ProfileSetting = ({ navigation }: Props): JSX.Element => {
   // hooks
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors, Fonts } = useTheme();
 
   // state
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [language, setLanguage] = useState<string>('ไทย');
+  const [language, setLanguage] = useState<string>(
+    t('profileSetting.currentLanguage'),
+  );
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLanguage, setIsLanguage] = useState<boolean>(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [currency, setCurrency] = useState<string>('ไทย(บาท)');
+  const [currency, setCurrency] = useState<string>(
+    t('profileSetting.currentCurrency'),
+  );
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isCurrency, setIsCurrency] = useState<boolean>(false);
   const [menu] = useState<TMenu[]>([
     {
-      title: 'นโยบายความเป็นส่วนตัว',
+      title: t('profileSetting.policy'),
       name: 'ProfilePolicy',
       isOption: true,
     },
     {
-      title: 'เงื่อนไขการให้บริการ',
+      title: t('profileSetting.condition'),
       name: 'ProfileSetting',
       isOption: true,
     },
     {
-      title: 'คำถามที่พบบ่อย',
+      title: t('profileSetting.question'),
       name: 'BookingIndex',
       isOption: true,
     },
     {
-      title: 'เกี่ยวกับ Unify',
+      title: t('profileSetting.about'),
       name: 'ProfileSetting',
       isOption: false,
     },
     {
-      title: 'ติดต่อเรา',
+      title: t('profileSetting.contact'),
       name: 'ProfileSetting',
       isOption: false,
     },
@@ -79,7 +83,7 @@ const ProfileSetting = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout statusBarColor="dark-content">
       <AppBar
         color={AppColor.white}
-        title="การตั้งค่า"
+        title={t('profileSetting.setting')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -94,7 +98,7 @@ const ProfileSetting = ({ navigation }: Props): JSX.Element => {
       >
         <View style={[Layout.gap10]}>
           <Button
-            title="ภาษา"
+            title={t('profileSetting.language')}
             colors={ButtonColor.white}
             endIcon={
               <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
@@ -110,7 +114,7 @@ const ProfileSetting = ({ navigation }: Props): JSX.Element => {
             }}
           />
           <Button
-            title="ปรับสกุลเงิน"
+            title={t('profileSetting.currency')}
             colors={ButtonColor.white}
             endIcon={
               <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
@@ -126,7 +130,9 @@ const ProfileSetting = ({ navigation }: Props): JSX.Element => {
           />
         </View>
         <View style={[Layout.fill, Layout.gap10]}>
-          <Text style={[Fonts.text24Med]}>ศูนย์บริการและความช่วยเหลือ</Text>
+          <Text style={[Fonts.text24Med]}>
+            {t('profileSetting.serviceCenter')}
+          </Text>
           <View style={[Layout.radius5, Layout.gap10]}>
             {/*  */}
             {menu.map((item, index) => (
@@ -158,9 +164,9 @@ const ProfileSetting = ({ navigation }: Props): JSX.Element => {
           </View>
         </View>
         <View style={[Layout.gap10, styles.bottom]}>
-          <Button title="ออกจากระบบ" size={ButtonSize.small} />
+          <Button title={t('profileSetting.logOut')} size={ButtonSize.small} />
           <Button
-            title="ลบบัญชี"
+            title={t('profileSetting.deleteAccount')}
             size={ButtonSize.small}
             colors={ButtonColor.solid}
           />

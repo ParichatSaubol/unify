@@ -1,7 +1,5 @@
 {
   "FSharp.suggestGitignore": false,
-  "exportall.config.relExclusion": [
-    "/src/theme/assets/images/icons"
-  ],
-  "java.compile.nullAnalysis.mode": "automatic",
+  "exportall.config.relExclusion": ["/src/theme/assets/images/icons"],
+  "java.compile.nullAnalysis.mode": "automatic"
 }

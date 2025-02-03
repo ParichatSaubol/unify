@@ -24,9 +24,8 @@ type Props = NativeStackScreenProps<ApplicationStackParamList, 'ProductIndex'>;
 const ProductIndex = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   const { Layout, Images } = useTheme();
-
 
   // handle callback
 
@@ -55,7 +54,7 @@ const ProductIndex = ({ navigation }: Props): JSX.Element => {
           zeroMargin
         />
         <View style={[Layout.main, Layout.gap20]}>
-          <InputSearchProduct placeholder="PATLITE ลดเกินคุ้มม! ไฟเตือน สูงสุด 20%.. " />
+          <InputSearchProduct placeholder={t('productIndex.placeholder')} />
           <Carousel hiddentScrollPos size={CarouselSize.small} />
         </View>
         <View style={[Layout.gap20, Layout.main, Layout.bgWhite]}>
@@ -90,7 +89,7 @@ const ProductIndex = ({ navigation }: Props): JSX.Element => {
 
           <Catalog
             method="brand"
-            brandName="เอ็กซ์คลูซีฟแบรนด์ชั้นนำด้านอุตสาหกรรม"
+            brandName={t('productIndex.brandName')}
             icon={<Image source={Images.catalog.a} />}
           />
           <ProductCatalog />

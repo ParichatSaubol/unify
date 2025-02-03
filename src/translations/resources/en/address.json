@@ -1,0 +1,32 @@
+{
+    "addressCard": {
+        "default": "Default Shipping Address"
+    },
+    "addressEmpty": {
+      "deliveryAddress": "You don't have a delivery address yet.",
+      "addAddress": "Add shipping address information" 
+    },
+    "addressForm": {
+      "title": "Enter Shipping Address",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone Number",
+      "houseNumber": "House Number",
+      "buildingName": "Building/Village Name",
+      "village": "Village",
+      "road": "Road",
+      "postalCode": "Postal Code",
+      "province": "Province",
+      "district": "District",
+      "subdistrict": "Subdistrict",
+      "currentAddress": "9/8 Bang Kruai Sai Noi Soi 10, Bang Kruai Subdistrict, Bang Kruai District, Nonthaburi 11130",
+      "setCurrentLocation": "Set current location here!",
+      "setDefault": "Set as default"  
+    },
+    "addressOrder": {
+        "deliveryAddress": "Delivery Address",
+        "changeAddress": "Change Address",
+        "defaultName": "Somkid Jitchuenban",
+        "defaultAddress": "9/8 Bang Kruai Sai Noi Soi 10, Bang Kruai Subdistrict, Bang Kruai District, Nonthaburi 11130"
+    }
+
+}

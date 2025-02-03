@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '@/hooks';
 import { ICategoryMenu, ICategoryMenuItem } from '@/model/category';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   isActive?: (typeof ICategoryMenu)[number];
@@ -11,21 +12,26 @@ interface Props {
 // แสดงรายการหมวดหมู่
 const CategoryMenu: FunctionComponent<Props> = ({ isActive, onPress }) => {
   const { Layout, Fonts } = useTheme();
+  const { t } = useTranslation('common');
 
   const menuText = [Fonts.text21, Fonts.textCenter, Fonts.textBlack];
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [menu, setMenu] = useState<ICategoryMenuItem[]>([
-    { name: 'product', title: 'สินค้า', subTitle: 'เลือกหมวดหมู่ สินค้า' },
+    {
+      name: 'product',
+      title: t('categoryMenu.productTitle'),
+      subTitle: t('categoryMenu.productSubTitle'),
+    },
     {
       name: 'service',
-      title: 'งานบริการ',
-      subTitle: 'เลือกหมวดหมู่ งานบริการ',
+      title: t('categoryMenu.serviceTitle'),
+      subTitle: t('categoryMenu.serviceSubTitle'),
     },
     {
       name: 'solution',
-      title: 'งานโซลูชัน',
-      subTitle: 'เลือกหมวดหมู่ งานโซลูชัน',
+      title: t('categoryMenu.solutionTitle'),
+      subTitle: t('categoryMenu.solutionSubTitle'),
     },
   ]);
 

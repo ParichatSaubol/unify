@@ -38,7 +38,7 @@ const AddressSchema: yup.ObjectSchema<TSolutionAddress> = yup.object().shape({
 const ServiceBooking = ({ navigation }: Props): JSX.Element => {
   // hooks
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation(['register']);
+  const { t } = useTranslation('register');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Layout, Images, Colors } = useTheme();
   const methods = useForm<TSolutionAddress>({
@@ -65,7 +65,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
     <DefaultLayout>
       <AppBar
         color={AppColor.white}
-        title="กรอกที่อยู่การเข้ารับบริการ"
+        title={t('serviceBooking1.title')}
         onPress={() => {
           navigation.goBack();
         }}
@@ -90,7 +90,7 @@ const ServiceBooking = ({ navigation }: Props): JSX.Element => {
         </View>
       </ScrollView>
       <View style={styles.bottom}>
-        <Button title="ถัดไป" />
+        <Button title={t('serviceBooking1.button')} />
       </View>
     </DefaultLayout>
   );
