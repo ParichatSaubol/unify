@@ -1,99 +1,95 @@
-import React, { FunctionComponent } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { FunctionComponent, useState, useEffect } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '@/hooks';
-import { Address } from '@/model/address';
-import Button from '../Button/Button';
-import ButtonIcon from '../Button/ButtonIcon';
-import {
-  ButtonColor,
-  ButtonIconColors,
-  ButtonIconVariant,
-  ButtonSize,
-  ButtonVariant,
-} from '@/model/options';
 import { useTranslation } from 'react-i18next';
 
-type AddressCardProps = Address & {
-  onEditPress?: () => void;
-  onDeletePress?: () => void;
-};
+interface Props {
+  // eslint-disable-next-line react/require-default-props
+  name?: string;
+  // eslint-disable-next-line react/require-default-props
+  phoneNumber?: string;
+  // eslint-disable-next-line react/require-default-props
+  address?: string;
+  // eslint-disable-next-line react/require-default-props
+  isEdit?: boolean;
+  // eslint-disable-next-line react/require-default-props
+  onPress?: () => void;
+}
 
-// แสดงที่อยู่
-const AddressCard: FunctionComponent<AddressCardProps> = ({
-  id,
+// แสดงที่อยู่สำหรับจัดส่ง
+const AddressOrder: FunctionComponent<Props> = ({
   name,
-  address,
   phoneNumber,
-  isDefault,
-  onDeletePress,
-  onEditPress,
+  address,
+  isEdit,
+  onPress,
 }) => {
-  const { Images, Layout, Fonts } = useTheme();
+  const { Layout, Fonts, Images } = useTheme();
   const { t } = useTranslation('address');
 
+  // ใช้ useState เพื่อเก็บค่าดีฟอลต์
+  const [defaultName, setDefaultName] = useState<string | undefined>(name);
+  const [defaultAddress, setDefaultAddress] = useState<string | undefined>(
+    address,
+  );
+
+  useEffect(() => {
+    // ตั้งค่าดีฟอลต์จาก t() ถ้าไม่ได้รับ props name หรือ address
+    if (!name) {
+      setDefaultName(t('addressOrder.defaultName'));
+    }
+    if (!address) {
+      setDefaultAddress(t('addressOrder.defaultAddress'));
+    }
+  }, [t, name, address]); // ใช้ t, name, address เป็น dependency
+
   return (
-    <View style={[Layout.col, Layout.gap10, styles.container]} key={id}>
-      <View style={[Layout.row]}>
-        <View style={Layout.fill}>
-          <Text style={Fonts.text18}>{name}</Text>
+    <View style={[Layout.col, styles.container]}>
+      <View
+        style={[
+          Layout.row,
+          Layout.justifyContentBetween,
+          Layout.alignItemsCenter,
+        ]}
+      >
+        <View style={[Layout.row, Layout.gap10, Layout.alignItemsCenter]}>
+          <Images.icons.location color="#0057FF" />
+          <Text style={[Fonts.text21, Fonts.textPrimary]}>
+            {t('addressOrder.deliveryAddress')}
+          </Text>
         </View>
-        <View style={Layout.fill}>
-          <Text style={Fonts.text18}>{phoneNumber}</Text>
-        </View>
-      </View>
-      <View>
-        <Text style={Fonts.text18}>{address}</Text>
+        {isEdit && (
+          <TouchableOpacity
+            onPress={() => {
+              onPress && onPress();
+            }}
+          >
+            <Text style={[Fonts.text16, Fonts.textPrimary]}>
+              {t('addressOrder.changeAddress')}
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
       <View style={[Layout.row, Layout.justifyContentBetween]}>
-        {isDefault && (
-          <Button
-            startIcon={<Images.icons.car />}
-            title={t('addressCard.default')}
-            variant={ButtonVariant.outlined}
-            colors={ButtonColor.primary}
-            size={ButtonSize.tiny}
-            active
-          />
-        )}
-        <View
-          style={[
-            !isDefault && Layout.fill,
-            Layout.row,
-            Layout.justifyContentEnd,
-            Layout.gap10,
-          ]}
-        >
-          <ButtonIcon
-            icon={<Images.icons.edit />}
-            colors={ButtonIconColors.solid}
-            variant={ButtonIconVariant.box}
-            onPress={onEditPress}
-          />
-          <ButtonIcon
-            icon={<Images.icons.delete />}
-            colors={ButtonIconColors.solid}
-            variant={ButtonIconVariant.box}
-            onPress={onDeletePress}
-          />
-        </View>
+        <Text style={[Fonts.text18Bold]}>{defaultName}</Text>
+        <Text style={Fonts.text18}>{phoneNumber}</Text>
+      </View>
+      <View>
+        <Text style={Fonts.text18}>{defaultAddress}</Text>
       </View>
     </View>
   );
 };
 
-AddressCard.defaultProps = {
-  onEditPress: () => {},
-  onDeletePress: () => {},
-};
-
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    elevation: 3,
-    padding: 12,
+    padding: 8,
+    backgroundColor: '#E6EEFF',
+    borderColor: '#0057FF',
+    borderWidth: 1,
+    borderRadius: 5,
+    gap: 10,
   },
 });
 
-export default AddressCard;
+export default AddressOrder;
